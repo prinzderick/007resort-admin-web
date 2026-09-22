@@ -6,7 +6,7 @@
     <h1 class="text-2xl font-semibold">Management dashboard</h1>
     <p class="mt-2 text-stone-600">
         Placeholder. Reporting, finance, inventory oversight, staff and configuration screens
-        will be built here on top of the Otueke API.
+        will be built here on top of the 007 Resort & Spa API.
     </p>
 
     <section class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-label="Planned modules">

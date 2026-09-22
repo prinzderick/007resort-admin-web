@@ -1,10 +1,10 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "prinzderick/otueke-admin-web",
+    "name": "prinzderick/007resort-admin-web",
     "type": "project",
-    "description": "Otueke Integrated Facility Operations Platform - management/admin web (Laravel BFF over the Otueke API).",
+    "description": "007 Resort & Spa Integrated Facility Operations Platform - management/admin web (Laravel BFF over the 007 Resort & Spa API).",
     "keywords": [
-        "otueke",
+        "007resort",
         "laravel"
     ],
     "license": "proprietary",

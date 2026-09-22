@@ -12,7 +12,7 @@ class HealthCheckTest extends TestCase
             ->assertOk()
             ->assertExactJson([
                 'status' => 'ok',
-                'service' => 'otueke-admin-web',
+                'service' => '007resort-admin-web',
             ]);
     }
 }

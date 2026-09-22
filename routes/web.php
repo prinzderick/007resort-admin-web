@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/health', fn () => response()->json([
     'status' => 'ok',
-    'service' => 'otueke-admin-web',
+    'service' => '007resort-admin-web',
 ]))->name('health');
 
 /*
-| Phase 0 placeholder. Staff sign-in (via the Otueke API) and API-issued
+| Phase 0 placeholder. Staff sign-in (via the 007 Resort & Spa API) and API-issued
 | permission checks will guard this route in a later phase.
 */
 Route::view('/', 'dashboard')->name('dashboard');
