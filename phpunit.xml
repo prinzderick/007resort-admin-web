@@ -19,6 +19,10 @@
     </source>
     <php>
         <env name="APP_ENV" value="testing"/>
+        <env name="R007_MOCK" value="false"/>
+        <env name="R007_INSTANCE" value="local"/>
+        <env name="R007_MFA_ENFORCE" value="false"/>
+        <env name="R007_API_BASE_URL" value="https://api.r007.test"/>
         <env name="APP_MAINTENANCE_DRIVER" value="file"/>
         <env name="BCRYPT_ROUNDS" value="4"/>
         <env name="BROADCAST_CONNECTION" value="null"/>
