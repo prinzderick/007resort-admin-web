@@ -1,6 +1,5 @@
 <x-layouts.app title="Ticket types">
     <x-page-header title="Ticket types & entitlements" subtitle="Tickets, rentals and access passes that have been issued (read-only)." />
-    <x-config-nav />
     <x-card title="Issued entitlements" flush>
         <x-fetch :of="$entitlements" what="Entitlements" />
         @if ($entitlements->ok())

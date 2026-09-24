@@ -17,50 +17,25 @@ use Illuminate\Http\Request;
  */
 class ConfigurationController extends Controller
 {
-    /** Endpoint keys a future contract is expected to add; forms appear only when present. */
-    public const RULES_WRITE = ['PUT', '/facilities/{facilityId}/capabilities'];
-
     public const RESOURCE_WRITE = ['PATCH', '/bookings/resources/{resourceId}'];
 
     /** Booking Authority strategies as the API names them (authority.offlineStrategy). */
     public const STRATEGIES = ['A_OFFLINE_ALLOCATION' => 'A: offline allocation', 'B_ONLINE_AUTHORITY_REQUIRED' => 'B: online authority required', 'C_DISABLE_ONLINE' => 'C: pause online availability'];
 
-    public function index()
+    /** The Setup hub: everything an administrator configures, in plain language, plus how far along the setup is. */
+    public function index(\App\Services\Portal\SetupProgress $setup)
     {
-        return view('pages.config.index', ['contract' => Contract::version()]);
+        return view('pages.setup.index', ['contract' => Contract::version(), 'progress' => $setup->get()]);
     }
 
-    public function facilities(Request $request, DashboardData $dash)
+    /** Business profile, VAT, receipts. */
+    public function business()
     {
-        $tree = Fetch::of(fn () => $this->api->get('organization/facilities'), ['GET', '/organization/facilities']);
-        $flat = $dash->flatten($tree->items());
-        $selected = $request->query('facility');
-        $detail = null;
-        $points = null;
+        $site = Fetch::of(fn () => $this->api->get('organization/site'), ['GET', '/organization/site']);
+        $res = Fetch::of(fn () => $this->api->request('GET', 'admin/settings/tax'), ['GET', '/admin/settings/tax']);
+        $r = $res->ok() ? $res->data : null;
 
-        if ($selected) {
-            $detail = Fetch::of(fn () => $this->api->get("facilities/{$selected}/capabilities"), ['GET', '/facilities/{facilityId}/capabilities']);
-            $points = Fetch::of(fn () => $this->api->get("organization/facilities/{$selected}/operating-points"), ['GET', '/organization/facilities/{facilityId}/operating-points']);
-        }
-
-        return view('pages.config.facilities', ['tree' => $tree, 'flat' => $flat, 'selected' => $selected, 'detail' => $detail, 'points' => $points, 'canWrite' => Contract::has(...self::RULES_WRITE)]);
-    }
-
-    public function updateRules(Request $request, string $facility): RedirectResponse
-    {
-        abort_unless(Contract::has(...self::RULES_WRITE), 404);
-        abort_unless($this->staff->canAny('facility.configure', 'config.manage'), 403);
-        $d = $request->validate([
-            'approvalThresholdAmount' => ['required', 'regex:/^\d+(\.\d{1,4})?$/'], 'allowOpenTabs' => ['nullable', 'boolean'], 'requireCashSession' => ['nullable', 'boolean'],
-            'allowOfflineOrders' => ['nullable', 'boolean'], 'allowOfflinePayments' => ['required', 'in:NONE,CASH_ONLY,ALL'], 'paymentTiming' => ['nullable', 'in:PAY_BEFORE,PAY_ON_EXIT,PAY_LATER'],
-        ]);
-        $rules = array_filter([
-            'approvalThresholdAmount' => $d['approvalThresholdAmount'], 'allowOpenTabs' => $request->boolean('allowOpenTabs'), 'requireCashSession' => $request->boolean('requireCashSession'),
-            'allowOfflineOrders' => $request->boolean('allowOfflineOrders'), 'allowOfflinePayments' => $d['allowOfflinePayments'], 'paymentTiming' => $d['paymentTiming'] ?? null,
-        ], fn ($v) => $v !== null);
-        $res = $this->api->request('PUT', "facilities/{$facility}/capabilities", [], ['operatingRules' => $rules]);
-
-        return $this->done($res, 'config.facilities', 'Operating rules saved.', 'The rule change was accepted but needs approval.', ['facility' => $facility]);
+        return view('pages.setup.business', ['site' => $site, 'setting' => $r ? new Fetch($r->body) : $res, 'etag' => $r?->etag()]);
     }
 
     public function catalog(Request $request, DashboardData $dash)
@@ -86,7 +61,7 @@ class ConfigurationController extends Controller
         }
         $edit = $request->query('edit');
 
-        return view('pages.config.catalog', [
+        return view('pages.setup.catalog', [
             'categories' => $categories, 'products' => $products, 'facilities' => $flat, 'facilityId' => $facilityId, 'availability' => $availability, 'avail' => $avail, 'catNames' => $catNames,
             'prepRoutes' => $prepRoutes, 'taxRates' => $taxRates, 'edit' => $edit ? collect($products->items())->firstWhere('id', $edit) : null,
             'canManage' => Contract::has('POST', '/catalog/products') && $this->staff->can('catalog.manage'),
@@ -100,7 +75,7 @@ class ConfigurationController extends Controller
         $d = $request->validate(['facilityId' => ['required', 'uuid'], 'available' => ['required', 'boolean'], 'reason' => ['nullable', 'string', 'max:120']]);
         $this->api->request('PUT', "catalog/products/{$product}/availability/{$d['facilityId']}", [], array_filter(['available' => (bool) $d['available'], 'reason' => $d['reason'] ?? null], fn ($v) => $v !== null));
 
-        return redirect()->route('config.catalog', ['facility' => $d['facilityId']])->with('success', $d['available'] ? 'Item is available again.' : 'Item marked unavailable (86\'d) at this facility.');
+        return redirect()->route('setup.catalog', ['facility' => $d['facilityId']])->with('success', $d['available'] ? 'Item is available again.' : 'Item marked unavailable (86\'d) at this facility.');
     }
 
     public function createProduct(Request $request): RedirectResponse
@@ -116,7 +91,7 @@ class ConfigurationController extends Controller
             + array_filter(['prepRouteId' => $d['prepRouteId'] ?? null, 'taxRateId' => $d['taxRateId'] ?? null, 'facilityIds' => ! empty($d['facilityId']) ? [$d['facilityId']] : null], fn ($v) => $v !== null && $v !== '');
         $this->api->request('POST', 'catalog/products', [], $body);
 
-        return redirect()->route('config.catalog', array_filter(['facility' => $d['facilityId'] ?? null]))->with('success', 'Product created.');
+        return redirect()->route('setup.catalog', array_filter(['facility' => $d['facilityId'] ?? null]))->with('success', 'Product created.');
     }
 
     public function updateProduct(Request $request, string $product): RedirectResponse
@@ -132,7 +107,7 @@ class ConfigurationController extends Controller
             + array_filter(['prepRouteId' => $d['prepRouteId'] ?? null, 'taxRateId' => $d['taxRateId'] ?? null], fn ($v) => $v !== null && $v !== '');
         $this->api->request('PATCH', "catalog/products/{$product}", [], $body);
 
-        return redirect()->route('config.catalog', array_filter(['facility' => $d['facilityId'] ?? null]))->with('success', 'Product saved.');
+        return redirect()->route('setup.catalog', array_filter(['facility' => $d['facilityId'] ?? null]))->with('success', 'Product saved.');
     }
 
     public function setPrice(Request $request, string $product): RedirectResponse
@@ -141,7 +116,7 @@ class ConfigurationController extends Controller
         $d = $request->validate(['amount' => ['required', 'regex:/^\d{1,15}(\.\d{1,4})?$/'], 'facilityId' => ['nullable', 'uuid']]);
         $this->api->request('PUT', "catalog/products/{$product}/price", [], array_filter(['amount' => $d['amount'], 'facilityId' => $request->boolean('onlyHere') ? ($d['facilityId'] ?? null) : null], fn ($v) => $v !== null));
 
-        return redirect()->route('config.catalog', array_filter(['facility' => $d['facilityId'] ?? null]))->with('success', 'Price updated. New orders use it straight away; open orders keep their price.');
+        return redirect()->route('setup.catalog', array_filter(['facility' => $d['facilityId'] ?? null]))->with('success', 'Price updated. New orders use it straight away; open orders keep their price.');
     }
 
     public function createCategory(Request $request): RedirectResponse
@@ -150,15 +125,7 @@ class ConfigurationController extends Controller
         $d = $request->validate(['name' => ['required', 'string', 'max:120'], 'sortOrder' => ['nullable', 'integer'], 'facilityId' => ['nullable', 'uuid']]);
         $this->api->request('POST', 'catalog/categories', [], array_filter(['name' => $d['name'], 'sortOrder' => isset($d['sortOrder']) ? (int) $d['sortOrder'] : null], fn ($v) => $v !== null));
 
-        return redirect()->route('config.catalog', array_filter(['facility' => $d['facilityId'] ?? null]))->with('success', 'Category created.');
-    }
-
-    public function tax()
-    {
-        $res = Fetch::of(fn () => $this->api->request('GET', 'admin/settings/tax'), ['GET', '/admin/settings/tax']);
-        $r = $res->ok() ? $res->data : null;
-
-        return view('pages.config.tax', ['setting' => $r ? new Fetch($r->body) : $res, 'etag' => $r?->etag()]);
+        return redirect()->route('setup.catalog', array_filter(['facility' => $d['facilityId'] ?? null]))->with('success', 'Category created.');
     }
 
     public function updateTax(Request $request): RedirectResponse
@@ -170,7 +137,7 @@ class ConfigurationController extends Controller
         ! empty($d['vatNumber']) && $body['vatNumber'] = $d['vatNumber'];
         $this->api->request('PUT', 'admin/settings/tax', [], $body, ! empty($d['etag']) ? ['If-Match' => $d['etag']] : []);
 
-        return redirect()->route('config.tax')->with('success', $body['vatEnabled'] ? 'VAT is now ON for new receipts and reports.' : 'VAT is OFF. Receipts show gross totals only.');
+        return redirect()->route('setup.business')->with('success', $body['vatEnabled'] ? 'VAT is now ON for new receipts and reports.' : 'VAT is OFF. Receipts show gross totals only.');
     }
 
     public function memberships(Request $request, DashboardData $dash)
@@ -178,7 +145,7 @@ class ConfigurationController extends Controller
         $plans = Fetch::of(fn () => $this->api->get('memberships/plans', ['limit' => 100]), ['GET', '/memberships/plans']);
         $tree = Fetch::of(fn () => $this->api->get('organization/facilities'), ['GET', '/organization/facilities']);
 
-        return view('pages.config.memberships', ['plans' => $plans, 'facilities' => $dash->flatten($tree->items()), 'edit' => $request->query('edit')]);
+        return view('pages.setup.memberships', ['plans' => $plans, 'facilities' => $dash->flatten($tree->items()), 'edit' => $request->query('edit')]);
     }
 
     public function savePlan(Request $request, ?string $plan = null): RedirectResponse
@@ -207,7 +174,7 @@ class ConfigurationController extends Controller
             $this->api->request('POST', 'memberships/plans', [], ['code' => strtoupper($d['code'])] + $body);
         }
 
-        return redirect()->route('config.memberships')->with('success', $plan ? 'Plan updated.' : 'Plan created.');
+        return redirect()->route('setup.memberships')->with('success', $plan ? 'Plan updated.' : 'Plan created.');
     }
 
     public function bookings(DashboardData $dash)
@@ -219,7 +186,7 @@ class ConfigurationController extends Controller
             $names[$f['id'] ?? ''] = $f['name'] ?? '';
         }
 
-        return view('pages.config.bookings', ['resources' => $resources, 'facilityNames' => $names, 'canWrite' => Contract::has(...self::RESOURCE_WRITE) && $this->staff->can('booking.configure')]);
+        return view('pages.setup.bookings', ['resources' => $resources, 'facilityNames' => $names, 'canWrite' => Contract::has(...self::RESOURCE_WRITE) && $this->staff->can('booking.configure')]);
     }
 
     /** PATCH /bookings/resources/{id} (booking.configure): rules + the Booking Authority (offline-allocation) strategy. */
@@ -243,7 +210,7 @@ class ConfigurationController extends Controller
         isset($d['price']) && $body['price'] = $d['price'];
         $this->api->request('PATCH', "bookings/resources/{$resource}", [], $body);
 
-        return redirect()->route('config.bookings')->with('success', 'Booking rules saved.');
+        return redirect()->route('setup.bookings')->with('success', 'Booking rules saved.');
     }
 
     /** Ticket types have no endpoint; what the API does expose is the entitlements issued from them (read-only). */
@@ -251,7 +218,7 @@ class ConfigurationController extends Controller
     {
         $entitlements = Fetch::of(fn () => $this->api->get('entitlements', ['limit' => 100, 'cursor' => $request->query('cursor')]), ['GET', '/entitlements']);
 
-        return view('pages.config.tickets', ['entitlements' => $entitlements, 'typesEndpoint' => Contract::has('GET', '/ticket-types')]);
+        return view('pages.setup.tickets', ['entitlements' => $entitlements, 'typesEndpoint' => Contract::has('GET', '/ticket-types')]);
     }
 
     public function kds(DashboardData $dash)
@@ -276,7 +243,7 @@ class ConfigurationController extends Controller
             }
         }
 
-        return view('pages.config.kds', ['stations' => $stations, 'routes' => $routes, 'products' => $productsFetch, 'byStation' => array_map('array_values', $byStation)]);
+        return view('pages.setup.kds', ['stations' => $stations, 'routes' => $routes, 'products' => $productsFetch, 'byStation' => array_map('array_values', $byStation)]);
     }
 
     public function payments(DashboardData $dash)
@@ -290,6 +257,6 @@ class ConfigurationController extends Controller
             $c->ok() && $rules[] = ['facility' => $f, 'rules' => $c->data['operatingRules'] ?? []];
         }
 
-        return view('pages.config.payments', ['tree' => $tree, 'rules' => $rules]);
+        return view('pages.setup.payments', ['tree' => $tree, 'rules' => $rules]);
     }
 }

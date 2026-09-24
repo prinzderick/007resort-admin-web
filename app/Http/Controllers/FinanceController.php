@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Portal\DashboardData;
+use App\Services\Portal\Directory;
 use App\Support\Csv;
+use App\Support\DateRange;
 use App\Support\Fetch;
 use App\Support\Money;
 use App\Support\Time;
@@ -63,11 +66,71 @@ class FinanceController extends Controller
         return $this->done($res, 'finance.payment', 'Payment reversed.', 'The reversal was accepted but must be approved before it takes effect.', ['payment' => $payment]);
     }
 
+    /** Refunded, part-refunded and reversed payments, plus refund/reversal requests still waiting for approval. */
+    public function refunds(Request $request, DashboardData $dash, Directory $dir)
+    {
+        $range = DateRange::fromRequest($request, '30d');
+        $from = $this->dayStart($range->from);
+        $to = $this->dayEnd($range->to);
+        $rows = [];
+        $fetch = new Fetch(['items' => []]);
+        foreach (['PARTIALLY_REFUNDED', 'REFUNDED', 'REVERSED'] as $st) {
+            $r = Fetch::of(fn () => $this->api->get('payments', ['limit' => 100, 'filter[status]' => $st, 'filter[from]' => $from, 'filter[to]' => $to]), ['GET', '/payments']);
+            if (! $r->ok()) {
+                $fetch = $r;
+                break;
+            }
+            array_push($rows, ...$r->items());
+        }
+        usort($rows, fn ($a, $b) => strcmp((string) ($b['createdAt'] ?? ''), (string) ($a['createdAt'] ?? '')));
+        $pending = $this->staff->canApproveAnything() || $this->staff->can('refund.execute')
+            ? Fetch::of(fn () => $this->api->get('approvals', ['filter[status]' => 'PENDING', 'limit' => 100]), ['GET', '/approvals'])
+            : new Fetch(null, 'forbidden');
+        $waiting = array_values(array_filter($pending->items(), fn ($a) => in_array($a['action'] ?? '', ['payment.refund', 'payment.reversal'], true)));
+        $tree = Fetch::of(fn () => $this->api->get('organization/facilities'), ['GET', '/organization/facilities']);
+        $names = [];
+        foreach ($dash->flatten($tree->items()) as $f) {
+            $names[$f['id'] ?? ''] = $f['name'] ?? '';
+        }
+
+        if ($request->query('format') === 'csv') {
+            return Csv::stream('refunds-and-reversals.csv', ['Payment', 'Created', 'Facility', 'Method', 'Status', 'Amount', 'Refunded'],
+                array_map(fn ($p) => [$p['id'] ?? '', $p['createdAt'] ?? '', $names[$p['facilityId'] ?? ''] ?? '', $p['tenderType'] ?? '', $p['status'] ?? '', $p['amount'] ?? '0', $p['refundedAmount'] ?? '0'], $rows));
+        }
+
+        return view('pages.finance.refunds', ['fetch' => $fetch, 'rows' => $rows, 'waiting' => $waiting, 'pendingFetch' => $pending, 'facilityNames' => $names, 'range' => $range]);
+    }
+
+    /** Cash sessions (shifts) across the property, with expected vs counted cash. */
+    public function cashSessions(Request $request, DashboardData $dash, Directory $dir)
+    {
+        $range = DateRange::fromRequest($request, '7d');
+        $status = $request->query('status');
+        $facilityId = $request->query('facility');
+        $sessions = Fetch::of(fn () => $this->api->get('cash-sessions', ['limit' => 100, 'cursor' => $request->query('cursor'), 'filter[status]' => $status, 'filter[facilityId]' => $facilityId]), ['GET', '/cash-sessions']);
+        $tree = Fetch::of(fn () => $this->api->get('organization/facilities'), ['GET', '/organization/facilities']);
+        $names = [];
+        foreach ($dash->flatten($tree->items()) as $f) {
+            $names[$f['id'] ?? ''] = $f['name'] ?? '';
+        }
+        $items = array_values(array_filter($sessions->items(), fn ($c) => ($c['openedAt'] ?? '') >= $this->dayStart($range->from) && ($c['openedAt'] ?? '') < $this->dayEnd($range->to)));
+
+        if ($request->query('format') === 'csv') {
+            $staffNames = $dir->staffNames();
+
+            return Csv::stream('cash-sessions.csv', ['Opened', 'Closed', 'Facility', 'Cashier', 'Status', 'Opening float', 'Expected cash', 'Counted', 'Variance'],
+                array_map(fn ($c) => [$c['openedAt'] ?? '', $c['closedAt'] ?? '', $names[$c['facilityId'] ?? ''] ?? '', $staffNames[$c['staffId'] ?? ''] ?? ($c['staffId'] ?? ''), $c['status'] ?? '', $c['openingFloat'] ?? '', $c['expectedCash'] ?? '', $c['countedCash'] ?? '', $c['variance'] ?? ''], $items));
+        }
+
+        return view('pages.finance.cash-sessions', ['sessions' => $sessions, 'items' => $items, 'facilities' => $dash->flatten($tree->items()), 'facilityNames' => $names, 'staffNames' => $dir->staffNames(), 'status' => $status, 'facilityId' => $facilityId, 'range' => $range]);
+    }
+
     /** Settlement reconciliation view (provider vs. captured), built from the payments the API exposes. */
     public function reconciliation(Request $request)
     {
-        $from = $this->day($request->query('from')) ?? Time::today();
-        $to = $this->day($request->query('to')) ?? Time::today();
+        $range = DateRange::fromRequest($request, '7d');
+        $from = $range->from;
+        $to = $range->to;
         $payments = $this->all('payments', ['filter[from]' => $this->dayStart($from), 'filter[to]' => $this->dayEnd($to)], ['GET', '/payments'], 10);
 
         $byMethod = [];

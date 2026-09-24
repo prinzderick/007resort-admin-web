@@ -6,8 +6,8 @@
     @endif
 
     <div class="mb-4 inline-flex rounded-lg border border-stone-300 bg-white p-1 text-sm">
-        <button wire:click="$set('tab','pending')" class="min-h-10 rounded-md px-4 {{ $tab === 'pending' ? 'bg-stone-900 text-white' : '' }}">Waiting for a decision</button>
-        <button wire:click="$set('tab','history')" class="min-h-10 rounded-md px-4 {{ $tab === 'history' ? 'bg-stone-900 text-white' : '' }}">Decided</button>
+        <button wire:click="$set('tab','pending')" class="min-h-10 rounded-md px-4 {{ $tab === 'pending' ? 'bg-brand-600 text-white' : '' }}">Waiting for a decision</button>
+        <button wire:click="$set('tab','history')" class="min-h-10 rounded-md px-4 {{ $tab === 'history' ? 'bg-brand-600 text-white' : '' }}">Decided</button>
     </div>
 
     <x-fetch :of="$list" what="Approvals" />

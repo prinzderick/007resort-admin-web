@@ -6,10 +6,39 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* Brand green (buttons, active nav, charts). */
+    --color-brand-50: #ecf8f1;
+    --color-brand-100: #d2eedf;
+    --color-brand-200: #a8dcc1;
+    --color-brand-300: #74c49d;
+    --color-brand-400: #3fa877;
+    --color-brand-500: #1f9560;
+    --color-brand-600: #0f7d4f;
+    --color-brand-700: #0b6541;
+    --color-brand-800: #0a5035;
+    --color-brand-900: #073d28;
+
+    /* Neutral scale: the views were written against `stone-*`; cool greys give the cleaner, Quickteller-style look without touching every view. */
+    --color-stone-50: #f7f8fa;
+    --color-stone-100: #f0f2f5;
+    --color-stone-200: #e3e7ec;
+    --color-stone-300: #cfd5dd;
+    --color-stone-400: #9aa3b0;
+    --color-stone-500: #6b7583;
+    --color-stone-600: #4f5866;
+    --color-stone-700: #363e4a;
+    --color-stone-800: #232a34;
+    --color-stone-900: #141a22;
+    --color-stone-950: #0c1016;
 }
 
 [x-cloak] {
     display: none !important;
+}
+
+body {
+    background: var(--color-stone-100);
 }
 
 /* Tables scroll sideways on narrow tablets instead of breaking the page. */
@@ -17,11 +46,34 @@
     @apply w-full text-left text-sm;
 }
 .data-table th {
-    @apply whitespace-nowrap border-b border-stone-200 bg-stone-50 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-stone-500;
+    @apply whitespace-nowrap border-b border-stone-200 bg-stone-50 px-3 py-2.5 text-xs font-semibold uppercase tracking-wide text-stone-500;
 }
 .data-table td {
-    @apply border-b border-stone-100 px-3 py-2 align-top;
+    @apply border-b border-stone-100 px-3 py-2.5 align-top;
 }
 .data-table tbody tr:hover {
     @apply bg-stone-50;
+}
+.data-table tbody tr[data-href] {
+    @apply cursor-pointer;
+}
+.data-table th[data-sort] {
+    @apply cursor-pointer select-none;
+}
+
+/* Sidebar */
+.nav-group-title {
+    @apply px-3 pb-1 pt-4 text-[11px] font-semibold uppercase tracking-wider text-stone-400;
+}
+.nav-item {
+    @apply flex min-h-10 items-center gap-3 rounded-lg px-3 text-sm font-medium text-stone-600 transition-colors;
+}
+.nav-item:hover {
+    @apply bg-stone-100 text-stone-900;
+}
+.nav-item[aria-current='page'] {
+    @apply bg-brand-50 text-brand-700;
+}
+.nav-item[aria-disabled='true'] {
+    @apply cursor-not-allowed text-stone-300 hover:bg-transparent hover:text-stone-300;
 }

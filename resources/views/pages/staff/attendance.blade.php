@@ -2,7 +2,6 @@
     <x-page-header title="Attendance" subtitle="Clock-ins from the gate terminal, and correction requests.">
         <x-slot:actions><x-btn variant="secondary" :href="request()->fullUrlWithQuery(['format' => 'csv'])">Export CSV</x-btn></x-slot:actions>
     </x-page-header>
-    <x-staff-nav />
     <form method="GET" class="mb-5 flex flex-wrap items-end gap-3">
         <div><label class="mb-1 block text-sm font-medium">From</label><input type="date" name="from" value="{{ $from }}" class="min-h-11 rounded-lg border border-stone-300 px-3 text-sm"></div>
         <div><label class="mb-1 block text-sm font-medium">To</label><input type="date" name="to" value="{{ $to }}" class="min-h-11 rounded-lg border border-stone-300 px-3 text-sm"></div>

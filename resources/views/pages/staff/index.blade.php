@@ -1,6 +1,5 @@
 <x-layouts.app title="Staff">
     <x-page-header title="Staff" subtitle="People, roles, cards and credentials. Permissions come from roles held at a scope." />
-    <x-staff-nav />
     <form method="GET" class="mb-5 flex flex-wrap items-end gap-3">
         <div><label class="mb-1 block text-sm font-medium">Search</label><input name="q" value="{{ $q }}" class="min-h-11 rounded-lg border border-stone-300 px-3 text-sm" placeholder="Name or staff number"></div>
         <div><label class="mb-1 block text-sm font-medium">Status</label><select name="status" class="min-h-11 rounded-lg border border-stone-300 bg-white px-3 text-sm"><option value="">Any</option>@foreach (['ACTIVE', 'SUSPENDED', 'TERMINATED'] as $s)<option @selected($status === $s)>{{ $s }}</option>@endforeach</select></div>

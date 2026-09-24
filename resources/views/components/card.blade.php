@@ -1,10 +1,10 @@
-@props(['title' => null, 'flush' => false])
+@props(['title' => null, 'subtitle' => null, 'flush' => false])
 <section {{ $attributes->merge(['class' => 'mb-5 rounded-xl border border-stone-200 bg-white shadow-sm']) }}>
     @if ($title)
-        <div class="flex items-center justify-between gap-2 border-b border-stone-100 px-4 py-3">
-            <h2 class="text-sm font-semibold uppercase tracking-wide text-stone-600">{{ $title }}</h2>
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-stone-100 px-5 py-4">
+            <div><h2 class="text-base font-semibold tracking-tight text-stone-900">{{ $title }}</h2>@if ($subtitle)<p class="mt-0.5 text-xs text-stone-500">{{ $subtitle }}</p>@endif</div>
             @if (isset($aside))<div class="text-sm">{{ $aside }}</div>@endif
         </div>
     @endif
-    <div class="{{ $flush ? '' : 'p-4' }}">{{ $slot }}</div>
+    <div class="{{ $flush ? '' : 'p-5' }}">{{ $slot }}</div>
 </section>

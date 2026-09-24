@@ -78,6 +78,42 @@ class InventoryController extends Controller
         return view('pages.inventory.adjustments', ['adjustments' => $adj, 'itemNames' => $this->names($items->items(), 'name'), 'locNames' => $this->names($locations->items(), 'name'), 'status' => $request->query('status')]);
     }
 
+    /** Transfers between stores: the ledger's TRANSFER legs grouped into one row per document. */
+    public function transfers(Request $request)
+    {
+        $moves = $this->all('inventory/movements', ['reason' => 'TRANSFER_OUT'], ['GET', '/inventory/movements'], 3);
+        $items = $this->all('inventory/items', [], ['GET', '/inventory/items']);
+        $locations = $this->all('inventory/locations', [], ['GET', '/inventory/locations']);
+        $docs = [];
+        foreach ($moves->items() as $m) {
+            $ref = $m['referenceId'] ?? ($m['id'] ?? '');
+            $docs[$ref]['from'] = $m['locationId'] ?? null;
+            $docs[$ref]['to'] = $m['counterpartLocationId'] ?? null;
+            $docs[$ref]['at'] = $m['createdAt'] ?? null;
+            $docs[$ref]['actor'] = $m['actorStaffId'] ?? null;
+            $docs[$ref]['lines'][] = ['item' => $m['itemId'] ?? null, 'qty' => ltrim((string) ($m['quantityDelta'] ?? ''), '-')];
+        }
+        $staff = app(\App\Services\Portal\Directory::class)->staffNames();
+
+        return view('pages.inventory.transfers', ['moves' => $moves, 'docs' => $docs, 'itemNames' => $this->names($items->items(), 'name'), 'locNames' => $this->names($locations->items(), 'name'), 'staffNames' => $staff]);
+    }
+
+    public function suppliers(Request $request)
+    {
+        $suppliers = $this->all('inventory/suppliers', [], ['GET', '/inventory/suppliers']);
+
+        return view('pages.inventory.suppliers', ['suppliers' => $suppliers, 'canManage' => $this->staff->can('supplier.manage')]);
+    }
+
+    public function createSupplier(Request $request): RedirectResponse
+    {
+        abort_unless($this->staff->can('supplier.manage'), 403);
+        $d = $request->validate(['name' => ['required', 'string', 'max:200'], 'contactName' => ['nullable', 'string', 'max:200'], 'phone' => ['nullable', 'string', 'max:64'], 'email' => ['nullable', 'email', 'max:200'], 'address' => ['nullable', 'string', 'max:500']]);
+        $this->api->request('POST', 'inventory/suppliers', [], array_filter($d, fn ($v) => $v !== null && $v !== ''));
+
+        return redirect()->route('inventory.suppliers')->with('success', 'Supplier added.');
+    }
+
     /**
      * @param  list<array<string, mixed>>  $rows
      * @return array<string, string>

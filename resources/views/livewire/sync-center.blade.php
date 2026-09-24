@@ -7,7 +7,7 @@
 
     <div class="mb-4 inline-flex flex-wrap rounded-lg border border-stone-300 bg-white p-1 text-sm">
         @foreach (['health' => 'Node health', 'outbox' => 'Outbox', 'inbox' => 'Inbox', 'conflicts' => 'Conflicts'] as $k => $label)
-            <button wire:click="$set('tab','{{ $k }}')" class="min-h-10 rounded-md px-4 {{ $tab === $k ? 'bg-stone-900 text-white' : '' }}">{{ $label }}</button>
+            <button wire:click="$set('tab','{{ $k }}')" class="min-h-10 rounded-md px-4 {{ $tab === $k ? 'bg-brand-600 text-white' : '' }}">{{ $label }}</button>
         @endforeach
     </div>
 

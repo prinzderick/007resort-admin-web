@@ -1,6 +1,5 @@
 <x-layouts.app title="KDS routing">
     <x-page-header title="KDS routing" subtitle="Which prep station receives each product." />
-    <x-config-nav />
     <x-card title="Stations" flush>
         <x-fetch :of="$stations" what="Stations" />
         <x-fetch :of="$products" what="Product routing" />

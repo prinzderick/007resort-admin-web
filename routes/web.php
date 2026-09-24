@@ -2,7 +2,11 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ConfigurationController;
+use App\Http\Controllers\OperationsController;
+use App\Http\Controllers\PeopleController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\DevicesController;
+use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ReportsController;
@@ -31,6 +35,17 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware('staff')->group(function (): void {
     Route::get('/', Dashboard::class)->name('dashboard');
     Route::get('/approvals', ApprovalsQueue::class)->name('approvals');
+    Route::get('/search', [SearchController::class, 'index'])->name('search');
+
+    // Operations (read-only views over what the tablets/POS/KDS write through the API)
+    Route::prefix('operations')->group(function (): void {
+        Route::get('/orders', [OperationsController::class, 'orders'])->middleware('permit:order.view')->name('orders.index');
+        Route::get('/orders/{order}', [OperationsController::class, 'order'])->middleware('permit:order.view')->name('orders.show');
+        Route::get('/tables', [OperationsController::class, 'tables'])->middleware('permit:order.view,table.manage')->name('tables.index');
+        Route::get('/bookings', [OperationsController::class, 'bookings'])->middleware('permit:booking.view')->name('bookings.index');
+        Route::get('/tickets', [OperationsController::class, 'tickets'])->middleware('permit:ticket.view')->name('tickets.index');
+        Route::get('/memberships', [OperationsController::class, 'memberships'])->middleware('permit:membership.view')->name('memberships.index');
+    });
 
     // Reports
     Route::prefix('reports')->middleware('permit:report.view,report.view.all,finance.report.view')->name('reports.')->group(function (): void {
@@ -44,9 +59,11 @@ Route::middleware('staff')->group(function (): void {
         Route::middleware('permit:payment.view,settlement.reconcile,finance.report.view')->group(function (): void {
             Route::get('/payments', [FinanceController::class, 'payments'])->name('payments');
             Route::get('/payments/{payment}', [FinanceController::class, 'payment'])->name('payment');
-            Route::get('/reconciliation', [FinanceController::class, 'reconciliation'])->name('reconciliation');
+            Route::get('/settlements', [FinanceController::class, 'reconciliation'])->name('reconciliation');
+            Route::get('/refunds', [FinanceController::class, 'refunds'])->name('refunds');
             Route::post('/paystack-verify', [FinanceController::class, 'verifyPaystack'])->name('paystack-verify');
         });
+        Route::get('/cash-sessions', [FinanceController::class, 'cashSessions'])->middleware('permit:cash_session.view')->name('cash-sessions');
         Route::post('/payments/{payment}/refund', [FinanceController::class, 'refund'])->middleware('permit:refund.execute')->name('refund');
         Route::post('/payments/{payment}/reversal', [FinanceController::class, 'reversal'])->middleware('permit:payment.reversal.execute')->name('reversal');
     });
@@ -57,6 +74,9 @@ Route::middleware('staff')->group(function (): void {
         Route::get('/movements', [InventoryController::class, 'movements'])->name('movements');
         Route::get('/counts', [InventoryController::class, 'counts'])->name('counts');
         Route::get('/adjustments', [InventoryController::class, 'adjustments'])->name('adjustments');
+        Route::get('/transfers', [InventoryController::class, 'transfers'])->name('transfers');
+        Route::get('/suppliers', [InventoryController::class, 'suppliers'])->name('suppliers');
+        Route::post('/suppliers', [InventoryController::class, 'createSupplier'])->name('suppliers.store');
         Route::get('/count/{count}', [InventoryController::class, 'showCount'])->name('count.show');
         Route::post('/count/{count}/post', [InventoryController::class, 'postCount'])->name('count.post');
         Route::get('/{action}', [InventoryController::class, 'form'])->whereIn('action', array_keys(InventoryController::ACTIONS))->name('form');
@@ -68,7 +88,6 @@ Route::middleware('staff')->group(function (): void {
         Route::get('/attendance', [StaffController::class, 'attendance'])->middleware('permit:attendance.view')->name('attendance');
         Route::post('/attendance/corrections/{correction}/{decision}', [StaffController::class, 'decideCorrection'])->middleware('permit:staff.clock_correction.approve')->name('correction');
         Route::post('/attendance/corrections', [StaffController::class, 'requestCorrection'])->middleware('permit:attendance.correction.request')->name('correction.request');
-        Route::get('/audit', [StaffController::class, 'audit'])->middleware('permit:audit.view')->name('audit');
 
         Route::middleware('permit:staff.manage')->group(function (): void {
             Route::get('/', [StaffController::class, 'index'])->name('index');
@@ -83,11 +102,19 @@ Route::middleware('staff')->group(function (): void {
     });
 
     // Configuration
-    Route::prefix('config')->name('config.')->middleware('permit:config.manage,facility.configure,pricing.manage,membership.plan.manage,catalog.availability.manage,catalog.manage,booking.configure')->group(function (): void {
+    Route::prefix('setup')->name('setup.')->middleware('permit:config.manage,facility.configure,pricing.manage,membership.plan.manage,catalog.availability.manage,catalog.manage,booking.configure')->group(function (): void {
         Route::get('/', [ConfigurationController::class, 'index'])->name('index');
         Route::middleware('permit:facility.configure,config.manage,booking.configure')->group(function (): void {
-            Route::get('/facilities', [ConfigurationController::class, 'facilities'])->name('facilities');
-            Route::put('/facilities/{facility}/rules', [ConfigurationController::class, 'updateRules'])->name('facilities.rules');
+            Route::get('/facilities', [FacilitiesController::class, 'index'])->name('facilities');
+            Route::get('/facilities/new', [FacilitiesController::class, 'create'])->name('facilities.create');
+            Route::post('/facilities', [FacilitiesController::class, 'store'])->name('facilities.store');
+            Route::get('/facilities/{facility}', [FacilitiesController::class, 'show'])->whereUuid('facility')->name('facilities.show');
+            Route::patch('/facilities/{facility}', [FacilitiesController::class, 'update'])->whereUuid('facility')->name('facilities.update');
+            Route::put('/facilities/{facility}/capabilities', [FacilitiesController::class, 'setCapabilities'])->whereUuid('facility')->name('facilities.capabilities');
+            Route::put('/facilities/{facility}/rules', [FacilitiesController::class, 'setRules'])->whereUuid('facility')->name('facilities.rules');
+            Route::post('/facilities/{facility}/deactivate', [FacilitiesController::class, 'deactivate'])->whereUuid('facility')->name('facilities.deactivate');
+            Route::post('/facilities/{facility}/reactivate', [FacilitiesController::class, 'reactivate'])->whereUuid('facility')->name('facilities.reactivate');
+            Route::post('/facilities/{facility}/move', [FacilitiesController::class, 'move'])->whereUuid('facility')->name('facilities.move');
             Route::get('/bookings', [ConfigurationController::class, 'bookings'])->name('bookings');
             Route::patch('/bookings/{resource}', [ConfigurationController::class, 'updateResource'])->name('bookings.update');
             Route::get('/tickets', [ConfigurationController::class, 'tickets'])->name('tickets');
@@ -103,7 +130,8 @@ Route::middleware('staff')->group(function (): void {
             Route::post('/catalog/categories', [ConfigurationController::class, 'createCategory'])->name('catalog.category.create');
         });
         Route::middleware('permit:config.manage')->group(function (): void {
-            Route::get('/tax', [ConfigurationController::class, 'tax'])->name('tax');
+            Route::get('/business', [ConfigurationController::class, 'business'])->name('business');
+            Route::get('/tax', fn () => redirect(route('setup.business').'#tax'))->name('tax');
             Route::put('/tax', [ConfigurationController::class, 'updateTax'])->name('tax.update');
         });
         Route::middleware('permit:membership.plan.manage,config.manage')->group(function (): void {
@@ -112,6 +140,10 @@ Route::middleware('staff')->group(function (): void {
             Route::patch('/memberships/{plan}', [ConfigurationController::class, 'savePlan'])->name('memberships.update');
         });
     });
+
+    // People: roles catalogue, audit log
+    Route::get('/people/roles', [PeopleController::class, 'roles'])->middleware('permit:role_assignment.manage')->name('people.roles');
+    Route::get('/system/audit', [StaffController::class, 'audit'])->middleware('permit:audit.view')->name('audit.index');
 
     // Devices
     Route::prefix('devices')->name('devices.')->middleware('permit:device.register,device.revoke,attendance.device.manage')->group(function (): void {

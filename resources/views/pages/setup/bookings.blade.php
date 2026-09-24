@@ -1,6 +1,5 @@
 <x-layouts.app title="Booking rules">
     <x-page-header title="Booking resources & rules" subtitle="Offline-allocation strategy decides what happens to a resource when Local cannot reach Cloud." />
-    <x-config-nav />
     <x-card title="Resources" flush>
         <x-fetch :of="$resources" what="Booking resources" />
         @if ($resources->ok())
@@ -11,7 +10,7 @@
                     <td>{{ ($r['onlineBookable'] ?? false) ? 'Yes' : 'No' }}</td>
                     <td>
                         @if ($canWrite && ! empty($r['id']))
-                            <form method="POST" action="{{ route('config.bookings.update', $r['id']) }}" class="flex flex-wrap items-center gap-2">@csrf @method('PATCH')
+                            <form method="POST" action="{{ route('setup.bookings.update', $r['id']) }}" class="flex flex-wrap items-center gap-2">@csrf @method('PATCH')
                                 <select name="offlineStrategy" class="min-h-10 rounded-lg border border-stone-300 bg-white px-2 text-sm">@foreach (\App\Http\Controllers\ConfigurationController::STRATEGIES as $k => $l)<option value="{{ $k }}" @selected(($strategy ?? 'A_OFFLINE_ALLOCATION') === $k)>{{ $l }}</option>@endforeach</select>
                                 <input name="localReserveUnits" value="{{ $a['localReserveUnits'] ?? '' }}" placeholder="Local reserve" inputmode="numeric" aria-label="Local reserve units" class="min-h-10 w-28 rounded-lg border border-stone-300 px-2 text-sm">
                                 <input name="onlineStaleAfterSeconds" value="{{ $a['onlineStaleAfterSeconds'] ?? '' }}" placeholder="Stale after (s)" inputmode="numeric" aria-label="Online stale after seconds" class="min-h-10 w-32 rounded-lg border border-stone-300 px-2 text-sm">

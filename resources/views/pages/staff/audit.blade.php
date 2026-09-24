@@ -2,7 +2,6 @@
     <x-page-header title="Audit trail" subtitle="Append-only, hash-chained record of sensitive actions.">
         <x-slot:actions><x-btn variant="secondary" :href="request()->fullUrlWithQuery(['format' => 'csv'])">Export CSV</x-btn></x-slot:actions>
     </x-page-header>
-    <x-staff-nav />
     <form method="GET" class="mb-5 flex flex-wrap items-end gap-3">
         <div><label class="mb-1 block text-sm font-medium">Action (exact, e.g. payment.refund)</label><input name="action" value="{{ $q['action'] ?? '' }}" class="min-h-11 rounded-lg border border-stone-300 px-3 text-sm"></div>
         <div><label class="mb-1 block text-sm font-medium">Entity type</label><input name="entityType" value="{{ $q['entityType'] ?? '' }}" class="min-h-11 rounded-lg border border-stone-300 px-3 text-sm"></div>
