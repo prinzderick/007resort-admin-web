@@ -22,22 +22,18 @@ class InventoryController extends Controller
     public function index(Request $request)
     {
         $locationId = $request->query('location');
-        $items = Fetch::of(fn () => $this->api->get('inventory/items', ['limit' => 200]), ['GET', '/inventory/items']);
-        $locations = Fetch::of(fn () => $this->api->get('inventory/locations', ['limit' => 200]), ['GET', '/inventory/locations']);
-        $balances = Fetch::of(fn () => $this->api->get('inventory/balances', ['limit' => 200, 'locationId' => $locationId]), ['GET', '/inventory/balances']);
+        $locations = $this->all('inventory/locations', [], ['GET', '/inventory/locations']);
+        $balances = $this->all('inventory/balances', ['locationId' => $locationId], ['GET', '/inventory/balances'], 6);
 
-        $reorder = [];
         $names = [];
-        foreach ($items->items() as $i) {
-            $reorder[$i['id']] = $i['reorderLevel'] ?? null;
-        }
         foreach ($locations->items() as $l) {
-            $names[$l['id']] = $l['name'];
+            $names[$l['id'] ?? ''] = $l['name'] ?? '';
         }
-        $rows = array_map(function ($b) use ($reorder, $names) {
-            $level = $reorder[$b['itemId']] ?? null;
-            $b['location'] = $names[$b['locationId']] ?? $b['locationId'];
-            $b['low'] = $level !== null && Money::cmp($b['quantity'], $level) <= 0;
+        $rows = array_map(function ($b) use ($names) {
+            $level = $b['reorderLevel'] ?? null;
+            $b['location'] = $names[$b['locationId'] ?? ''] ?? ($b['locationId'] ?? '');
+            // The API says whether a line is at/below its reorder level; fall back to comparing when it does not.
+            $b['low'] = (bool) ($b['belowReorder'] ?? ($level !== null && Money::cmp($b['quantity'] ?? '0', $level) <= 0));
             $b['reorderLevel'] = $level;
 
             return $b;
@@ -45,10 +41,55 @@ class InventoryController extends Controller
 
         if ($request->query('format') === 'csv') {
             return Csv::stream('stock-balances.csv', ['Item', 'Location', 'Quantity', 'Unit', 'Reorder level', 'Updated'],
-                array_map(fn ($r) => [$r['itemName'] ?? $r['itemId'], $r['location'], $r['quantity'], $r['unit'] ?? '', $r['reorderLevel'] ?? '', $r['updatedAt'] ?? ''], $rows));
+                array_map(fn ($r) => [$r['itemName'] ?? $r['itemId'] ?? '', $r['location'], $r['quantity'] ?? '', $r['unit'] ?? '', $r['reorderLevel'] ?? '', $r['updatedAt'] ?? ''], $rows));
         }
 
         return view('pages.inventory.index', ['rows' => $rows, 'balances' => $balances, 'locations' => $locations, 'locationId' => $locationId, 'lowCount' => count(array_filter($rows, fn ($r) => $r['low']))]);
+    }
+
+    /** The immutable stock ledger, newest first (GET /inventory/movements). */
+    public function movements(Request $request)
+    {
+        $q = ['limit' => 100, 'cursor' => $request->query('cursor'), 'itemId' => $request->query('item'), 'reason' => $request->query('reason'), 'locationId' => $request->query('location')];
+        $moves = Fetch::of(fn () => $this->api->get('inventory/movements', $q), ['GET', '/inventory/movements']);
+        $items = $this->all('inventory/items', [], ['GET', '/inventory/items']);
+        $locations = $this->all('inventory/locations', [], ['GET', '/inventory/locations']);
+        $staff = app(\App\Services\Portal\Directory::class)->staffNames();
+
+        return view('pages.inventory.movements', ['moves' => $moves, 'items' => $items, 'locations' => $locations, 'itemNames' => $this->names($items->items(), 'name'), 'locNames' => $this->names($locations->items(), 'name'), 'staffNames' => $staff, 'q' => $request->query()]);
+    }
+
+    /** Count sheets (GET /inventory/counts). */
+    public function counts(Request $request)
+    {
+        $counts = Fetch::of(fn () => $this->api->get('inventory/counts', ['limit' => 100, 'cursor' => $request->query('cursor'), 'status' => $request->query('status')]), ['GET', '/inventory/counts']);
+        $locations = $this->all('inventory/locations', [], ['GET', '/inventory/locations']);
+
+        return view('pages.inventory.counts', ['counts' => $counts, 'locNames' => $this->names($locations->items(), 'name'), 'status' => $request->query('status')]);
+    }
+
+    /** Manual adjustments and count variances awaiting or past approval (GET /inventory/adjustments). */
+    public function adjustments(Request $request)
+    {
+        $adj = Fetch::of(fn () => $this->api->get('inventory/adjustments', ['limit' => 100, 'cursor' => $request->query('cursor'), 'status' => $request->query('status')]), ['GET', '/inventory/adjustments']);
+        $items = $this->all('inventory/items', [], ['GET', '/inventory/items']);
+        $locations = $this->all('inventory/locations', [], ['GET', '/inventory/locations']);
+
+        return view('pages.inventory.adjustments', ['adjustments' => $adj, 'itemNames' => $this->names($items->items(), 'name'), 'locNames' => $this->names($locations->items(), 'name'), 'status' => $request->query('status')]);
+    }
+
+    /**
+     * @param  list<array<string, mixed>>  $rows
+     * @return array<string, string>
+     */
+    private function names(array $rows, string $key): array
+    {
+        $out = [];
+        foreach ($rows as $r) {
+            $out[$r['id'] ?? ''] = (string) ($r[$key] ?? '');
+        }
+
+        return $out;
     }
 
     public function form(string $action)
@@ -58,8 +99,8 @@ class InventoryController extends Controller
 
         return view('pages.inventory.form', [
             'action' => $action, 'title' => $title,
-            'items' => Fetch::of(fn () => $this->api->get('inventory/items', ['limit' => 200]), ['GET', '/inventory/items']),
-            'locations' => Fetch::of(fn () => $this->api->get('inventory/locations', ['limit' => 200]), ['GET', '/inventory/locations']),
+            'items' => $this->all('inventory/items', [], ['GET', '/inventory/items']),
+            'locations' => $this->all('inventory/locations', [], ['GET', '/inventory/locations']),
         ]);
     }
 
@@ -79,7 +120,7 @@ class InventoryController extends Controller
 
         switch ($action) {
             case 'receive':
-                $d = $request->validate(['locationId' => ['required', 'uuid'], 'supplierName' => ['nullable', 'string', 'max:190'], 'supplierInvoice' => ['nullable', 'string', 'max:190'], 'lines' => ['required', 'array', 'min:1'], 'lines.*.itemId' => ['required', 'uuid'], 'lines.*.quantity' => $qty, 'lines.*.unitCost' => ['required', 'regex:/^\d+(\.\d{1,4})?$/']]);
+                $d = $request->validate(['locationId' => ['required', 'uuid'], 'supplierName' => ['nullable', 'string', 'max:190'], 'supplierInvoice' => ['nullable', 'string', 'max:190'], 'lines' => ['required', 'array', 'min:1'], 'lines.*.itemId' => ['required', 'uuid'], 'lines.*.quantity' => $qty, 'lines.*.unitCost' => ['nullable', 'regex:/^\d+(\.\d{1,4})?$/']]);
                 $res = $this->api->request('POST', 'inventory/purchase-receipts', [], $this->only($d, ['locationId', 'supplierName', 'supplierInvoice']) + ['lines' => $this->lines($d['lines'])]);
                 $ok = 'Stock received.';
                 break;
@@ -102,7 +143,7 @@ class InventoryController extends Controller
                 $d = $request->validate(['locationId' => ['required', 'uuid'], 'note' => ['nullable', 'string', 'max:500'], 'lines' => ['required', 'array', 'min:1'], 'lines.*.itemId' => ['required', 'uuid'], 'lines.*.countedQuantity' => $qty]);
                 $res = $this->api->request('POST', 'inventory/counts', [], $this->only($d, ['locationId', 'note']) + ['lines' => array_values(array_map(fn ($l) => ['itemId' => $l['itemId'], 'countedQuantity' => $l['countedQuantity']], array_filter($d['lines'], fn ($l) => ($l['itemId'] ?? '') !== '')))]);
 
-                return $this->rememberCount($res->body, null);
+                return redirect()->route('inventory.count.show', $res->body['id'] ?? '')->with('count_flash', 'Count sheet created. Review the expected quantities, then post it to write the variance.');
             default:
                 abort(404);
         }
@@ -110,43 +151,25 @@ class InventoryController extends Controller
         return $this->done($res, 'inventory.index', $ok, $pending);
     }
 
-    public function postCount(string $count)
+    public function postCount(string $count): RedirectResponse
     {
         abort_unless($this->staff->can('inventory.count.post'), 403);
         $res = $this->api->request('POST', "inventory/counts/{$count}/post");
 
-        return $this->rememberCount($res->body, 'Count posted: variance movements were written by the API.');
+        return $this->done($res, 'inventory.count.show', 'Count posted: variance movements were written by the API.', 'The count variance is above the threshold and waits for approval before balances change.', ['count' => $count]);
     }
 
-    /** The contract has no GET for a count, so the sheet the API returned is kept in the server-side session. */
     public function showCount(Request $request, string $count)
     {
-        $data = $request->session()->get("r007.count.{$count}");
-        abort_if(! is_array($data), 404, 'This count sheet is no longer in your session. Start a new count.');
-
-        return $this->countView($data, $request->session()->pull('count_flash'));
-    }
-
-    /** @param  array<string, mixed>  $count */
-    private function rememberCount(array $count, ?string $flash): RedirectResponse
-    {
-        session()->put("r007.count.{$count['id']}", $count);
-
-        return redirect()->route('inventory.count.show', $count['id'])->with('count_flash', $flash);
-    }
-
-    /** @param  array<string, mixed>  $count */
-    private function countView(array $count, ?string $flash = null)
-    {
-        $items = Fetch::of(fn () => $this->api->get('inventory/items', ['limit' => 200]), ['GET', '/inventory/items']);
-        $names = [];
+        $doc = Fetch::of(fn () => $this->api->get("inventory/counts/{$count}"), ['GET', '/inventory/counts/{count}']);
+        $items = $this->all('inventory/items', [], ['GET', '/inventory/items']);
+        $locations = $this->all('inventory/locations', [], ['GET', '/inventory/locations']);
+        $itemNames = [];
         foreach ($items->items() as $i) {
-            $names[$i['id']] = $i['name'].' ('.($i['unit'] ?? '').')';
+            $itemNames[$i['id'] ?? ''] = ($i['name'] ?? '').' ('.($i['unit'] ?? '').')';
         }
-        $locations = Fetch::of(fn () => $this->api->get('inventory/locations', ['limit' => 200]), ['GET', '/inventory/locations']);
-        $loc = collect($locations->items())->firstWhere('id', $count['locationId'] ?? '')['name'] ?? ($count['locationId'] ?? '');
 
-        return response()->view('pages.inventory.count', ['count' => $count, 'names' => $names, 'location' => $loc, 'flash' => $flash]);
+        return view('pages.inventory.count', ['doc' => $doc, 'id' => $count, 'names' => $itemNames, 'locNames' => $this->names($locations->items(), 'name'), 'flash' => $request->session()->get('count_flash')]);
     }
 
     /**
@@ -161,7 +184,7 @@ class InventoryController extends Controller
                 continue;
             }
             $row = ['itemId' => $l['itemId'], 'quantity' => $l['quantity']];
-            $cost && $row['unitCost'] = $l['unitCost'];
+            $cost && ($l['unitCost'] ?? '') !== '' && $row['unitCost'] = $l['unitCost'];
             $out[] = $row;
         }
 

@@ -1,0 +1,32 @@
+{
+    "items": [
+        {
+            "id": "01a0d04f-ab1d-731b-a426-b59896d4af7e",
+            "number": "BK-20260923-0001",
+            "resourceId": "ba9c4887-4d94-5b50-8cfd-26d8a43595e3",
+            "resourceName": "Lawn Tennis Court 1",
+            "facilityId": "7b708d65-561b-5ec3-b23f-707ba9c1b5cf",
+            "start": "2026-09-25T12:00:00Z",
+            "end": "2026-09-25T13:00:00Z",
+            "quantity": 1,
+            "status": "CONFIRMED",
+            "holdExpiresAt": null,
+            "customer": {
+                "name": "Walk-in",
+                "phone": null,
+                "email": null,
+                "membershipId": null
+            },
+            "total": "5000.0000",
+            "amountPaid": "5000.0000",
+            "orderId": "01a0d04f-d496-72b2-bd04-5d7934c613c7",
+            "entitlementId": "01a0d04f-f162-72c7-b5ae-3a7016c0e90a",
+            "source": "STAFF",
+            "rowVersion": 3,
+            "createdAt": "2026-09-23T22:07:57.213Z",
+            "wholeResource": false,
+            "cancellationFee": "0.0000"
+        }
+    ],
+    "nextCursor": null
+}

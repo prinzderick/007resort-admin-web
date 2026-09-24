@@ -1,0 +1,59 @@
+{
+    "items": [
+        {
+            "id": "01a0d0a0-f492-7039-8159-fd5257ce38d5",
+            "action": "order.adjust",
+            "entityType": "Order",
+            "entityId": "01a0d0a0-f3d6-7241-a24a-28dffe8e1d4a",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "status": "PENDING",
+            "requestedByStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "requestedByName": "Emeka Obi",
+            "requestedAt": "2026-09-23T23:36:44.435Z",
+            "reason": "Loyal guest",
+            "amount": "100.0000",
+            "summary": "DISCOUNT_PERCENT 10 on Moi Moi (RESTAU-000058)",
+            "decidedByStaffId": null,
+            "decidedAt": null,
+            "decisionNote": null,
+            "requiredPermission": "order.discount.approve"
+        },
+        {
+            "id": "01a0d09e-c4bc-7062-8173-f955bde39d16",
+            "action": "order.adjust",
+            "entityType": "Order",
+            "entityId": "01a0d09e-c44b-74bc-8aeb-519cd361dfbf",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "status": "PENDING",
+            "requestedByStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "requestedByName": "Emeka Obi",
+            "requestedAt": "2026-09-23T23:34:21.116Z",
+            "reason": "Loyal guest",
+            "amount": "100.0000",
+            "summary": "DISCOUNT_PERCENT 10 on Moi Moi (RESTAU-000056)",
+            "decidedByStaffId": null,
+            "decidedAt": null,
+            "decisionNote": null,
+            "requiredPermission": "order.discount.approve"
+        },
+        {
+            "id": "01a0d09c-925e-7044-a797-af6aa9b1b9fe",
+            "action": "order.adjust",
+            "entityType": "Order",
+            "entityId": "01a0d09c-91d5-7b76-a8c7-7002c2f00e0d",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "status": "PENDING",
+            "requestedByStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "requestedByName": "Emeka Obi",
+            "requestedAt": "2026-09-23T23:31:57.150Z",
+            "reason": "Loyal guest",
+            "amount": "100.0000",
+            "summary": "DISCOUNT_PERCENT 10 on Moi Moi (RESTAU-000044)",
+            "decidedByStaffId": null,
+            "decidedAt": null,
+            "decisionNote": null,
+            "requiredPermission": "order.discount.approve"
+        }
+    ],
+    "nextCursor": null
+}

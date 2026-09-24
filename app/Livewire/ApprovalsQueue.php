@@ -62,9 +62,12 @@ class ApprovalsQueue extends Component
 
     public function render(R007ApiClient $api, StaffSession $staff)
     {
-        $query = $this->tab === 'pending' ? ['filter[status]' => 'PENDING', 'scope' => 'approvable', 'limit' => 100] : ['limit' => 100];
+        // The API lists PENDING only unless filter[status] says otherwise, so the history tab must ask for the decided ones.
+        $query = $this->tab === 'pending'
+            ? ['filter[status]' => 'PENDING', 'scope' => 'approvable', 'limit' => 100]
+            : ['filter[status]' => 'APPROVED,REJECTED,CANCELLED,EXPIRED', 'limit' => 100];
         $list = Fetch::of(fn () => $api->get('approvals', $query), ['GET', '/approvals']);
-        $items = $this->tab === 'pending' ? $list->items() : array_values(array_filter($list->items(), fn ($a) => ($a['status'] ?? '') !== 'PENDING'));
+        $items = $list->items();
 
         return view('livewire.approvals-queue', ['list' => $list, 'items' => $items, 'staff' => $staff]);
     }

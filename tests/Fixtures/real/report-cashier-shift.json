@@ -1,0 +1,44 @@
+{
+    "shiftId": "01a0d0a4-db52-71ed-b2f0-90aaa107bc09",
+    "cashSessionId": "01a0d0a4-db52-71ed-b2f0-90aaa107bc09",
+    "staffId": "e66698a3-4e33-5b2c-9e2d-d5566b2510a8",
+    "staffName": "Ngozi Eze",
+    "facilityId": "5996b8b4-1b06-5150-adca-659ac70055e7",
+    "status": "OPEN",
+    "openedAt": "2026-09-23T23:41:00.114Z",
+    "closedAt": null,
+    "openingFloat": "5000.0000",
+    "byTender": [
+        {
+            "tenderType": "CASH",
+            "amount": "4200.0000",
+            "count": 2
+        }
+    ],
+    "expectedCash": "8500.0000",
+    "countedCash": null,
+    "variance": null,
+    "refunds": "700.0000",
+    "voids": 0,
+    "paymentIds": [
+        "01a0d0a4-dd5c-7ed3-a2f4-79c269cf5936",
+        "01a0d0a4-e3a2-742e-8a3f-0382bf819607"
+    ],
+    "currency": "NGN",
+    "availability": {
+        "cashSession": true,
+        "payments": true,
+        "refunds": true,
+        "cashMovements": true,
+        "voids": true
+    },
+    "freshness": {
+        "generatedAt": "2026-09-23T23:42:02.042Z",
+        "sourceNode": "local",
+        "lastSyncAt": null,
+        "stale": false,
+        "staleReason": null,
+        "ageSeconds": null,
+        "staleAfterSeconds": 300
+    }
+}

@@ -12,7 +12,7 @@
                 @if ($detail->ok())
                     @php $r = $detail->data['operatingRules'] ?? []; @endphp
                     <x-card title="Capabilities">
-                        <div class="flex flex-wrap gap-2">@forelse ($detail->data['capabilities'] as $c)<x-badge tone="info">{{ $c }}</x-badge>@empty<span class="text-sm text-stone-500">None</span>@endforelse</div>
+                        <div class="flex flex-wrap gap-2">@forelse ($detail->data['capabilities'] ?? [] as $c)<x-badge tone="info">{{ $c }}</x-badge>@empty<span class="text-sm text-stone-500">None</span>@endforelse</div>
                     </x-card>
                     <x-card title="Operating rules" data-testid="rules">
                         @if ($canWrite && auth_staff()->canAny('facility.configure', 'config.manage'))
@@ -35,15 +35,16 @@
                                 <div><dt class="text-stone-500">Offline orders</dt><dd>{{ ($r['allowOfflineOrders'] ?? false) ? 'Allowed' : 'No' }}</dd></div>
                                 <div><dt class="text-stone-500">Offline payments</dt><dd>{{ $r['allowOfflinePayments'] ?? '-' }}</dd></div>
                                 <div><dt class="text-stone-500">Hold time (bookings)</dt><dd>{{ $r['holdTtlSeconds'] ?? '-' }} s</dd></div>
+                                <div><dt class="text-stone-500">Payment timing</dt><dd>{{ isset($r['paymentTiming']) ? str_replace('_', ' ', $r['paymentTiming']) : 'not reported' }}</dd></div>
                                 <div><dt class="text-stone-500">VAT</dt><dd>{{ ($r['vatEnabled'] ?? false) ? ($r['vatRatePercent'] ?? '').'%' : 'Off' }}</dd></div>
                             </dl>
-                            <p class="mt-3 text-xs text-stone-500">Editing rules is not in the API contract yet (needs <code>PUT /facilities/{facilityId}/capabilities</code>), so these are read-only.</p>
+                            <p class="mt-3 text-xs text-stone-500">The API (contract 1.0.0) has no endpoint that changes operating rules or capabilities, so these are read-only here; the edit form appears when <code>PUT /facilities/{facilityId}/capabilities</code> is added to the contract.</p>
                         @endif
                     </x-card>
                 @endif
                 <x-card title="Operating points" flush>
                     <x-fetch :of="$points" what="Operating points" />
-                    @if ($points->ok())<div class="overflow-x-auto"><table class="data-table"><thead><tr><th>Code</th><th>Name</th><th>Kind</th></tr></thead><tbody>@forelse ($points->items() as $p)<tr><td>{{ $p['code'] }}</td><td>{{ $p['name'] }}</td><td>{{ str_replace('_', ' ', $p['kind']) }}</td></tr>@empty<tr><td colspan="3" class="text-center text-stone-500">None</td></tr>@endforelse</tbody></table></div>@endif
+                    @if ($points->ok())<div class="overflow-x-auto"><table class="data-table"><thead><tr><th>Code</th><th>Name</th><th>Kind</th></tr></thead><tbody>@forelse ($points->items() as $p)<tr><td>{{ $p['code'] ?? '' }}</td><td>{{ $p['name'] ?? '' }}</td><td>{{ str_replace('_', ' ', $p['kind'] ?? '') }}</td></tr>@empty<tr><td colspan="3" class="text-center text-stone-500">None</td></tr>@endforelse</tbody></table></div>@endif
                 </x-card>
             @else
                 <x-card><p class="text-sm text-stone-600">Select a facility to see its capabilities, operating rules and operating points.</p></x-card>

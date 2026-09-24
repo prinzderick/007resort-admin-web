@@ -1,0 +1,52 @@
+{
+    "from": "2026-09-16",
+    "to": "2026-09-23",
+    "currency": "NGN",
+    "orders": 1,
+    "revenue": "2000.0000",
+    "byFacility": [
+        {
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "code": "RESTAURANT",
+            "name": "Restaurant",
+            "orders": 1,
+            "revenue": "2000.0000"
+        }
+    ],
+    "byOperatingPoint": [
+        {
+            "operatingPoint": "Restaurant POS",
+            "orders": 1,
+            "revenue": "2000.0000"
+        }
+    ],
+    "byPaymentMethod": [
+        {
+            "tenderType": "CASH",
+            "count": 4,
+            "captured": "14000.0000",
+            "refunded": "500.0000",
+            "net": "13500.0000"
+        },
+        {
+            "tenderType": "TRANSFER",
+            "count": 1,
+            "captured": "3500.0000",
+            "refunded": "0.0000",
+            "net": "3500.0000"
+        }
+    ],
+    "availability": {
+        "orders": true,
+        "payments": true
+    },
+    "freshness": {
+        "generatedAt": "2026-09-23T23:42:01.987Z",
+        "sourceNode": "local",
+        "lastSyncAt": null,
+        "stale": false,
+        "staleReason": null,
+        "ageSeconds": null,
+        "staleAfterSeconds": 300
+    }
+}

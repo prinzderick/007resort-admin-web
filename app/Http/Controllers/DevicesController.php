@@ -23,10 +23,18 @@ class DevicesController extends Controller
 
         $names = [];
         foreach ($dash->flatten($tree->items()) as $f) {
-            $names[$f['id']] = $f['name'];
+            $names[$f['id'] ?? ''] = $f['name'] ?? '';
+        }
+        // Who a tablet is checked out to: names when this account may list staff, otherwise the view shows a short id.
+        $staffNames = [];
+        if ($this->staff->can('staff.manage') && $devices->ok()) {
+            $staff = Fetch::of(fn () => $this->api->get('staff', ['limit' => 200]), ['GET', '/staff']);
+            foreach ($staff->items() as $m) {
+                $staffNames[$m['id'] ?? ''] = $m['displayName'] ?? ($m['staffNumber'] ?? '');
+            }
         }
 
-        return view('pages.devices.index', ['devices' => $devices, 'attendance' => $attendance, 'facilities' => $dash->flatten($tree->items()), 'facilityNames' => $names, 'status' => $status]);
+        return view('pages.devices.index', ['devices' => $devices, 'attendance' => $attendance, 'facilities' => $dash->flatten($tree->items()), 'facilityNames' => $names, 'staffNames' => $staffNames, 'status' => $status]);
     }
 
     /** Issue a one-time registration code. The device registers itself with it (POST /devices/register). */
@@ -50,8 +58,8 @@ class DevicesController extends Controller
     public function createTerminal(Request $request): RedirectResponse
     {
         abort_unless($this->staff->can('attendance.device.manage'), 403);
-        $d = $request->validate(['serial' => ['required', 'string', 'max:100'], 'adapter' => ['required', 'in:ZKTECO_ADMS,JSON_PUSH']]);
-        $r = $this->api->request('POST', 'attendance/devices', [], $d);
+        $d = $request->validate(['serialNumber' => ['required', 'string', 'max:64'], 'name' => ['required', 'string', 'max:120'], 'facilityId' => ['nullable', 'uuid'], 'adapter' => ['required', 'in:ZKTECO_ADMS,JSON_PUSH']]);
+        $r = $this->api->request('POST', 'attendance/devices', [], array_filter($d, fn ($v) => $v !== null && $v !== ''));
 
         return redirect()->route('devices.index')->with('secret', ['label' => 'Terminal token (shown once)', 'value' => $r->body['deviceToken'] ?? '', 'note' => 'Configure it on the terminal now; it cannot be shown again.']);
     }

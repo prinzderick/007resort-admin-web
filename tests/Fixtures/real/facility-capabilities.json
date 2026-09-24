@@ -1,0 +1,29 @@
+{
+    "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+    "capabilities": [
+        "INVENTORY",
+        "KITCHEN_ROUTING",
+        "OPEN_TAB",
+        "PAYMENT_ACCEPTANCE",
+        "POS",
+        "RECEIPT_PRINTING",
+        "TABLE_SERVICE"
+    ],
+    "operatingRules": {
+        "approvalThresholdAmount": "5000.0000",
+        "requireApprovalFor": [
+            "order.void",
+            "order.discount",
+            "order.comp"
+        ],
+        "allowOpenTabs": true,
+        "requireCashSession": true,
+        "allowOfflineOrders": true,
+        "allowOfflinePayments": "CASH_ONLY",
+        "holdTtlSeconds": 900,
+        "paymentTiming": "PAY_BEFORE_LEAVING",
+        "vatEnabled": false,
+        "vatRatePercent": "7.5"
+    },
+    "version": 1
+}

@@ -11,9 +11,9 @@
         @if ($staff->ok())
             <div class="overflow-x-auto"><table class="data-table" data-testid="staff-table"><thead><tr><th>No.</th><th>Name</th><th>Status</th><th>Sign-in methods</th><th></th></tr></thead><tbody>
             @forelse ($staff->items() as $m)
-                <tr><td>{{ $m['staffNumber'] ?? '' }}</td><td class="font-medium">{{ $m['displayName'] }}<div class="text-xs font-normal text-stone-500">{{ $m['email'] ?? '' }}</div></td><td><x-badge :status="$m['status']" /></td>
+                <tr><td>{{ $m['staffNumber'] ?? '' }}</td><td class="font-medium">{{ $m['displayName'] ?? trim(($m['firstName'] ?? '').' '.($m['lastName'] ?? '')) }}<div class="text-xs font-normal text-stone-500">{{ $m['email'] ?? '' }}</div></td><td><x-badge :status="$m['status'] ?? 'UNKNOWN'" /></td>
                     <td class="text-xs">{{ implode(', ', array_filter([($m['hasPassword'] ?? false) ? 'password' : null, ($m['hasPin'] ?? false) ? 'PIN' : null, ($m['hasNfcCard'] ?? false) ? 'NFC card' : null])) ?: 'none' }}</td>
-                    <td><a class="underline" href="{{ route('staff.show', $m['id']) }}">Manage</a></td></tr>
+                    <td>@if (! empty($m['id']))<a class="underline" href="{{ route('staff.show', $m['id']) }}">Manage</a>@endif</td></tr>
             @empty<tr><td colspan="5" class="text-center text-stone-500">No staff found.</td></tr>@endforelse
             </tbody></table></div>
         @endif

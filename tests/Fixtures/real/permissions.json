@@ -1,0 +1,337 @@
+{
+    "items": [
+        {
+            "code": "attendance.correction.request",
+            "description": "Request an attendance clock correction"
+        },
+        {
+            "code": "attendance.device.manage",
+            "description": "Register biometric terminals and staff-to-terminal links"
+        },
+        {
+            "code": "attendance.view",
+            "description": "View staff attendance"
+        },
+        {
+            "code": "audit.view",
+            "description": "View the audit trail"
+        },
+        {
+            "code": "booking.cancel",
+            "description": "Cancel a booking per policy"
+        },
+        {
+            "code": "booking.configure",
+            "description": "Configure bookable resources, rules, blackouts and booking-authority strategy"
+        },
+        {
+            "code": "booking.create",
+            "description": "Hold and confirm a resource booking"
+        },
+        {
+            "code": "booking.reschedule",
+            "description": "Reschedule a booking"
+        },
+        {
+            "code": "booking.view",
+            "description": "View bookings and resource availability"
+        },
+        {
+            "code": "cash_movement.record",
+            "description": "Record a cash paid-in / paid-out / drop against an open cash session"
+        },
+        {
+            "code": "cash_session.close",
+            "description": "Close a cash drawer session"
+        },
+        {
+            "code": "cash_session.close_any",
+            "description": "Close a cash session opened by another staff member (supervisor)"
+        },
+        {
+            "code": "cash_session.open",
+            "description": "Open a cash drawer session"
+        },
+        {
+            "code": "cash_session.view",
+            "description": "View cash sessions"
+        },
+        {
+            "code": "catalog.availability.manage",
+            "description": "Set per-facility product availability (86 an item)"
+        },
+        {
+            "code": "catalog.manage",
+            "description": "Create and edit catalog categories and products"
+        },
+        {
+            "code": "config.manage",
+            "description": "Manage system configuration"
+        },
+        {
+            "code": "device.register",
+            "description": "Register a device"
+        },
+        {
+            "code": "device.revoke",
+            "description": "Revoke a device"
+        },
+        {
+            "code": "device.view",
+            "description": "View device registrations"
+        },
+        {
+            "code": "facility.configure",
+            "description": "Configure facility capabilities/operating rules"
+        },
+        {
+            "code": "finance.report.view",
+            "description": "View financial reports"
+        },
+        {
+            "code": "inventory.adjustment.approve",
+            "description": "Approve a stock adjustment"
+        },
+        {
+            "code": "inventory.adjustment.request",
+            "description": "Request a stock adjustment"
+        },
+        {
+            "code": "inventory.count.create",
+            "description": "Create a physical stock count"
+        },
+        {
+            "code": "inventory.count.post",
+            "description": "Post a physical stock count"
+        },
+        {
+            "code": "inventory.item.manage",
+            "description": "Create and edit inventory items"
+        },
+        {
+            "code": "inventory.location.manage",
+            "description": "Create and edit stock locations"
+        },
+        {
+            "code": "inventory.purchase_receipt.create",
+            "description": "Create a purchase receipt"
+        },
+        {
+            "code": "inventory.receive",
+            "description": "Record a goods receipt"
+        },
+        {
+            "code": "inventory.return.create",
+            "description": "Record customer/supplier returns"
+        },
+        {
+            "code": "inventory.transfer.create",
+            "description": "Create a stock transfer"
+        },
+        {
+            "code": "inventory.view",
+            "description": "View items, locations, balances and the stock ledger"
+        },
+        {
+            "code": "inventory.wastage.create",
+            "description": "Record wastage"
+        },
+        {
+            "code": "membership.manage",
+            "description": "Suspend, reinstate or cancel a membership"
+        },
+        {
+            "code": "membership.plan.manage",
+            "description": "Create and edit membership plans"
+        },
+        {
+            "code": "membership.sell",
+            "description": "Sell / renew a membership"
+        },
+        {
+            "code": "membership.validate",
+            "description": "Validate a membership at a facility entrance/scanner"
+        },
+        {
+            "code": "membership.view",
+            "description": "View memberships and plans"
+        },
+        {
+            "code": "order.comp.approve",
+            "description": "Approve a complimentary (comp) item"
+        },
+        {
+            "code": "order.comp.execute",
+            "description": "Apply or request a complimentary (comp) line"
+        },
+        {
+            "code": "order.create",
+            "description": "Create a draft order"
+        },
+        {
+            "code": "order.discount.approve",
+            "description": "Approve a discount above the facility threshold"
+        },
+        {
+            "code": "order.discount.execute",
+            "description": "Apply or request a line discount"
+        },
+        {
+            "code": "order.line.add",
+            "description": "Add a line to a draft order"
+        },
+        {
+            "code": "order.line.remove_unsent",
+            "description": "Remove an unsent line from a draft order"
+        },
+        {
+            "code": "order.price_override.approve",
+            "description": "Approve a manual price override"
+        },
+        {
+            "code": "order.price_override.execute",
+            "description": "Apply or request a manual price override"
+        },
+        {
+            "code": "order.send",
+            "description": "Send an order to prep/routing"
+        },
+        {
+            "code": "order.serve",
+            "description": "Mark an order served"
+        },
+        {
+            "code": "order.settle",
+            "description": "Settle an order/tab against payment(s)"
+        },
+        {
+            "code": "order.view",
+            "description": "View orders"
+        },
+        {
+            "code": "order.void.approve",
+            "description": "Approve a pending void"
+        },
+        {
+            "code": "order.void.execute",
+            "description": "Void an order or line"
+        },
+        {
+            "code": "payment.reversal.approve",
+            "description": "Approve a payment reversal"
+        },
+        {
+            "code": "payment.reversal.execute",
+            "description": "Request or execute a same-session payment reversal"
+        },
+        {
+            "code": "payment.split",
+            "description": "Split a payment across tenders"
+        },
+        {
+            "code": "payment.take",
+            "description": "Take a payment"
+        },
+        {
+            "code": "payment.view",
+            "description": "View payments"
+        },
+        {
+            "code": "prep_ticket.transition",
+            "description": "Transition a prep ticket's status"
+        },
+        {
+            "code": "prep_ticket.view",
+            "description": "View the prep ticket queue"
+        },
+        {
+            "code": "pricing.manage",
+            "description": "Manage prices and price lists"
+        },
+        {
+            "code": "receipt.reprint",
+            "description": "Reprint a customer receipt"
+        },
+        {
+            "code": "receipt.view",
+            "description": "View receipts"
+        },
+        {
+            "code": "refund.approve",
+            "description": "Approve a refund"
+        },
+        {
+            "code": "refund.execute",
+            "description": "Request or execute a refund"
+        },
+        {
+            "code": "report.view",
+            "description": "View operational reports"
+        },
+        {
+            "code": "report.view.all",
+            "description": "View reports across all facilities"
+        },
+        {
+            "code": "role_assignment.manage",
+            "description": "Grant or revoke role assignments below one's own level"
+        },
+        {
+            "code": "security_event.view",
+            "description": "View security events"
+        },
+        {
+            "code": "session.revoke",
+            "description": "Revoke a staff session"
+        },
+        {
+            "code": "settlement.reconcile",
+            "description": "Reconcile a settlement"
+        },
+        {
+            "code": "staff.clock_correction.approve",
+            "description": "Approve an attendance clock correction"
+        },
+        {
+            "code": "staff.manage",
+            "description": "Manage staff records"
+        },
+        {
+            "code": "supplier.manage",
+            "description": "Manage supplier records"
+        },
+        {
+            "code": "tab.open",
+            "description": "Open a tab and attach orders"
+        },
+        {
+            "code": "tab.view_own_facility",
+            "description": "View tabs at the staff member's own facility"
+        },
+        {
+            "code": "table.manage",
+            "description": "Change table status, assignment and transfer orders between tables"
+        },
+        {
+            "code": "ticket.issue",
+            "description": "Issue (or re-issue) an entitlement for an order or booking"
+        },
+        {
+            "code": "ticket.override",
+            "description": "Manual ticket override (staff-approval validation, sensitive)"
+        },
+        {
+            "code": "ticket.redeem",
+            "description": "Scan/redeem an entitlement at a facility"
+        },
+        {
+            "code": "ticket.release",
+            "description": "Release and take back rental items (Sports Store)"
+        },
+        {
+            "code": "ticket.view",
+            "description": "View entitlements and look them up by QR token"
+        }
+    ],
+    "nextCursor": null
+}

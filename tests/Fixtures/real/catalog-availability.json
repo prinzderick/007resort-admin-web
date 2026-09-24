@@ -1,0 +1,299 @@
+{
+    "items": [
+        {
+            "productId": "0033ac57-7e3f-555c-a738-67f8b569fb2d",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "04dd7cd6-f5e3-5faf-b2a9-0d65b509155f",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "06dcf4e6-6580-5614-8224-4abf705b854a",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "0ba2064f-ffb6-5ce6-a150-4babb69241c2",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "0df798a0-afd2-557b-a0b3-e6f849d0a7f0",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": "0.0000"
+        },
+        {
+            "productId": "13f842d9-457d-5d61-aefc-b0fa461a74ed",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": "0.0000"
+        },
+        {
+            "productId": "14a68737-984c-5007-baf0-da272641707c",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": "90.0000"
+        },
+        {
+            "productId": "1c5380d8-e900-5f78-bfe7-fcd7e458f0c4",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": "96.0000"
+        },
+        {
+            "productId": "243d1ceb-9eef-5345-987a-6f88d7fe26e9",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "2fb6df86-ee26-59ec-a7fe-e96532bc525d",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "3685ad1a-f0c3-52d4-9660-2ec349ab84eb",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "4144db8f-ed31-51ab-a9a3-5ff7e8ebec59",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "42c15f6e-d8ab-50ba-9e03-9ecfb7dd7285",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "43171aa7-e503-5846-9777-35b7f1f3bc71",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "488b464f-1f80-5947-8c72-a97ce02beb86",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "4ce0d430-7e8c-533b-b98c-292c4365c738",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": "0.0000"
+        },
+        {
+            "productId": "584c3f40-8f0a-534c-b7b8-44009108cb70",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "6169e304-ba4e-512a-ac92-2a524339a4e7",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": "192.0000"
+        },
+        {
+            "productId": "65be7265-1971-515b-86b7-803771faa170",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "777acf30-fb6b-5e08-a0e7-201d8f29617d",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "7d0261ec-56e6-59f0-a47f-bd30c103705c",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": "90.0000"
+        },
+        {
+            "productId": "86ae9318-5e1c-5b6b-b9a4-f5e83173501d",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "878f3208-f7e1-54a5-8448-5eb86bb0a34a",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "8852ce21-a85f-5605-bceb-f478ffe18ddc",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": "144.0000"
+        },
+        {
+            "productId": "8c5eb6f8-0a0e-5e2c-86eb-fc81ae1bd8d9",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "9675ffb3-1ae3-507a-b98c-92a8e0585999",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "9a6baa73-8853-52b0-89a6-dd1ed9aaa1c0",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": false,
+            "reason": "OUT_OF_STOCK",
+            "quantityOnHand": "0.0000"
+        },
+        {
+            "productId": "9cb304be-26fe-5547-9ad3-7fefea86cd4d",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "a3a823fd-dfd5-5a97-bb7c-0275ef2fb319",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "a6f6229c-5ae4-5671-8aba-b68c06b45525",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "aa85dfe3-3649-5664-a767-9ddec5f5b47e",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "aaf60197-ab6f-59f4-a536-a3ddd3c12d3b",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "af483749-6ce2-5619-a140-4ea7d2d674c7",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": "0.0000"
+        },
+        {
+            "productId": "c3598d2e-dd67-533d-9d3f-38ed317521a2",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": "72.0000"
+        },
+        {
+            "productId": "c3a35280-c425-5d3b-ad32-b4b59f12846e",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "cd4c4ace-18c7-5304-bf60-0d36d5bf4541",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": "70.0000"
+        },
+        {
+            "productId": "d5fbc9a0-108b-592f-b181-07531e36cabb",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "de52cb70-baf4-5e21-92c9-08abb24415a1",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": "96.0000"
+        },
+        {
+            "productId": "f3d6ba93-3837-540d-a9aa-d5ec955962ba",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": "120.0000"
+        },
+        {
+            "productId": "f8fc95f1-d0f1-5b0d-afe6-8f1d867a8cd3",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": null
+        },
+        {
+            "productId": "f9635998-4948-54cf-a3b9-d21dce6506aa",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": "72.0000"
+        },
+        {
+            "productId": "fe8a3439-f78a-51c8-b0f1-2fc56683149e",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "available": true,
+            "reason": null,
+            "quantityOnHand": "96.0000"
+        }
+    ],
+    "nextCursor": null
+}

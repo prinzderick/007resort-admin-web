@@ -13,7 +13,7 @@
         <x-fetch :of="$records" what="Attendance" />
         @if ($records->ok())
             <div class="overflow-x-auto"><table class="data-table" data-testid="attendance-table"><thead><tr><th>Date</th><th>Staff</th><th>In</th><th>Out</th><th class="text-right">Minutes</th><th>Status</th></tr></thead><tbody>
-            @forelse ($records->items() as $r)<tr><td>{{ $r['workDate'] }}</td><td>{{ $r['staffName'] ?? $r['staffId'] }}</td><td><x-time :at="$r['clockIn'] ?? null" /></td><td><x-time :at="$r['clockOut'] ?? null" /></td><td class="text-right tabular-nums">{{ $r['minutesWorked'] ?? '' }}</td><td><x-badge :status="$r['status']" /></td></tr>@empty<tr><td colspan="6" class="text-center text-stone-500">No records.</td></tr>@endforelse
+            @forelse ($records->items() as $r)<tr><td>{{ $r['workDate'] ?? '' }}</td><td>{{ $r['staffName'] ?? $names[$r['staffId'] ?? ''] ?? \App\Services\Portal\Directory::short($r['staffId'] ?? null) }}</td><td><x-time :at="$r['clockIn'] ?? null" /></td><td><x-time :at="$r['clockOut'] ?? null" /></td><td class="text-right tabular-nums">{{ $r['minutesWorked'] ?? '' }}</td><td><x-badge :status="$r['status'] ?? 'UNKNOWN'" /></td></tr>@empty<tr><td colspan="6" class="text-center text-stone-500">No records.</td></tr>@endforelse
             </tbody></table></div>
         @endif
     </x-card>
@@ -22,12 +22,27 @@
         @if ($corrections->ok())
             <div class="overflow-x-auto"><table class="data-table"><thead><tr><th>Date</th><th>Staff</th><th>Requested times</th><th>Reason</th><th></th></tr></thead><tbody>
             @forelse ($corrections->items() as $c)
-                <tr><td>{{ $c['workDate'] }}</td><td class="text-xs">{{ $c['staffId'] }}</td><td><x-time :at="$c['clockIn'] ?? null" /> &ndash; <x-time :at="$c['clockOut'] ?? null" /></td><td>{{ $c['reason'] }}</td>
-                    <td>@if (auth_staff()->can('staff.clock_correction.approve'))<div class="flex gap-2">
+                <tr><td>{{ $c['workDate'] ?? '' }}</td><td>{{ $names[$c['staffId'] ?? ''] ?? \App\Services\Portal\Directory::short($c['staffId'] ?? null) }}</td><td><x-time :at="$c['requestedClockIn'] ?? null" /> &ndash; <x-time :at="$c['requestedClockOut'] ?? null" /></td><td>{{ $c['reason'] ?? '' }}</td>
+                    <td>@if (! empty($c['id']) && ($c['status'] ?? 'PENDING') === 'PENDING' && auth_staff()->can('staff.clock_correction.approve'))<div class="flex gap-2">
                         <form method="POST" action="{{ route('staff.correction', [$c['id'], 'approve']) }}">@csrf<x-btn class="min-h-10">Approve</x-btn></form>
                         <form method="POST" action="{{ route('staff.correction', [$c['id'], 'reject']) }}">@csrf<x-btn variant="secondary" class="min-h-10">Reject</x-btn></form></div>@endif</td></tr>
             @empty<tr><td colspan="5" class="text-center text-stone-500">No pending corrections.</td></tr>@endforelse
             </tbody></table></div>
         @endif
     </x-card>
+    @if (auth_staff()->can('attendance.correction.request'))
+        <x-card title="Request a correction">
+            <p class="mb-3 text-sm text-stone-600">A missed or wrong clock-in/out. Times are Lagos time. A supervisor approves it before the attendance record changes.</p>
+            <x-fetch :of="$people" what="Staff list" />
+            <form method="POST" action="{{ route('staff.correction.request') }}" class="grid gap-x-4 sm:grid-cols-2">
+                @csrf
+                @if ($people->ok())<x-field name="staffId" label="Staff member" :options="['' => 'Choose...'] + collect($people->data)->pluck('name', 'id')->all()" required />
+                @else<x-field name="staffId" label="Staff id (UUID)" required />@endif
+                <x-field name="workDate" label="Work date" type="date" required />
+                <x-field name="clockIn" label="Clock in" type="datetime-local" /><x-field name="clockOut" label="Clock out" type="datetime-local" />
+                <div class="sm:col-span-2"><x-field name="reason" label="Reason (min 5 characters)" required /></div>
+                <div class="sm:col-span-2"><x-btn>Request correction</x-btn></div>
+            </form>
+        </x-card>
+    @endif
 </x-layouts.app>

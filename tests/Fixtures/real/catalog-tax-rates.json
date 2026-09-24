@@ -1,0 +1,17 @@
+{
+    "items": [
+        {
+            "id": "a6301b29-95b8-51a3-be18-ea106629f923",
+            "code": "VAT_EXEMPT",
+            "name": "VAT exempt",
+            "ratePercent": "0"
+        },
+        {
+            "id": "ec364e58-e64b-5cfe-b01c-f058d2169e99",
+            "code": "VAT_STD",
+            "name": "Standard VAT",
+            "ratePercent": "7.5"
+        }
+    ],
+    "nextCursor": null
+}

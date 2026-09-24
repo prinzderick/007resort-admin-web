@@ -54,6 +54,9 @@ Route::middleware('staff')->group(function (): void {
     // Inventory
     Route::prefix('inventory')->name('inventory.')->middleware('permit:inventory.view,inventory.purchase_receipt.create,inventory.transfer.create,inventory.count.create,inventory.adjustment.request')->group(function (): void {
         Route::get('/', [InventoryController::class, 'index'])->name('index');
+        Route::get('/movements', [InventoryController::class, 'movements'])->name('movements');
+        Route::get('/counts', [InventoryController::class, 'counts'])->name('counts');
+        Route::get('/adjustments', [InventoryController::class, 'adjustments'])->name('adjustments');
         Route::get('/count/{count}', [InventoryController::class, 'showCount'])->name('count.show');
         Route::post('/count/{count}/post', [InventoryController::class, 'postCount'])->name('count.post');
         Route::get('/{action}', [InventoryController::class, 'form'])->whereIn('action', array_keys(InventoryController::ACTIONS))->name('form');
@@ -64,6 +67,7 @@ Route::middleware('staff')->group(function (): void {
     Route::prefix('staff')->name('staff.')->group(function (): void {
         Route::get('/attendance', [StaffController::class, 'attendance'])->middleware('permit:attendance.view')->name('attendance');
         Route::post('/attendance/corrections/{correction}/{decision}', [StaffController::class, 'decideCorrection'])->middleware('permit:staff.clock_correction.approve')->name('correction');
+        Route::post('/attendance/corrections', [StaffController::class, 'requestCorrection'])->middleware('permit:attendance.correction.request')->name('correction.request');
         Route::get('/audit', [StaffController::class, 'audit'])->middleware('permit:audit.view')->name('audit');
 
         Route::middleware('permit:staff.manage')->group(function (): void {
@@ -79,9 +83,9 @@ Route::middleware('staff')->group(function (): void {
     });
 
     // Configuration
-    Route::prefix('config')->name('config.')->middleware('permit:config.manage,facility.configure,pricing.manage,membership.plan.manage,catalog.availability.manage')->group(function (): void {
+    Route::prefix('config')->name('config.')->middleware('permit:config.manage,facility.configure,pricing.manage,membership.plan.manage,catalog.availability.manage,catalog.manage,booking.configure')->group(function (): void {
         Route::get('/', [ConfigurationController::class, 'index'])->name('index');
-        Route::middleware('permit:facility.configure,config.manage')->group(function (): void {
+        Route::middleware('permit:facility.configure,config.manage,booking.configure')->group(function (): void {
             Route::get('/facilities', [ConfigurationController::class, 'facilities'])->name('facilities');
             Route::put('/facilities/{facility}/rules', [ConfigurationController::class, 'updateRules'])->name('facilities.rules');
             Route::get('/bookings', [ConfigurationController::class, 'bookings'])->name('bookings');
@@ -90,9 +94,13 @@ Route::middleware('staff')->group(function (): void {
             Route::get('/kds', [ConfigurationController::class, 'kds'])->name('kds');
             Route::get('/payments', [ConfigurationController::class, 'payments'])->name('payments');
         });
-        Route::middleware('permit:pricing.manage,config.manage,catalog.availability.manage')->group(function (): void {
+        Route::middleware('permit:pricing.manage,config.manage,catalog.availability.manage,catalog.manage')->group(function (): void {
             Route::get('/catalog', [ConfigurationController::class, 'catalog'])->name('catalog');
             Route::put('/catalog/{product}/availability', [ConfigurationController::class, 'setAvailability'])->name('availability');
+            Route::post('/catalog/products', [ConfigurationController::class, 'createProduct'])->name('catalog.product.create');
+            Route::patch('/catalog/products/{product}', [ConfigurationController::class, 'updateProduct'])->name('catalog.product.update');
+            Route::put('/catalog/products/{product}/price', [ConfigurationController::class, 'setPrice'])->name('catalog.price');
+            Route::post('/catalog/categories', [ConfigurationController::class, 'createCategory'])->name('catalog.category.create');
         });
         Route::middleware('permit:config.manage')->group(function (): void {
             Route::get('/tax', [ConfigurationController::class, 'tax'])->name('tax');

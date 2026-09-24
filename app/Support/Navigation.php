@@ -24,7 +24,7 @@ final class Navigation
             ['label' => 'Finance', 'route' => 'finance.payments', 'match' => 'finance.*', 'permissions' => ['payment.view', 'settlement.reconcile', 'finance.report.view']],
             ['label' => 'Inventory', 'route' => 'inventory.index', 'match' => 'inventory.*', 'permissions' => ['inventory.view', 'inventory.receive', 'inventory.purchase_receipt.create', 'inventory.transfer.create', 'inventory.count.create', 'inventory.adjustment.request']],
             ['label' => 'Staff', 'route' => 'staff.index', 'alt' => ['staff.attendance' => 'attendance.view', 'staff.audit' => 'audit.view'], 'match' => 'staff.*', 'permissions' => ['staff.manage', 'role_assignment.manage', 'attendance.view', 'audit.view']],
-            ['label' => 'Configuration', 'route' => 'config.index', 'match' => 'config.*', 'permissions' => ['config.manage', 'facility.configure', 'pricing.manage', 'membership.plan.manage', 'catalog.availability.manage']],
+            ['label' => 'Configuration', 'route' => 'config.index', 'match' => 'config.*', 'permissions' => ['config.manage', 'facility.configure', 'pricing.manage', 'membership.plan.manage', 'catalog.availability.manage', 'catalog.manage', 'booking.configure']],
             ['label' => 'Devices', 'route' => 'devices.index', 'match' => 'devices.*', 'permissions' => ['device.register', 'device.revoke', 'attendance.device.manage']],
             ['label' => 'Sync & IT', 'route' => 'sync', 'match' => 'sync', 'permissions' => ['config.manage']],
         ];

@@ -59,7 +59,7 @@ class SyncCenter extends Component
     {
         $this->run(function () use ($api): void {
             $r = $api->post('sync/outbox/replay-failed');
-            $this->message = ($r['outboxRequeued'] ?? 0).' outbox event(s) re-queued, '.($r['inboxReprocessed'] ?? 0).' inbox event(s) reprocessed.';
+            $this->message = ((int) ($r['outboxRequeued'] ?? 0)).' outbox event(s) re-queued, '.((int) ($r['inbox']['reprocessed'] ?? 0)).' failed inbox event(s) reprocessed ('.((int) ($r['inbox']['applied'] ?? 0)).' applied).';
         }, null);
     }
 
@@ -82,7 +82,14 @@ class SyncCenter extends Component
 
             return;
         }
-        $this->run(fn () => $api->post("sync/conflicts/{$id}/resolve", array_filter(['resolution' => $choice, 'note' => trim($this->notes[$id] ?? '') ?: null])), 'Conflict resolution recorded.');
+        $note = trim($this->notes[$id] ?? '');
+        if (mb_strlen($note) < 3) {
+            $this->message = 'Add a note (at least 3 characters) explaining the resolution; it is kept in the audit trail.';
+            $this->messageTone = 'error';
+
+            return;
+        }
+        $this->run(fn () => $api->post("sync/conflicts/{$id}/resolve", ['resolution' => $choice, 'note' => $note]), 'Conflict resolution recorded.');
         $this->openConflict = null;
     }
 

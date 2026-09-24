@@ -6,6 +6,7 @@ use App\Support\Csv;
 use App\Support\Fetch;
 use App\Support\Money;
 use App\Support\Time;
+use Carbon\CarbonImmutable;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -16,16 +17,19 @@ class FinanceController extends Controller
         $q = $request->only(['filter']);
         $filter = array_filter((array) ($q['filter'] ?? []), fn ($v) => is_string($v) && $v !== '');
         $params = ['limit' => 50, 'cursor' => $request->query('cursor')];
-        foreach (['status', 'facilityId', 'from', 'to'] as $k) {
+        foreach (['status', 'facilityId', 'tenderType'] as $k) {
             isset($filter[$k]) && $params["filter[{$k}]"] = $filter[$k];
         }
+        // The picker is in property (Lagos) days; the API filters on UTC instants.
+        isset($filter['from']) && $params['filter[from]'] = $this->dayStart($filter['from']);
+        isset($filter['to']) && $params['filter[to]'] = $this->dayEnd($filter['to']);
 
         $payments = Fetch::of(fn () => $this->api->get('payments', $params), ['GET', '/payments']);
         $facilities = Fetch::of(fn () => $this->api->get('organization/facilities'), ['GET', '/organization/facilities']);
 
         if ($request->query('format') === 'csv') {
             return Csv::stream('payments-'.Time::today().'.csv', ['Payment', 'Created', 'Facility', 'Method', 'Provider', 'Reference', 'Status', 'Amount', 'Refunded'],
-                array_map(fn ($p) => [$p['id'], $p['createdAt'], $p['facilityId'], $p['tenderType'], $p['provider'] ?? '', $p['providerReference'] ?? '', $p['status'], $p['amount'], $p['refundedAmount'] ?? '0'], $payments->items()));
+                array_map(fn ($p) => [$p['id'] ?? '', $p['createdAt'] ?? '', $p['facilityId'] ?? '', $p['tenderType'] ?? '', $p['provider'] ?? '', $p['providerReference'] ?? $p['reference'] ?? '', $p['status'] ?? '', $p['amount'] ?? '0', $p['refundedAmount'] ?? '0'], $payments->items()));
         }
 
         return view('pages.finance.payments', ['payments' => $payments, 'filter' => $filter, 'facilities' => $facilities]);
@@ -64,23 +68,23 @@ class FinanceController extends Controller
     {
         $from = $this->day($request->query('from')) ?? Time::today();
         $to = $this->day($request->query('to')) ?? Time::today();
-        $payments = Fetch::of(fn () => $this->api->get('payments', ['filter[from]' => $from, 'filter[to]' => $to, 'limit' => 200]), ['GET', '/payments']);
+        $payments = $this->all('payments', ['filter[from]' => $this->dayStart($from), 'filter[to]' => $this->dayEnd($to)], ['GET', '/payments'], 10);
 
         $byMethod = [];
         $provider = [];
         $unsettled = [];
         foreach ($payments->items() as $p) {
-            $m = $p['tenderType'];
+            $m = $p['tenderType'] ?? 'UNKNOWN';
             $byMethod[$m] ??= ['count' => 0, 'captured' => '0', 'refunded' => '0'];
             $byMethod[$m]['count']++;
-            if (in_array($p['status'], ['CAPTURED', 'PARTIALLY_REFUNDED', 'REFUNDED'], true)) {
-                $byMethod[$m]['captured'] = Money::add($byMethod[$m]['captured'], $p['amount']);
+            if (in_array($p['status'] ?? '', ['CAPTURED', 'PARTIALLY_REFUNDED', 'REFUNDED'], true)) {
+                $byMethod[$m]['captured'] = Money::add($byMethod[$m]['captured'], $p['amount'] ?? '0');
             }
             $byMethod[$m]['refunded'] = Money::add($byMethod[$m]['refunded'], $p['refundedAmount'] ?? '0');
 
             if (($p['provider'] ?? 'MANUAL') !== 'MANUAL' && ! empty($p['providerReference'])) {
                 $provider[] = $p;
-                if (! in_array($p['status'], ['CAPTURED', 'PARTIALLY_REFUNDED', 'REFUNDED', 'REVERSED'], true)) {
+                if (! in_array($p['status'] ?? '', ['CAPTURED', 'PARTIALLY_REFUNDED', 'REFUNDED', 'REVERSED'], true)) {
                     $unsettled[] = $p;
                 }
             }
@@ -103,6 +107,18 @@ class FinanceController extends Controller
         $t = trim((string) $request->input('stepUpToken', ''));
 
         return $t !== '' ? ['X-Step-Up-Token' => $t] : [];
+    }
+
+    /** Start of a Lagos calendar day as a UTC instant. */
+    private function dayStart(mixed $day): ?string
+    {
+        return $this->day($day) ? CarbonImmutable::parse($day, (string) config('r007.display_timezone', 'Africa/Lagos'))->startOfDay()->utc()->toIso8601ZuluString('millisecond') : null;
+    }
+
+    /** End (exclusive) of a Lagos calendar day as a UTC instant. */
+    private function dayEnd(mixed $day): ?string
+    {
+        return $this->day($day) ? CarbonImmutable::parse($day, (string) config('r007.display_timezone', 'Africa/Lagos'))->addDay()->startOfDay()->utc()->toIso8601ZuluString('millisecond') : null;
     }
 
     private function day(mixed $v): ?string

@@ -37,6 +37,9 @@ class DashboardData
         $freshBlocks = [];
         if ($this->staff->canAny('report.view', 'report.view.all')) {
             foreach (array_slice($this->flatten($out['facilities']->items()), 0, self::MAX_FACILITIES) as $f) {
+                if (empty($f['id'])) {
+                    continue;
+                }
                 $s = Fetch::of(fn () => $this->api->get('reports/facility-daily-summary', ['date' => $date, 'facilityId' => $f['id']]), ['GET', '/reports/facility-daily-summary']);
                 if ($s->ok()) {
                     $summaries[] = ['facility' => $f, 'summary' => $s->data];
@@ -48,7 +51,7 @@ class DashboardData
             $out['reportsFetch'] = new Fetch(null, 'forbidden');
         }
         $out['revenue'] = array_map(fn ($r) => [
-            'facility' => $r['facility']['name'], 'facilityId' => $r['facility']['id'],
+            'facility' => $r['facility']['name'] ?? '?', 'facilityId' => $r['facility']['id'] ?? '',
             'gross' => $r['summary']['grossSales'] ?? '0', 'net' => $r['summary']['netSales'] ?? '0', 'orders' => (int) ($r['summary']['orders'] ?? 0),
         ], $summaries);
         $out['totals'] = [
@@ -62,9 +65,9 @@ class DashboardData
         $methods = [];
         foreach ($summaries as $r) {
             foreach ($r['summary']['byTender'] ?? [] as $t) {
-                $m = $t['tenderType'];
+                $m = $t['tenderType'] ?? 'UNKNOWN';
                 $methods[$m] ??= ['amount' => '0', 'count' => 0];
-                $methods[$m]['amount'] = Money::add($methods[$m]['amount'], $t['amount']);
+                $methods[$m]['amount'] = Money::add($methods[$m]['amount'], $t['amount'] ?? '0');
                 $methods[$m]['count'] += (int) ($t['count'] ?? 0);
             }
         }
@@ -86,18 +89,18 @@ class DashboardData
         $out['stock'] = new Fetch(null, 'forbidden');
         $out['lowStock'] = [];
         if ($this->staff->can('inventory.view')) {
-            $items = Fetch::of(fn () => $this->api->get('inventory/items', ['limit' => 200]), ['GET', '/inventory/items']);
-            $bal = Fetch::of(fn () => $this->api->get('inventory/balances', ['limit' => 200]), ['GET', '/inventory/balances']);
+            $items = $this->pages('inventory/items', ['GET', '/inventory/items']);
+            $bal = $this->pages('inventory/balances', ['GET', '/inventory/balances']);
             $out['stock'] = $items->ok() ? $bal : $items;
             if ($items->ok() && $bal->ok()) {
                 $onHand = [];
                 foreach ($bal->items() as $b) {
-                    $onHand[$b['itemId']] = bcadd($onHand[$b['itemId']] ?? '0', Money::norm($b['quantity']), 4);
+                    $onHand[$b['itemId'] ?? ''] = bcadd($onHand[$b['itemId'] ?? ''] ?? '0', Money::norm($b['quantity'] ?? '0'), 4);
                 }
                 foreach ($items->items() as $it) {
-                    $q = $onHand[$it['id']] ?? '0';
+                    $q = $onHand[$it['id'] ?? ''] ?? '0';
                     if (isset($it['reorderLevel']) && bccomp($q, Money::norm($it['reorderLevel']), 4) <= 0) {
-                        $out['lowStock'][] = ['name' => $it['name'], 'unit' => $it['unit'] ?? '', 'onHand' => $q, 'reorderLevel' => $it['reorderLevel']];
+                        $out['lowStock'][] = ['name' => $it['name'] ?? '', 'unit' => $it['unit'] ?? '', 'onHand' => $q, 'reorderLevel' => $it['reorderLevel']];
                     }
                 }
             }
@@ -118,6 +121,25 @@ class DashboardData
         $out['siteStatus'] = $this->siteStatus($out);
 
         return $out;
+    }
+
+    /** All pages (up to 1000 rows) of a cursor list, as one Fetch. */
+    private function pages(string $path, array $endpoint): Fetch
+    {
+        return Fetch::of(function () use ($path) {
+            $items = [];
+            $cursor = null;
+            for ($i = 0; $i < 5; $i++) {
+                $body = $this->api->get($path, ['limit' => 200, 'cursor' => $cursor]);
+                array_push($items, ...array_values((array) ($body['items'] ?? [])));
+                $cursor = $body['nextCursor'] ?? null;
+                if (! is_string($cursor) || $cursor === '') {
+                    break;
+                }
+            }
+
+            return ['items' => $items, 'nextCursor' => null];
+        }, $endpoint);
     }
 
     /**

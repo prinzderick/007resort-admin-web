@@ -1,0 +1,50 @@
+{
+    "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+    "date": "2026-09-23",
+    "orders": 1,
+    "grossSales": "2000.0000",
+    "discounts": "0.0000",
+    "tax": "0.0000",
+    "total": "2000.0000",
+    "netSales": "1500.0000",
+    "refunds": "500.0000",
+    "reversals": "0.0000",
+    "voids": {
+        "count": 0,
+        "amount": "0.0000"
+    },
+    "byTender": [
+        {
+            "tenderType": "CASH",
+            "amount": "2000.0000",
+            "count": 1
+        }
+    ],
+    "topProducts": [
+        {
+            "productId": "04dd7cd6-f5e3-5faf-b2a9-0d65b509155f",
+            "name": "Moi Moi",
+            "quantity": 2,
+            "revenue": "2000.0000"
+        }
+    ],
+    "ticketsRedeemed": 0,
+    "currency": "NGN",
+    "availability": {
+        "orders": true,
+        "payments": true,
+        "refunds": true,
+        "reversals": true,
+        "voids": true,
+        "tickets": true
+    },
+    "freshness": {
+        "generatedAt": "2026-09-23T23:42:01.953Z",
+        "sourceNode": "local",
+        "lastSyncAt": null,
+        "stale": false,
+        "staleReason": null,
+        "ageSeconds": null,
+        "staleAfterSeconds": 300
+    }
+}

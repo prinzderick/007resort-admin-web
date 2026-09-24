@@ -14,18 +14,23 @@
     <x-card title="Registered devices" flush>
         <x-fetch :of="$devices" what="Devices" />
         @if ($devices->ok())
-            <div class="overflow-x-auto"><table class="data-table" data-testid="devices-table"><thead><tr><th>Device</th><th>Kind</th><th>Status</th><th>Facility</th><th>App</th><th>Last seen</th><th>Checked out to</th><th></th></tr></thead><tbody>
+            <div class="overflow-x-auto"><table class="data-table" data-testid="devices-table"><thead><tr><th>Device</th><th>Kind / mode</th><th>Status</th><th>Home facility</th><th>Checked out at</th><th>App</th><th>Last seen</th><th>Checked out to</th><th></th></tr></thead><tbody>
             @forelse ($devices->items() as $d)
                 @php
                     $seen = \App\Support\Time::parse($d['lastSeenAt'] ?? null);
-                    $quiet = $d['status'] === 'ACTIVE' && (! $seen || $seen->diffInSeconds(now()) > 300);
+                    $status = $d['status'] ?? 'UNKNOWN';
+                    $quiet = $status === 'ACTIVE' && (! $seen || $seen->diffInSeconds(now()) > 300);
+                    $co = $d['checkout'] ?? null;
+                    $out = is_array($co) && empty($co['checkedInAt']);
+                    $home = $d['homeFacility']['name'] ?? ($facilityNames[$d['homeFacilityId'] ?? ''] ?? null);
+                    $devName = $d['name'] ?? ($d['id'] ?? 'device');
                 @endphp
-                <tr><td class="font-medium">{{ $d['name'] }}<div class="text-xs font-normal text-stone-500">{{ $d['platform'] ?? '' }}</div></td><td>{{ str_replace('_', ' ', $d['kind']) }}</td><td><x-badge :status="$d['status']" /></td>
-                    <td>{{ $facilityNames[$d['facilityId'] ?? ''] ?? '-' }}</td><td>{{ $d['appVersion'] ?? '' }}</td>
+                <tr><td class="font-medium">{{ $devName }}<div class="text-xs font-normal text-stone-500">{{ $d['platform'] ?? '' }}</div></td><td>{{ str_replace('_', ' ', $d['kind'] ?? '') }}@if (! empty($d['mode']))<div class="text-xs text-stone-500">{{ $d['mode'] }}</div>@endif</td><td><x-badge :status="$status" /></td>
+                    <td>{{ $home ?? '-' }}</td><td>{{ $out ? ($facilityNames[$d['facilityId'] ?? ($co['facilityId'] ?? '')] ?? '-') : '-' }}</td><td>{{ $d['appVersion'] ?? '' }}</td>
                     <td><x-time :at="$d['lastSeenAt'] ?? null" ago />@if ($quiet)<x-badge tone="warn" class="ml-1">quiet</x-badge>@endif</td>
-                    <td class="text-xs">{{ ($d['checkout'] ?? null) && empty($d['checkout']['checkedInAt']) ? \Illuminate\Support\Str::limit($d['checkout']['staffId'], 8, '') : '-' }}</td>
-                    <td>@if ($d['status'] !== 'REVOKED' && auth_staff()->can('device.revoke'))<form method="POST" action="{{ route('devices.revoke', $d['id']) }}">@csrf<button class="text-sm text-red-800 underline" onclick="return confirm('Revoke {{ e($d['name']) }}? It will stop working immediately.')">Revoke</button></form>@endif</td></tr>
-            @empty<tr><td colspan="8" class="text-center text-stone-500">No devices.</td></tr>@endforelse
+                    <td class="text-xs">{{ $out ? ($staffNames[$co['staffId'] ?? ''] ?? \Illuminate\Support\Str::limit((string) ($co['staffId'] ?? ''), 8, '')) : '-' }}</td>
+                    <td>@if ($status !== 'REVOKED' && ! empty($d['id']) && auth_staff()->can('device.revoke'))<form method="POST" action="{{ route('devices.revoke', $d['id']) }}">@csrf<button class="text-sm text-red-800 underline" onclick="return confirm('Revoke {{ e($devName) }}? It will stop working immediately.')">Revoke</button></form>@endif</td></tr>
+            @empty<tr><td colspan="9" class="text-center text-stone-500">No devices.</td></tr>@endforelse
             </tbody></table></div>
         @endif
     </x-card>
@@ -46,17 +51,22 @@
         <x-card title="Attendance terminals (biometric)" flush>
             <x-fetch :of="$attendance" what="Attendance terminals" />
             @if ($attendance->ok())
-                <div class="overflow-x-auto"><table class="data-table"><thead><tr><th>Serial</th><th>Adapter</th><th>Status</th><th>Last seen</th><th></th></tr></thead><tbody>
+                <div class="overflow-x-auto"><table class="data-table"><thead><tr><th>Serial</th><th>Name</th><th>Adapter</th><th>Facility</th><th>Status</th><th>Last seen</th><th>Last punch</th><th></th></tr></thead><tbody>
                 @forelse ($attendance->items() as $t)
-                    <tr><td class="font-medium">{{ $t['serial'] }}</td><td>{{ $t['adapter'] }}</td><td><x-badge :status="$t['status']" /></td><td><x-time :at="$t['lastSeenAt'] ?? null" ago /></td>
+                    @php $tStatus = $t['status'] ?? 'UNKNOWN'; @endphp
+                    <tr><td class="font-medium">{{ $t['serialNumber'] ?? '-' }}</td><td>{{ $t['name'] ?? '' }}</td><td>{{ $t['adapter'] ?? '' }}</td><td>{{ $facilityNames[$t['facilityId'] ?? ''] ?? '-' }}</td><td><x-badge :status="$tStatus" /></td><td><x-time :at="$t['lastSeenAt'] ?? null" ago /></td><td><x-time :at="$t['lastPunchAt'] ?? null" ago /></td>
                         <td class="flex gap-3">
-                            <form method="POST" action="{{ route('devices.terminal.status', $t['id']) }}">@csrf<input type="hidden" name="status" value="{{ $t['status'] === 'ACTIVE' ? 'DISABLED' : 'ACTIVE' }}"><button class="text-sm underline">{{ $t['status'] === 'ACTIVE' ? 'Disable' : 'Enable' }}</button></form>
-                            <form method="POST" action="{{ route('devices.terminal.rotate', $t['id']) }}">@csrf<button class="text-sm underline" onclick="return confirm('Rotate the token? The terminal stops working until reconfigured.')">Rotate token</button></form></td></tr>
-                @empty<tr><td colspan="5" class="text-center text-stone-500">No terminals.</td></tr>@endforelse
+                            @if (! empty($t['id']))
+                            <form method="POST" action="{{ route('devices.terminal.status', $t['id']) }}">@csrf<input type="hidden" name="status" value="{{ $tStatus === 'ACTIVE' ? 'DISABLED' : 'ACTIVE' }}"><button class="text-sm underline">{{ $tStatus === 'ACTIVE' ? 'Disable' : 'Enable' }}</button></form>
+                            <form method="POST" action="{{ route('devices.terminal.rotate', $t['id']) }}">@csrf<button class="text-sm underline" onclick="return confirm('Rotate the token? The terminal stops working until reconfigured.')">Rotate token</button></form>
+                            @endif</td></tr>
+                @empty<tr><td colspan="8" class="text-center text-stone-500">No terminals.</td></tr>@endforelse
                 </tbody></table></div>
             @endif
             <form method="POST" action="{{ route('devices.terminal.create') }}" class="flex flex-wrap items-end gap-3 border-t border-stone-100 p-4">@csrf
-                <div><label class="mb-1 block text-sm font-medium">Serial</label><input name="serial" required class="min-h-11 rounded-lg border border-stone-300 px-3 text-sm"></div>
+                <div><label class="mb-1 block text-sm font-medium">Serial number</label><input name="serialNumber" required maxlength="64" class="min-h-11 rounded-lg border border-stone-300 px-3 text-sm"></div>
+                <div><label class="mb-1 block text-sm font-medium">Name</label><input name="name" required maxlength="120" class="min-h-11 rounded-lg border border-stone-300 px-3 text-sm"></div>
+                <div><label class="mb-1 block text-sm font-medium">Facility</label><select name="facilityId" class="min-h-11 rounded-lg border border-stone-300 bg-white px-3 text-sm"><option value="">-</option>@foreach ($facilities as $f)<option value="{{ $f['id'] }}">{{ $f['name'] }}</option>@endforeach</select></div>
                 <div><label class="mb-1 block text-sm font-medium">Adapter</label><select name="adapter" class="min-h-11 rounded-lg border border-stone-300 bg-white px-3 text-sm"><option>ZKTECO_ADMS</option><option>JSON_PUSH</option></select></div>
                 <x-btn>Register terminal</x-btn></form>
         </x-card>

@@ -1,0 +1,105 @@
+{
+    "items": [
+        {
+            "id": "01a0d040-c196-7113-a977-9aba49cd9eae",
+            "facilityId": null,
+            "name": "Main Store",
+            "kind": "MAIN_STORE",
+            "allowNegative": false,
+            "isSaleDefault": false,
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c197-7280-b161-7feb5bc6284c",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "name": "Restaurant Store",
+            "kind": "FACILITY_STORE",
+            "allowNegative": false,
+            "isSaleDefault": true,
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c198-7195-b2e6-83b0ece98e13",
+            "facilityId": "84ea0412-4610-5afe-95a3-98242a14ce96",
+            "name": "Main Kitchen Store",
+            "kind": "KITCHEN",
+            "allowNegative": false,
+            "isSaleDefault": true,
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c199-7264-a20c-89fca491c879",
+            "facilityId": "9d502706-2ed5-5bd1-86bf-f895907468b1",
+            "name": "Bush Bar Store",
+            "kind": "BAR",
+            "allowNegative": false,
+            "isSaleDefault": true,
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c19a-72f3-a5a4-913966bcf55e",
+            "facilityId": "991c6184-c816-52a5-8dc8-edd5f8e83142",
+            "name": "Pool Bar Store",
+            "kind": "BAR",
+            "allowNegative": false,
+            "isSaleDefault": true,
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c19b-738a-88a1-aa31c0a5cdff",
+            "facilityId": "5b2a99cc-7f17-5c53-9461-ccd97644abaa",
+            "name": "Indoor Club Store",
+            "kind": "BAR",
+            "allowNegative": false,
+            "isSaleDefault": true,
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c19c-73fd-80f4-560fbf821d11",
+            "facilityId": "6c3e41ca-b525-5197-9471-afb89ca64c59",
+            "name": "Salon Store",
+            "kind": "FACILITY_STORE",
+            "allowNegative": false,
+            "isSaleDefault": true,
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c19d-7049-bfae-e0ba18fb8bfd",
+            "facilityId": "6db7c536-2faf-59d6-b444-624d85c72d68",
+            "name": "Supermarket Shelf",
+            "kind": "FACILITY_STORE",
+            "allowNegative": false,
+            "isSaleDefault": true,
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c19e-70ed-85c0-03608d771b76",
+            "facilityId": "18e4ff16-9acb-5341-9161-975fb22fcefe",
+            "name": "Sports Store",
+            "kind": "FACILITY_STORE",
+            "allowNegative": false,
+            "isSaleDefault": true,
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c19f-7042-b20b-d7be1dcb936f",
+            "facilityId": null,
+            "name": "Waste / Write-off",
+            "kind": "WASTE",
+            "allowNegative": false,
+            "isSaleDefault": false,
+            "active": true,
+            "rowVersion": 1
+        }
+    ],
+    "nextCursor": null
+}

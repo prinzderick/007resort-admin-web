@@ -33,7 +33,7 @@
                 <div class="text-xs uppercase tracking-wide text-stone-500">Outbox queue</div>
                 <div class="mt-1 text-sm">
                     @if ($site['detail'])
-                        {{ $site['detail']['outbox']['queued'] }} queued &middot; {{ $site['detail']['outbox']['failed'] }} failed &middot; {{ $site['detail']['outbox']['conflict'] }} conflict
+                        {{ $site['detail']['outbox']['queued'] ?? 0 }} queued &middot; {{ $site['detail']['outbox']['failed'] ?? 0 }} failed &middot; {{ $site['detail']['outbox']['conflict'] ?? 0 }} conflict
                     @else <span class="text-stone-500">visible to IT only</span> @endif
                 </div>
             </div>
@@ -81,7 +81,7 @@
             @else
                 <div class="overflow-x-auto"><table class="data-table">
                     <thead><tr><th>Method</th><th class="text-right">Payments</th><th class="text-right">Amount</th></tr></thead>
-                    <tbody>@foreach ($d['byMethod'] as $m => $v)<tr><td>{{ str_replace('_', ' ', $m) }}</td><td class="text-right tabular-nums">{{ $v['count'] }}</td><td class="text-right"><x-money :value="$v['amount']" /></td></tr>@endforeach</tbody>
+                    <tbody>@foreach ($d['byMethod'] as $m => $v)<tr><td>{{ str_replace('_', ' ', $m) }}</td><td class="text-right tabular-nums">{{ $v['count'] ?? 0 }}</td><td class="text-right"><x-money :value="$v['amount']" /></td></tr>@endforeach</tbody>
                 </table></div>
             @endif
         </x-card>
@@ -108,7 +108,7 @@
                     <p class="text-sm text-emerald-800">All tracked items are above their reorder level.</p>
                 @else
                     <ul class="divide-y divide-stone-100 text-sm" data-testid="low-stock">
-                        @foreach ($d['lowStock'] as $l)<li class="flex justify-between py-1.5"><span>{{ $l['name'] }}</span><span class="tabular-nums text-red-800">{{ rtrim(rtrim($l['onHand'], '0'), '.') ?: '0' }} {{ $l['unit'] }} <span class="text-stone-500">/ reorder at {{ $l['reorderLevel'] }}</span></span></li>@endforeach
+                        @foreach ($d['lowStock'] as $l)<li class="flex justify-between py-1.5"><span>{{ $l['name'] }}</span><span class="tabular-nums text-red-800">{{ str_contains((string) $l['onHand'], '.') ? (rtrim(rtrim($l['onHand'], '0'), '.') ?: '0') : $l['onHand'] }} {{ $l['unit'] }} <span class="text-stone-500">/ reorder at {{ $l['reorderLevel'] }}</span></span></li>@endforeach
                     </ul>
                 @endif
                 <a class="mt-2 inline-block text-sm underline" href="{{ route('inventory.index') }}">Open inventory</a>

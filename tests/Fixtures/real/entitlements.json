@@ -1,0 +1,284 @@
+{
+    "items": [
+        {
+            "id": "01a0d09e-628d-7298-a209-5ba16b2bf404",
+            "qrToken": "REDACTED",
+            "status": "EXHAUSTED",
+            "orderId": null,
+            "bookingId": null,
+            "holderName": "Fresh Guest",
+            "items": [
+                {
+                    "id": "01a0d09e-628d-7298-a209-5ba16b57e59a",
+                    "kind": "ACCESS",
+                    "subKind": "ACCESS",
+                    "name": "Tennis Court - fresh",
+                    "facilityId": "37d18ea1-de71-5c47-a382-02e0186a7125",
+                    "quantity": 1,
+                    "quantityRedeemed": 1,
+                    "quantityReturned": 0,
+                    "quantityInside": 0,
+                    "validationMode": "SINGLE_USE",
+                    "validFrom": "2026-09-20T00:00:00Z",
+                    "validUntil": "2026-10-30T00:00:00Z",
+                    "rentalStatus": null
+                }
+            ],
+            "issuedAt": "2026-09-23T23:33:55.981Z"
+        },
+        {
+            "id": "01a0d09e-6288-735f-b784-1f54097ae621",
+            "qrToken": "REDACTED",
+            "status": "CANCELLED",
+            "orderId": null,
+            "bookingId": null,
+            "holderName": "Cancelled Guest",
+            "items": [
+                {
+                    "id": "01a0d09e-6288-735f-b784-1f54097feda5",
+                    "kind": "ACCESS",
+                    "subKind": "ACCESS",
+                    "name": "Tennis Court - cancelled",
+                    "facilityId": "37d18ea1-de71-5c47-a382-02e0186a7125",
+                    "quantity": 1,
+                    "quantityRedeemed": 0,
+                    "quantityReturned": 0,
+                    "quantityInside": 0,
+                    "validationMode": "SINGLE_USE",
+                    "validFrom": "2026-09-20T00:00:00Z",
+                    "validUntil": "2026-10-30T00:00:00Z",
+                    "rentalStatus": null
+                }
+            ],
+            "issuedAt": "2026-09-23T23:33:55.976Z"
+        },
+        {
+            "id": "01a0d09e-627a-71c4-8efe-c1ad0a62c72d",
+            "qrToken": "REDACTED",
+            "status": "EXPIRED",
+            "orderId": null,
+            "bookingId": null,
+            "holderName": "Expired Guest",
+            "items": [
+                {
+                    "id": "01a0d09e-627e-7270-a9ed-16babf83c89a",
+                    "kind": "ACCESS",
+                    "subKind": "ACCESS",
+                    "name": "Tennis Court - expired",
+                    "facilityId": "37d18ea1-de71-5c47-a382-02e0186a7125",
+                    "quantity": 1,
+                    "quantityRedeemed": 0,
+                    "quantityReturned": 0,
+                    "quantityInside": 0,
+                    "validationMode": "SINGLE_USE",
+                    "validFrom": "2026-09-01T00:00:00Z",
+                    "validUntil": "2026-09-02T00:00:00Z",
+                    "rentalStatus": null
+                }
+            ],
+            "issuedAt": "2026-09-23T23:33:55.962Z"
+        },
+        {
+            "id": "01a0d04f-f162-72c7-b5ae-3a7016c0e90a",
+            "qrToken": "REDACTED",
+            "status": "ACTIVE",
+            "orderId": null,
+            "bookingId": "01a0d04f-ab1d-731b-a426-b59896d4af7e",
+            "holderName": "Walk-in",
+            "items": [
+                {
+                    "id": "01a0d04f-f163-73c4-b27a-94e190f8f5ee",
+                    "kind": "ACCESS",
+                    "subKind": "ACCESS",
+                    "name": "Lawn Tennis Court 1 - 13:00",
+                    "facilityId": "7b708d65-561b-5ec3-b23f-707ba9c1b5cf",
+                    "quantity": 1,
+                    "quantityRedeemed": 0,
+                    "quantityReturned": 0,
+                    "quantityInside": 0,
+                    "validationMode": "SINGLE_USE",
+                    "validFrom": "2026-09-25T11:45:00Z",
+                    "validUntil": "2026-09-25T13:00:00Z",
+                    "rentalStatus": null
+                },
+                {
+                    "id": "01a0d04f-f164-732a-8e31-4b667dbc9905",
+                    "kind": "RENTAL",
+                    "subKind": "RENTAL",
+                    "name": "Tennis racket hire",
+                    "facilityId": "18e4ff16-9acb-5341-9161-975fb22fcefe",
+                    "quantity": 2,
+                    "quantityRedeemed": 0,
+                    "quantityReturned": 0,
+                    "quantityInside": 0,
+                    "validationMode": "NONE",
+                    "validFrom": null,
+                    "validUntil": null,
+                    "rentalStatus": "NOT_RELEASED"
+                }
+            ],
+            "issuedAt": "2026-09-23T22:08:15.202Z"
+        },
+        {
+            "id": "01a0d04f-4361-7366-b056-a7269f408a2e",
+            "qrToken": "REDACTED",
+            "status": "EXPIRED",
+            "orderId": "01a0d04e-cb85-7bf5-8315-1e2aeb051dcc",
+            "bookingId": null,
+            "holderName": null,
+            "items": [
+                {
+                    "id": "01a0d04f-4362-71e7-b543-2a14864b75ee",
+                    "kind": "ACCESS",
+                    "subKind": "ACCESS",
+                    "name": "Pool - Child",
+                    "facilityId": "e72222e7-c136-535e-9e25-d2a8668c2b18",
+                    "quantity": 1,
+                    "quantityRedeemed": 0,
+                    "quantityReturned": 0,
+                    "quantityInside": 0,
+                    "validationMode": "SINGLE_USE",
+                    "validFrom": "2026-09-22T23:00:00Z",
+                    "validUntil": "2026-09-23T22:59:59Z",
+                    "rentalStatus": null
+                }
+            ],
+            "issuedAt": "2026-09-23T22:07:30.657Z"
+        },
+        {
+            "id": "01a0d04f-435e-705f-af32-051167c24447",
+            "qrToken": "REDACTED",
+            "status": "EXPIRED",
+            "orderId": "01a0d04e-cb85-7bf5-8315-1e2aeb051dcc",
+            "bookingId": null,
+            "holderName": null,
+            "items": [
+                {
+                    "id": "01a0d04f-435e-705f-af32-05116886a7ee",
+                    "kind": "ACCESS",
+                    "subKind": "ACCESS",
+                    "name": "Pool - Adult",
+                    "facilityId": "e72222e7-c136-535e-9e25-d2a8668c2b18",
+                    "quantity": 1,
+                    "quantityRedeemed": 0,
+                    "quantityReturned": 0,
+                    "quantityInside": 0,
+                    "validationMode": "SINGLE_USE",
+                    "validFrom": "2026-09-22T23:00:00Z",
+                    "validUntil": "2026-09-23T22:59:59Z",
+                    "rentalStatus": null
+                }
+            ],
+            "issuedAt": "2026-09-23T22:07:30.654Z"
+        },
+        {
+            "id": "01a0d04f-435a-72f8-90a5-2dda506df733",
+            "qrToken": "REDACTED",
+            "status": "EXPIRED",
+            "orderId": "01a0d04e-cb85-7bf5-8315-1e2aeb051dcc",
+            "bookingId": null,
+            "holderName": null,
+            "items": [
+                {
+                    "id": "01a0d04f-435b-70dc-93f4-e68fafdfe034",
+                    "kind": "ACCESS",
+                    "subKind": "ACCESS",
+                    "name": "Pool - Adult",
+                    "facilityId": "e72222e7-c136-535e-9e25-d2a8668c2b18",
+                    "quantity": 1,
+                    "quantityRedeemed": 0,
+                    "quantityReturned": 0,
+                    "quantityInside": 0,
+                    "validationMode": "SINGLE_USE",
+                    "validFrom": "2026-09-22T23:00:00Z",
+                    "validUntil": "2026-09-23T22:59:59Z",
+                    "rentalStatus": null
+                }
+            ],
+            "issuedAt": "2026-09-23T22:07:30.650Z"
+        },
+        {
+            "id": "01a0d040-c163-7069-b89c-297dba793a1d",
+            "qrToken": "REDACTED",
+            "status": "ACTIVE",
+            "orderId": null,
+            "bookingId": null,
+            "holderName": "Demo Swimmer",
+            "items": [
+                {
+                    "id": "01a0d040-c163-7069-b89c-297dba93cfcf",
+                    "kind": "ACCESS",
+                    "subKind": "ACCESS",
+                    "name": "Pool - Adult",
+                    "facilityId": "e72222e7-c136-535e-9e25-d2a8668c2b18",
+                    "quantity": 1,
+                    "quantityRedeemed": 0,
+                    "quantityReturned": 0,
+                    "quantityInside": 0,
+                    "validationMode": "SINGLE_USE",
+                    "validFrom": "2026-09-23T20:51:39Z",
+                    "validUntil": "2026-10-23T21:51:39Z",
+                    "rentalStatus": null
+                }
+            ],
+            "issuedAt": "2026-09-23T21:51:39.875Z"
+        },
+        {
+            "id": "01a0d040-c15b-70f4-8f30-8d6579575dc1",
+            "qrToken": "REDACTED",
+            "status": "ACTIVE",
+            "orderId": null,
+            "bookingId": null,
+            "holderName": "Demo Guest",
+            "items": [
+                {
+                    "id": "01a0d040-c15c-713e-9d86-0e01bf92a602",
+                    "kind": "ACCESS",
+                    "subKind": "ACCESS",
+                    "name": "Lawn Tennis Court 1 - Demo",
+                    "facilityId": "37d18ea1-de71-5c47-a382-02e0186a7125",
+                    "quantity": 1,
+                    "quantityRedeemed": 1,
+                    "quantityReturned": 0,
+                    "quantityInside": 0,
+                    "validationMode": "SINGLE_USE",
+                    "validFrom": "2026-09-23T20:51:39Z",
+                    "validUntil": "2026-10-23T21:51:39Z",
+                    "rentalStatus": null
+                },
+                {
+                    "id": "01a0d040-c15d-7325-b060-72087dc96ebe",
+                    "kind": "RENTAL",
+                    "subKind": "RENTAL",
+                    "name": "Racket x2",
+                    "facilityId": "18e4ff16-9acb-5341-9161-975fb22fcefe",
+                    "quantity": 2,
+                    "quantityRedeemed": 2,
+                    "quantityReturned": 2,
+                    "quantityInside": 0,
+                    "validationMode": "NONE",
+                    "validFrom": null,
+                    "validUntil": null,
+                    "rentalStatus": "RETURNED"
+                },
+                {
+                    "id": "01a0d040-c15d-7325-b060-72087e55b602",
+                    "kind": "ITEM",
+                    "subKind": "GOODS",
+                    "name": "Tennis balls (tube)",
+                    "facilityId": "18e4ff16-9acb-5341-9161-975fb22fcefe",
+                    "quantity": 1,
+                    "quantityRedeemed": 0,
+                    "quantityReturned": 0,
+                    "quantityInside": 0,
+                    "validationMode": "NONE",
+                    "validFrom": null,
+                    "validUntil": null,
+                    "rentalStatus": null
+                }
+            ],
+            "issuedAt": "2026-09-23T21:51:39.867Z"
+        }
+    ],
+    "nextCursor": null
+}

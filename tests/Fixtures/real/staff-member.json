@@ -1,0 +1,15 @@
+{
+    "id": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+    "displayName": "Amaka Okoro",
+    "staffNumber": "S-0001",
+    "status": "ACTIVE",
+    "email": "wait1@demo.007resort.test",
+    "phone": null,
+    "rowVersion": 1,
+    "firstName": "Amaka",
+    "lastName": "Okoro",
+    "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+    "hasPassword": true,
+    "hasPin": true,
+    "hasNfcCard": false
+}

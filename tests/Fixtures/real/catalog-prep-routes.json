@@ -1,0 +1,23 @@
+{
+    "items": [
+        {
+            "id": "84b6f7a9-2c32-59b1-a727-0edf83f50c0e",
+            "code": "BAR",
+            "name": "Bar",
+            "kind": "BAR"
+        },
+        {
+            "id": "35c17f7d-e784-5930-aec7-5c560e519830",
+            "code": "KITCHEN",
+            "name": "Kitchen",
+            "kind": "KITCHEN"
+        },
+        {
+            "id": "ac5fcb47-6430-5b00-98c8-f6308a00eee5",
+            "code": "NONE",
+            "name": "No preparation",
+            "kind": "NONE"
+        }
+    ],
+    "nextCursor": null
+}

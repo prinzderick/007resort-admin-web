@@ -1,0 +1,10 @@
+{
+    "status": "degraded",
+    "checks": {
+        "database": "ok",
+        "redis": "ok",
+        "queue": "ok",
+        "cloudLink": "degraded"
+    },
+    "serverTime": "2026-09-23T23:42:01.682Z"
+}

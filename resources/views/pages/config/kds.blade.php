@@ -3,9 +3,14 @@
     <x-config-nav />
     <x-card title="Stations" flush>
         <x-fetch :of="$stations" what="Stations" />
-        @if ($stations->ok())<div class="overflow-x-auto"><table class="data-table"><thead><tr><th>Station</th><th>Kind</th><th>Active</th><th>Products routed</th></tr></thead><tbody>
-        @forelse ($stations->items() as $s)<tr><td class="font-medium">{{ $s['name'] }}</td><td>{{ $s['kind'] }}</td><td><x-badge :tone="($s['active'] ?? true) ? 'good' : 'default'">{{ ($s['active'] ?? true) ? 'Active' : 'Off' }}</x-badge></td><td class="text-sm">{{ implode(', ', $byStation[$s['name']] ?? []) ?: '-' }}</td></tr>@empty<tr><td colspan="4" class="text-center text-stone-500">No stations.</td></tr>@endforelse
+        <x-fetch :of="$products" what="Product routing" />
+        @if ($stations->ok())<div class="overflow-x-auto"><table class="data-table" data-testid="stations"><thead><tr><th>Station</th><th>Kind</th><th>Active</th><th>Products routed</th></tr></thead><tbody>
+        @forelse ($stations->items() as $s)<tr><td class="font-medium">{{ $s['name'] ?? '' }}</td><td>{{ $s['kind'] ?? '' }}</td><td><x-badge :tone="($s['active'] ?? true) ? 'good' : 'default'">{{ ($s['active'] ?? true) ? 'Active' : 'Off' }}</x-badge></td><td class="text-sm">{{ implode(', ', $byStation[$s['name'] ?? ''] ?? []) ?: '-' }}</td></tr>@empty<tr><td colspan="4" class="text-center text-stone-500">No stations.</td></tr>@endforelse
         </tbody></table></div>@endif
     </x-card>
-    <x-pending-api :items="['Change a product\'s prep route or default station per operating point (no write endpoint in the contract)', 'Create / disable KDS stations']" />
+    <x-card title="Prep routes" flush>
+        <x-fetch :of="$routes" what="Prep routes" />
+        @if ($routes->ok())<ul class="flex flex-wrap gap-2 p-4 text-sm">@forelse ($routes->items() as $r)<li class="rounded-lg border border-stone-200 px-3 py-1.5">{{ $r['name'] ?? '' }} <span class="text-xs text-stone-500">{{ $r['kind'] ?? '' }}</span></li>@empty<li class="text-stone-500">None.</li>@endforelse</ul>@endif
+    </x-card>
+    <x-pending-api :items="['Changing a product\'s prep route: choose the prep route on the product form under Products, prices &amp; categories (needs catalog.manage)', 'Create / disable KDS stations and per-operating-point default stations (no endpoint in the contract)']" />
 </x-layouts.app>

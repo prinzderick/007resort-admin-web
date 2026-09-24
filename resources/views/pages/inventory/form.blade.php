@@ -1,7 +1,7 @@
 @php
     $multi = in_array($action, ['receive', 'transfer', 'count'], true);
-    $itemOpts = ['' => 'Choose item...'] + collect($items->items())->mapWithKeys(fn ($i) => [$i['id'] => $i['name'].' ('.($i['unit'] ?? '').')'])->all();
-    $locOpts = ['' => 'Choose location...'] + collect($locations->items())->mapWithKeys(fn ($l) => [$l['id'] => $l['name']])->all();
+    $itemOpts = ['' => 'Choose item...'] + collect($items->items())->mapWithKeys(fn ($i) => [($i['id'] ?? '') => ($i['name'] ?? '').' ('.($i['unit'] ?? '').')'])->all();
+    $locOpts = ['' => 'Choose location...'] + collect($locations->items())->mapWithKeys(fn ($l) => [($l['id'] ?? '') => ($l['name'] ?? '')])->all();
 @endphp
 <x-layouts.app :title="$title">
     <x-page-header :title="$title" :subtitle="$action === 'adjust' ? 'Adjustments over the facility threshold wait for a supervisor to approve.' : null">
@@ -31,7 +31,7 @@
                     <div class="mb-2 grid gap-2 sm:grid-cols-[2fr_1fr_1fr]">
                         <select :name="`lines[${i}][itemId]`" class="min-h-11 rounded-lg border border-stone-300 bg-white px-3 text-sm">@foreach ($itemOpts as $k => $v)<option value="{{ $k }}">{{ $v }}</option>@endforeach</select>
                         <input :name="`lines[${i}][{{ $action === 'count' ? 'countedQuantity' : 'quantity' }}]`" placeholder="{{ $action === 'count' ? 'Counted qty' : 'Quantity' }}" inputmode="decimal" class="min-h-11 rounded-lg border border-stone-300 px-3 text-sm">
-                        @if ($action === 'receive')<input :name="`lines[${i}][unitCost]`" placeholder="Unit cost" inputmode="decimal" class="min-h-11 rounded-lg border border-stone-300 px-3 text-sm">@endif
+                        @if ($action === 'receive')<input :name="`lines[${i}][unitCost]`" placeholder="Unit cost (optional)" inputmode="decimal" class="min-h-11 rounded-lg border border-stone-300 px-3 text-sm">@endif
                     </div>
                 </template>
                 <button type="button" class="mb-4 text-sm underline" @click="rows++">Add line</button>

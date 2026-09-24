@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Auth\StaffSession;
 use App\Services\R007Api\ApiResponse;
+use App\Support\Fetch;
 use App\Services\R007Api\R007ApiClient;
 use Illuminate\Http\RedirectResponse;
 
@@ -27,6 +28,32 @@ abstract class Controller
         }
 
         return $redirect->with('success', $successMessage);
+    }
+
+    /**
+     * Read every page of a cursor-paginated list (the API caps a page at 200 rows), up to $pages pages.
+     *
+     * @param  array<string, mixed>  $query
+     * @param  array{0: string, 1: string}|null  $endpoint  [method, path template] checked against the contract
+     */
+    protected function all(string $path, array $query = [], ?array $endpoint = null, int $pages = 5): Fetch
+    {
+        return Fetch::of(function () use ($path, $query, $pages) {
+            $items = [];
+            $cursor = null;
+            $body = [];
+            for ($i = 0; $i < $pages; $i++) {
+                $body = $this->api->get($path, $query + ['limit' => 200, 'cursor' => $cursor]);
+                array_push($items, ...array_values((array) ($body['items'] ?? [])));
+                $cursor = $body['nextCursor'] ?? null;
+                if (! is_string($cursor) || $cursor === '') {
+                    $cursor = null;
+                    break;
+                }
+            }
+
+            return ['items' => $items, 'nextCursor' => $cursor];
+        }, $endpoint ?? ['GET', '/'.ltrim($path, '/')]);
     }
 
     /** @param  array<string, mixed>  $data */

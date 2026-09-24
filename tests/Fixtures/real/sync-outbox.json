@@ -1,0 +1,1901 @@
+{
+    "items": [
+        {
+            "eventId": "01a0d0a4-e520-72c3-94f2-1a25c9afd27e",
+            "seq": 450,
+            "eventType": "PaymentReversed",
+            "entityType": "Payment",
+            "entityId": "01a0d0a4-e3a2-742e-8a3f-0382bf819607",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 2,
+            "nextRetryAt": "2026-09-23T23:41:36.173088Z",
+            "lastAttemptAt": "2026-09-23T23:41:17.149961Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:17.149961Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:41:02.624840Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-e51d-7224-932f-3275c0ab6835",
+            "seq": 449,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-e359-7bcd-ae02-db350da13c57",
+            "entityVersion": 4,
+            "syncStatus": "QUEUED",
+            "retryCount": 2,
+            "nextRetryAt": "2026-09-23T23:41:36.565255Z",
+            "lastAttemptAt": "2026-09-23T23:41:17.149961Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:17.149961Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:41:02.621420Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-e3bc-7286-bdbe-861f662aa7ef",
+            "seq": 448,
+            "eventType": "PaymentCompleted",
+            "entityType": "Payment",
+            "entityId": "01a0d0a4-e3a2-742e-8a3f-0382bf819607",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:59.546322Z",
+            "lastAttemptAt": "2026-09-23T23:41:32.387886Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:32.387886Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:41:02.268439Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-e3b8-71ed-830e-e9ec69eb96ea",
+            "seq": 447,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-e359-7bcd-ae02-db350da13c57",
+            "entityVersion": 3,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:42:01.644072Z",
+            "lastAttemptAt": "2026-09-23T23:41:32.387886Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:32.387886Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:41:02.264383Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-e39b-722b-8685-feb4323e7bc5",
+            "seq": 446,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-e359-7bcd-ae02-db350da13c57",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:58.311562Z",
+            "lastAttemptAt": "2026-09-23T23:41:32.387886Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:32.387886Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:41:02.236038Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-e376-70ae-af0b-f97a012df4f7",
+            "seq": 445,
+            "eventType": "OrderCreated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-e359-7bcd-ae02-db350da13c57",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:42:01.690764Z",
+            "lastAttemptAt": "2026-09-23T23:41:32.387886Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:32.387886Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:41:02.199058Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-df4e-70cc-98db-e0efccb2932c",
+            "seq": 444,
+            "eventType": "PaymentReversed",
+            "entityType": "Payment",
+            "entityId": "01a0d0a4-dd5c-7ed3-a2f4-79c269cf5936",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 2,
+            "nextRetryAt": "2026-09-23T23:41:51.488287Z",
+            "lastAttemptAt": "2026-09-23T23:41:32.387886Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:32.387886Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:41:01.134666Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-dd8f-7251-80c9-92f5683ece7f",
+            "seq": 443,
+            "eventType": "PaymentCompleted",
+            "entityType": "Payment",
+            "entityId": "01a0d0a4-dd5c-7ed3-a2f4-79c269cf5936",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:42:07.024928Z",
+            "lastAttemptAt": "2026-09-23T23:41:32.387886Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:32.387886Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:41:00.687264Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-dd88-72ed-9df2-5a43191ca446",
+            "seq": 442,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-dcaf-7611-9970-44b2579ba832",
+            "entityVersion": 5,
+            "syncStatus": "QUEUED",
+            "retryCount": 2,
+            "nextRetryAt": "2026-09-23T23:41:28.398644Z",
+            "lastAttemptAt": "2026-09-23T23:41:11.052247Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:11.052247Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:41:00.680373Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-dd4e-7329-b8c9-2d626e86b937",
+            "seq": 441,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-dcaf-7611-9970-44b2579ba832",
+            "entityVersion": 4,
+            "syncStatus": "QUEUED",
+            "retryCount": 2,
+            "nextRetryAt": "2026-09-23T23:41:25.958835Z",
+            "lastAttemptAt": "2026-09-23T23:41:11.052247Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:11.052247Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:41:00.622334Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-dd23-734a-b9a0-c83dfbcffa36",
+            "seq": 440,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-dcaf-7611-9970-44b2579ba832",
+            "entityVersion": 3,
+            "syncStatus": "QUEUED",
+            "retryCount": 2,
+            "nextRetryAt": "2026-09-23T23:41:29.190008Z",
+            "lastAttemptAt": "2026-09-23T23:41:11.052247Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:11.052247Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:41:00.579932Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-dd00-71be-9e1e-c5946f2d9a49",
+            "seq": 439,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-dcaf-7611-9970-44b2579ba832",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:42:02.447331Z",
+            "lastAttemptAt": "2026-09-23T23:41:27.316165Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:27.316165Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:41:00.544571Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-dcdc-70e6-80c0-52e5f326dacd",
+            "seq": 438,
+            "eventType": "OrderCreated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-dcaf-7611-9970-44b2579ba832",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:44.522367Z",
+            "lastAttemptAt": "2026-09-23T23:41:58.871028Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:58.871028Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:41:00.509271Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-db84-7243-a1b1-838017e1fb86",
+            "seq": 437,
+            "eventType": "DeviceRegistered",
+            "entityType": "Device",
+            "entityId": "01a0d0a4-db81-70a9-985b-be3207f5cb95",
+            "entityVersion": 0,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:43:07.959287Z",
+            "lastAttemptAt": "2026-09-23T23:41:58.871028Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:58.871028Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:41:00.164846Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-db54-7130-a8f2-c3bfcb086e06",
+            "seq": 436,
+            "eventType": "CashSessionOpened",
+            "entityType": "CashSession",
+            "entityId": "01a0d0a4-db52-71ed-b2f0-90aaa107bc09",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:42.566573Z",
+            "lastAttemptAt": "2026-09-23T23:41:48.697358Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:48.697358Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:41:00.117157Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-db37-73e6-8cb6-889b9db918d5",
+            "seq": 435,
+            "eventType": "CashSessionClosed",
+            "entityType": "CashSession",
+            "entityId": "01a0d0a4-9912-70df-9a67-be72909e53ad",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:42:20.958433Z",
+            "lastAttemptAt": "2026-09-23T23:41:58.871028Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:58.871028Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:41:00.087357Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-d96d-72f5-9a12-77f4962b961c",
+            "seq": 434,
+            "eventType": "DeviceRegistered",
+            "entityType": "Device",
+            "entityId": "01a0d0a4-d96a-7017-9042-5a92a4d3f4a0",
+            "entityVersion": 0,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:42:04.236935Z",
+            "lastAttemptAt": "2026-09-23T23:41:32.387886Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:32.387886Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:59.630082Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-a135-70b7-99ca-b5d9e459c132",
+            "seq": 433,
+            "eventType": "PaymentCompleted",
+            "entityType": "Payment",
+            "entityId": "01a0d0a4-a113-767b-b9c5-9b846556d60d",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:52.658025Z",
+            "lastAttemptAt": "2026-09-23T23:41:53.774809Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:53.774809Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:45.237520Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-a130-72db-80c5-fb391a488191",
+            "seq": 432,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-a0c6-7c7f-8361-a3576fbf7fd7",
+            "entityVersion": 3,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:45.639954Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:45.232445Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-a10c-701e-bad6-e09e4d8b1aa6",
+            "seq": 431,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-a0c6-7c7f-8361-a3576fbf7fd7",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:58.017825Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:45.196501Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-a0e3-7342-bc6d-0030eabb3102",
+            "seq": 430,
+            "eventType": "OrderCreated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-a0c6-7c7f-8361-a3576fbf7fd7",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:42:02.098370Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:45.155684Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-9caa-72de-808f-feddb1e69174",
+            "seq": 429,
+            "eventType": "PaymentReversed",
+            "entityType": "Payment",
+            "entityId": "01a0d0a4-9aea-70df-b889-308355e9849b",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:43:03.409673Z",
+            "lastAttemptAt": "2026-09-23T23:41:53.774809Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:53.774809Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:44.075071Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-9b07-7321-803a-43fe4a6a8edb",
+            "seq": 428,
+            "eventType": "PaymentCompleted",
+            "entityType": "Payment",
+            "entityId": "01a0d0a4-9aea-70df-b889-308355e9849b",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:53.459177Z",
+            "lastAttemptAt": "2026-09-23T23:41:53.774809Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:53.774809Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:43.655378Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-9b03-70d5-9b49-cb330874e756",
+            "seq": 427,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-9a6d-71c0-9019-20171afd1831",
+            "entityVersion": 5,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:42:30.729552Z",
+            "lastAttemptAt": "2026-09-23T23:41:53.774809Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:53.774809Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:43.651843Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-9ae4-737d-b81b-25592dddf967",
+            "seq": 426,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-9a6d-71c0-9019-20171afd1831",
+            "entityVersion": 4,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:42:14.739552Z",
+            "lastAttemptAt": "2026-09-23T23:41:53.774809Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:53.774809Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:43.620235Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-9ac9-70b1-b473-6506907a7526",
+            "seq": 425,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-9a6d-71c0-9019-20171afd1831",
+            "entityVersion": 3,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:42:15.570230Z",
+            "lastAttemptAt": "2026-09-23T23:41:53.774809Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:53.774809Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:43.593940Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-9aab-73f2-8143-353edf031fe1",
+            "seq": 424,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-9a6d-71c0-9019-20171afd1831",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:42:14.602869Z",
+            "lastAttemptAt": "2026-09-23T23:41:53.774809Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:53.774809Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:43.563557Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-9a8d-712e-93f3-431655a310c8",
+            "seq": 423,
+            "eventType": "OrderCreated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-9a6d-71c0-9019-20171afd1831",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:43:07.271992Z",
+            "lastAttemptAt": "2026-09-23T23:41:53.774809Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:53.774809Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:43.533579Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-994b-720c-ac3a-8f37f525395a",
+            "seq": 422,
+            "eventType": "DeviceRegistered",
+            "entityType": "Device",
+            "entityId": "01a0d0a4-9948-7199-b2dc-e2dfe2459094",
+            "entityVersion": 0,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:29.587693Z",
+            "lastAttemptAt": "2026-09-23T23:41:48.697358Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:48.697358Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:43.212217Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-9915-720e-8acf-0617ab8f0b1f",
+            "seq": 421,
+            "eventType": "CashSessionOpened",
+            "entityType": "CashSession",
+            "entityId": "01a0d0a4-9912-70df-9a67-be72909e53ad",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:48.253609Z",
+            "lastAttemptAt": "2026-09-23T23:41:58.871028Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:58.871028Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:43.157931Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-98fe-7178-b14b-7364bd64f255",
+            "seq": 420,
+            "eventType": "CashSessionClosed",
+            "entityType": "CashSession",
+            "entityId": "01a0d0a4-93d6-72af-839a-7a06a07b760d",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:42:31.687765Z",
+            "lastAttemptAt": "2026-09-23T23:41:53.774809Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:53.774809Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:43.134488Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-979a-71c3-b828-c278d23504d9",
+            "seq": 419,
+            "eventType": "DeviceRegistered",
+            "entityType": "Device",
+            "entityId": "01a0d0a4-9797-7060-a816-fdbb73dc8705",
+            "entityVersion": 0,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:42.119087Z",
+            "lastAttemptAt": "2026-09-23T23:41:58.871028Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:58.871028Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:42.778842Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-9623-710d-8f87-81954686891d",
+            "seq": 418,
+            "eventType": "PaymentCompleted",
+            "entityType": "Payment",
+            "entityId": "01a0d0a4-9608-7003-97ae-f7e6e86f586c",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:58.290716Z",
+            "lastAttemptAt": "2026-09-23T23:41:48.697358Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:48.697358Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:42.404030Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-9620-737d-b37a-e5b794dea0de",
+            "seq": 417,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-95bb-7131-b7ba-bd8e75cadde9",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:49.546221Z",
+            "lastAttemptAt": "2026-09-23T23:41:17.149961Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:17.149961Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:42.400960Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-95d2-7307-b984-e303b0768883",
+            "seq": 416,
+            "eventType": "OrderCreated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-95bb-7131-b7ba-bd8e75cadde9",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:59.444025Z",
+            "lastAttemptAt": "2026-09-23T23:41:48.697358Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:48.697358Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:42.323047Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-9562-70a1-be53-2334314a3bc6",
+            "seq": 415,
+            "eventType": "PaymentCompleted",
+            "entityType": "Payment",
+            "entityId": "01a0d0a4-9540-7de4-861d-ff5db27b9964",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:43.549776Z",
+            "lastAttemptAt": "2026-09-23T23:41:58.871028Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:58.871028Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:42.210990Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-9561-72e7-8b2d-fa885f1c3fc3",
+            "seq": 414,
+            "eventType": "PaymentCompleted",
+            "entityType": "Payment",
+            "entityId": "01a0d0a4-9540-7cb3-a318-d5453c50c51c",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:43:03.777932Z",
+            "lastAttemptAt": "2026-09-23T23:41:58.871028Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:58.871028Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:42.209935Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-955c-71d1-8807-1e2fd961926b",
+            "seq": 413,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-93e6-7d13-a019-f37e55017ce3",
+            "entityVersion": 7,
+            "syncStatus": "QUEUED",
+            "retryCount": 2,
+            "nextRetryAt": "2026-09-23T23:41:11.550303Z",
+            "lastAttemptAt": "2026-09-23T23:40:55.804779Z",
+            "lastError": {
+                "at": "2026-09-23T23:40:55.804779Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:42.204777Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-94d1-7009-a862-d058de42ed9c",
+            "seq": 412,
+            "eventType": "PaymentCompleted",
+            "entityType": "Payment",
+            "entityId": "01a0d0a4-949e-7c41-8fb6-c208ba9a1e91",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:59.473143Z",
+            "lastAttemptAt": "2026-09-23T23:41:48.697358Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:48.697358Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:42.065353Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-94cd-703b-ad95-de101261b81a",
+            "seq": 411,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-93e6-7d13-a019-f37e55017ce3",
+            "entityVersion": 6,
+            "syncStatus": "QUEUED",
+            "retryCount": 2,
+            "nextRetryAt": "2026-09-23T23:41:12.161662Z",
+            "lastAttemptAt": "2026-09-23T23:40:55.804779Z",
+            "lastError": {
+                "at": "2026-09-23T23:40:55.804779Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:42.061926Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-9491-71a6-9e80-c3b34905476b",
+            "seq": 410,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-93e6-7d13-a019-f37e55017ce3",
+            "entityVersion": 5,
+            "syncStatus": "QUEUED",
+            "retryCount": 2,
+            "nextRetryAt": "2026-09-23T23:41:11.743832Z",
+            "lastAttemptAt": "2026-09-23T23:40:55.804779Z",
+            "lastError": {
+                "at": "2026-09-23T23:40:55.804779Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:42.001424Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-9476-7054-ab60-113afb3a51f8",
+            "seq": 409,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-93e6-7d13-a019-f37e55017ce3",
+            "entityVersion": 4,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:49.090162Z",
+            "lastAttemptAt": "2026-09-23T23:41:11.052247Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:11.052247Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:41.974637Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-945a-7141-addd-2347e2ecca68",
+            "seq": 408,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-93e6-7d13-a019-f37e55017ce3",
+            "entityVersion": 3,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:43:01.442272Z",
+            "lastAttemptAt": "2026-09-23T23:41:48.697358Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:48.697358Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:41.946500Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-943b-7294-9d17-8c57795da132",
+            "seq": 407,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-93e6-7d13-a019-f37e55017ce3",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:30.101983Z",
+            "lastAttemptAt": "2026-09-23T23:41:48.697358Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:48.697358Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:41.916046Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-9418-7363-8a1f-737625e76ca2",
+            "seq": 406,
+            "eventType": "OrderCreated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-93e6-7d13-a019-f37e55017ce3",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:32.771197Z",
+            "lastAttemptAt": "2026-09-23T23:41:48.697358Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:48.697358Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:41.880741Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-93d8-7071-8f01-93663cb69bdd",
+            "seq": 405,
+            "eventType": "CashSessionOpened",
+            "entityType": "CashSession",
+            "entityId": "01a0d0a4-93d6-72af-839a-7a06a07b760d",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:44.128608Z",
+            "lastAttemptAt": "2026-09-23T23:41:53.774809Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:53.774809Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:41.816705Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-93c0-7131-8b76-06edf107068d",
+            "seq": 404,
+            "eventType": "CashSessionClosed",
+            "entityType": "CashSession",
+            "entityId": "01a0d0a4-506b-72a2-9f6f-11d2e3324edb",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 2,
+            "nextRetryAt": "2026-09-23T23:41:39.891552Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:41.792868Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-9220-72fa-93bd-917f583e5f71",
+            "seq": 403,
+            "eventType": "DeviceRegistered",
+            "entityType": "Device",
+            "entityId": "01a0d0a4-9218-7129-bbff-ec020848daa1",
+            "entityVersion": 0,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:59.866757Z",
+            "lastAttemptAt": "2026-09-23T23:41:48.697358Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:48.697358Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:41.376431Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-582e-7178-80d4-39e2ef4d5927",
+            "seq": 402,
+            "eventType": "PaymentCompleted",
+            "entityType": "Payment",
+            "entityId": "01a0d0a4-5816-77da-afe3-296c66d9948c",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:41.915527Z",
+            "lastAttemptAt": "2026-09-23T23:41:32.387886Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:32.387886Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:26.542407Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-582a-70df-b823-125e9398399f",
+            "seq": 401,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-57e9-7b76-8873-816779beba89",
+            "entityVersion": 3,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:33.435125Z",
+            "lastAttemptAt": "2026-09-23T23:41:00.902138Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:00.902138Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:26.538130Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-5811-707d-90ea-0d0e98e95617",
+            "seq": 400,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-57e9-7b76-8873-816779beba89",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:23.894007Z",
+            "lastAttemptAt": "2026-09-23T23:41:32.387886Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:32.387886Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:26.513661Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-57fc-7174-8871-ee122ee1e19c",
+            "seq": 399,
+            "eventType": "OrderCreated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-57e9-7b76-8873-816779beba89",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:32.581643Z",
+            "lastAttemptAt": "2026-09-23T23:41:32.387886Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:32.387886Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:26.492650Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-53d7-73e9-aabd-4a471851021c",
+            "seq": 398,
+            "eventType": "PaymentReversed",
+            "entityType": "Payment",
+            "entityId": "01a0d0a4-522c-793d-bdc1-3d18ab2ca9e1",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:24.976611Z",
+            "lastAttemptAt": "2026-09-23T23:40:55.804779Z",
+            "lastError": {
+                "at": "2026-09-23T23:40:55.804779Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:25.431985Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-5245-7219-8cd1-93c71e4af491",
+            "seq": 397,
+            "eventType": "PaymentCompleted",
+            "entityType": "Payment",
+            "entityId": "01a0d0a4-522c-793d-bdc1-3d18ab2ca9e1",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:18.235453Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:25.029370Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-5241-7020-9c1e-21c5dca9ef03",
+            "seq": 396,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-51be-7809-ac27-6b7f03a58eb2",
+            "entityVersion": 5,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:32.479060Z",
+            "lastAttemptAt": "2026-09-23T23:41:00.902138Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:00.902138Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:25.025827Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-5226-719a-8965-1096c06a74f9",
+            "seq": 395,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-51be-7809-ac27-6b7f03a58eb2",
+            "entityVersion": 4,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:37.343113Z",
+            "lastAttemptAt": "2026-09-23T23:41:32.387886Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:32.387886Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:24.999088Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-5208-71ba-be21-b6a58ab8876c",
+            "seq": 394,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-51be-7809-ac27-6b7f03a58eb2",
+            "entityVersion": 3,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:25.562804Z",
+            "lastAttemptAt": "2026-09-23T23:41:32.387886Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:32.387886Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:24.968947Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-51f1-702b-a492-505ea011dc29",
+            "seq": 393,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-51be-7809-ac27-6b7f03a58eb2",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:43.269137Z",
+            "lastAttemptAt": "2026-09-23T23:41:32.387886Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:32.387886Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:24.945741Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-51d5-7216-8590-f79f011d46bd",
+            "seq": 392,
+            "eventType": "OrderCreated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-51be-7809-ac27-6b7f03a58eb2",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:18.337748Z",
+            "lastAttemptAt": "2026-09-23T23:41:32.387886Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:32.387886Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:24.917861Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-50a0-71e5-b734-0a373579f61a",
+            "seq": 391,
+            "eventType": "DeviceRegistered",
+            "entityType": "Device",
+            "entityId": "01a0d0a4-509d-714b-b7a6-808d18a5b33c",
+            "entityVersion": 0,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:16.178604Z",
+            "lastAttemptAt": "2026-09-23T23:41:17.149961Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:17.149961Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:24.609205Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-506c-7250-9f17-a574c12caf7f",
+            "seq": 390,
+            "eventType": "CashSessionOpened",
+            "entityType": "CashSession",
+            "entityId": "01a0d0a4-506b-72a2-9f6f-11d2e3324edb",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:39.264421Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:24.557169Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-5059-704c-95a2-96fef74c4028",
+            "seq": 389,
+            "eventType": "CashSessionClosed",
+            "entityType": "CashSession",
+            "entityId": "01a0d0a4-4bbd-72c6-8248-471f39cde772",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:47.454352Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:24.537440Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-4efc-715b-8139-37ba629b7de8",
+            "seq": 388,
+            "eventType": "DeviceRegistered",
+            "entityType": "Device",
+            "entityId": "01a0d0a4-4ef9-7297-aa2c-0eee9c99f9fa",
+            "entityVersion": 0,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:23.014417Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:24.189126Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-4d87-712c-9a8c-3ebd2f4ff673",
+            "seq": 387,
+            "eventType": "PaymentCompleted",
+            "entityType": "Payment",
+            "entityId": "01a0d0a4-4d6a-735b-be26-14ea7c46e58f",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:25.983594Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:23.815342Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-4d83-727c-a597-57c101d273fb",
+            "seq": 386,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-4d20-74e5-9351-5a043cc49a70",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:11.369162Z",
+            "lastAttemptAt": "2026-09-23T23:41:27.316165Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:27.316165Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:23.811542Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-4d38-70c2-b10e-8ea47c95cc65",
+            "seq": 385,
+            "eventType": "OrderCreated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-4d20-74e5-9351-5a043cc49a70",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:25.912010Z",
+            "lastAttemptAt": "2026-09-23T23:41:27.316165Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:27.316165Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:23.736931Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-4ccd-722b-988a-7cd434fd6134",
+            "seq": 384,
+            "eventType": "PaymentCompleted",
+            "entityType": "Payment",
+            "entityId": "01a0d0a4-4caf-7163-ab50-31a1e3c01944",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:34.034752Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:23.629298Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-4ccc-70dd-8715-7eeacbeaa8ac",
+            "seq": 383,
+            "eventType": "PaymentCompleted",
+            "entityType": "Payment",
+            "entityId": "01a0d0a4-4caf-7ce5-bffc-6139723d7aa1",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:22.384170Z",
+            "lastAttemptAt": "2026-09-23T23:41:37.504169Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:37.504169Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:23.628565Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-4cc9-7015-b77b-cd5fdca37d83",
+            "seq": 382,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-4bc4-7ec3-9d0f-f3448776a518",
+            "entityVersion": 7,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:31.130306Z",
+            "lastAttemptAt": "2026-09-23T23:40:55.804779Z",
+            "lastError": {
+                "at": "2026-09-23T23:40:55.804779Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:23.625255Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-4c6e-703d-ab18-08e98632a001",
+            "seq": 381,
+            "eventType": "PaymentCompleted",
+            "entityType": "Payment",
+            "entityId": "01a0d0a4-4c50-7d5a-b0ff-82d292eb156a",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:09.769088Z",
+            "lastAttemptAt": "2026-09-23T23:41:17.149961Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:17.149961Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:23.534871Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-4c6a-71e3-9a4e-0e9d385627d6",
+            "seq": 380,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-4bc4-7ec3-9d0f-f3448776a518",
+            "entityVersion": 6,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:25.075481Z",
+            "lastAttemptAt": "2026-09-23T23:40:55.804779Z",
+            "lastError": {
+                "at": "2026-09-23T23:40:55.804779Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:23.531109Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-4c4a-7000-a2e6-dea39654a0d5",
+            "seq": 379,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-4bc4-7ec3-9d0f-f3448776a518",
+            "entityVersion": 5,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:35.797573Z",
+            "lastAttemptAt": "2026-09-23T23:40:55.804779Z",
+            "lastError": {
+                "at": "2026-09-23T23:40:55.804779Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:23.499116Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-4c2c-72b2-8ac8-634d5fd6fc3a",
+            "seq": 378,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-4bc4-7ec3-9d0f-f3448776a518",
+            "entityVersion": 4,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:28.205648Z",
+            "lastAttemptAt": "2026-09-23T23:40:55.804779Z",
+            "lastError": {
+                "at": "2026-09-23T23:40:55.804779Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:23.468662Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-4c0e-7008-af2b-0719f5049a59",
+            "seq": 377,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-4bc4-7ec3-9d0f-f3448776a518",
+            "entityVersion": 3,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:27.067340Z",
+            "lastAttemptAt": "2026-09-23T23:40:55.804779Z",
+            "lastError": {
+                "at": "2026-09-23T23:40:55.804779Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:23.439171Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-4bf4-73db-99cd-0c165303ec62",
+            "seq": 376,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-4bc4-7ec3-9d0f-f3448776a518",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:24.752439Z",
+            "lastAttemptAt": "2026-09-23T23:40:55.804779Z",
+            "lastError": {
+                "at": "2026-09-23T23:40:55.804779Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:23.412855Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-4bdb-7067-ba54-b8f4300bf79d",
+            "seq": 375,
+            "eventType": "OrderCreated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-4bc4-7ec3-9d0f-f3448776a518",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:05.713789Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:23.387204Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-4bbf-714f-a402-4bdbdce0380b",
+            "seq": 374,
+            "eventType": "CashSessionOpened",
+            "entityType": "CashSession",
+            "entityId": "01a0d0a4-4bbd-72c6-8248-471f39cde772",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:17.110801Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:23.359944Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-4ba1-73ec-8be2-7761b51aca87",
+            "seq": 373,
+            "eventType": "CashSessionClosed",
+            "entityType": "CashSession",
+            "entityId": "01a0d0a4-4844-73ae-9882-9b34d746c430",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:48.428623Z",
+            "lastAttemptAt": "2026-09-23T23:41:32.387886Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:32.387886Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:23.329289Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-4a51-70f1-b6f6-4c66b9641891",
+            "seq": 372,
+            "eventType": "DeviceRegistered",
+            "entityType": "Device",
+            "entityId": "01a0d0a4-4a4f-73ac-b103-bdc65bfe7650",
+            "entityVersion": 0,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:03.118992Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:22.993687Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-48ff-716f-b626-df8b9de2ca58",
+            "seq": 371,
+            "eventType": "PaymentCompleted",
+            "entityType": "Payment",
+            "entityId": "01a0d0a4-48cc-7bb3-a0ce-6aa69d30acf4",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:38.000136Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:22.655240Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-48f9-7055-a959-6f7278d4388a",
+            "seq": 370,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-485e-77f7-bdfa-21e52a0d418b",
+            "entityVersion": 4,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:58.430308Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:22.650133Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-48c0-70b5-9926-18ae8e52c037",
+            "seq": 369,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-485e-77f7-bdfa-21e52a0d418b",
+            "entityVersion": 3,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:47.642450Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:22.592485Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-48a4-73ba-ae72-a3667870f727",
+            "seq": 368,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-485e-77f7-bdfa-21e52a0d418b",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:56.997221Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:22.564583Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-4884-7147-bf29-4d43a5151786",
+            "seq": 367,
+            "eventType": "OrderCreated",
+            "entityType": "Order",
+            "entityId": "01a0d0a4-485e-77f7-bdfa-21e52a0d418b",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:42.088198Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:22.533035Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-4845-7179-aa07-d6dfe5182353",
+            "seq": 366,
+            "eventType": "CashSessionOpened",
+            "entityType": "CashSession",
+            "entityId": "01a0d0a4-4844-73ae-9882-9b34d746c430",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:16.049474Z",
+            "lastAttemptAt": "2026-09-23T23:41:32.387886Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:32.387886Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:22.469833Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-482f-70ce-88e3-799029fba29d",
+            "seq": 365,
+            "eventType": "CashSessionClosed",
+            "entityType": "CashSession",
+            "entityId": "01a0d04e-a84f-734b-851b-0193e1e84ad0",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 0,
+            "nextRetryAt": null,
+            "lastAttemptAt": null,
+            "lastError": null,
+            "createdAt": "2026-09-23T23:40:22.447800Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a4-46a3-71d0-adc3-aa54cc2d4783",
+            "seq": 364,
+            "eventType": "DeviceRegistered",
+            "entityType": "Device",
+            "entityId": "01a0d0a4-46a0-736e-a8c2-7bf40959a76d",
+            "entityVersion": 0,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:11.859359Z",
+            "lastAttemptAt": "2026-09-23T23:41:17.149961Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:17.149961Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:40:22.052197Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a3-c7e4-7014-a58b-74565abf691d",
+            "seq": 363,
+            "eventType": "DeviceRegistered",
+            "entityType": "Device",
+            "entityId": "01a0d08e-062e-7328-aff1-81c7791a6071",
+            "entityVersion": 5,
+            "syncStatus": "QUEUED",
+            "retryCount": 1,
+            "nextRetryAt": "2026-09-23T23:40:58.455571Z",
+            "lastAttemptAt": "2026-09-23T23:40:50.739143Z",
+            "lastError": {
+                "at": "2026-09-23T23:40:50.739143Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:39:49.604780Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a3-0f98-7278-b73b-88c646e52a7c",
+            "seq": 362,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a3-0976-7533-ab1a-056d938e6f58",
+            "entityVersion": 4,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:50.700889Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:39:02.424641Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a3-0b26-73e4-8dd0-54aa9f4930d9",
+            "seq": 361,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a3-0976-7533-ab1a-056d938e6f58",
+            "entityVersion": 3,
+            "syncStatus": "QUEUED",
+            "retryCount": 3,
+            "nextRetryAt": "2026-09-23T23:41:49.085267Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:39:01.286328Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a3-09d6-7120-b9c4-7edd8fbb3720",
+            "seq": 360,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a3-0976-7533-ab1a-056d938e6f58",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:37.276382Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:39:00.950347Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a3-09ae-72cf-8740-0bf47a90ed90",
+            "seq": 359,
+            "eventType": "OrderCreated",
+            "entityType": "Order",
+            "entityId": "01a0d0a3-0976-7533-ab1a-056d938e6f58",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 5,
+            "nextRetryAt": "2026-09-23T23:43:23.761020Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:39:00.910466Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a3-0841-7371-8bf3-ba0c3445b0f9",
+            "seq": 358,
+            "eventType": "DeviceRegistered",
+            "entityType": "Device",
+            "entityId": "01a0d0a3-083e-7044-bdfa-f763d58d6f36",
+            "entityVersion": 0,
+            "syncStatus": "QUEUED",
+            "retryCount": 5,
+            "nextRetryAt": "2026-09-23T23:43:28.182786Z",
+            "lastAttemptAt": "2026-09-23T23:41:11.052247Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:11.052247Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:39:00.546188Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a3-080f-7371-80b5-c720aa24a113",
+            "seq": 357,
+            "eventType": "CashSessionOpened",
+            "entityType": "CashSession",
+            "entityId": "01a0d0a3-080d-7182-a842-e5eed2c3959b",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 5,
+            "nextRetryAt": "2026-09-23T23:43:18.415786Z",
+            "lastAttemptAt": "2026-09-23T23:41:00.902138Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:00.902138Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:39:00.495684Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a3-07f0-73b8-9c45-64d6a57d53f5",
+            "seq": 356,
+            "eventType": "CashSessionClosed",
+            "entityType": "CashSession",
+            "entityId": "01a0d0a0-f276-7123-9c27-02facff61ea6",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 1,
+            "nextRetryAt": "2026-09-23T23:40:51.804449Z",
+            "lastAttemptAt": "2026-09-23T23:40:45.634818Z",
+            "lastError": {
+                "at": "2026-09-23T23:40:45.634818Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:39:00.464487Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a3-063b-7112-9168-fba4a93328df",
+            "seq": 355,
+            "eventType": "DeviceRegistered",
+            "entityType": "Device",
+            "entityId": "01a0d0a3-0635-7384-b6e0-2bd17e38ccd1",
+            "entityVersion": 0,
+            "syncStatus": "QUEUED",
+            "retryCount": 5,
+            "nextRetryAt": "2026-09-23T23:43:15.913510Z",
+            "lastAttemptAt": "2026-09-23T23:41:22.240430Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:22.240430Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:39:00.027455Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a1-c80b-7041-9c4b-4d4e9ca6e166",
+            "seq": 354,
+            "eventType": "RentalReturned",
+            "entityType": "EntitlementItem",
+            "entityId": "01a0d040-c15d-7325-b060-72087dc96ebe",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 4,
+            "nextRetryAt": "2026-09-23T23:42:50.075918Z",
+            "lastAttemptAt": "2026-09-23T23:41:37.504169Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:37.504169Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:37:38.571409Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a1-83be-7027-86f3-13df64cd8680",
+            "seq": 353,
+            "eventType": "RentalReleased",
+            "entityType": "EntitlementItem",
+            "entityId": "01a0d040-c15d-7325-b060-72087dc96ebe",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 6,
+            "nextRetryAt": "2026-09-23T23:45:20.003785Z",
+            "lastAttemptAt": "2026-09-23T23:41:37.504169Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:37.504169Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:37:21.087030Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a0-f449-708a-ac3d-33e219bd37c2",
+            "seq": 352,
+            "eventType": "OrderUpdated",
+            "entityType": "Order",
+            "entityId": "01a0d0a0-f3d6-7241-a24a-28dffe8e1d4a",
+            "entityVersion": 2,
+            "syncStatus": "QUEUED",
+            "retryCount": 5,
+            "nextRetryAt": "2026-09-23T23:43:14.840394Z",
+            "lastAttemptAt": "2026-09-23T23:41:11.052247Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:11.052247Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:36:44.361784Z",
+            "syncedAt": null
+        },
+        {
+            "eventId": "01a0d0a0-f405-7367-8756-49bb61b6a9b5",
+            "seq": 351,
+            "eventType": "OrderCreated",
+            "entityType": "Order",
+            "entityId": "01a0d0a0-f3d6-7241-a24a-28dffe8e1d4a",
+            "entityVersion": 1,
+            "syncStatus": "QUEUED",
+            "retryCount": 6,
+            "nextRetryAt": "2026-09-23T23:45:34.482839Z",
+            "lastAttemptAt": "2026-09-23T23:41:11.052247Z",
+            "lastError": {
+                "at": "2026-09-23T23:41:11.052247Z",
+                "result": "UNREACHABLE",
+                "message": "PEER_URL / PEER_NODE_TOKEN are not configured."
+            },
+            "createdAt": "2026-09-23T23:36:44.293650Z",
+            "syncedAt": null
+        }
+    ],
+    "nextCursor": "eyJ2IjoiMzUxIiwiaSI6IjAxYTBkMGEwLWY0MDUtNzM2Ny04NzU2LTQ5YmI2MWI2YTliNSJ9"
+}

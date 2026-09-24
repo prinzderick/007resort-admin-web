@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Portal\Directory;
 use App\Services\Portal\DashboardData;
 use App\Support\Csv;
 use App\Support\Fetch;
 use App\Support\Time;
+use Carbon\CarbonImmutable;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -30,7 +32,7 @@ class StaffController extends Controller
         return redirect()->route('staff.show', $res->body['id'])->with('success', 'Staff member created. Set a password, PIN or card next.');
     }
 
-    public function show(string $staff)
+    public function show(string $staff, Directory $dir)
     {
         $member = $this->api->request('GET', "staff/{$staff}");
         $member = ['data' => $member->body, 'etag' => $member->etag()];
@@ -48,13 +50,13 @@ class StaffController extends Controller
 
         $roleNames = [];
         foreach ($roles->items() as $r) {
-            $roleNames[$r['id']] = $r['name'];
+            $roleNames[$r['id'] ?? ''] = $r['name'] ?? ($r['code'] ?? '');
         }
         $mine = array_values(array_filter($devices->items(), fn ($d) => ($d['checkout']['staffId'] ?? null) === $staff && ($d['checkout']['checkedInAt'] ?? null) === null));
 
         return view('pages.staff.show', [
             'member' => $member['data'], 'etag' => $member['etag'], 'roles' => $roles, 'assign' => $assign, 'roleNames' => $roleNames,
-            'facilities' => app(DashboardData::class)->flatten($facilities->items()), 'site' => $site->data, 'devices' => $devices, 'myDevices' => $mine, 'audit' => $audit,
+            'facilities' => app(DashboardData::class)->flatten($facilities->items()), 'site' => $site->data, 'devices' => $devices, 'myDevices' => $mine, 'audit' => $audit, 'names' => $dir->staffNames(),
         ]);
     }
 
@@ -90,7 +92,7 @@ class StaffController extends Controller
     public function credential(Request $request, string $staff, string $kind): RedirectResponse
     {
         abort_unless(in_array($kind, ['password', 'pin', 'nfc-card'], true), 404);
-        $rules = ['password' => ['password' => ['required', 'string', 'min:10', 'max:200']], 'pin' => ['pin' => ['required', 'digits_between:4,8']], 'nfc-card' => ['cardUid' => ['required', 'string', 'max:64', 'regex:/^[A-Za-z0-9:\-]+$/']]][$kind];
+        $rules = ['password' => ['password' => ['required', 'string', 'min:8', 'max:128']], 'pin' => ['pin' => ['required', 'digits_between:4,8']], 'nfc-card' => ['cardUid' => ['required', 'string', 'min:4', 'max:64', 'regex:/^[A-Za-z0-9:\-]+$/']]][$kind];
         $d = $request->validate($rules);
         $this->api->request('PUT', "staff/{$staff}/credentials/{$kind}", [], $d);
 
@@ -104,19 +106,40 @@ class StaffController extends Controller
         return redirect()->route('staff.show', $staff)->with('success', 'NFC card removed.');
     }
 
-    public function attendance(Request $request)
+    public function attendance(Request $request, Directory $dir)
     {
         $from = $this->day($request->query('from')) ?? Time::today();
         $to = $this->day($request->query('to')) ?? Time::today();
         $records = Fetch::of(fn () => $this->api->get('attendance', ['filter[from]' => $from, 'filter[to]' => $to, 'filter[status]' => $request->query('status'), 'limit' => 200]), ['GET', '/attendance']);
-        $corrections = Fetch::of(fn () => $this->api->get('attendance/corrections', ['filter[status]' => 'PENDING', 'limit' => 50]), ['GET', '/attendance/corrections']);
+        // (this endpoint takes ?status=, not filter[status])
+        $corrections = Fetch::of(fn () => $this->api->get('attendance/corrections', ['status' => 'PENDING', 'limit' => 50]), ['GET', '/attendance/corrections']);
+        $names = $dir->staffNames();
+        $people = $names === [] ? new Fetch(null, 'forbidden') : new Fetch(array_map(fn ($id, $n) => ['id' => $id, 'name' => $n], array_keys($names), $names));
 
         if ($request->query('format') === 'csv') {
             return Csv::stream("attendance-{$from}-{$to}.csv", ['Date', 'Staff', 'Clock in', 'Clock out', 'Minutes', 'Status', 'Source'],
-                array_map(fn ($r) => [$r['workDate'], $r['staffName'] ?? $r['staffId'], $r['clockIn'] ?? '', $r['clockOut'] ?? '', $r['minutesWorked'] ?? '', $r['status'], $r['source'] ?? ''], $records->items()));
+                array_map(fn ($r) => [$r['workDate'] ?? '', $r['staffName'] ?? $r['staffId'] ?? '', $r['clockIn'] ?? '', $r['clockOut'] ?? '', $r['minutesWorked'] ?? '', $r['status'] ?? '', $r['source'] ?? ''], $records->items()));
         }
 
-        return view('pages.staff.attendance', ['records' => $records, 'corrections' => $corrections, 'from' => $from, 'to' => $to, 'status' => $request->query('status')]);
+        return view('pages.staff.attendance', ['records' => $records, 'corrections' => $corrections, 'from' => $from, 'to' => $to, 'status' => $request->query('status'), 'names' => $names, 'people' => $people]);
+    }
+
+    /** Ask for a clock-in/out to be fixed (POST /attendance/corrections, attendance.correction.request); a supervisor approves it below. */
+    public function requestCorrection(Request $request): RedirectResponse
+    {
+        abort_unless($this->staff->can('attendance.correction.request'), 403);
+        $d = $request->validate([
+            'staffId' => ['required', 'uuid'], 'workDate' => ['required', 'date_format:Y-m-d'], 'clockIn' => ['nullable', 'date'], 'clockOut' => ['nullable', 'date', 'after:clockIn'],
+            'reason' => ['required', 'string', 'min:5', 'max:255'],
+        ]);
+        $tz = (string) config('r007.display_timezone', 'Africa/Lagos');
+        // The form is in local (Lagos) time; the API wants instants.
+        foreach (['clockIn', 'clockOut'] as $k) {
+            ! empty($d[$k]) && $d[$k] = CarbonImmutable::parse($d[$k], $tz)->utc()->toIso8601ZuluString('millisecond');
+        }
+        $this->api->request('POST', 'attendance/corrections', [], array_filter($d, fn ($v) => $v !== null && $v !== ''));
+
+        return redirect()->route('staff.attendance')->with('success', 'Correction requested. A supervisor must approve it before attendance changes.');
     }
 
     public function decideCorrection(Request $request, string $correction, string $decision): RedirectResponse
@@ -127,18 +150,20 @@ class StaffController extends Controller
         return redirect()->route('staff.attendance')->with('success', 'Correction '.($decision === 'approve' ? 'approved.' : 'rejected.'));
     }
 
-    public function audit(Request $request)
+    public function audit(Request $request, Directory $dir)
     {
-        $params = ['limit' => 100, 'action' => $request->query('action'), 'entityType' => $request->query('entityType'), 'actorStaffId' => $request->query('actor'),
+        // Newest first; `action` is an exact match (e.g. payment.refund), dates are UTC days.
+        $params = ['limit' => 100, 'order' => 'desc', 'action' => $request->query('action'), 'entityType' => $request->query('entityType'), 'actorStaffId' => $request->query('actor'),
             'filter[from]' => $this->day($request->query('from')), 'filter[to]' => $this->day($request->query('to')), 'cursor' => $request->query('cursor')];
         $audit = Fetch::of(fn () => $this->api->get('audit', $params), ['GET', '/audit']);
+        $names = $dir->staffNames();
 
         if ($request->query('format') === 'csv') {
-            return Csv::stream('audit-trail.csv', ['Seq', 'Time', 'Actor', 'Action', 'Entity type', 'Entity', 'Reason', 'Hash'],
-                array_map(fn ($a) => [$a['seq'], $a['occurredAt'], $a['actorName'] ?? $a['actorStaffId'] ?? '', $a['action'], $a['entityType'], $a['entityId'] ?? '', $a['reason'] ?? '', $a['hash']], $audit->items()));
+            return Csv::stream('audit-trail.csv', ['Seq', 'Time', 'Actor', 'Action', 'Entity type', 'Entity', 'Before', 'After', 'Hash'],
+                array_map(fn ($a) => [$a['seq'] ?? '', $a['occurredAt'] ?? '', $names[$a['actorStaffId'] ?? ''] ?? $a['actorStaffId'] ?? '', $a['action'] ?? '', $a['entityType'] ?? '', $a['entityId'] ?? '', json_encode($a['oldValue'] ?? null), json_encode($a['newValue'] ?? null), $a['rowHash'] ?? ''], $audit->items()));
         }
 
-        return view('pages.staff.audit', ['audit' => $audit, 'q' => $request->query()]);
+        return view('pages.staff.audit', ['audit' => $audit, 'q' => $request->query(), 'names' => $names]);
     }
 
     private function day(mixed $v): ?string

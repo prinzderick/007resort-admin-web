@@ -40,7 +40,7 @@ class ReportsController extends Controller
 
         if ($request->query('format') === 'csv') {
             return Csv::stream("property-{$date}.csv", ['Date', 'Facility', 'Orders', 'Gross sales', 'Discounts', 'Net sales', 'Refunds', 'Voids', 'Tickets redeemed'],
-                array_map(fn ($r) => [$date, $r['facility']['name'], $r['s']['orders'] ?? 0, $r['s']['grossSales'] ?? '0', $r['s']['discounts'] ?? '0', $r['s']['netSales'] ?? '0', $r['s']['refunds'] ?? '0', $r['s']['voids']['count'] ?? 0, $r['s']['ticketsRedeemed'] ?? 0], $rows));
+                array_map(fn ($r) => [$date, $r['facility']['name'] ?? '', $r['s']['orders'] ?? 0, $r['s']['grossSales'] ?? '0', $r['s']['discounts'] ?? '0', $r['s']['netSales'] ?? '0', $r['s']['refunds'] ?? '0', $r['s']['voids']['count'] ?? 0, $r['s']['ticketsRedeemed'] ?? 0], $rows));
         }
 
         return view('pages.reports.index', [
@@ -61,7 +61,7 @@ class ReportsController extends Controller
 
         $deviceNames = [];
         foreach ($devices->items() as $d) {
-            $deviceNames[$d['id']] = $d['name'];
+            $deviceNames[$d['id'] ?? ''] = $d['name'] ?? '';
         }
         $staffNames = [];
 
@@ -69,10 +69,10 @@ class ReportsController extends Controller
             $s = $summary->data;
             $rows = [];
             foreach ($s['byTender'] ?? [] as $t) {
-                $rows[] = ['payments by method', $t['tenderType'], $t['count'], $t['amount']];
+                $rows[] = ['payments by method', $t['tenderType'] ?? '', $t['count'] ?? 0, $t['amount'] ?? '0'];
             }
             foreach ($s['topProducts'] ?? [] as $p) {
-                $rows[] = ['top product', $p['name'], $p['quantity'], $p['revenue']];
+                $rows[] = ['top product', $p['name'] ?? '', $p['quantity'] ?? 0, $p['revenue'] ?? '0'];
             }
 
             return Csv::stream("facility-{$facility}-{$date}.csv", ['Section', 'Item', 'Count', 'Amount'], $rows);
@@ -88,11 +88,14 @@ class ReportsController extends Controller
     public function shift(Request $request, string $session)
     {
         $report = Fetch::of(fn () => $this->api->get("reports/cashier-shift/{$session}"), ['GET', '/reports/cashier-shift/{shiftId}']);
-        $payments = Fetch::of(fn () => $this->api->get('payments', ['filter[cashSessionId]' => $session, 'limit' => 200]), ['GET', '/payments']);
+        // GET /payments is scoped by facility (or your own takings): pass the shift's facility so any
+        // permitted viewer gets the whole shift, whichever way the API scopes an unfiltered list.
+        $facilityId = $report->ok() ? ($report->data['facilityId'] ?? null) : null;
+        $payments = Fetch::of(fn () => $this->api->get('payments', ['filter[cashSessionId]' => $session, 'filter[facilityId]' => $facilityId, 'limit' => 200]), ['GET', '/payments']);
 
         if ($request->query('format') === 'csv') {
             return Csv::stream("shift-{$session}.csv", ['Payment', 'Time', 'Method', 'Status', 'Amount', 'Refunded', 'Reference'],
-                array_map(fn ($p) => [$p['id'], $p['createdAt'], $p['tenderType'], $p['status'], $p['amount'], $p['refundedAmount'] ?? '0', $p['providerReference'] ?? ''], $payments->items()));
+                array_map(fn ($p) => [$p['id'] ?? '', $p['createdAt'] ?? '', $p['tenderType'] ?? '', $p['status'] ?? '', $p['amount'] ?? '0', $p['refundedAmount'] ?? '0', $p['providerReference'] ?? ''], $payments->items()));
         }
 
         return view('pages.reports.shift', [
