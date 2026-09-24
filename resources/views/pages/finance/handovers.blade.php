@@ -53,8 +53,8 @@
                         <td class="num">@if ($var !== null && \App\Support\Money::cmp($var, '0') !== 0)<x-money :value="$var" /> <span class="text-xs {{ $neg ? 'text-red-700' : 'text-amber-700' }}">{{ $neg ? 'short' : 'over' }}</span>@elseif ($var !== null)<span class="text-brand-700">Balanced</span>@else<span class="text-stone-400">-</span>@endif</td>
                         <td><x-badge :status="$st" tone="{{ $st === 'PENDING_SIGNOFF' ? 'warn' : ($st === 'RECEIVED' ? 'good' : 'info') }}">{{ $statuses[$st] ?? $st }}</x-badge></td>
                         <td class="text-right">
-                            @if ($st === 'PENDING_RECEIPT' && $canReceive)<x-btn type="button" @click="$dispatch('open-modal', 'receive-{{ $h['id'] }}')">Count &amp; receive</x-btn>
-                            @elseif ($st === 'PENDING_SIGNOFF' && $canSignoff)<x-btn type="button" variant="secondary" @click="$dispatch('open-modal', 'signoff-{{ $h['id'] }}')">Sign off</x-btn>@endif
+                            @if ($st === 'PENDING_RECEIPT' && $canReceive)<x-btn type="button" @click="$dispatch('open-modal', { name: 'receive-handover', data: {{ \Illuminate\Support\Js::from(['id' => $h['id'], 'waiter' => $name($h['waiterStaffId'] ?? null), 'declared' => \App\Support\Money::format($h['declaredAmount'] ?? '0'), 'declaredRaw' => $h['declaredAmount'] ?? '']) }} })">Count &amp; receive</x-btn>
+                            @elseif ($st === 'PENDING_SIGNOFF' && $canSignoff)<x-btn type="button" variant="secondary" @click="$dispatch('open-modal', { name: 'signoff-handover', data: {{ \Illuminate\Support\Js::from(['id' => $h['id'], 'text' => 'Counted '.\App\Support\Money::format($h['countedAmount'] ?? '0').' against '.\App\Support\Money::format($h['declaredAmount'] ?? '0').' declared: '.\App\Support\Money::format($h['variance'] ?? '0').'.']) }} })">Sign off</x-btn>@endif
                         </td>
                     </tr>
                 @empty
@@ -64,22 +64,23 @@
         @endif
     </x-card>
 
-    @foreach ($handovers->items() as $h)
-        @if (($h['status'] ?? '') === 'PENDING_RECEIPT' && $canReceive)
-            <x-dialog name="receive-{{ $h['id'] }}" title="Receive cash from {{ $name($h['waiterStaffId'] ?? null) }}" subtitle="The waiter declared {{ \App\Support\Money::format($h['declaredAmount'] ?? '0') }}. Count it and enter what you actually received.">
-                <form method="POST" action="{{ route('finance.handovers.receive', $h['id']) }}" class="grid gap-4" novalidate>@csrf
-                    <x-form.money name="countedAmount" label="Cash counted" required :value="$h['declaredAmount'] ?? null" :scale="2" />
-                    <x-form.text name="note" label="Note (optional)" :maxlength="500" />
-                    <div class="flex justify-end gap-2"><x-btn type="button" variant="secondary" @click="open = false">Cancel</x-btn><x-btn>Receive cash</x-btn></div>
-                </form>
-            </x-dialog>
-        @elseif (($h['status'] ?? '') === 'PENDING_SIGNOFF' && $canSignoff)
-            <x-dialog name="signoff-{{ $h['id'] }}" title="Sign off the difference" subtitle="Counted {{ \App\Support\Money::format($h['countedAmount'] ?? '0') }} against {{ \App\Support\Money::format($h['declaredAmount'] ?? '0') }} declared: {{ \App\Support\Money::format($h['variance'] ?? '0') }}.">
-                <form method="POST" action="{{ route('finance.handovers.signoff', $h['id']) }}" class="grid gap-4" novalidate>@csrf
-                    <x-form.text name="note" label="What happened?" required :multiline="true" :rows="3" :maxlength="500" hint="This is kept in the audit log with your name." />
-                    <div class="flex justify-end gap-2"><x-btn type="button" variant="secondary" @click="open = false">Cancel</x-btn><x-btn>Sign off</x-btn></div>
-                </form>
-            </x-dialog>
-        @endif
-    @endforeach
+    @if ($canReceive)
+        <x-dialog name="receive-handover" title="Receive cash">
+            <form method="POST" :action="'{{ url('/finance/handovers') }}/' + payload.id + '/receive'" class="grid gap-4" novalidate>@csrf
+                <p class="text-sm text-stone-700"><b x-text="payload.waiter"></b> declared <b x-text="payload.declared"></b>. Count it and enter what you actually received.</p>
+                <x-form.money name="countedAmount" label="Cash counted" required :scale="2" x-model="payload.declaredRaw" />
+                <x-form.text name="note" label="Note (optional)" :maxlength="500" />
+                <div class="flex justify-end gap-2"><x-btn type="button" variant="secondary" @click="open = false">Cancel</x-btn><x-btn>Receive cash</x-btn></div>
+            </form>
+        </x-dialog>
+    @endif
+    @if ($canSignoff)
+        <x-dialog name="signoff-handover" title="Sign off the difference">
+            <form method="POST" :action="'{{ url('/finance/handovers') }}/' + payload.id + '/signoff'" class="grid gap-4" novalidate>@csrf
+                <p class="text-sm text-stone-700" x-text="payload.text"></p>
+                <x-form.text name="note" label="What happened?" required :multiline="true" :rows="3" :maxlength="500" hint="This is kept in the audit log with your name." />
+                <div class="flex justify-end gap-2"><x-btn type="button" variant="secondary" @click="open = false">Cancel</x-btn><x-btn>Sign off</x-btn></div>
+            </form>
+        </x-dialog>
+    @endif
 </x-layouts.app>

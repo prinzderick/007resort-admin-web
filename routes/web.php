@@ -202,7 +202,13 @@ Route::middleware('staff')->group(function (): void {
     });
 
     // People: roles catalogue, audit log
-    Route::get('/people/roles', [PeopleController::class, 'roles'])->middleware('permit:role_assignment.manage')->name('people.roles');
+    Route::middleware('permit:role_assignment.manage,role.manage')->prefix('people/roles')->name('people.roles')->group(function (): void {
+        Route::get('/', [PeopleController::class, 'roles']);
+        Route::post('/', [PeopleController::class, 'create'])->name('.store');
+        Route::put('/{role}/permissions', [PeopleController::class, 'permissions'])->whereUuid('role')->name('.permissions');
+        Route::patch('/{role}', [PeopleController::class, 'update'])->whereUuid('role')->name('.update');
+        Route::delete('/{role}', [PeopleController::class, 'destroy'])->whereUuid('role')->name('.destroy');
+    });
     Route::get('/system/audit', [StaffController::class, 'audit'])->middleware('permit:audit.view,config.view')->name('audit.index');
 
     // Devices

@@ -42,6 +42,13 @@ return Application::configure(basePath: dirname(__DIR__))
             // The API's detail is written for administrators ("3 open orders must be settled first"): show it as is, title only as a fallback.
             $message = $e->detail ?: $e->title;
             $blockers = collect((array) ($e->extensions['blockers'] ?? []))->map(fn ($b) => is_array($b) ? (string) ($b['message'] ?? '') : (string) $b)->filter()->values()->all();
+            if ($blockers !== []) { // the list below says exactly what; the headline only says why nothing happened
+                $message = [
+                    'facility_in_use' => 'This facility is still in use, so it cannot be switched off yet. Finish these first:',
+                    'capability_in_use' => 'That feature is still in use, so it cannot be switched off yet. Finish these first:',
+                    'operating_point_in_use' => 'This operating point is still in use, so it cannot be switched off yet. Finish these first:',
+                ][$e->problemCode() ?? ''] ?? $message;
+            }
 
             if (! $request->isMethod('GET') && ! $e->isUnreachable() && $e->status < 500) {
                 $back = back()->withInput($request->except(['password', 'secret', 'pin', 'code']))->with('error', $message)->with('blockers', $blockers)->with('error_code', $e->problemCode());

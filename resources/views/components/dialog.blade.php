@@ -1,7 +1,7 @@
 @props(['name', 'title', 'maxWidth' => 'max-w-lg', 'subtitle' => null])
 {{-- A modal whose body is only built when it opens (so a table can have one edit dialog per row without paying for hundreds of controls).
-     Open with: $dispatch('open-modal', 'name'). Content is your slot; put a <form> in it. --}}
-<div x-data="{ open: false }" @open-modal.window="if ($event.detail === '{{ $name }}') open = true" @keydown.escape.window="open = false" x-cloak data-component="dialog" data-dialog="{{ $name }}">
+     Open with: $dispatch('open-modal', 'name') or, to reuse ONE dialog for a long list of rows, $dispatch('open-modal', { name, data: {...row} }) and bind the fields to payload.* with x-model. Content is your slot; put a <form> in it. --}}
+<div x-data="{ open: false, payload: {} }" @open-modal.window="const d = $event.detail; if (d === '{{ $name }}' || (d && d.name === '{{ $name }}')) { payload = (d && d.data) || {}; open = true }" @keydown.escape.window="open = false" x-cloak data-component="dialog" data-dialog="{{ $name }}">
     <template x-teleport="body">
         <div x-show="open" x-cloak class="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-stone-900/40 p-4 sm:items-center" @click.self="open = false" x-trap.noscroll="open">
             <div class="my-6 w-full {{ $maxWidth }} rounded-2xl bg-white shadow-2xl" role="dialog" aria-modal="true" aria-label="{{ $title }}">

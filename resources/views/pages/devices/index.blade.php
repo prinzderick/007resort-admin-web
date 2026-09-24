@@ -40,14 +40,14 @@
                     <td class="text-stone-600">{{ $d['appVersion'] ?? '' }}</td>
                     <td class="whitespace-nowrap"><x-time :at="$d['lastSeenAt'] ?? null" ago />@if ($quiet)<x-badge tone="warn" class="ml-1">quiet</x-badge>@endif</td>
                     <td class="text-right">@if (! empty($d['id']) && ($canManage || ($dstatus !== 'REVOKED' && auth_staff()->can('device.revoke'))))<x-row-menu>
-                        @if ($canManage)<button type="button" @click="$dispatch('open-modal', 'edit-device-{{ $d['id'] }}')">Edit</button>@endif
+                        @if ($canManage)<button type="button" @click="$dispatch('open-modal', { name: 'edit-device', data: {{ \Illuminate\Support\Js::from(['id' => $d['id'], 'name' => $d['name'] ?? '', 'kind' => ucwords(strtolower(str_replace('_', ' ', $d['kind'] ?? ''))), 'rowVersion' => $d['rowVersion'] ?? '', 'facilityId' => $d['homeFacilityId'] ?? ($d['homeFacility']['id'] ?? null), 'mode' => $d['mode'] ?? null, 'operatingPointId' => $d['operatingPointId'] ?? null, 'checkedOut' => $out]) }} })">Edit</button>@endif
                         @if ($dstatus !== 'REVOKED' && auth_staff()->can('device.revoke'))<form method="POST" action="{{ route('devices.revoke', $d['id']) }}" x-data="confirmSubmit('Revoke {{ e($devName) }}? It stops working immediately.')" @submit="ask($event)">@csrf<button class="w-full text-left text-red-800">Revoke</button></form>@endif
                     </x-row-menu>@endif</td></tr>
             @empty<tr><td colspan="8"><x-empty title="No devices" text="Register a tablet, POS terminal or screen with a one-time code." icon="device" /></td></tr>@endforelse
             </tbody></table></div>
         @endif
     </x-card>
-    @if ($canManage && $devices->ok())@foreach ($devices->items() as $d)@if (! empty($d['id']))@include('partials.device-edit-dialog', ['d' => $d, 'back' => '/devices'])@endif @endforeach @endif
+    @if ($canManage && $devices->ok())@include('partials.device-edit-dialog', ['back' => '/devices'])@endif
     @endif
 
     @if (auth_staff()->can('device.register'))

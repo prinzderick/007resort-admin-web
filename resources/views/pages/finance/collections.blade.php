@@ -48,8 +48,8 @@
                                 @elseif (! empty($c['autoConfirm']))<span class="text-xs text-stone-500">Confirms automatically</span>
                                 @else
                                     <div class="flex justify-end gap-2">
-                                        <x-btn type="button" variant="secondary" @click="$dispatch('open-modal', 'reject-{{ $p['id'] }}')" data-testid="reject-btn">Reject</x-btn>
-                                        <x-btn type="button" @click="$dispatch('open-modal', 'confirm-{{ $p['id'] }}')" data-testid="confirm-btn">Confirm</x-btn>
+                                        <x-btn type="button" variant="secondary" @click="$dispatch('open-modal', { name: 'reject-collection', data: {{ \Illuminate\Support\Js::from(['id' => $p['id'], 'amount' => \App\Support\Money::format($p['amount'] ?? '0')]) }} })" data-testid="reject-btn">Reject</x-btn>
+                                        <x-btn type="button" @click="$dispatch('open-modal', { name: 'confirm-collection', data: {{ \Illuminate\Support\Js::from(['id' => $p['id'], 'amount' => \App\Support\Money::format($p['amount'] ?? '0'), 'tender' => $tender, 'tenderLabel' => $tenders[$tender] ?? $tender, 'order' => $o['number'] ?? 'this bill', 'ref' => $ref]) }} })" data-testid="confirm-btn">Confirm</x-btn>
                                     </div>
                                 @endif
                             @elseif (! empty($p['id']))<a class="text-sm font-medium text-brand-700 underline" href="{{ route('finance.payment', $p['id']) }}">Open</a>@endif
@@ -64,23 +64,23 @@
     </x-card>
 
     @if ($canConfirm)
-        @foreach ($rows as $p)
-            @continue(($p['status'] ?? '') !== 'PENDING_CONFIRMATION' || empty($p['id']))
-            @php $c = $p['collection'] ?? []; $tender = $c['tender'] ?? $p['tenderType'] ?? ''; $o = $orders[$p['allocations'][0]['orderId'] ?? ''] ?? []; @endphp
-            <x-dialog name="confirm-{{ $p['id'] }}" title="Confirm {{ \App\Support\Money::format($p['amount'] ?? '0') }}" subtitle="{{ $tenders[$tender] ?? $tender }} for {{ $o['number'] ?? 'this bill' }}">
-                <form method="POST" action="{{ route('finance.collections.confirm', $p['id']) }}" class="grid gap-4" novalidate>@csrf
-                    <p class="rounded-lg bg-stone-50 px-3 py-2 text-sm text-stone-700">@if ($tender === 'CASH')Count the cash first. It needs an open cash session for you.@elseif ($tender === 'CARD_TERMINAL')Check the card machine slip: approval code <b>{{ $c['approvalCode'] ?? '-' }}</b>, amount {{ \App\Support\Money::format($p['amount'] ?? '0') }}.@else Check your bank alert for reference <b>{{ $c['bankReference'] ?? '-' }}</b> and the amount.@endif</p>
-                    <x-form.text name="matchedReference" label="Reference you matched (optional)" :maxlength="120" hint="For example the alert or slip number you checked." />
-                    <x-form.text name="note" label="Note (optional)" :maxlength="500" />
-                    <div class="flex justify-end gap-2"><x-btn type="button" variant="secondary" @click="open = false">Cancel</x-btn><x-btn>Confirm payment</x-btn></div>
-                </form>
-            </x-dialog>
-            <x-dialog name="reject-{{ $p['id'] }}" title="Reject this collection?" subtitle="The bill becomes payable again and a supervisor is alerted.">
-                <form method="POST" action="{{ route('finance.collections.reject', $p['id']) }}" class="grid gap-4" novalidate>@csrf
-                    <x-form.text name="reason" label="Why is it being rejected?" required :multiline="true" :rows="3" :maxlength="500" hint="For example: slip does not match, no bank alert, cash short." />
-                    <div class="flex justify-end gap-2"><x-btn type="button" variant="secondary" @click="open = false">Cancel</x-btn><x-btn variant="danger">Reject collection</x-btn></div>
-                </form>
-            </x-dialog>
-        @endforeach
+        <x-dialog name="confirm-collection" title="Confirm this collection" subtitle="Check it against the slip, the bank alert or the cash before you confirm.">
+            <form method="POST" :action="'{{ url('/finance/collections') }}/' + payload.id + '/confirm'" class="grid gap-4" novalidate>@csrf
+                <div class="rounded-lg bg-stone-50 px-3 py-2 text-sm text-stone-700"><b x-text="payload.amount"></b> <span x-text="payload.tenderLabel"></span> for <span x-text="payload.order"></span>.
+                    <span x-show="payload.tender === 'CASH'">Count the cash first. It needs an open cash session for you.</span>
+                    <span x-show="payload.tender === 'CARD_TERMINAL'">Check the card machine slip: approval code <b x-text="payload.ref"></b>.</span>
+                    <span x-show="payload.tender === 'TRANSFER'">Check your bank alert for reference <b x-text="payload.ref"></b> and the amount.</span></div>
+                <x-form.text name="matchedReference" label="Reference you matched (optional)" :maxlength="120" hint="For example the alert or slip number you checked." />
+                <x-form.text name="note" label="Note (optional)" :maxlength="500" />
+                <div class="flex justify-end gap-2"><x-btn type="button" variant="secondary" @click="open = false">Cancel</x-btn><x-btn>Confirm payment</x-btn></div>
+            </form>
+        </x-dialog>
+        <x-dialog name="reject-collection" title="Reject this collection?" subtitle="The bill becomes payable again and a supervisor is alerted.">
+            <form method="POST" :action="'{{ url('/finance/collections') }}/' + payload.id + '/reject'" class="grid gap-4" novalidate>@csrf
+                <p class="text-sm text-stone-700">Rejecting <b x-text="payload.amount"></b>.</p>
+                <x-form.text name="reason" label="Why is it being rejected?" required :multiline="true" :rows="3" :maxlength="500" hint="For example: slip does not match, no bank alert, cash short." />
+                <div class="flex justify-end gap-2"><x-btn type="button" variant="secondary" @click="open = false">Cancel</x-btn><x-btn variant="danger">Reject collection</x-btn></div>
+            </form>
+        </x-dialog>
     @endif
 </x-layouts.app>

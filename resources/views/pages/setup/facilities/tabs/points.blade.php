@@ -18,7 +18,7 @@
             <tr>
                 <td><div class="font-medium">{{ $p['name'] ?? '' }}</div><div class="text-xs text-stone-500">{{ $p['code'] ?? '' }}</div></td>
                 <td>{{ $pointKinds[$p['kind'] ?? ''] ?? ucfirst(strtolower(str_replace('_', ' ', $p['kind'] ?? ''))) }}</td>
-                <td class="text-sm text-stone-600">@if ($ks){{ $kdsKinds[$ks['kind'] ?? ''] ?? $ks['kind'] }} screen @if ($route) &middot; {{ $route['name'] }} orders @endif @elseif (! empty($p['defaultPrepStationId']))Sends to {{ $pointName[$p['defaultPrepStationId']] ?? 'a station' }}@else <span class="text-stone-400">-</span>@endif</td>
+                <td class="text-sm text-stone-600">@if ($ks){{ $kdsKinds[$ks['kind'] ?? ''] ?? $ks['kind'] }} screen @if ($route) &middot; {{ $route['name'] }} orders @endif @elseif (! empty($p['defaultPrepStationId']))Sends to {{ $pointName[$p['defaultPrepStationId']] ?? 'a kitchen or bar screen' }}@else <span class="text-stone-400">-</span>@endif</td>
                 <td><x-badge :tone="($p['active'] ?? true) ? 'good' : 'default'">{{ ($p['active'] ?? true) ? 'Active' : 'Switched off' }}</x-badge></td>
                 <td class="text-right">@if ($canEdit)<x-row-menu>
                     <button type="button" @click="$dispatch('open-modal', 'edit-point-{{ $p['id'] }}')">Edit</button>
@@ -74,7 +74,7 @@
                 <td class="num">{{ $t['effectiveSeats'] ?? $t['seats'] ?? '' }}</td>
                 <td>@if (! ($t['active'] ?? true))<x-badge>Switched off</x-badge>@else<x-badge :status="$t['status'] ?? 'FREE'" />@endif</td>
                 <td class="text-right">@if ($canEdit)<x-row-menu>
-                    <button type="button" @click="$dispatch('open-modal', 'edit-table-{{ $t['id'] }}')">Edit</button>
+                    <button type="button" @click="$dispatch('open-modal', { name: 'edit-table', data: {{ \Illuminate\Support\Js::from(['id' => $t['id'], 'label' => $t['label'] ?? '', 'seats' => (int) ($t['seats'] ?? 4), 'operatingPointId' => $t['operatingPointId'] ?? null, 'rowVersion' => $ver($t), 'merged' => ! empty($t['mergedIntoId'])]) }} })">Edit</button>
                     @if (! empty($t['mergedTableIds']))<form method="POST" action="{{ route('setup.tables.state', [$t['id'], 'unmerge']) }}">@csrf<input type="hidden" name="facilityId" value="{{ $id }}"><input type="hidden" name="rowVersion" value="{{ $ver($t) }}"><button class="w-full text-left">Separate tables</button></form>@endif
                     <form method="POST" action="{{ route('setup.tables.state', [$t['id'], ($t['active'] ?? true) ? 'deactivate' : 'reactivate']) }}">@csrf<input type="hidden" name="facilityId" value="{{ $id }}"><input type="hidden" name="rowVersion" value="{{ $ver($t) }}"><button class="w-full text-left {{ ($t['active'] ?? true) ? 'text-red-800' : '' }}">{{ ($t['active'] ?? true) ? 'Switch off' : 'Switch on' }}</button></form>
                 </x-row-menu>@endif</td>
@@ -111,23 +111,18 @@
             <div class="flex justify-end gap-2"><x-btn type="button" variant="secondary" @click="open = false">Cancel</x-btn><x-btn>Create tables</x-btn></div>
         </form>
     </x-dialog>
-    @foreach ($tableList as $t)
-        <x-dialog name="edit-table-{{ $t['id'] }}" title="Edit table {{ $t['label'] ?? '' }}">
-            <form method="POST" action="{{ route('setup.tables.update', $t['id']) }}" class="grid gap-4" novalidate>@csrf @method('PATCH')
-                <input type="hidden" name="facilityId" value="{{ $id }}"><input type="hidden" name="rowVersion" value="{{ $ver($t) }}">
-                <x-form.text name="label" label="Table label" required :value="$t['label'] ?? ''" />
-                <x-form.stepper name="seats" label="Seats" :value="(int) ($t['seats'] ?? 4)" :min="1" :max="200" />
-                @if ($sectionOptions !== [])<x-form.select name="operatingPointId" label="Area" :options="$sectionOptions" :value="$t['operatingPointId'] ?? null" :clearable="true" placeholder="No area" />@endif
-                <div class="flex justify-end gap-2"><x-btn type="button" variant="secondary" @click="open = false">Cancel</x-btn><x-btn>Save</x-btn></div>
-            </form>
-            @php $free = $tableList->filter(fn ($o) => $o['id'] !== $t['id'] && ($o['active'] ?? true) && empty($o['mergedIntoId']) && empty($t['mergedIntoId']))->map(fn ($o) => ['value' => $o['id'], 'label' => $o['label']])->values()->all(); @endphp
-            @if ($free !== [])
-                <form method="POST" action="{{ route('setup.tables.merge', $t['id']) }}" class="mt-5 grid gap-3 border-t border-stone-100 pt-4" novalidate>@csrf
-                    <input type="hidden" name="facilityId" value="{{ $id }}"><input type="hidden" name="rowVersion" value="{{ $ver($t) }}">
-                    <x-form.select name="intoTableId" label="Join with another table" :options="$free" hint="Both tables must be free. Their seats count together until you separate them." :clearable="true" placeholder="Choose a table" />
-                    <div><x-btn variant="secondary">Join tables</x-btn></div>
-                </form>
-            @endif
-        </x-dialog>
-    @endforeach
+    <x-dialog name="edit-table" title="Edit table">
+        <form method="POST" :action="'{{ url('/setup/tables') }}/' + payload.id" class="grid gap-4" novalidate>@csrf @method('PATCH')
+            <input type="hidden" name="facilityId" value="{{ $id }}"><input type="hidden" name="rowVersion" :value="payload.rowVersion">
+            <x-form.text name="label" label="Table label" required x-model="payload.label" />
+            <x-form.stepper name="seats" label="Seats" :min="1" :max="200" x-model="payload.seats" />
+            @if ($sectionOptions !== [])<x-form.select name="operatingPointId" label="Area" :options="$sectionOptions" x-model="payload.operatingPointId" :clearable="true" placeholder="No area" />@endif
+            <div class="flex justify-end gap-2"><x-btn type="button" variant="secondary" @click="open = false">Cancel</x-btn><x-btn>Save</x-btn></div>
+        </form>
+        <form method="POST" :action="'{{ url('/setup/tables') }}/' + payload.id + '/merge'" class="mt-5 grid gap-3 border-t border-stone-100 pt-4" novalidate>@csrf
+            <input type="hidden" name="facilityId" value="{{ $id }}"><input type="hidden" name="rowVersion" :value="payload.rowVersion">
+            <x-form.select name="intoTableId" label="Join with another table" :options="$tableList->where('active', true)->whereNull('mergedIntoId')->map(fn ($o) => ['value' => $o['id'], 'label' => $o['label']])->values()->all()" hint="Both tables must be free. Their seats count together until you separate them." :clearable="true" placeholder="Choose a table" />
+            <div><x-btn variant="secondary">Join tables</x-btn></div>
+        </form>
+    </x-dialog>
 @endif
