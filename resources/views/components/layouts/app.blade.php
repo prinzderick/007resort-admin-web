@@ -47,6 +47,27 @@
                     @endforeach
                 </nav>
             </aside>
+            <script>
+                (function () {
+                    var side = document.querySelector('aside[aria-label="Main navigation"]');
+                    if (!side) return;
+                    var key = 'r007.sidebar.scroll';
+                    try { var y = sessionStorage.getItem(key); if (y !== null) side.scrollTop = parseInt(y, 10) || 0; } catch (e) {}
+                    var active = side.querySelector('[aria-current="page"]');
+                    if (active) {
+                        var a = active.getBoundingClientRect(), s = side.getBoundingClientRect();
+                        if (a.top < s.top + 60 || a.bottom > s.bottom - 60) {
+                            side.scrollTop += (a.top - s.top) - (s.height - a.height) / 2;
+                        }
+                    }
+                    var t;
+                    side.addEventListener('scroll', function () {
+                        clearTimeout(t);
+                        t = setTimeout(function () { try { sessionStorage.setItem(key, String(side.scrollTop)); } catch (e) {} }, 100);
+                    }, { passive: true });
+                    window.addEventListener('pagehide', function () { try { sessionStorage.setItem(key, String(side.scrollTop)); } catch (e) {} });
+                })();
+            </script>
 
             <div class="flex min-w-0 flex-1 flex-col">
                 <header class="sticky top-0 z-20 flex flex-wrap items-center gap-x-3 gap-y-2 border-b border-stone-200 bg-white px-4 py-2.5">
