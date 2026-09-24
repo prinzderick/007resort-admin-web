@@ -20,5 +20,5 @@
             <x-pagination :count="count($entitlements->items())" :next="$entitlements->next()" />
         @endif
     </x-card>
-    <x-pending-api :items="['Redemption history per gate (scan log) and tickets-sold report: the API exposes issued entitlements only', 'Ticket types (pool day pass, sports entry, rental) are managed under Setup > Ticket types']" />
+    <p class="mt-4 text-xs text-stone-500">Ticket types (pool day pass, sports entry, rentals) are set up under <a class="font-medium text-brand-700 underline" href="{{ route('setup.tickets') }}">Setup, Ticket types</a>. A per-gate scan history is not available from the API yet.</p>
 </x-layouts.app>

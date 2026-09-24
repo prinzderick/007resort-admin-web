@@ -27,18 +27,20 @@
                         $c = $p['collection'] ?? [];
                         $oid = $p['allocations'][0]['orderId'] ?? null;
                         $o = $orders[$oid] ?? [];
+                        $orderNo = $c['orderNumber'] ?? $o['number'] ?? null;
+                        $tableLabel = $c['tableLabel'] ?? (($tableLabels[$o['tableId'] ?? ''] ?? null) ?: null);
                         $ref = $c['approvalCode'] ?? $c['slipReference'] ?? $c['bankReference'] ?? null;
                         $tender = $c['tender'] ?? $p['tenderType'] ?? '';
                         $pending = ($p['status'] ?? '') === 'PENDING_CONFIRMATION';
                         $mine = ($c['collectedByStaffId'] ?? null) === $myId;
                         $expires = \App\Support\Time::parse($c['expiresAt'] ?? null);
-                        $waiter = $staffNames[$c['collectedByStaffId'] ?? ''] ?? null;
+                        $waiter = $c['collectedByName'] ?? ($staffNames[$c['collectedByStaffId'] ?? ''] ?? null);
                     @endphp
                     <tr data-row>
                         <td class="whitespace-nowrap"><x-time :at="$p['createdAt'] ?? null" />@if ($pending && $expires)<div class="text-xs {{ $expires->isPast() ? 'text-red-700' : 'text-stone-500' }}">{{ $expires->isPast() ? 'expiring now' : 'expires '.$expires->diffForHumans() }}</div>@endif</td>
-                        <td class="whitespace-nowrap"><div class="font-medium">{{ $o['number'] ?? 'Order' }}</div><div class="text-xs text-stone-500">{{ ($tableLabels[$o['tableId'] ?? ''] ?? null) ? 'Table '.$tableLabels[$o['tableId']] : ($facilityNames[$p['facilityId'] ?? ''] ?? '') }}@if (! empty($o['tableId']) && ! empty($tableLabels[$o['tableId']])) &middot; {{ $facilityNames[$p['facilityId'] ?? ''] ?? '' }}@endif</div></td>
+                        <td class="whitespace-nowrap"><div class="font-medium">{{ $orderNo ?? 'Order' }}</div><div class="text-xs text-stone-500">{{ $tableLabel ? 'Table '.$tableLabel.' · ' : '' }}{{ $facilityNames[$p['facilityId'] ?? ''] ?? '' }}</div></td>
                         <td class="whitespace-nowrap">{{ $waiter ?? 'Waiter '.\App\Services\Portal\Directory::short($c['collectedByStaffId'] ?? null) }}</td>
-                        <td class="whitespace-nowrap">{{ $tenders[$tender] ?? $tender }}@if (! empty($c['last4']))<div class="text-xs text-stone-500">card ending {{ $c['last4'] }}</div>@endif</td>
+                        <td class="whitespace-nowrap">{{ $tenders[$tender] ?? $tender }}@if (! empty($c['last4']))<div class="text-xs text-stone-500">card ending {{ $c['last4'] }}</div>@endif @if (! empty($c['terminalLabel']))<div class="text-xs text-stone-500">{{ $c['terminalLabel'] }}</div>@endif</td>
                         <td class="font-mono text-xs">{{ $ref ?? ($tender === 'CASH' ? 'Count the cash' : '-') }}</td>
                         <td><x-badge :status="$p['status'] ?? 'UNKNOWN'">{{ ['PENDING_CONFIRMATION' => 'Waiting', 'AUTHORIZING' => 'With provider', 'CAPTURED' => 'Confirmed'][$p['status'] ?? ''] ?? ucfirst(strtolower($p['status'] ?? '')) }}</x-badge>@if (! empty($c['decisionReason']))<div class="mt-0.5 max-w-48 text-xs text-stone-500">{{ $c['decisionReason'] }}</div>@endif</td>
                         <td class="num"><x-money :value="$p['amount'] ?? '0'" /></td>
@@ -49,7 +51,7 @@
                                 @else
                                     <div class="flex justify-end gap-2">
                                         <x-btn type="button" variant="secondary" @click="$dispatch('open-modal', { name: 'reject-collection', data: {{ \Illuminate\Support\Js::from(['id' => $p['id'], 'amount' => \App\Support\Money::format($p['amount'] ?? '0')]) }} })" data-testid="reject-btn">Reject</x-btn>
-                                        <x-btn type="button" @click="$dispatch('open-modal', { name: 'confirm-collection', data: {{ \Illuminate\Support\Js::from(['id' => $p['id'], 'amount' => \App\Support\Money::format($p['amount'] ?? '0'), 'tender' => $tender, 'tenderLabel' => $tenders[$tender] ?? $tender, 'order' => $o['number'] ?? 'this bill', 'ref' => $ref]) }} })" data-testid="confirm-btn">Confirm</x-btn>
+                                        <x-btn type="button" @click="$dispatch('open-modal', { name: 'confirm-collection', data: {{ \Illuminate\Support\Js::from(['id' => $p['id'], 'amount' => \App\Support\Money::format($p['amount'] ?? '0'), 'tender' => $tender, 'tenderLabel' => $tenders[$tender] ?? $tender, 'order' => $orderNo ?? 'this bill', 'ref' => $ref]) }} })" data-testid="confirm-btn">Confirm</x-btn>
                                     </div>
                                 @endif
                             @elseif (! empty($p['id']))<a class="text-sm font-medium text-brand-700 underline" href="{{ route('finance.payment', $p['id']) }}">Open</a>@endif

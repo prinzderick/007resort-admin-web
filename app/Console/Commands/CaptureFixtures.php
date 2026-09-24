@@ -179,6 +179,9 @@ class CaptureFixtures extends Command
         $pending = $this->grab('payments-pending-confirmation', 'payments', ['status' => 'PENDING_CONFIRMATION', 'limit' => 100]);
         $this->grab('payment-terminals', 'payment-terminals', ['limit' => 100]);
         $this->grab('cash-handovers', 'cash-handovers', ['limit' => 100]);
+        if ($fid) {
+            $this->grab('cash-in-hand', 'cash-in-hand', ['facilityId' => $fid]);
+        }
         $staff = $this->grab('staff', 'staff', ['limit' => 100]);
         $waiter = $this->find($staff, 'username', 'wait1') ?? $this->find($staff, 'staffNumber', 'S-0001');
         if (! empty($waiter['id'])) {

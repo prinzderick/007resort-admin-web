@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\Portal\DashboardData;
 use App\Services\Portal\Directory;
+use App\Support\Contract;
 use App\Support\Fetch;
 use App\Support\Money;
 use Illuminate\Http\RedirectResponse;
@@ -37,16 +38,18 @@ class CollectionsController extends Controller
         $tree = Fetch::of(fn () => $this->api->get('organization/facilities'), ['GET', '/organization/facilities']);
         $flat = $dash->flatten($tree->items());
 
+        // Newer APIs send orderNumber, tableLabel, collectedByName and terminalLabel with every collection (no lookups needed).
+        // Older ones do not: fall back to reading the order and the table list, at most 40 rows.
         $orders = [];
         foreach (array_slice($rows, 0, 40) as $p) {
             $oid = $p['allocations'][0]['orderId'] ?? null;
-            if ($oid && ! isset($orders[$oid])) {
+            if ($oid && ! isset($orders[$oid]) && ! isset($p['collection']['orderNumber'])) {
                 $o = Fetch::of(fn () => $this->api->get("orders/{$oid}"), ['GET', '/orders/{orderId}']);
                 $orders[$oid] = $o->ok() ? ['number' => $o->data['number'] ?? null, 'tableId' => $o->data['tableId'] ?? null, 'balanceDue' => $o->data['balanceDue'] ?? null] : [];
             }
         }
         $tableLabels = [];
-        foreach (array_unique(array_filter(array_map(fn ($p) => $p['facilityId'] ?? null, $rows))) as $fid) {
+        foreach (array_unique(array_filter(array_map(fn ($p) => isset($p['collection']['tableLabel']) || isset($p['collection']['orderNumber']) ? null : ($p['facilityId'] ?? null), $rows))) as $fid) {
             foreach ($this->all('tables', ['facilityId' => $fid], ['GET', '/tables'], 1)->items() as $t) {
                 $tableLabels[$t['id'] ?? ''] = $t['label'] ?? '';
             }
@@ -92,14 +95,25 @@ class CollectionsController extends Controller
         $handovers = $this->all('cash-handovers', array_filter(['status' => $status ?: null, 'facilityId' => $request->query('facilityId') ?: null]), ['GET', '/cash-handovers'], 2);
         $tree = Fetch::of(fn () => $this->api->get('organization/facilities'), ['GET', '/organization/facilities']);
         $flat = $dash->flatten($tree->items());
-        // Cash each waiter holds right now: everyone who appears in the handovers or has money waiting for confirmation.
-        $waiters = collect($handovers->items())->pluck('waiterStaffId');
-        $pending = Fetch::of(fn () => $this->api->get('payments', ['status' => 'PENDING_CONFIRMATION', 'limit' => 100]), ['GET', '/payments']);
-        $waiters = $waiters->merge(collect($pending->items())->filter(fn ($p) => ! empty($p['collection']))->pluck('collection.collectedByStaffId'))->filter()->unique()->take(30)->values();
+        // Cash each waiter holds right now. Newer APIs list them per facility in one call; older ones need one call per waiter.
         $inHand = [];
-        foreach ($waiters as $w) {
-            $r = Fetch::of(fn () => $this->api->get("staff/{$w}/cash-in-hand"), ['GET', '/staff/{staffId}/cash-in-hand']);
-            $r->ok() && $inHand[$w] = (array) $r->data;
+        $selling = array_filter($flat, fn ($f) => in_array('TABLE_SERVICE', (array) ($f['capabilities'] ?? []), true));
+        if (Contract::has('GET', '/cash-in-hand')) {
+            foreach (array_slice($selling, 0, 12) as $f) {
+                $r = Fetch::of(fn () => $this->api->get('cash-in-hand', ['facilityId' => $f['id']]), ['GET', '/cash-in-hand']);
+                foreach ($r->items() as $h) {
+                    if (! empty($h['staffId'])) {
+                        $inHand[$h['staffId']] = (array) $h + ['facilityName' => $f['name'] ?? ''];
+                    }
+                }
+            }
+        } else {
+            $pending = Fetch::of(fn () => $this->api->get('payments', ['status' => 'PENDING_CONFIRMATION', 'limit' => 100]), ['GET', '/payments']);
+            $waiters = collect($handovers->items())->pluck('waiterStaffId')->merge(collect($pending->items())->filter(fn ($p) => ! empty($p['collection']))->pluck('collection.collectedByStaffId'))->filter()->unique()->take(30);
+            foreach ($waiters as $w) {
+                $r = Fetch::of(fn () => $this->api->get("staff/{$w}/cash-in-hand"), ['GET', '/staff/{staffId}/cash-in-hand']);
+                $r->ok() && $inHand[$w] = (array) $r->data;
+            }
         }
 
         return view('pages.finance.handovers', [

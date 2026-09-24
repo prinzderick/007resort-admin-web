@@ -199,6 +199,10 @@ class R007ApiClient
         }
 
         $json = $response->json();
+        if ($json === null && ! $this->isMock() && preg_match('/^\s*<br\s*\/?>\s*<b>(Notice|Warning|Deprecated)<\/b>/i', $response->body()) && ($at = strpos($response->body(), "\n{")) !== false) {
+            // PHP's development server prints a notice into the body when its log pipe is closed. Read the JSON that follows it rather than failing the screen.
+            $json = json_decode(substr($response->body(), $at + 1), true);
+        }
         $flat = [];
         foreach ($response->headers() as $name => $values) {
             $flat[strtolower((string) $name)] = (string) ($values[0] ?? '');

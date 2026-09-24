@@ -1,6 +1,6 @@
 @php
     $statuses = ['PENDING_RECEIPT' => 'Waiting to be counted', 'PENDING_SIGNOFF' => 'Needs supervisor sign-off', 'RECEIVED' => 'Received'];
-    $name = fn ($id) => $staffNames[$id] ?? 'Waiter '.\App\Services\Portal\Directory::short($id);
+    $name = fn ($id, $given = null) => $given ?: ($staffNames[$id] ?? 'Waiter '.\App\Services\Portal\Directory::short($id));
 @endphp
 <x-layouts.app title="Cash handovers">
     <x-page-header title="Cash handovers" subtitle="Waiters hand the cash they collected to a cashier. The cashier counts it here; a difference above the allowed variance needs a supervisor to sign it off." :crumbs="['Finance' => route('finance.payments'), 'Cash handovers' => null]">
@@ -15,7 +15,7 @@
             @foreach ($inHand as $id => $h)
                 @php $over = ! empty($h['handoverRequired']); @endphp
                 <tr>
-                    <td class="font-medium">{{ $name($id) }}@if (empty($h['cashHoldingAllowed']))<div class="text-xs font-normal text-stone-500">Not allowed to hold cash</div>@endif</td>
+                    <td class="font-medium">{{ $name($id, $h['waiterName'] ?? null) }}@if (! empty($h['facilityName']))<div class="text-xs font-normal text-stone-500">{{ $h['facilityName'] }}</div>@endif @if (empty($h['cashHoldingAllowed']))<div class="text-xs font-normal text-stone-500">Not allowed to hold cash</div>@endif</td>
                     <td class="num"><x-money :value="$h['cashInHand'] ?? '0'" /></td>
                     <td class="num">@if (! empty($h['limit']) && \App\Support\Money::cmp($h['limit'], '0') > 0)<x-money :value="$h['limit']" />@else<span class="text-stone-400">No limit</span>@endif</td>
                     <td class="num">{{ (int) ($h['pendingCollections'] ?? 0) }} &middot; <x-money :value="$h['pendingCollectionsAmount'] ?? '0'" /></td>
@@ -46,14 +46,14 @@
                     @endphp
                     <tr data-row>
                         <td class="whitespace-nowrap"><x-time :at="$h['createdAt'] ?? null" /></td>
-                        <td class="font-medium">{{ $name($h['waiterStaffId'] ?? null) }}@if (! empty($h['note']))<div class="max-w-48 truncate text-xs font-normal text-stone-500" title="{{ $h['note'] }}">{{ $h['note'] }}</div>@endif</td>
+                        <td class="font-medium">{{ $name($h['waiterStaffId'] ?? null, $h['waiterName'] ?? null) }}@if (! empty($h['note']))<div class="max-w-48 truncate text-xs font-normal text-stone-500" title="{{ $h['note'] }}">{{ $h['note'] }}</div>@endif</td>
                         <td>{{ $facilityNames[$h['facilityId'] ?? ''] ?? '-' }}</td>
                         <td class="num"><x-money :value="$h['declaredAmount'] ?? '0'" /></td>
                         <td class="num">@if (isset($h['countedAmount']))<x-money :value="$h['countedAmount']" />@else<span class="text-stone-400">-</span>@endif</td>
                         <td class="num">@if ($var !== null && \App\Support\Money::cmp($var, '0') !== 0)<x-money :value="$var" /> <span class="text-xs {{ $neg ? 'text-red-700' : 'text-amber-700' }}">{{ $neg ? 'short' : 'over' }}</span>@elseif ($var !== null)<span class="text-brand-700">Balanced</span>@else<span class="text-stone-400">-</span>@endif</td>
                         <td><x-badge :status="$st" tone="{{ $st === 'PENDING_SIGNOFF' ? 'warn' : ($st === 'RECEIVED' ? 'good' : 'info') }}">{{ $statuses[$st] ?? $st }}</x-badge></td>
                         <td class="text-right">
-                            @if ($st === 'PENDING_RECEIPT' && $canReceive)<x-btn type="button" @click="$dispatch('open-modal', { name: 'receive-handover', data: {{ \Illuminate\Support\Js::from(['id' => $h['id'], 'waiter' => $name($h['waiterStaffId'] ?? null), 'declared' => \App\Support\Money::format($h['declaredAmount'] ?? '0'), 'declaredRaw' => $h['declaredAmount'] ?? '']) }} })">Count &amp; receive</x-btn>
+                            @if ($st === 'PENDING_RECEIPT' && $canReceive)<x-btn type="button" @click="$dispatch('open-modal', { name: 'receive-handover', data: {{ \Illuminate\Support\Js::from(['id' => $h['id'], 'waiter' => $name($h['waiterStaffId'] ?? null, $h['waiterName'] ?? null), 'declared' => \App\Support\Money::format($h['declaredAmount'] ?? '0'), 'declaredRaw' => $h['declaredAmount'] ?? '']) }} })">Count &amp; receive</x-btn>
                             @elseif ($st === 'PENDING_SIGNOFF' && $canSignoff)<x-btn type="button" variant="secondary" @click="$dispatch('open-modal', { name: 'signoff-handover', data: {{ \Illuminate\Support\Js::from(['id' => $h['id'], 'text' => 'Counted '.\App\Support\Money::format($h['countedAmount'] ?? '0').' against '.\App\Support\Money::format($h['declaredAmount'] ?? '0').' declared: '.\App\Support\Money::format($h['variance'] ?? '0').'.']) }} })">Sign off</x-btn>@endif
                         </td>
                     </tr>

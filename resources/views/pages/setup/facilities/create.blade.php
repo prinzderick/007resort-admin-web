@@ -9,7 +9,7 @@
     <x-page-header title="Add a facility" subtitle="Pick a starting point, give it a name, and check what it can do. Everything can be changed afterwards." :crumbs="['Setup' => route('setup.index'), 'Facilities' => route('setup.facilities'), 'Add' => null]" />
     <x-fetch :of="$templates" what="Facility templates" />
     @unless ($canAdd)
-        <x-pending-api title="Waiting on the API" :items="['Creating facilities needs POST /organization/facilities, which is not in the contract this portal was built against yet. The wizard below is ready and will work as soon as it is.']" />
+        <x-pending-api title="Read-only" :items="['You need the facility.manage permission to add a facility.']" />
     @endunless
     <form method="POST" action="{{ route('setup.facilities.store') }}" x-data="{
             init() { this.$watch('facName', () => this.slug()) }, step: {{ $errors->any() ? (($errors->has('name') || $errors->has('code')) ? 1 : 5) : 0 }}, note: '', tpl: @js(old('templateKey', '')), tpls: @js($tplJs), meta: @js($capMeta), kinds: @js($kinds), facName: @js(old('name', '')), code: @js(old('code', '')), codeTouched: false, kind: @js(old('kind', '')), parentId: @js(old('parentId', '')), description: @js(old('description', '')), timezone: @js(old('timezone', $timezone)),

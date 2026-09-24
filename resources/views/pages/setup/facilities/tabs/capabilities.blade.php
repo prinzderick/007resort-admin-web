@@ -42,10 +42,9 @@
             <p x-show="note" x-cloak x-text="note" class="mt-4 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-950" role="status" data-testid="capability-note"></p>
             <p class="mt-4 max-w-3xl text-xs text-stone-500">Switching a capability off is refused while it is in use (open orders, open cash sessions, stock on hand, upcoming bookings). If that happens you will see exactly what to close first. Its rules are kept and come back when you switch it on again.</p>
             @if ($canCaps)<div class="f-actions" data-flush="false" data-testid="cap-actions"><div class="f-actions-status" :data-dirty="dirty ? 'true' : 'false'"><i></i><span x-show="dirty" x-cloak>Unsaved changes</span><span x-show="!dirty">All changes saved</span></div><div class="f-actions-buttons"><button type="button" class="f-btn" x-on:click="on = [...start]; note = ''" :disabled="!dirty">Discard</button><button type="submit" class="f-btn" data-variant="primary" :disabled="!dirty">Save capabilities</button></div></div>
-            @else<x-pending-api class="mt-6" :items="['Changing capabilities needs PUT /facilities/{facilityId}/capabilities (permission config.manage.capabilities), which is not available to this account or not in the contract yet']" />@endif
+            @else<x-pending-api class="mt-6" title="Read-only" :items="['You need the config.manage.capabilities permission to change capabilities.']" />@endif
         </form>
     @else
         <x-card title="Enabled capabilities"><div class="flex flex-wrap gap-2">@forelse ($enabled as $c)<x-badge tone="info">{{ ucwords(strtolower(str_replace('_', ' ', $c))) }}</x-badge>@empty<span class="text-sm text-stone-500">None</span>@endforelse</div></x-card>
-        <x-pending-api :items="['Editing capabilities: the API has no capability catalogue or write endpoint in the contract yet']" />
     @endif
 @endif

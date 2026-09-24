@@ -85,6 +85,7 @@ final class RealApi
             'GET /payments' => fn (Request $q) => str_contains($q->url(), 'status=PENDING_CONFIRMATION') ? $r('payments-pending-confirmation') : $r('payments'),
             'GET /payment-terminals' => $r('payment-terminals'),
             'GET /cash-handovers' => $r('cash-handovers'),
+            'GET /cash-in-hand' => $r('cash-in-hand'),
             'GET /staff/*/collection-policy' => $r('staff-collection-policy'),
             'GET /staff/*/cash-in-hand' => $r('staff-cash-in-hand'),
             'GET /devices' => $r('devices'),

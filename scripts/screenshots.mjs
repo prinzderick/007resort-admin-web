@@ -67,8 +67,13 @@ for (const p of pages) {
     const shot = await send('Page.captureScreenshot', { format: 'png' });
     writeFileSync(join(out, `${p.name}.png`), Buffer.from(shot.result.data, 'base64'));
     const title = await evalJs('document.title');
-    manifest.push({ name: p.name, path: p.path, title, height: h });
-    console.log('ok', p.name, h);
+    // Layout audit: page-level sideways scroll and text that is cut off (an element narrower than its own content that hides the rest).
+    const audit = await evalJs(`(() => { const w = document.documentElement.clientWidth; const over = document.documentElement.scrollWidth - w;
+        const clipped = [...document.querySelectorAll('main *')].filter((e) => e.children.length === 0 && e.textContent.trim().length > 3 && e.scrollWidth > e.clientWidth + 2 && ['hidden', 'clip'].includes(getComputedStyle(e).overflowX) && getComputedStyle(e).textOverflow !== 'ellipsis' && !e.closest('.table-scroll, [x-cloak], .sr-only') && e.offsetParent !== null).slice(0, 3).map((e) => e.textContent.trim().slice(0, 30));
+        const bad = [...document.querySelectorAll('[data-state="error"], [data-state="missing"], [data-state="unreachable"]')].map((e) => e.getAttribute('data-state')); const crashed = /Undefined (array key|variable|property)|Whoops|ErrorException|TypeError/.test(document.body.innerText); return JSON.stringify({ over, clipped, bad, crashed }); })()`);
+    const a = JSON.parse(audit || '{"over":0,"clipped":[],"bad":[],"crashed":false}');
+    manifest.push({ name: p.name, path: p.path, title, height: h, overflowX: a.over, clipped: a.clipped, failedReads: a.bad, crashed: a.crashed });
+    console.log(a.over > 0 || a.clipped.length || a.bad.length || a.crashed ? 'WARN' : 'ok', p.name, h, a.over > 0 ? 'overflowX=' + a.over : '', a.clipped.length ? 'clipped=' + JSON.stringify(a.clipped) : '', a.bad.length ? 'failedReads=' + a.bad.join(',') : '', a.crashed ? 'CRASHED' : '');
     await send('Emulation.setDeviceMetricsOverride', { width, height: 900, deviceScaleFactor: 1, mobile: false });
 }
 writeFileSync(join(out, 'manifest.json'), JSON.stringify(manifest, null, 2));

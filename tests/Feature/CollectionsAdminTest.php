@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Auth\StaffSession;
+use App\Support\Money;
 use Tests\Support\RealApi;
 use Tests\TestCase;
 
@@ -75,10 +76,32 @@ class CollectionsAdminTest extends TestCase
 
     public function test_handovers_show_variance_signoff_and_what_each_waiter_holds(): void
     {
+        $held = RealApi::load('cash-in-hand')['items'][0];
         $this->api();
-        $h = $this->get('/finance/handovers')->assertOk()->assertSee('Cash in hand')->assertSee('Needs supervisor sign-off')->assertSee('short')->assertSee('₦12,000.00')->assertSee('₦50,000.00')->assertSee('Sign off')->assertSee('Holding cash')->getContent();
-        $this->assertStringContainsString('Amaka', $h);
-        $this->assertTrue($this->sentTo('GET', '/staff/'.self::WAITER.'/cash-in-hand'));
+        $h = $this->get('/finance/handovers')->assertOk()->assertSee('Cash in hand')->assertSee('Needs supervisor sign-off')->assertSee('short')->assertSee(Money::format($held['cashInHand']))->assertSee('₦50,000.00')->assertSee('Sign off')->assertSee('Holding cash')->getContent();
+        $this->assertStringContainsString('Amaka Okoro', $h, 'the API sends the waiter name');
+        $this->assertTrue($this->sentTo('GET', '/cash-in-hand', fn ($r) => str_contains($r->url(), 'facilityId=')), 'one call per facility, not one per waiter');
+        $this->assertFalse($this->sentTo('GET', '/staff/'.self::WAITER.'/cash-in-hand'));
+    }
+
+    public function test_collections_use_the_display_fields_and_need_no_per_row_lookups(): void
+    {
+        $this->api();
+        $this->get('/finance/collections')->assertOk()->assertSee('RESTAU-000007')->assertSee('Table T8')->assertSee('Amaka Okoro');
+        $this->assertFalse($this->sentTo('GET', '/orders/'.RealApi::load('payments-pending-confirmation')['items'][0]['collection']['orderId']), 'orderNumber came with the collection');
+        $this->assertFalse($this->sentTo('GET', '/tables'));
+    }
+
+    public function test_an_older_api_without_display_fields_still_works_with_lookups(): void
+    {
+        $old = RealApi::load('payments-pending-confirmation');
+        foreach ($old['items'] as &$p) {
+            unset($p['collection']['orderNumber'], $p['collection']['tableLabel'], $p['collection']['collectedByName'], $p['collection']['terminalLabel']);
+        }
+        unset($p);
+        $this->api(['GET /payments' => $old]);
+        $this->get('/finance/collections')->assertOk()->assertSee('Confirm');
+        $this->assertTrue($this->sentTo('GET', '/orders/'.$old['items'][0]['allocations'][0]['orderId']));
     }
 
     public function test_receive_and_signoff_send_the_count_and_the_note(): void

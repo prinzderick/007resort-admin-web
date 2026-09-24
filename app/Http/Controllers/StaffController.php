@@ -13,6 +13,13 @@ use Illuminate\Http\Request;
 
 class StaffController extends Controller
 {
+    /** "What kind of change" filter for the change history: label and the API entity types it covers. */
+    public const AUDIT_AREAS = [
+        'facilities' => ['Facilities, tables and points', 'Facility,OperatingPoint,DiningTable'], 'catalog' => ['Products, prices and tax', 'Product,PriceList,Price,TaxRate,PrepRoute'],
+        'selling' => ['Tickets, plans and booking', 'TicketType,MembershipPlan,BookableResource'], 'roles' => ['Roles and permissions', 'Role'],
+        'devices' => ['Devices', 'Device'], 'business' => ['Business and receipts', 'BusinessProfile,ReceiptSetting'],
+    ];
+
     public function index(Request $request)
     {
         $filter = $request->query('status');
@@ -170,7 +177,9 @@ class StaffController extends Controller
     public function audit(Request $request, Directory $dir)
     {
         // Newest first; `action` is an exact match (e.g. payment.refund), dates are UTC days.
-        $params = ['limit' => $this->perPage($request), 'order' => 'desc', 'action' => $request->query('action'), 'entityType' => $request->query('entityType'), 'actorStaffId' => $request->query('actor'),
+        $area = self::AUDIT_AREAS[$request->query('area')][1] ?? null;
+        $params = ['limit' => $this->perPage($request), 'order' => 'desc', 'action' => $request->query('action'), 'entityType' => $request->query('entityType'), 'entityId' => $request->query('entityId'), 'entityTypes' => $area,
+            'actorStaffId' => $request->query('actor'),
             'filter[from]' => $this->day($request->query('from')), 'filter[to]' => $this->day($request->query('to')), 'cursor' => $request->query('cursor')];
         $audit = Fetch::of(fn () => $this->api->get('audit', $params), ['GET', '/audit']);
         $names = $dir->staffNames();
@@ -180,7 +189,7 @@ class StaffController extends Controller
                 array_map(fn ($a) => [$a['seq'] ?? '', $a['occurredAt'] ?? '', $names[$a['actorStaffId'] ?? ''] ?? $a['actorStaffId'] ?? '', $a['action'] ?? '', $a['entityType'] ?? '', $a['entityId'] ?? '', json_encode($a['oldValue'] ?? null), json_encode($a['newValue'] ?? null), $a['rowHash'] ?? ''], $audit->items()));
         }
 
-        return view('pages.staff.audit', ['audit' => $audit, 'q' => $request->query(), 'names' => $names]);
+        return view('pages.staff.audit', ['audit' => $audit, 'q' => $request->query(), 'names' => $names, 'areas' => collect(self::AUDIT_AREAS)->map(fn ($a) => $a[0])->all()]);
     }
 
     private function day(mixed $v): ?string

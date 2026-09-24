@@ -369,6 +369,12 @@
         },
         {
             "method": "GET",
+            "path": "/cash-in-hand",
+            "operationId": "listCashInHand",
+            "permission": "cash_handover.view"
+        },
+        {
+            "method": "GET",
             "path": "/cash-sessions",
             "operationId": "listCashSessions",
             "permission": "cash_session.view"

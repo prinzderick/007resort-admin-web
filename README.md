@@ -2,7 +2,7 @@
 
 Management web application for the **007 Resort & Spa Integrated Facility Operations Platform**.
 
-> Status: **MVP management portal** (dashboard, reports, finance, inventory, staff, configuration, devices, sync & IT, approvals). Runs against the real API or, with `R007_MOCK=true`, on built-in fixtures.
+> Status: **management portal**: dashboard, reports, finance (incl. waiter collections and cash handovers), inventory, staff, devices, sync & IT, approvals and the full Setup area (see docs/SETUP_SCREENS.md). Runs against the real API or, with `R007_MOCK=true`, on built-in fixtures (Setup and collections need the real API).
 
 ## Purpose
 

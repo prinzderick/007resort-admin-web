@@ -4,7 +4,7 @@
             @if ($canAdd && $canManage)
                 <x-btn icon="plus" :href="route('setup.facilities.create')" data-testid="add-facility">Add facility</x-btn>
             @elseif ($canManage)
-                <span title="Adding facilities needs the API endpoint POST /organization/facilities, which is not in the contract this portal was built against yet"><x-btn type="button" icon="plus" disabled class="cursor-not-allowed opacity-50" data-testid="add-facility">Add facility</x-btn></span>
+                <span title="You need the facility.manage permission to add a facility"><x-btn type="button" icon="plus" disabled class="cursor-not-allowed opacity-50" data-testid="add-facility">Add facility</x-btn></span>
             @endif
         </x-slot:actions>
     </x-page-header>
