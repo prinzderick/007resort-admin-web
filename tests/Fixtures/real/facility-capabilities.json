@@ -21,9 +21,21 @@
         "allowOfflineOrders": true,
         "allowOfflinePayments": "CASH_ONLY",
         "holdTtlSeconds": 900,
+        "waiterCollectionEnabled": true,
+        "waiterCashHolding": true,
+        "waiterCashInHandLimit": "50000.0000",
+        "collectionRequiresConfirmation": [
+            "CASH",
+            "CARD_TERMINAL",
+            "TRANSFER"
+        ],
+        "pendingCollectionExpiryMinutes": 30,
+        "preBillRequiresSupervisorIfReopened": true,
+        "billPayLinkEnabled": false,
+        "cashHandoverMaxVariance": "500.0000",
         "paymentTiming": "PAY_BEFORE_LEAVING",
         "vatEnabled": false,
         "vatRatePercent": "7.5"
     },
-    "version": 1
+    "version": 2
 }

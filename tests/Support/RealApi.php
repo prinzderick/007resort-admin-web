@@ -2,10 +2,11 @@
 
 namespace Tests\Support;
 
+use Illuminate\Http\Client\Request;
+
 /**
  * The API as it REALLY answers: JSON recorded from a running node (`php artisan r007:capture-fixtures`) into
  * tests/Fixtures/real, secrets redacted. A screen that reads a key the real API does not send fails here, not in production.
- * tests/Fixtures/contract holds hand-written shapes for endpoints that are built but not yet on the shared node.
  */
 final class RealApi
 {
@@ -49,7 +50,25 @@ final class RealApi
             'GET /sync/status' => $r('sync-status'),
             'GET /sync/outbox' => $r('sync-outbox'),
             'GET /sync/inbox-events' => $r('sync-inbox-events'),
-            'GET /sync/conflicts' => self::load('sync-conflicts-open', 'contract'),
+            'GET /sync/conflicts' => self::load('sync-conflicts-open', 'synthetic'),
+            'GET /organization/operating-points' => $r('config-operating-points'),
+            'GET /organization/tables' => $r('config-tables'),
+            'GET /admin/catalog/products/*' => $r('admin-catalog-product'),
+            'GET /admin/catalog/products' => $r('admin-catalog-products'),
+            'GET /catalog/price-lists' => $r('catalog-price-lists'),
+            'GET /catalog/prices' => $r('catalog-prices'),
+            'GET /catalog/products/*/stock-links' => $r('catalog-product-stock-links'),
+            'GET /catalog/prep-route-stations' => $r('catalog-prep-route-stations'),
+            'GET /admin/settings/business' => $r('admin-settings-business'),
+            'GET /admin/settings/receipt' => $r('admin-settings-receipt'),
+            'GET /admin/setup-status' => $r('admin-setup-status'),
+            'GET /admin/search' => $r('admin-search'),
+            'GET /facilities/*/payment-methods' => $r('facility-payment-methods'),
+            'GET /ticketing/ticket-types' => $r('ticket-types'),
+            'GET /bookings/resources/*/schedule' => $r('booking-resource-schedule'),
+            'GET /bookings/resources/*/blackouts' => $r('booking-resource-blackouts'),
+            'GET /bookings/resources/*/rules' => $r('booking-resource-rules'),
+            'GET /roles/*/permissions' => $r('role-permissions'),
             'GET /organization/facilities/*/operating-points' => $r('organization-operating-points'),
             'GET /organization/facilities/*' => $r('organization-facility'),
             'GET /organization/facilities' => $r('organization-facilities'),
@@ -63,7 +82,12 @@ final class RealApi
             'GET /cash-sessions' => $r('cash-sessions'),
             'GET /payments/paystack/*' => $r('payment'),
             'GET /payments/*' => $r('payment'),
-            'GET /payments' => $r('payments'),
+            'GET /payments' => fn (Request $q) => str_contains($q->url(), 'status=PENDING_CONFIRMATION') ? $r('payments-pending-confirmation') : $r('payments'),
+            'GET /payment-terminals' => $r('payment-terminals'),
+            'GET /cash-handovers' => $r('cash-handovers'),
+            'GET /cash-in-hand' => $r('cash-in-hand'),
+            'GET /staff/*/collection-policy' => $r('staff-collection-policy'),
+            'GET /staff/*/cash-in-hand' => $r('staff-cash-in-hand'),
             'GET /devices' => $r('devices'),
             'GET /attendance/devices' => $r('attendance-devices'),
             'GET /attendance/corrections' => $r('attendance-corrections'),
@@ -96,15 +120,15 @@ final class RealApi
             'GET /staff' => $r('staff'),
             'GET /roles' => $r('roles'),
             'GET /permissions' => $r('permissions'),
-            'GET /audit' => $r('audit'),
+            'GET /audit' => fn (Request $q) => str_contains($q->url(), 'entityType=Facility') ? $r('audit-facility') : $r('audit'),
             'GET /approvals' => $r('approvals'),
         ];
         if ($withConfig) {
             $routes = [
-                'GET /organization/facility-templates' => self::load('facility-templates', 'contract'),
-                'GET /organization/capability-types' => self::load('capability-types', 'contract'),
-                'GET /organization/rule-definitions' => self::load('rule-definitions', 'contract'),
-                'GET /facilities/*/operating-rules' => self::load('operating-rules', 'contract'),
+                'GET /organization/facility-templates' => $r('organization-facility-templates'),
+                'GET /organization/capability-types' => $r('organization-capability-types'),
+                'GET /organization/rule-definitions' => $r('organization-rule-definitions'),
+                'GET /facilities/*/operating-rules' => $r('operating-rules'),
             ] + $routes;
         }
 
@@ -129,7 +153,9 @@ final class RealApi
             '/staff', "/staff/{$staff}", '/staff/attendance', '/people/roles', '/devices', '/system/audit',
             '/setup', '/setup/facilities', '/setup/facilities/new', "/setup/facilities/{$f}", "/setup/facilities/{$f}?tab=capabilities", "/setup/facilities/{$f}?tab=rules", "/setup/facilities/{$f}?tab=points",
             "/setup/facilities/{$f}?tab=devices", "/setup/facilities/{$f}?tab=products", "/setup/facilities/{$f}?tab=access",
-            '/setup/catalog', '/setup/bookings', '/setup/tickets', '/setup/memberships', '/setup/kds', '/setup/payments', '/setup/business', '/sync',
+            '/setup/catalog', '/setup/catalog?tab=categories', '/setup/catalog?tab=prices', '/setup/catalog?tab=tax', '/setup/catalog?tab=import', '/setup/catalog/products/'.(self::load('admin-catalog-product')['id'] ?? 'x'),
+            '/setup/bookings', '/setup/bookings/'.(self::load('booking-resources')['items'][0]['id'] ?? 'x'), '/setup/tickets', '/setup/tickets?tab=issued', '/setup/memberships', '/setup/kds', '/setup/payments', '/setup/business',
+            '/finance/collections', '/finance/handovers', '/devices/payment-terminals', '/sync',
         ];
     }
 }

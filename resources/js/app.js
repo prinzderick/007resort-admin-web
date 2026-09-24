@@ -27,6 +27,15 @@ document.addEventListener('alpine:init', () => {
                 }
             });
             cfg.options = Object.assign({ responsive: true, maintainAspectRatio: false, animation: false }, cfg.options || {});
+            // Money axes: 12,000 -> N12k, 2,500,000 -> N2.5m; tooltips keep the exact figure. Legend swatches are round, not blocks.
+            const fmt = (v) => (Math.abs(v) >= 1e6 ? '\u20a6' + +(v / 1e6).toFixed(1) + 'm' : Math.abs(v) >= 1e3 ? '\u20a6' + +(v / 1e3).toFixed(1) + 'k' : '\u20a6' + v);
+            if (cfg.money && cfg.options.scales?.y) {
+                cfg.options.scales.y.ticks = Object.assign({ callback: fmt, maxTicksLimit: 6 }, cfg.options.scales.y.ticks || {});
+                cfg.options.plugins = cfg.options.plugins || {};
+                cfg.options.plugins.tooltip = { callbacks: { label: (c) => ' ' + c.dataset.label + ': \u20a6' + Number(c.parsed.y).toLocaleString('en-NG', { minimumFractionDigits: 2 }) } };
+            }
+            cfg.options.plugins = cfg.options.plugins || {};
+            cfg.options.plugins.legend = Object.assign({ labels: { usePointStyle: true, boxWidth: 8, boxHeight: 8 } }, cfg.options.plugins.legend || {});
             this.instance = new Chart(this.$refs.canvas, cfg);
         },
         destroy() {
@@ -52,13 +61,28 @@ document.addEventListener('alpine:init', () => {
     }));
 
     // Click-to-confirm for risky actions: <form x-data="confirmSubmit('Message')" @submit="ask($event)">
-    window.Alpine.data('confirmSubmit', (message) => ({
+    window.Alpine.data('confirmSubmit', (message, confirmLabel = 'Yes, continue') => ({
         ask(e) {
-            if (!window.confirm(message)) {
-                e.preventDefault();
-            }
+            // Styled confirmation instead of the browser's: same look as every other dialog, keyboard friendly.
+            e.preventDefault();
+            const form = e.target.closest('form') || e.target;
+            window.r007Confirm(message, confirmLabel).then((ok) => { if (ok) { form.submit(); } });
         },
     }));
+
+    window.r007Confirm = (message, confirmLabel = 'Yes, continue') => new Promise((resolve) => {
+        const back = document.createElement('div');
+        back.className = 'f-modal-back';
+        back.innerHTML = '<div class="f-modal" role="alertdialog" aria-modal="true" aria-labelledby="r7c-t"><h2 id="r7c-t">Please confirm</h2><p></p><div class="f-modal-actions"><button type="button" class="f-btn" data-act="no">Cancel</button><button type="button" class="f-btn" data-variant="primary" data-act="yes"></button></div></div>';
+        back.querySelector('p').textContent = message;
+        back.querySelector('[data-act=yes]').textContent = confirmLabel;
+        const done = (v) => { document.removeEventListener('keydown', onKey); back.remove(); resolve(v); };
+        const onKey = (ev) => { if (ev.key === 'Escape') { done(false); } };
+        back.addEventListener('click', (ev) => { if (ev.target === back || ev.target.dataset.act === 'no') { done(false); } else if (ev.target.dataset.act === 'yes') { done(true); } });
+        document.addEventListener('keydown', onKey);
+        document.body.appendChild(back);
+        back.querySelector('[data-act=yes]').focus();
+    });
 
     // Tables: quick filter, sort with indicators, density, column visibility, row selection + export (x-data="tableTools").
     window.Alpine.data('tableTools', () => ({

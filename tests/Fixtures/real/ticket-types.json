@@ -1,0 +1,50 @@
+{
+    "items": [
+        {
+            "id": "01a0d13a-1813-735f-b56e-5e9defca9df4",
+            "code": "POOL-ADULT",
+            "name": "Pool - Adult",
+            "facilityId": "e72222e7-c136-535e-9e25-d2a8668c2b18",
+            "format": "INDIVIDUAL",
+            "validationMode": "SINGLE_USE",
+            "validityKind": "ISSUE_DAY",
+            "validityMinutes": null,
+            "earlyEntryMinutes": 0,
+            "active": true,
+            "productId": "01a0d13a-1802-739a-80a5-b1cd8762c4a8",
+            "price": "3000.0000",
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d13a-1814-73ee-b5e8-bf89cab877ae",
+            "code": "POOL-CHILD",
+            "name": "Pool - Child",
+            "facilityId": "e72222e7-c136-535e-9e25-d2a8668c2b18",
+            "format": "INDIVIDUAL",
+            "validationMode": "SINGLE_USE",
+            "validityKind": "ISSUE_DAY",
+            "validityMinutes": null,
+            "earlyEntryMinutes": 0,
+            "active": true,
+            "productId": "01a0d13a-1803-7389-880d-3e79eef9cc53",
+            "price": "1500.0000",
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d13a-1815-70ac-9b6e-d42f222eb879",
+            "code": "POOL-DAY",
+            "name": "Pool day pass",
+            "facilityId": "e72222e7-c136-535e-9e25-d2a8668c2b18",
+            "format": "INDIVIDUAL",
+            "validationMode": "SINGLE_USE",
+            "validityKind": "ISSUE_DAY",
+            "validityMinutes": null,
+            "earlyEntryMinutes": 0,
+            "active": true,
+            "productId": "41b4ab29-b113-557a-b41f-a23afc753147",
+            "price": "5000.0000",
+            "rowVersion": 1
+        }
+    ],
+    "nextCursor": null
+}

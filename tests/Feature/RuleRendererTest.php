@@ -200,8 +200,15 @@ class RuleRendererTest extends TestCase
 
     public function test_reconciles_with_the_real_contract_fixture(): void
     {
-        $real = json_decode((string) file_get_contents(base_path('tests/Fixtures/contract/rule-definitions.json')), true)['items'];
+        $real = json_decode((string) file_get_contents(base_path('tests/Fixtures/real/organization-rule-definitions.json')), true)['items'];
         $controls = collect($real)->mapWithKeys(fn ($d) => [$d['key'] => RuleControl::describe($d)['control']])->all();
-        $this->assertSame(['payment_timing' => 'segmented', 'require_cash_session' => 'toggle', 'approval_threshold_amount' => 'money', 'hold_ttl_seconds' => 'duration'], $controls);
+        $this->assertSame('radio-cards', $controls['payment_timing'], '6 described options read best as cards');
+        $this->assertSame('radio-cards', $controls['booking_offline_strategy']);
+        $this->assertSame('toggle', $controls['waiter_cash_holding']);
+        $this->assertSame('money', $controls['waiter_cash_in_hand_limit']);
+        $this->assertSame('checkbox-group', $controls['collection_requires_confirmation']);
+        $this->assertSame('duration', $controls['hold_ttl_seconds']);
+        $this->assertSame('percent', $controls['cancel_fee_percent']);
+        $this->assertCount(count($real), $controls);
     }
 }

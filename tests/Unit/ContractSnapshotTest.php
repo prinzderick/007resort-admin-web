@@ -17,13 +17,6 @@ class ContractSnapshotTest extends TestCase
     private function pending(): array
     {
         return [
-            // built on the API's feature/api-config-admin branch, not in the shared contract yet
-            'GET /organization/facility-templates',
-            'GET /organization/capability-types',
-            'GET /organization/rule-definitions',
-            'GET /facilities/{facilityId}/operating-rules',
-            'GET /admin/search',
-            'GET /admin/setup-status',
             implode(' ', Mfa::VERIFY),
         ];
     }

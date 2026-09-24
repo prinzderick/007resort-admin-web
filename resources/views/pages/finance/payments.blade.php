@@ -1,6 +1,7 @@
 <x-layouts.app title="Payments">
-    <x-page-header title="Finance" subtitle="Payments, refunds and reversals. Sensitive actions may wait for approval.">
+    <x-page-header title="Payments" subtitle="Every payment taken, refunded or reversed. Money that waiters collected at tables is on its own page until it is confirmed.">
         <x-slot:actions>
+            <x-btn variant="secondary" :href="route('finance.collections')">Collected by waiters</x-btn>
             <x-btn variant="secondary" :href="route('finance.reconciliation')">Settlement reconciliation</x-btn>
             @if (auth_staff()->canApproveAnything())<x-btn variant="secondary" :href="route('approvals')">Approvals</x-btn>@endif
             <x-btn variant="secondary" :href="request()->fullUrlWithQuery(['format' => 'csv'])">Export CSV</x-btn>
@@ -9,7 +10,7 @@
 
     <form method="GET" class="mb-5 flex flex-wrap items-end gap-3">
         <div><label class="mb-1 block text-sm font-medium">Status</label>
-            <select name="filter[status]" class="min-h-11 rounded-lg border border-stone-300 bg-white px-3 text-sm"><option value="">Any</option>@foreach (['INITIATED', 'AUTHORIZING', 'CAPTURED', 'FAILED', 'CANCELLED', 'PARTIALLY_REFUNDED', 'REFUNDED', 'REVERSED'] as $s)<option value="{{ $s }}" @selected(($filter['status'] ?? '') === $s)>{{ $s }}</option>@endforeach</select></div>
+            <select name="filter[status]" class="min-h-11 rounded-lg border border-stone-300 bg-white px-3 text-sm"><option value="">Any</option>@foreach (['INITIATED', 'AUTHORIZING', 'PENDING_CONFIRMATION', 'CAPTURED', 'REJECTED', 'EXPIRED', 'FAILED', 'CANCELLED', 'PARTIALLY_REFUNDED', 'REFUNDED', 'REVERSED'] as $s)<option value="{{ $s }}" @selected(($filter['status'] ?? '') === $s)>{{ $s }}</option>@endforeach</select></div>
         <div><label class="mb-1 block text-sm font-medium">Facility</label>
             <select name="filter[facilityId]" class="min-h-11 rounded-lg border border-stone-300 bg-white px-3 text-sm"><option value="">All</option>
             @foreach (app(\App\Services\Portal\DashboardData::class)->flatten($facilities->items()) as $f)<option value="{{ $f['id'] ?? '' }}" @selected(($filter['facilityId'] ?? '') === ($f['id'] ?? ''))>{{ $f['name'] ?? '' }}</option>@endforeach</select></div>

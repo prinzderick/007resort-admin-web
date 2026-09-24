@@ -43,6 +43,24 @@ class R007ApiClientTest extends TestCase
         });
     }
 
+    public function test_a_php_dev_server_notice_in_front_of_the_json_does_not_break_the_screen(): void
+    {
+        $notice = "<br />\n<b>Notice</b>:  file_put_contents(): Write of 80 bytes failed with errno=32 Broken pipe in <b>/x/server.php</b> on line <b>21</b><br />\n";
+        Http::fake(['api.r007.test/*' => Http::response($notice.'{"accessToken":"r7a_x","staff":{"id":"s"}}', 200, ['Content-Type' => 'application/json'])]);
+
+        $this->assertSame('r7a_x', $this->app->make(R007ApiClient::class)->get('auth/me')['accessToken']);
+    }
+
+    public function test_raw_sends_and_returns_text_bodies_for_csv(): void
+    {
+        Http::fake(['api.r007.test/*' => Http::response("sku,name\nA,B\n", 200, ['Content-Type' => 'text/csv'])]);
+
+        $r = $this->app->make(R007ApiClient::class)->raw('POST', 'catalog/products/import', ['dryRun' => 'true'], "sku,name\nA,B\n");
+
+        $this->assertSame("sku,name\nA,B\n", $r['body']);
+        Http::assertSent(fn (Request $q) => str_contains($q->url(), 'dryRun=true') && $q->hasHeader('Content-Type', 'text/csv') && $q->hasHeader('Idempotency-Key') && $q->body() === "sku,name\nA,B\n");
+    }
+
     public function test_explicit_idempotency_key_is_forwarded(): void
     {
         Http::fake(['api.r007.test/*' => Http::response([], 200)]);

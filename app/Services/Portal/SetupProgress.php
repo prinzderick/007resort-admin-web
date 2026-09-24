@@ -21,7 +21,11 @@ class SetupProgress
         if (Contract::has('GET', '/admin/setup-status')) {
             $r = Fetch::of(fn () => $this->api->get('admin/setup-status'), ['GET', '/admin/setup-status']);
             if ($r->ok() && is_array($r->data) && isset($r->data['steps'])) {
-                return ['steps' => (array) $r->data['steps'], 'percent' => (int) ($r->data['percent'] ?? 0), 'derived' => false];
+                $routes = ['business_profile' => 'setup.business', 'facilities' => 'setup.facilities', 'products' => 'setup.catalog', 'prices' => 'setup.catalog', 'tax' => 'setup.business', 'staff' => 'staff.index',
+                    'roles' => 'people.roles', 'devices' => 'devices.index', 'kds_stations' => 'setup.kds', 'payment_methods' => 'setup.payments', 'receipt_settings' => 'setup.business', 'booking_resources' => 'setup.bookings', 'tables' => 'setup.facilities'];
+                $steps = array_map(fn ($st) => $st + ['route' => $routes[$st['key'] ?? ''] ?? 'setup.index'], (array) $r->data['steps']);
+
+                return ['steps' => $steps, 'percent' => (int) ($r->data['percent'] ?? 0), 'derived' => false, 'complete' => (bool) ($r->data['complete'] ?? false), 'counts' => (array) ($r->data['counts'] ?? [])];
             }
         }
 

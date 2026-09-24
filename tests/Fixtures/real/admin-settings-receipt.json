@@ -1,0 +1,18 @@
+{
+    "businessName": "007 Resort & Spa",
+    "address": "Otueke, Bayelsa State, Nigeria",
+    "phone": "+234 800 007 0007",
+    "headerNote": null,
+    "footer": "Thank you for choosing 007 Resort & Spa",
+    "logoUrl": null,
+    "showTin": true,
+    "paperColumns": 48,
+    "tin": null,
+    "vatRegistered": false,
+    "effective": {
+        "businessName": "007 Resort & Spa",
+        "address": "Otueke, Bayelsa State, Nigeria",
+        "footer": "Thank you for choosing 007 Resort & Spa"
+    },
+    "rowVersion": 1
+}

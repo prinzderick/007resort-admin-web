@@ -1,0 +1,266 @@
+[
+  {
+    "name": "01-dashboard",
+    "path": "/?range=7d",
+    "title": "Dashboard - 007 Resort & Spa Admin",
+    "height": 1735
+  },
+  {
+    "name": "02-approvals",
+    "path": "/approvals",
+    "title": "Approvals - 007 Resort & Spa Admin",
+    "height": 900
+  },
+  {
+    "name": "03-search",
+    "path": "/search?q=restaurant",
+    "title": "Search - 007 Resort & Spa Admin",
+    "height": 900
+  },
+  {
+    "name": "10-orders",
+    "path": "/operations/orders",
+    "title": "Orders - 007 Resort & Spa Admin",
+    "height": 900
+  },
+  {
+    "name": "11-tables",
+    "path": "/operations/tables",
+    "title": "Tables - 007 Resort & Spa Admin",
+    "height": 900
+  },
+  {
+    "name": "12-bookings",
+    "path": "/operations/bookings",
+    "title": "Bookings - 007 Resort & Spa Admin",
+    "height": 900
+  },
+  {
+    "name": "13-tickets",
+    "path": "/operations/tickets",
+    "title": "Tickets & entry - 007 Resort & Spa Admin",
+    "height": 900
+  },
+  {
+    "name": "14-memberships",
+    "path": "/operations/memberships",
+    "title": "Memberships - 007 Resort & Spa Admin",
+    "height": 900
+  },
+  {
+    "name": "20-payments",
+    "path": "/finance/payments",
+    "title": "Payments - 007 Resort & Spa Admin",
+    "height": 900
+  },
+  {
+    "name": "21-refunds",
+    "path": "/finance/refunds",
+    "title": "Refunds & reversals - 007 Resort & Spa Admin",
+    "height": 900
+  },
+  {
+    "name": "22-cash-sessions",
+    "path": "/finance/cash-sessions",
+    "title": "Cash sessions - 007 Resort & Spa Admin",
+    "height": 900
+  },
+  {
+    "name": "23-settlements",
+    "path": "/finance/settlements",
+    "title": "Reconciliation - 007 Resort & Spa Admin",
+    "height": 905
+  },
+  {
+    "name": "24-reports",
+    "path": "/reports",
+    "title": "Reports - 007 Resort & Spa Admin",
+    "height": 1500
+  },
+  {
+    "name": "30-stock",
+    "path": "/inventory",
+    "title": "Inventory - 007 Resort & Spa Admin",
+    "height": 1242
+  },
+  {
+    "name": "31-movements",
+    "path": "/inventory/movements",
+    "title": "Stock movements - 007 Resort & Spa Admin",
+    "height": 1133
+  },
+  {
+    "name": "32-transfers",
+    "path": "/inventory/transfers",
+    "title": "Stock transfers - 007 Resort & Spa Admin",
+    "height": 985
+  },
+  {
+    "name": "33-counts",
+    "path": "/inventory/counts",
+    "title": "Stock counts - 007 Resort & Spa Admin",
+    "height": 900
+  },
+  {
+    "name": "34-suppliers",
+    "path": "/inventory/suppliers",
+    "title": "Suppliers - 007 Resort & Spa Admin",
+    "height": 900
+  },
+  {
+    "name": "35-receive-stock",
+    "path": "/inventory/receive",
+    "title": "Receive stock - 007 Resort & Spa Admin",
+    "height": 900
+  },
+  {
+    "name": "40-staff",
+    "path": "/staff",
+    "title": "Staff - 007 Resort & Spa Admin",
+    "height": 1472
+  },
+  {
+    "name": "41-roles",
+    "path": "/people/roles",
+    "title": "Roles & permissions - 007 Resort & Spa Admin",
+    "height": 2964
+  },
+  {
+    "name": "42-attendance",
+    "path": "/staff/attendance",
+    "title": "Attendance - 007 Resort & Spa Admin",
+    "height": 1151
+  },
+  {
+    "name": "43-devices",
+    "path": "/devices",
+    "title": "Devices - 007 Resort & Spa Admin",
+    "height": 1811
+  },
+  {
+    "name": "50-setup-hub",
+    "path": "/setup",
+    "title": "Setup - 007 Resort & Spa Admin",
+    "height": 1592
+  },
+  {
+    "name": "51-facilities",
+    "path": "/setup/facilities",
+    "title": "Facilities - 007 Resort & Spa Admin",
+    "height": 1057
+  },
+  {
+    "name": "52-facility-add",
+    "path": "/setup/facilities/new",
+    "title": "Add facility - 007 Resort & Spa Admin",
+    "height": 902
+  },
+  {
+    "name": "53-facility-general",
+    "path": "/setup/facilities/a206b41c-f916-5185-b405-db8a5b67b4db",
+    "title": "Restaurant - 007 Resort & Spa Admin",
+    "height": 1805
+  },
+  {
+    "name": "54-facility-capabilities",
+    "path": "/setup/facilities/a206b41c-f916-5185-b405-db8a5b67b4db?tab=capabilities",
+    "title": "Restaurant - 007 Resort & Spa Admin",
+    "height": 1569
+  },
+  {
+    "name": "55-facility-rules",
+    "path": "/setup/facilities/a206b41c-f916-5185-b405-db8a5b67b4db?tab=rules",
+    "title": "Restaurant - 007 Resort & Spa Admin",
+    "height": 4088
+  },
+  {
+    "name": "56-facility-points",
+    "path": "/setup/facilities/a206b41c-f916-5185-b405-db8a5b67b4db?tab=points",
+    "title": "Restaurant - 007 Resort & Spa Admin",
+    "height": 992
+  },
+  {
+    "name": "57-facility-devices",
+    "path": "/setup/facilities/a206b41c-f916-5185-b405-db8a5b67b4db?tab=devices",
+    "title": "Restaurant - 007 Resort & Spa Admin",
+    "height": 900
+  },
+  {
+    "name": "58-facility-products",
+    "path": "/setup/facilities/a206b41c-f916-5185-b405-db8a5b67b4db?tab=products",
+    "title": "Restaurant - 007 Resort & Spa Admin",
+    "height": 1182
+  },
+  {
+    "name": "59-facility-access",
+    "path": "/setup/facilities/a206b41c-f916-5185-b405-db8a5b67b4db?tab=access",
+    "title": "Restaurant - 007 Resort & Spa Admin",
+    "height": 939
+  },
+  {
+    "name": "60-catalog",
+    "path": "/setup/catalog",
+    "title": "Catalog - 007 Resort & Spa Admin",
+    "height": 2089
+  },
+  {
+    "name": "61-booking-resources",
+    "path": "/setup/bookings",
+    "title": "Booking rules - 007 Resort & Spa Admin",
+    "height": 1423
+  },
+  {
+    "name": "62-ticket-types",
+    "path": "/setup/tickets",
+    "title": "Ticket types - 007 Resort & Spa Admin",
+    "height": 900
+  },
+  {
+    "name": "63-membership-plans",
+    "path": "/setup/memberships",
+    "title": "Membership plans - 007 Resort & Spa Admin",
+    "height": 1447
+  },
+  {
+    "name": "64-kitchen-routing",
+    "path": "/setup/kds",
+    "title": "KDS routing - 007 Resort & Spa Admin",
+    "height": 1129
+  },
+  {
+    "name": "65-payment-rules",
+    "path": "/setup/payments",
+    "title": "Payment timing - 007 Resort & Spa Admin",
+    "height": 1101
+  },
+  {
+    "name": "66-business",
+    "path": "/setup/business",
+    "title": "Business & receipts - 007 Resort & Spa Admin",
+    "height": 1149
+  },
+  {
+    "name": "70-sync-health",
+    "path": "/sync",
+    "title": "Sync & IT - 007 Resort & Spa Admin",
+    "height": 954
+  },
+  {
+    "name": "71-sync-outbox",
+    "path": "/sync",
+    "title": "Sync & IT - 007 Resort & Spa Admin",
+    "height": 993
+  },
+  {
+    "name": "72-audit",
+    "path": "/system/audit",
+    "title": "Audit trail - 007 Resort & Spa Admin",
+    "height": 1118
+  },
+  {
+    "name": "99-styleguide",
+    "path": "/styleguide",
+    "title": "Style guide - 007 Resort & Spa Admin",
+    "height": 3076
+  }
+]

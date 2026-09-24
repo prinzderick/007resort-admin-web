@@ -1,0 +1,819 @@
+{
+    "role": {
+        "id": "fad8fae6-ee54-5477-895a-41ee9db6fd1f",
+        "code": "MANAGER",
+        "name": "Manager",
+        "description": "Site-scope operational management, staffing and pricing",
+        "system": true,
+        "editable": true,
+        "rowVersion": 1,
+        "assignments": 1
+    },
+    "groups": [
+        {
+            "group": "Attendance",
+            "items": [
+                {
+                    "code": "attendance.correction.request",
+                    "description": "Request an attendance clock correction",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "attendance.device.manage",
+                    "description": "Register biometric terminals and staff-to-terminal links",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "attendance.view",
+                    "description": "View staff attendance",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        },
+        {
+            "group": "Bill",
+            "items": [
+                {
+                    "code": "bill.cancel.approve",
+                    "description": "Approve cancelling a printed bill",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "bill.cancel.execute",
+                    "description": "Request or execute cancelling a printed bill (reopens the order)",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "bill.print",
+                    "description": "Print or reprint a pre-bill (freezes the order)",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        },
+        {
+            "group": "Booking",
+            "items": [
+                {
+                    "code": "booking.cancel",
+                    "description": "Cancel a booking per policy",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "booking.configure",
+                    "description": "Configure bookable resources, rules, blackouts and booking-authority strategy",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "booking.create",
+                    "description": "Hold and confirm a resource booking",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "booking.reschedule",
+                    "description": "Reschedule a booking",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "booking.view",
+                    "description": "View bookings and resource availability",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        },
+        {
+            "group": "Cash handover",
+            "items": [
+                {
+                    "code": "cash_handover.create",
+                    "description": "Declare cash to hand over to the cashier",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "cash_handover.receive",
+                    "description": "Receive and count a waiter cash handover",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "cash_handover.signoff",
+                    "description": "Sign off a cash handover variance",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "cash_handover.view",
+                    "description": "View cash handovers and waiter cash-in-hand",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        },
+        {
+            "group": "Cash sessions",
+            "items": [
+                {
+                    "code": "cash_movement.record",
+                    "description": "Record a cash paid-in / paid-out / drop against an open cash session",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "cash_session.close",
+                    "description": "Close a cash drawer session",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "cash_session.close_any",
+                    "description": "Close a cash session opened by another staff member (supervisor)",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "cash_session.open",
+                    "description": "Open a cash drawer session",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "cash_session.view",
+                    "description": "View cash sessions",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        },
+        {
+            "group": "Catalogue",
+            "items": [
+                {
+                    "code": "catalog.availability.manage",
+                    "description": "Set per-facility product availability (86 an item)",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "catalog.manage",
+                    "description": "Create and edit catalog categories and products",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "pricing.manage",
+                    "description": "Manage prices and price lists",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        },
+        {
+            "group": "Configuration",
+            "items": [
+                {
+                    "code": "config.manage",
+                    "description": "Manage system configuration",
+                    "granted": false,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "config.manage.capabilities",
+                    "description": "Enable or disable facility capabilities",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "config.manage.rules",
+                    "description": "Change facility operating rules (payment timing, approval thresholds, booking rules...)",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "config.view",
+                    "description": "View configuration screens: facility templates, capability/rule catalogue, operating rules, setup progress, config history",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "facility.configure",
+                    "description": "Configure facility capabilities/operating rules",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "facility.manage",
+                    "description": "Create, edit, deactivate, reactivate and move facilities; manage operating points, KDS stations and dining tables",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "settings.manage",
+                    "description": "Edit business profile, receipt settings and payment methods per facility",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "table.manage",
+                    "description": "Change table status, assignment and transfer orders between tables",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "ticket_type.manage",
+                    "description": "Create and edit ticket types",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        },
+        {
+            "group": "Devices",
+            "items": [
+                {
+                    "code": "device.manage",
+                    "description": "Manage payment terminals and device assignments",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "device.register",
+                    "description": "Register a device",
+                    "granted": false,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "device.revoke",
+                    "description": "Revoke a device",
+                    "granted": false,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "device.view",
+                    "description": "View device registrations",
+                    "granted": false,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        },
+        {
+            "group": "Finance",
+            "items": [
+                {
+                    "code": "finance.report.view",
+                    "description": "View financial reports",
+                    "granted": false,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "settlement.reconcile",
+                    "description": "Reconcile a settlement",
+                    "granted": false,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        },
+        {
+            "group": "Inventory",
+            "items": [
+                {
+                    "code": "inventory.adjustment.approve",
+                    "description": "Approve a stock adjustment",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "inventory.adjustment.request",
+                    "description": "Request a stock adjustment",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "inventory.count.create",
+                    "description": "Create a physical stock count",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "inventory.count.post",
+                    "description": "Post a physical stock count",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "inventory.item.manage",
+                    "description": "Create and edit inventory items",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "inventory.location.manage",
+                    "description": "Create and edit stock locations",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "inventory.purchase_receipt.create",
+                    "description": "Create a purchase receipt",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "inventory.receive",
+                    "description": "Record a goods receipt",
+                    "granted": false,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "inventory.return.create",
+                    "description": "Record customer/supplier returns",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "inventory.transfer.create",
+                    "description": "Create a stock transfer",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "inventory.view",
+                    "description": "View items, locations, balances and the stock ledger",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "inventory.wastage.create",
+                    "description": "Record wastage",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "supplier.manage",
+                    "description": "Manage supplier records",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        },
+        {
+            "group": "Kitchen & bar screens",
+            "items": [
+                {
+                    "code": "prep_ticket.transition",
+                    "description": "Transition a prep ticket's status",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "prep_ticket.view",
+                    "description": "View the prep ticket queue",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        },
+        {
+            "group": "Membership",
+            "items": [
+                {
+                    "code": "membership.manage",
+                    "description": "Suspend, reinstate or cancel a membership",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "membership.plan.manage",
+                    "description": "Create and edit membership plans",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "membership.sell",
+                    "description": "Sell / renew a membership",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "membership.validate",
+                    "description": "Validate a membership at a facility entrance/scanner",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "membership.view",
+                    "description": "View memberships and plans",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        },
+        {
+            "group": "Orders",
+            "items": [
+                {
+                    "code": "order.comp.approve",
+                    "description": "Approve a complimentary (comp) item",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "order.comp.execute",
+                    "description": "Apply or request a complimentary (comp) line",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "order.create",
+                    "description": "Create a draft order",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "order.discount.approve",
+                    "description": "Approve a discount above the facility threshold",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "order.discount.execute",
+                    "description": "Apply or request a line discount",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "order.line.add",
+                    "description": "Add a line to a draft order",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "order.line.remove_unsent",
+                    "description": "Remove an unsent line from a draft order",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "order.price_override.approve",
+                    "description": "Approve a manual price override",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "order.price_override.execute",
+                    "description": "Apply or request a manual price override",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "order.send",
+                    "description": "Send an order to prep/routing",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "order.serve",
+                    "description": "Mark an order served",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "order.settle",
+                    "description": "Settle an order/tab against payment(s)",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "order.view",
+                    "description": "View orders",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "order.void.approve",
+                    "description": "Approve a pending void",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "order.void.execute",
+                    "description": "Void an order or line",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        },
+        {
+            "group": "Payments",
+            "items": [
+                {
+                    "code": "payment.collect",
+                    "description": "Collect money at the customer table (pending confirmation)",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "payment.confirm",
+                    "description": "Confirm or reject a pending waiter collection",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "payment.reversal.approve",
+                    "description": "Approve a payment reversal",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "payment.reversal.execute",
+                    "description": "Request or execute a same-session payment reversal",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "payment.split",
+                    "description": "Split a payment across tenders",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "payment.take",
+                    "description": "Take a payment",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "payment.view",
+                    "description": "View payments",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        },
+        {
+            "group": "Receipts",
+            "items": [
+                {
+                    "code": "receipt.reprint",
+                    "description": "Reprint a customer receipt",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "receipt.view",
+                    "description": "View receipts",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        },
+        {
+            "group": "Refunds",
+            "items": [
+                {
+                    "code": "refund.approve",
+                    "description": "Approve a refund",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "refund.execute",
+                    "description": "Request or execute a refund",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        },
+        {
+            "group": "Reports",
+            "items": [
+                {
+                    "code": "report.view",
+                    "description": "View operational reports",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "report.view.all",
+                    "description": "View reports across all facilities",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        },
+        {
+            "group": "Security & audit",
+            "items": [
+                {
+                    "code": "audit.view",
+                    "description": "View the audit trail",
+                    "granted": false,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "security_event.view",
+                    "description": "View security events",
+                    "granted": false,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "session.revoke",
+                    "description": "Revoke a staff session",
+                    "granted": false,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        },
+        {
+            "group": "Staff",
+            "items": [
+                {
+                    "code": "role_assignment.manage",
+                    "description": "Grant or revoke role assignments below one's own level",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "role.manage",
+                    "description": "Create and edit roles and their permission sets",
+                    "granted": false,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "staff.clock_correction.approve",
+                    "description": "Approve an attendance clock correction",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "staff.manage",
+                    "description": "Manage staff records",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        },
+        {
+            "group": "Tabs",
+            "items": [
+                {
+                    "code": "tab.open",
+                    "description": "Open a tab and attach orders",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "tab.view_own_facility",
+                    "description": "View tabs at the staff member's own facility",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        },
+        {
+            "group": "Tickets",
+            "items": [
+                {
+                    "code": "ticket.issue",
+                    "description": "Issue (or re-issue) an entitlement for an order or booking",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "ticket.override",
+                    "description": "Manual ticket override (staff-approval validation, sensitive)",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "ticket.redeem",
+                    "description": "Scan/redeem an entitlement at a facility",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "ticket.release",
+                    "description": "Release and take back rental items (Sports Store)",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                },
+                {
+                    "code": "ticket.view",
+                    "description": "View entitlements and look them up by QR token",
+                    "granted": true,
+                    "requiresApproval": false,
+                    "grantable": true
+                }
+            ]
+        }
+    ]
+}

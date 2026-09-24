@@ -13,6 +13,13 @@ use Illuminate\Http\Request;
 
 class StaffController extends Controller
 {
+    /** "What kind of change" filter for the change history: label and the API entity types it covers. */
+    public const AUDIT_AREAS = [
+        'facilities' => ['Facilities, tables and points', 'Facility,OperatingPoint,DiningTable'], 'catalog' => ['Products, prices and tax', 'Product,PriceList,Price,TaxRate,PrepRoute'],
+        'selling' => ['Tickets, plans and booking', 'TicketType,MembershipPlan,BookableResource'], 'roles' => ['Roles and permissions', 'Role'],
+        'devices' => ['Devices', 'Device'], 'business' => ['Business and receipts', 'BusinessProfile,ReceiptSetting'],
+    ];
+
     public function index(Request $request)
     {
         $filter = $request->query('status');
@@ -54,7 +61,14 @@ class StaffController extends Controller
         }
         $mine = array_values(array_filter($devices->items(), fn ($d) => ($d['checkout']['staffId'] ?? null) === $staff && ($d['checkout']['checkedInAt'] ?? null) === null));
 
+        $facFlat = app(DashboardData::class)->flatten($facilities->items());
+        $policyFacility = request()->query('policyFacility');
+        $policy = $this->staff->can('staff.manage') ? Fetch::of(fn () => $this->api->get("staff/{$staff}/collection-policy", ['facilityId' => $policyFacility]), ['GET', '/staff/{staffId}/collection-policy']) : new Fetch(null, 'forbidden');
+        $cashInHand = $this->staff->canAny('staff.manage', 'cash_handover.view') ? Fetch::of(fn () => $this->api->get("staff/{$staff}/cash-in-hand"), ['GET', '/staff/{staffId}/cash-in-hand']) : new Fetch(null, 'forbidden');
+
         return view('pages.staff.show', [
+            'policy' => $policy, 'cashInHand' => $cashInHand, 'policyFacility' => $policyFacility ?: ($policy->ok() ? ($policy->data['facilityId'] ?? null) : null),
+            'collectionFacilities' => array_values(array_filter($facFlat, fn ($f) => in_array('TABLE_SERVICE', (array) ($f['capabilities'] ?? []), true))),
             'member' => $member['data'], 'etag' => $member['etag'], 'roles' => $roles, 'assign' => $assign, 'roleNames' => $roleNames,
             'facilities' => app(DashboardData::class)->flatten($facilities->items()), 'site' => $site->data, 'devices' => $devices, 'myDevices' => $mine, 'audit' => $audit, 'names' => $dir->staffNames(),
         ]);
@@ -70,6 +84,16 @@ class StaffController extends Controller
         $this->api->request('PATCH', "staff/{$staff}", [], array_diff_key($d, ['etag' => 1]), $headers);
 
         return redirect()->route('staff.show', $staff)->with('success', 'Staff member updated.');
+    }
+
+    /** Per-waiter override of the cash-holding rule: INHERIT the facility's, ALLOW or DENY, with an optional personal limit. */
+    public function collectionPolicy(Request $request, string $staff): RedirectResponse
+    {
+        abort_unless($this->staff->can('staff.manage'), 403);
+        $d = $request->validate(['cashHolding' => ['required', 'in:INHERIT,ALLOW,DENY'], 'cashLimit' => ['nullable', 'regex:/^\d{1,15}(\.\d{1,4})?$/'], 'policyFacility' => ['nullable', 'uuid']]);
+        $this->api->request('PATCH', "staff/{$staff}/collection-policy", [], ['cashHolding' => $d['cashHolding'], 'cashLimit' => $d['cashHolding'] === 'ALLOW' && ($d['cashLimit'] ?? '') !== '' ? $d['cashLimit'] : null]);
+
+        return redirect()->route('staff.show', array_filter(['staff' => $staff, 'policyFacility' => $d['policyFacility'] ?? null]))->with('success', 'Cash collection policy saved.');
     }
 
     public function grantRole(Request $request, string $staff): RedirectResponse
@@ -153,7 +177,9 @@ class StaffController extends Controller
     public function audit(Request $request, Directory $dir)
     {
         // Newest first; `action` is an exact match (e.g. payment.refund), dates are UTC days.
-        $params = ['limit' => $this->perPage($request), 'order' => 'desc', 'action' => $request->query('action'), 'entityType' => $request->query('entityType'), 'actorStaffId' => $request->query('actor'),
+        $area = self::AUDIT_AREAS[$request->query('area')][1] ?? null;
+        $params = ['limit' => $this->perPage($request), 'order' => 'desc', 'action' => $request->query('action'), 'entityType' => $request->query('entityType'), 'entityId' => $request->query('entityId'), 'entityTypes' => $area,
+            'actorStaffId' => $request->query('actor'),
             'filter[from]' => $this->day($request->query('from')), 'filter[to]' => $this->day($request->query('to')), 'cursor' => $request->query('cursor')];
         $audit = Fetch::of(fn () => $this->api->get('audit', $params), ['GET', '/audit']);
         $names = $dir->staffNames();
@@ -163,7 +189,7 @@ class StaffController extends Controller
                 array_map(fn ($a) => [$a['seq'] ?? '', $a['occurredAt'] ?? '', $names[$a['actorStaffId'] ?? ''] ?? $a['actorStaffId'] ?? '', $a['action'] ?? '', $a['entityType'] ?? '', $a['entityId'] ?? '', json_encode($a['oldValue'] ?? null), json_encode($a['newValue'] ?? null), $a['rowHash'] ?? ''], $audit->items()));
         }
 
-        return view('pages.staff.audit', ['audit' => $audit, 'q' => $request->query(), 'names' => $names]);
+        return view('pages.staff.audit', ['audit' => $audit, 'q' => $request->query(), 'names' => $names, 'areas' => collect(self::AUDIT_AREAS)->map(fn ($a) => $a[0])->all()]);
     }
 
     private function day(mixed $v): ?string

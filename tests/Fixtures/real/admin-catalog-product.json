@@ -1,0 +1,45 @@
+{
+    "id": "f8fc95f1-d0f1-5b0d-afe6-8f1d867a8cd3",
+    "sku": "FD-AFA-EB",
+    "name": "Afang Soup & Eba",
+    "description": null,
+    "barcode": null,
+    "categoryId": "17a38b8f-2d1f-5e6a-bfe2-03399ae1527b",
+    "categoryName": "Soups & Swallow",
+    "kind": "FOOD",
+    "commercialKind": "GOOD",
+    "taxRateId": "ec364e58-e64b-5cfe-b01c-f058d2169e99",
+    "taxExempt": false,
+    "prepRouteId": "35c17f7d-e784-5930-aec7-5c560e519830",
+    "trackStock": false,
+    "imageUrl": null,
+    "modifiers": null,
+    "active": true,
+    "prices": [
+        {
+            "id": "780dd458-0fd8-5ca9-8c18-89b23194228c",
+            "priceListId": "4199c3a6-7372-50a1-a6f8-72daa311e061",
+            "productId": "f8fc95f1-d0f1-5b0d-afe6-8f1d867a8cd3",
+            "facilityId": null,
+            "amount": "5500.0000",
+            "validFrom": "2026-01-01T00:00:00.000Z",
+            "validTo": null,
+            "active": true,
+            "rowVersion": 1
+        }
+    ],
+    "facilities": [
+        {
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "facilityCode": "RESTAURANT",
+            "facilityName": "Restaurant",
+            "available": true,
+            "unavailableReason": null,
+            "kdsStationId": null,
+            "sortOrder": 0,
+            "priceOverride": null
+        }
+    ],
+    "stockLinks": [],
+    "rowVersion": 1
+}

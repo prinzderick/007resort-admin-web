@@ -1,0 +1,14 @@
+{
+    "staffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+    "currency": "NGN",
+    "cashInHand": "24000.0000",
+    "limit": "50000.0000",
+    "handoverRequired": false,
+    "cashHoldingAllowed": true,
+    "oldestUncollectedAt": null,
+    "pendingCollections": 3,
+    "pendingCollectionsAmount": "25000.0000",
+    "openHandovers": 2,
+    "unsignedShortfall": "2000.0000",
+    "waiterName": "Amaka Okoro"
+}

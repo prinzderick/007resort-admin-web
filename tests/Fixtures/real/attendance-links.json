@@ -1,23 +1,23 @@
 {
     "items": [
         {
-            "id": "01a0d040-c34e-7094-addc-1c8dbaa1a498",
+            "id": "01a0d13a-19cc-73b6-b040-9fc42d5327c0",
             "staffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
-            "attendanceDeviceId": "01a0d040-c34c-7109-bf79-1d8af06f293c",
+            "attendanceDeviceId": "01a0d13a-19cb-71ef-9473-baf3477d57c0",
             "terminalUserId": "1",
             "active": true
         },
         {
-            "id": "01a0d040-c350-7154-813e-7c0415664b26",
+            "id": "01a0d13a-19ce-7234-940d-3c8c624c4da9",
             "staffId": "b14a5184-efb4-5000-bdfd-ed32dde07012",
-            "attendanceDeviceId": "01a0d040-c34c-7109-bf79-1d8af06f293c",
+            "attendanceDeviceId": "01a0d13a-19cb-71ef-9473-baf3477d57c0",
             "terminalUserId": "2",
             "active": true
         },
         {
-            "id": "01a0d040-c353-73b8-999c-12c1ae2e3972",
+            "id": "01a0d13a-19d0-736d-9bbf-29e509cccb9a",
             "staffId": "7165e684-7b60-5f21-83bd-9ce6ca53a316",
-            "attendanceDeviceId": "01a0d040-c34c-7109-bf79-1d8af06f293c",
+            "attendanceDeviceId": "01a0d13a-19cb-71ef-9473-baf3477d57c0",
             "terminalUserId": "3",
             "active": true
         }

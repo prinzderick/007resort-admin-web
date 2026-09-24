@@ -18,7 +18,7 @@
         <div class="flex items-center gap-3">
             <x-badge :status="$status" />
             @if ($status === 'DRAFT' && auth_staff()->can('inventory.count.post'))
-                <form method="POST" action="{{ route('inventory.count.post', $id) }}">@csrf<x-btn onclick="return confirm('Post this count? Variance movements will be written against the live balances.')">Post count</x-btn></form>
+                <form method="POST" action="{{ route('inventory.count.post', $id) }}" x-data="confirmSubmit('Post this count? Variance movements are written against the live balances.', 'Post count')" @submit="ask($event)">@csrf<x-btn>Post count</x-btn></form>
             @elseif ($status === 'DRAFT')<span class="text-sm text-stone-600">You do not have permission to post counts.</span>@endif
             @if (! empty($count['approvalId']))<span class="text-sm text-stone-600">Waiting for approval ({{ \App\Services\Portal\Directory::short($count['approvalId']) }}).</span>@endif
         </div>

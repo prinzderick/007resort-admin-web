@@ -1,29 +1,4 @@
 {
-    "items": [
-        {
-            "id": "a53c253e-b7ab-11f1-a4a3-616e05ccf04f",
-            "category": "INVENTORY",
-            "status": "OPEN",
-            "eventId": null,
-            "eventType": "StockAdjusted",
-            "entityType": "StockBalance",
-            "entityId": "a53c255c-b7ab-11f1-a4a3-616e05ccf04f",
-            "sourceNode": "cloud",
-            "localVersion": 7,
-            "incomingVersion": 7,
-            "localPayload": {
-                "qty": "12.0000"
-            },
-            "incomingPayload": {
-                "qty": "9.0000"
-            },
-            "detail": "admin-test: concurrent stock change",
-            "detectedAt": "2026-09-24T01:05:26.464646Z",
-            "resolvedAt": null,
-            "resolvedByStaffId": null,
-            "resolution": null,
-            "resolutionNote": null
-        }
-    ],
+    "items": [],
     "nextCursor": null
 }

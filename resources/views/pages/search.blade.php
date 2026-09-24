@@ -1,7 +1,7 @@
 <x-layouts.app title="Search">
-    <x-page-header title="Search" :subtitle="$q === '' ? 'Type in the box above to find a page, facility, staff member, role or device.' : 'Results for &ldquo;'.e($q).'&rdquo;'" />
+    <x-page-header title="Search" :subtitle="$q === '' ? 'Type in the box above to find a page, facility, staff member, product, order or customer.' : 'Results for &ldquo;'.e($q).'&rdquo;'" />
     @if ($q !== '' && $groups === [])
-        <x-card><x-empty title="Nothing found" text="Check the spelling, or try a shorter word. Search covers pages, facilities, staff, roles and devices you have access to." icon="search" /></x-card>
+        <x-card><x-empty title="Nothing found" text="Check the spelling, or try a shorter word. Search covers pages, facilities, staff, products, orders, receipts and customers you have access to. Type at least 2 letters." icon="search" /></x-card>
     @endif
     @foreach ($groups as $title => $hits)
         <x-card :title="$title" flush data-testid="search-group">

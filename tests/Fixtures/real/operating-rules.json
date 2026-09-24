@@ -1,0 +1,292 @@
+{
+    "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+    "version": 2,
+    "capabilities": [
+        "INVENTORY",
+        "KITCHEN_ROUTING",
+        "OPEN_TAB",
+        "PAYMENT_ACCEPTANCE",
+        "POS",
+        "RECEIPT_PRINTING",
+        "TABLE_SERVICE"
+    ],
+    "values": {
+        "payment_timing": "PAY_BEFORE_LEAVING",
+        "payment_facility_unit_id": null,
+        "require_cash_session": true,
+        "allow_offline_payments": "CASH_ONLY",
+        "allow_offline_orders": true,
+        "waiter_collection_enabled": true,
+        "waiter_cash_holding": true,
+        "waiter_cash_in_hand_limit": "50000.0000",
+        "collection_requires_confirmation": [
+            "CASH",
+            "CARD_TERMINAL",
+            "TRANSFER"
+        ],
+        "pending_collection_expiry_minutes": 30,
+        "pre_bill_requires_supervisor_if_reopened": true,
+        "bill_pay_link_enabled": false,
+        "cash_handover_max_variance": "500.0000",
+        "approval_threshold_amount": "5000.0000",
+        "require_approval_for": [
+            "order.void",
+            "order.discount",
+            "order.comp"
+        ],
+        "approval_threshold_void_amount": "0.0000",
+        "approval_threshold_comp_amount": "0.0000",
+        "approval_threshold_price_override_amount": "0.0000",
+        "approval_threshold_refund_amount": "0.0000",
+        "allow_open_tabs": true,
+        "tab_max_amount": "0.0000",
+        "tab_require_customer_name": false,
+        "require_table_for_orders": false,
+        "stock_consumption_timing": "SEND",
+        "receipt_auto_print": true,
+        "receipt_copies": 1,
+        "online_orderable": false
+    },
+    "items": [
+        {
+            "key": "payment_timing",
+            "value": "PAY_BEFORE_LEAVING",
+            "isDefault": false,
+            "label": "Payment timing",
+            "group": "Payments & cash",
+            "dangerLevel": "medium"
+        },
+        {
+            "key": "payment_facility_unit_id",
+            "value": null,
+            "isDefault": true,
+            "label": "Payment taken at",
+            "group": "Payments & cash",
+            "dangerLevel": "medium"
+        },
+        {
+            "key": "require_cash_session",
+            "value": true,
+            "isDefault": false,
+            "label": "Require an open cash session",
+            "group": "Payments & cash",
+            "dangerLevel": "high"
+        },
+        {
+            "key": "allow_offline_payments",
+            "value": "CASH_ONLY",
+            "isDefault": true,
+            "label": "Payments while offline",
+            "group": "Payments & cash",
+            "dangerLevel": "high"
+        },
+        {
+            "key": "allow_offline_orders",
+            "value": true,
+            "isDefault": true,
+            "label": "Orders while offline",
+            "group": "Payments & cash",
+            "dangerLevel": "low"
+        },
+        {
+            "key": "waiter_collection_enabled",
+            "value": true,
+            "isDefault": false,
+            "label": "Waiters collect at the table",
+            "group": "Payments & cash",
+            "dangerLevel": "high"
+        },
+        {
+            "key": "waiter_cash_holding",
+            "value": true,
+            "isDefault": false,
+            "label": "Waiters may hold cash",
+            "group": "Payments & cash",
+            "dangerLevel": "high"
+        },
+        {
+            "key": "waiter_cash_in_hand_limit",
+            "value": "50000.0000",
+            "isDefault": false,
+            "label": "Waiter cash-in-hand limit",
+            "group": "Payments & cash",
+            "dangerLevel": "high"
+        },
+        {
+            "key": "collection_requires_confirmation",
+            "value": [
+                "CASH",
+                "CARD_TERMINAL",
+                "TRANSFER"
+            ],
+            "isDefault": false,
+            "label": "Collections that need confirmation",
+            "group": "Payments & cash",
+            "dangerLevel": "high"
+        },
+        {
+            "key": "pending_collection_expiry_minutes",
+            "value": 30,
+            "isDefault": true,
+            "label": "Pending collection expiry",
+            "group": "Payments & cash",
+            "dangerLevel": "medium"
+        },
+        {
+            "key": "pre_bill_requires_supervisor_if_reopened",
+            "value": true,
+            "isDefault": true,
+            "label": "Reprinted bill needs a supervisor",
+            "group": "Payments & cash",
+            "dangerLevel": "medium"
+        },
+        {
+            "key": "bill_pay_link_enabled",
+            "value": false,
+            "isDefault": true,
+            "label": "Pay reference on the pre-bill",
+            "group": "Payments & cash",
+            "dangerLevel": "low"
+        },
+        {
+            "key": "cash_handover_max_variance",
+            "value": "500.0000",
+            "isDefault": true,
+            "label": "Cash handover variance allowed",
+            "group": "Payments & cash",
+            "dangerLevel": "high"
+        },
+        {
+            "key": "approval_threshold_amount",
+            "value": "5000.0000",
+            "isDefault": false,
+            "label": "Approval threshold (discounts and refunds)",
+            "group": "Approvals",
+            "dangerLevel": "high"
+        },
+        {
+            "key": "require_approval_for",
+            "value": [
+                "order.void",
+                "order.discount",
+                "order.comp"
+            ],
+            "isDefault": false,
+            "label": "Actions that always need a supervisor",
+            "group": "Approvals",
+            "dangerLevel": "high"
+        },
+        {
+            "key": "approval_threshold_void_amount",
+            "value": "0.0000",
+            "isDefault": true,
+            "label": "Void approval threshold",
+            "group": "Approvals",
+            "dangerLevel": "high"
+        },
+        {
+            "key": "approval_threshold_comp_amount",
+            "value": "0.0000",
+            "isDefault": true,
+            "label": "Comp approval threshold",
+            "group": "Approvals",
+            "dangerLevel": "high"
+        },
+        {
+            "key": "approval_threshold_price_override_amount",
+            "value": "0.0000",
+            "isDefault": true,
+            "label": "Price-override approval threshold",
+            "group": "Approvals",
+            "dangerLevel": "high"
+        },
+        {
+            "key": "approval_threshold_refund_amount",
+            "value": "0.0000",
+            "isDefault": true,
+            "label": "Refund approval threshold",
+            "group": "Approvals",
+            "dangerLevel": "high"
+        },
+        {
+            "key": "allow_open_tabs",
+            "value": true,
+            "isDefault": true,
+            "label": "Allow open tabs",
+            "group": "Tabs & table service",
+            "dangerLevel": "medium"
+        },
+        {
+            "key": "tab_max_amount",
+            "value": "0.0000",
+            "isDefault": true,
+            "label": "Maximum tab amount",
+            "group": "Tabs & table service",
+            "dangerLevel": "medium"
+        },
+        {
+            "key": "tab_require_customer_name",
+            "value": false,
+            "isDefault": true,
+            "label": "Tabs need a customer name",
+            "group": "Tabs & table service",
+            "dangerLevel": "low"
+        },
+        {
+            "key": "require_table_for_orders",
+            "value": false,
+            "isDefault": true,
+            "label": "Orders need a table",
+            "group": "Tabs & table service",
+            "dangerLevel": "low"
+        },
+        {
+            "key": "stock_consumption_timing",
+            "value": "SEND",
+            "isDefault": true,
+            "label": "When stock is deducted",
+            "group": "Stock",
+            "dangerLevel": "high"
+        },
+        {
+            "key": "receipt_auto_print",
+            "value": true,
+            "isDefault": true,
+            "label": "Print receipt automatically",
+            "group": "Receipts & online",
+            "dangerLevel": "low"
+        },
+        {
+            "key": "receipt_copies",
+            "value": 1,
+            "isDefault": true,
+            "label": "Receipt copies",
+            "group": "Receipts & online",
+            "dangerLevel": "low"
+        },
+        {
+            "key": "online_orderable",
+            "value": false,
+            "isDefault": true,
+            "label": "Available for online ordering",
+            "group": "Receipts & online",
+            "dangerLevel": "medium"
+        }
+    ],
+    "notApplicable": [
+        "validation_mode",
+        "max_occupancy",
+        "hold_ttl_seconds",
+        "min_notice_minutes",
+        "max_advance_days",
+        "cancel_cutoff_minutes",
+        "cancel_fee_percent",
+        "reschedule_cutoff_minutes",
+        "max_reschedules",
+        "early_entry_minutes",
+        "slot_granularity_minutes",
+        "booking_offline_strategy",
+        "booking_local_reserve_percent",
+        "booking_online_stale_after_seconds"
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+    "version": 2,
+    "restricted": false,
+    "methods": {
+        "CASH": true,
+        "CARD": true,
+        "TRANSFER": true,
+        "POS_TERMINAL": true,
+        "PAYSTACK": true
+    },
+    "labels": {
+        "CASH": "Cash",
+        "CARD": "Card (card reader)",
+        "TRANSFER": "Bank transfer",
+        "POS_TERMINAL": "POS terminal",
+        "PAYSTACK": "Paystack (online)"
+    }
+}

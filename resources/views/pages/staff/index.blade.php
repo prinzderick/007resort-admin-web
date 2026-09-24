@@ -1,30 +1,37 @@
 <x-layouts.app title="Staff">
-    <x-page-header title="Staff" subtitle="People, roles, cards and credentials. Permissions come from roles held at a scope." />
-    <form method="GET" class="mb-5 flex flex-wrap items-end gap-3">
-        <div><label class="mb-1 block text-sm font-medium">Search</label><input name="q" value="{{ $q }}" class="min-h-11 rounded-lg border border-stone-300 px-3 text-sm" placeholder="Name or staff number"></div>
-        <div><label class="mb-1 block text-sm font-medium">Status</label><select name="status" class="min-h-11 rounded-lg border border-stone-300 bg-white px-3 text-sm"><option value="">Any</option>@foreach (['ACTIVE', 'SUSPENDED', 'TERMINATED'] as $s)<option @selected($status === $s)>{{ $s }}</option>@endforeach</select></div>
-        <x-btn variant="secondary">Filter</x-btn>
-    </form>
+    <x-page-header title="Staff" subtitle="People, their roles, cards and sign-in. What someone may do comes from the roles they hold and where they hold them.">
+        <x-slot:actions><x-btn variant="secondary" :href="route('people.roles')" icon="shield">Roles &amp; permissions</x-btn><x-btn type="button" icon="plus" @click="$dispatch('open-modal', 'add-staff')" data-testid="add-staff">Add staff member</x-btn></x-slot:actions>
+    </x-page-header>
+    <x-filter-form :reset="route('staff.index')">
+        <x-filter-text name="q" label="Search" :value="$q" placeholder="Name or staff number" />
+        <x-filter-select name="status" label="Status" :options="['ACTIVE' => 'Active', 'SUSPENDED' => 'Suspended', 'TERMINATED' => 'Ended']" :value="$status" all="Any status" width="10rem" />
+    </x-filter-form>
     <x-card flush x-data="tableTools">
         <x-table-tools />
         <x-fetch :of="$staff" what="Staff directory" />
         @if ($staff->ok())
-            <div class="table-scroll"><table class="data-table" data-testid="staff-table"><thead><tr><th>No.</th><th>Name</th><th>Status</th><th>Sign-in methods</th><th></th></tr></thead><tbody>
+            <div class="table-scroll"><table class="data-table" data-testid="staff-table"><thead><tr><th>No.</th><th>Name</th><th>Status</th><th>Sign-in</th><th class="w-12"></th></tr></thead><tbody>
             @forelse ($staff->items() as $m)
-                <tr data-row><td>{{ $m['staffNumber'] ?? '' }}</td><td class="font-medium">{{ $m['displayName'] ?? trim(($m['firstName'] ?? '').' '.($m['lastName'] ?? '')) }}<div class="text-xs font-normal text-stone-500">{{ $m['email'] ?? '' }}</div></td><td><x-badge :status="$m['status'] ?? 'UNKNOWN'" /></td>
-                    <td class="text-xs">{{ implode(', ', array_filter([($m['hasPassword'] ?? false) ? 'password' : null, ($m['hasPin'] ?? false) ? 'PIN' : null, ($m['hasNfcCard'] ?? false) ? 'NFC card' : null])) ?: 'none' }}</td>
-                    <td>@if (! empty($m['id']))<a class="underline" href="{{ route('staff.show', $m['id']) }}">Manage</a>@endif</td></tr>
-            @empty<tr><td colspan="5" class="text-center text-stone-500">No staff found.</td></tr>@endforelse
+                @php $flags = array_filter([($m['hasPassword'] ?? null) ? 'password' : null, ($m['hasPin'] ?? null) ? 'PIN' : null, ($m['hasNfcCard'] ?? null) ? 'card' : null]); $known = array_key_exists('hasPassword', $m) || array_key_exists('hasPin', $m) || array_key_exists('hasNfcCard', $m); @endphp
+                <tr data-row><td class="font-mono text-xs text-stone-600">{{ $m['staffNumber'] ?? '' }}</td>
+                    <td><a class="font-medium text-brand-700 underline decoration-brand-200 underline-offset-2" href="{{ route('staff.show', $m['id'] ?? '') }}">{{ $m['displayName'] ?? trim(($m['firstName'] ?? '').' '.($m['lastName'] ?? '')) }}</a><div class="text-xs text-stone-500">{{ $m['email'] ?? '' }}</div></td>
+                    <td><x-badge :status="$m['status'] ?? 'UNKNOWN'" /></td>
+                    <td class="text-sm text-stone-600">{{ $known ? (implode(', ', $flags) ?: 'Nothing set') : '-' }}</td>
+                    <td class="text-right">@if (! empty($m['id']))<a class="underline" href="{{ route('staff.show', $m['id']) }}">Manage</a>@endif</td></tr>
+            @empty<tr><td colspan="5"><x-empty title="No staff found" text="Change the search, or add the first staff member." icon="user" /></td></tr>@endforelse
             </tbody></table></div>
         @endif
     </x-card>
-    <x-card title="Add staff member">
-        <form method="POST" action="{{ route('staff.store') }}" class="grid gap-x-4 sm:grid-cols-2">
-            @csrf
-            <x-field name="staffNumber" label="Staff number" required /><x-field name="email" label="Email" type="email" />
-            <x-field name="firstName" label="First name" required /><x-field name="lastName" label="Last name" required />
-            <x-field name="phone" label="Phone" />
-            <div class="sm:col-span-2"><x-btn>Create</x-btn></div>
+    <x-dialog name="add-staff" title="Add a staff member" subtitle="You set their password or PIN and give them a role on the next screen.">
+        <form method="POST" action="{{ route('staff.store') }}" class="grid gap-4" novalidate>@csrf
+            <div class="grid gap-4 sm:grid-cols-2">
+                <x-form.text name="firstName" label="First name" required />
+                <x-form.text name="lastName" label="Last name" required />
+                <x-form.text name="staffNumber" label="Staff number" required hint="Printed on their badge, e.g. S-0014." />
+                <x-form.text name="phone" label="Phone" inputmode="tel" />
+            </div>
+            <x-form.text name="email" label="Email" type="email" />
+            <div class="flex justify-end gap-2"><x-btn type="button" variant="secondary" @click="open = false">Cancel</x-btn><x-btn>Create staff member</x-btn></div>
         </form>
-    </x-card>
+    </x-dialog>
 </x-layouts.app>

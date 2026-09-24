@@ -1,0 +1,41 @@
+{
+    "items": [
+        {
+            "id": "01a0d13f-83cd-71ff-a198-65f8f2864706",
+            "seq": 20,
+            "occurredAt": "2026-09-24T02:29:55.789Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "935dbdcf-d514-5c33-9889-5a14f39c65c4",
+            "actorName": "Ebiye Owei",
+            "facilityUnitId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "deviceId": null,
+            "action": "config.rules.update",
+            "entityType": "Facility",
+            "entityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "oldValue": {
+                "waiter_cash_holding": false,
+                "waiter_cash_in_hand_limit": "0.0000",
+                "waiter_collection_enabled": false,
+                "collection_requires_confirmation": [
+                    "CASH",
+                    "CARD_TERMINAL",
+                    "TRANSFER"
+                ]
+            },
+            "newValue": {
+                "waiter_cash_holding": true,
+                "waiter_cash_in_hand_limit": "50000.0000",
+                "waiter_collection_enabled": true,
+                "collection_requires_confirmation": [
+                    "CASH",
+                    "CARD_TERMINAL",
+                    "TRANSFER"
+                ]
+            },
+            "approvalId": null,
+            "rowHash": "0533bd3e92db2e4fa2b484e50ed6c79c161df4a6f2367fcc435163382187de32"
+        }
+    ],
+    "nextCursor": null
+}

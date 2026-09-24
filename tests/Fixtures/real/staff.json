@@ -155,18 +155,6 @@
             "firstName": "Ebiye",
             "lastName": "Owei",
             "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa"
-        },
-        {
-            "id": "01a0d053-279d-72ee-a788-2dedf23bcce8",
-            "displayName": "Kds Viewer",
-            "staffNumber": "S-9001",
-            "status": "ACTIVE",
-            "email": null,
-            "phone": null,
-            "rowVersion": 1,
-            "firstName": "Kds",
-            "lastName": "Viewer",
-            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa"
         }
     ],
     "nextCursor": null

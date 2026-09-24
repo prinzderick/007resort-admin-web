@@ -1,5 +1,10 @@
 <x-layouts.app title="Devices">
-    <x-page-header title="Devices" subtitle="Tablets, POS terminals, KDS screens and scanners registered with the API." />
+    <x-page-header title="Devices" subtitle="Tablets, POS terminals, kitchen screens and scanners registered with the property server. Choose where each one works and what it does.">
+        <x-slot:actions>
+            @if (auth_staff()->can('payment.collect') || auth_staff()->can('device.manage'))<x-btn variant="secondary" icon="card" :href="route('devices.payment-terminals')">Card machines</x-btn>@endif
+            @if (auth_staff()->can('device.register'))<x-btn type="button" icon="plus" @click="$dispatch('open-modal', 'register-device')">Register a device</x-btn>@endif
+        </x-slot:actions>
+    </x-page-header>
     @if (session('secret'))
         <div class="mb-5 rounded-xl border-2 border-sky-400 bg-sky-50 p-4" data-testid="secret">
             <div class="text-sm font-semibold">{{ session('secret')['label'] }}</div>
@@ -9,69 +14,78 @@
     @endif
 
     @if ($devices->state !== 'forbidden')
-    <form method="GET" class="mb-4 flex items-end gap-3"><div><label class="mb-1 block text-sm font-medium">Status</label>
-        <select name="status" class="min-h-11 rounded-lg border border-stone-300 bg-white px-3 text-sm" onchange="this.form.submit()"><option value="">All</option>@foreach (['ACTIVE', 'PENDING', 'REVOKED'] as $s)<option @selected($status === $s)>{{ $s }}</option>@endforeach</select></div></form>
-    <x-card title="Registered devices" flush x-data="tableTools">
-        <x-table-tools />
+    <x-card flush x-data="tableTools">
+        <x-table-tools placeholder="Filter devices...">
+            <form method="GET"><x-filter-select name="status" label="Status" :options="['ACTIVE' => 'Active', 'PENDING' => 'Pending', 'REVOKED' => 'Revoked']" :value="$status" all="All statuses" /></form>
+        </x-table-tools>
         <x-fetch :of="$devices" what="Devices" />
         @if ($devices->ok())
-            <div class="table-scroll"><table class="data-table" data-testid="devices-table"><thead><tr><th>Device</th><th>Kind / mode</th><th>Status</th><th>Home facility</th><th>Checked out at</th><th>App</th><th>Last seen</th><th>Checked out to</th><th></th></tr></thead><tbody>
+            <div class="table-scroll"><table class="data-table" data-testid="devices-table"><thead><tr><th>Device</th><th>Does</th><th>Status</th><th>Home facility</th><th>Checked out to</th><th>App</th><th>Last seen</th><th class="w-12"></th></tr></thead><tbody>
             @forelse ($devices->items() as $d)
                 @php
                     $seen = \App\Support\Time::parse($d['lastSeenAt'] ?? null);
-                    $status = $d['status'] ?? 'UNKNOWN';
-                    $quiet = $status === 'ACTIVE' && (! $seen || $seen->diffInSeconds(now()) > 300);
+                    $dstatus = $d['status'] ?? 'UNKNOWN';
+                    $quiet = $dstatus === 'ACTIVE' && (! $seen || $seen->diffInSeconds(now()) > 300);
                     $co = $d['checkout'] ?? null;
                     $out = is_array($co) && empty($co['checkedInAt']);
                     $home = $d['homeFacility']['name'] ?? ($facilityNames[$d['homeFacilityId'] ?? ''] ?? null);
                     $devName = $d['name'] ?? ($d['id'] ?? 'device');
                 @endphp
-                <tr data-row><td class="font-medium">{{ $devName }}<div class="text-xs font-normal text-stone-500">{{ $d['platform'] ?? '' }}</div></td><td>{{ str_replace('_', ' ', $d['kind'] ?? '') }}@if (! empty($d['mode']))<div class="text-xs text-stone-500">{{ $d['mode'] }}</div>@endif</td><td><x-badge :status="$status" /></td>
-                    <td>{{ $home ?? '-' }}</td><td>{{ $out ? ($facilityNames[$d['facilityId'] ?? ($co['facilityId'] ?? '')] ?? '-') : '-' }}</td><td>{{ $d['appVersion'] ?? '' }}</td>
-                    <td><x-time :at="$d['lastSeenAt'] ?? null" ago />@if ($quiet)<x-badge tone="warn" class="ml-1">quiet</x-badge>@endif</td>
-                    <td class="text-xs">{{ $out ? ($staffNames[$co['staffId'] ?? ''] ?? \Illuminate\Support\Str::limit((string) ($co['staffId'] ?? ''), 8, '')) : '-' }}</td>
-                    <td>@if ($status !== 'REVOKED' && ! empty($d['id']) && auth_staff()->can('device.revoke'))<form method="POST" action="{{ route('devices.revoke', $d['id']) }}">@csrf<button class="text-sm text-red-800 underline" onclick="return confirm('Revoke {{ e($devName) }}? It will stop working immediately.')">Revoke</button></form>@endif</td></tr>
-            @empty<tr><td colspan="9" class="text-center text-stone-500">No devices.</td></tr>@endforelse
+                <tr data-row>
+                    <td><div class="font-medium">{{ $devName }}</div><div class="text-xs text-stone-500">{{ str_replace('_', ' ', $d['kind'] ?? '') }} &middot; {{ $d['platform'] ?? '' }}</div></td>
+                    <td>@if (! empty($d['mode']))<x-badge tone="info" :dot="false">{{ ucwords(strtolower(str_replace('_', ' ', $d['mode']))) }}</x-badge>@endif</td>
+                    <td><x-badge :status="$dstatus" /></td>
+                    <td>{{ $home ?? '-' }}</td>
+                    <td class="text-sm">@if ($out){{ $staffNames[$co['staffId'] ?? ''] ?? \Illuminate\Support\Str::limit((string) ($co['staffId'] ?? ''), 8, '') }}<div class="text-xs text-stone-500">at {{ $facilityNames[$d['facilityId'] ?? ($co['facilityId'] ?? '')] ?? '-' }}</div>@else<span class="text-stone-400">-</span>@endif</td>
+                    <td class="text-stone-600">{{ $d['appVersion'] ?? '' }}</td>
+                    <td class="whitespace-nowrap"><x-time :at="$d['lastSeenAt'] ?? null" ago />@if ($quiet)<x-badge tone="warn" class="ml-1">quiet</x-badge>@endif</td>
+                    <td class="text-right">@if (! empty($d['id']) && ($canManage || ($dstatus !== 'REVOKED' && auth_staff()->can('device.revoke'))))<x-row-menu>
+                        @if ($canManage)<button type="button" @click="$dispatch('open-modal', { name: 'edit-device', data: {{ \Illuminate\Support\Js::from(['id' => $d['id'], 'name' => $d['name'] ?? '', 'kind' => ucwords(strtolower(str_replace('_', ' ', $d['kind'] ?? ''))), 'rowVersion' => $d['rowVersion'] ?? '', 'facilityId' => $d['homeFacilityId'] ?? ($d['homeFacility']['id'] ?? null), 'mode' => $d['mode'] ?? null, 'operatingPointId' => $d['operatingPointId'] ?? null, 'checkedOut' => $out]) }} })">Edit</button>@endif
+                        @if ($dstatus !== 'REVOKED' && auth_staff()->can('device.revoke'))<form method="POST" action="{{ route('devices.revoke', $d['id']) }}" x-data="confirmSubmit('Revoke {{ e($devName) }}? It stops working immediately.')" @submit="ask($event)">@csrf<button class="w-full text-left text-red-800">Revoke</button></form>@endif
+                    </x-row-menu>@endif</td></tr>
+            @empty<tr><td colspan="8"><x-empty title="No devices" text="Register a tablet, POS terminal or screen with a one-time code." icon="device" /></td></tr>@endforelse
             </tbody></table></div>
         @endif
     </x-card>
+    @if ($canManage && $devices->ok())@include('partials.device-edit-dialog', ['back' => '/devices'])@endif
     @endif
 
     @if (auth_staff()->can('device.register'))
-        <x-card title="Register a new device">
-            <p class="mb-3 text-sm text-stone-600">Issue a one-time code, then enter it on the device. The device registers itself with the API and receives its own credential; this portal never sees it.</p>
-            <form method="POST" action="{{ route('devices.code') }}" class="flex flex-wrap items-end gap-3">
-                @csrf
-                <div><label class="mb-1 block text-sm font-medium">Home facility (optional)</label><select name="facilityId" class="min-h-11 rounded-lg border border-stone-300 bg-white px-3 text-sm"><option value="">Any</option>@foreach ($facilities as $f)<option value="{{ $f['id'] }}">{{ $f['name'] }}</option>@endforeach</select></div>
-                <x-btn>Issue registration code</x-btn>
+        <x-dialog name="register-device" title="Register a new device" subtitle="Issue a one-time code, then enter it on the device. The device receives its own credential; this portal never sees it.">
+            <form method="POST" action="{{ route('devices.code') }}" class="grid gap-4" novalidate>@csrf
+                <x-form.select name="facilityId" label="Home facility (optional)" :options="collect($facilities)->map(fn ($f) => ['value' => $f['id'], 'label' => $f['name']])->values()->all()" :clearable="true" placeholder="Any facility" />
+                <div class="flex justify-end gap-2"><x-btn type="button" variant="secondary" @click="open = false">Cancel</x-btn><x-btn>Issue registration code</x-btn></div>
             </form>
-        </x-card>
+        </x-dialog>
     @endif
 
     @if ($attendance->state !== 'forbidden')
-        <x-card title="Attendance terminals (biometric)" flush x-data="tableTools">
-        <x-table-tools />
+        <x-card title="Attendance terminals (biometric)" subtitle="Fingerprint / face clock-in terminals. The token is shown once, when you register or rotate." flush x-data="tableTools">
+            <x-slot:aside>@if (auth_staff()->can('attendance.device.manage'))<x-btn type="button" icon="plus" @click="$dispatch('open-modal', 'add-terminal')">Register terminal</x-btn>@endif</x-slot:aside>
             <x-fetch :of="$attendance" what="Attendance terminals" />
             @if ($attendance->ok())
-                <div class="table-scroll"><table class="data-table"><thead><tr><th>Serial</th><th>Name</th><th>Adapter</th><th>Facility</th><th>Status</th><th>Last seen</th><th>Last punch</th><th></th></tr></thead><tbody>
+                <div class="table-scroll"><table class="data-table"><thead><tr><th>Serial</th><th>Name</th><th>Adapter</th><th>Facility</th><th>Status</th><th>Last seen</th><th>Last punch</th><th class="w-12"></th></tr></thead><tbody>
                 @forelse ($attendance->items() as $t)
                     @php $tStatus = $t['status'] ?? 'UNKNOWN'; @endphp
-                    <tr data-row><td class="font-medium">{{ $t['serialNumber'] ?? '-' }}</td><td>{{ $t['name'] ?? '' }}</td><td>{{ $t['adapter'] ?? '' }}</td><td>{{ $facilityNames[$t['facilityId'] ?? ''] ?? '-' }}</td><td><x-badge :status="$tStatus" /></td><td><x-time :at="$t['lastSeenAt'] ?? null" ago /></td><td><x-time :at="$t['lastPunchAt'] ?? null" ago /></td>
-                        <td class="flex gap-3">
-                            @if (! empty($t['id']))
-                            <form method="POST" action="{{ route('devices.terminal.status', $t['id']) }}">@csrf<input type="hidden" name="status" value="{{ $tStatus === 'ACTIVE' ? 'DISABLED' : 'ACTIVE' }}"><button class="text-sm underline">{{ $tStatus === 'ACTIVE' ? 'Disable' : 'Enable' }}</button></form>
-                            <form method="POST" action="{{ route('devices.terminal.rotate', $t['id']) }}">@csrf<button class="text-sm underline" onclick="return confirm('Rotate the token? The terminal stops working until reconfigured.')">Rotate token</button></form>
-                            @endif</td></tr>
-                @empty<tr><td colspan="8" class="text-center text-stone-500">No terminals.</td></tr>@endforelse
+                    <tr data-row><td class="font-medium">{{ $t['serialNumber'] ?? '-' }}</td><td>{{ $t['name'] ?? '' }}</td><td class="text-stone-600">{{ $t['adapter'] ?? '' }}</td><td>{{ $facilityNames[$t['facilityId'] ?? ''] ?? '-' }}</td><td><x-badge :status="$tStatus" /></td><td><x-time :at="$t['lastSeenAt'] ?? null" ago /></td><td><x-time :at="$t['lastPunchAt'] ?? null" ago /></td>
+                        <td class="text-right">@if (! empty($t['id']) && auth_staff()->can('attendance.device.manage'))<x-row-menu>
+                            <form method="POST" action="{{ route('devices.terminal.status', $t['id']) }}">@csrf<input type="hidden" name="status" value="{{ $tStatus === 'ACTIVE' ? 'DISABLED' : 'ACTIVE' }}"><button class="w-full text-left">{{ $tStatus === 'ACTIVE' ? 'Disable' : 'Enable' }}</button></form>
+                            <form method="POST" action="{{ route('devices.terminal.rotate', $t['id']) }}" x-data="confirmSubmit('Rotate the token? The terminal stops working until it is reconfigured.')" @submit="ask($event)">@csrf<button class="w-full text-left">Rotate token</button></form>
+                        </x-row-menu>@endif</td></tr>
+                @empty<tr><td colspan="8"><x-empty title="No terminals" text="Register a ZKTeco terminal to clock staff in by fingerprint." icon="clock" /></td></tr>@endforelse
                 </tbody></table></div>
             @endif
-            <form method="POST" action="{{ route('devices.terminal.create') }}" class="flex flex-wrap items-end gap-3 border-t border-stone-100 p-4">@csrf
-                <div><label class="mb-1 block text-sm font-medium">Serial number</label><input name="serialNumber" required maxlength="64" class="min-h-11 rounded-lg border border-stone-300 px-3 text-sm"></div>
-                <div><label class="mb-1 block text-sm font-medium">Name</label><input name="name" required maxlength="120" class="min-h-11 rounded-lg border border-stone-300 px-3 text-sm"></div>
-                <div><label class="mb-1 block text-sm font-medium">Facility</label><select name="facilityId" class="min-h-11 rounded-lg border border-stone-300 bg-white px-3 text-sm"><option value="">-</option>@foreach ($facilities as $f)<option value="{{ $f['id'] }}">{{ $f['name'] }}</option>@endforeach</select></div>
-                <div><label class="mb-1 block text-sm font-medium">Adapter</label><select name="adapter" class="min-h-11 rounded-lg border border-stone-300 bg-white px-3 text-sm"><option>ZKTECO_ADMS</option><option>JSON_PUSH</option></select></div>
-                <x-btn>Register terminal</x-btn></form>
         </x-card>
+        @if (auth_staff()->can('attendance.device.manage'))
+            <x-dialog name="add-terminal" title="Register an attendance terminal">
+                <form method="POST" action="{{ route('devices.terminal.create') }}" class="grid gap-4" novalidate>@csrf
+                    <x-form.text name="serialNumber" label="Serial number" required :maxlength="64" hint="Printed on the terminal or shown in its menu." />
+                    <x-form.text name="name" label="Name" required :maxlength="120" placeholder="e.g. Main gate" />
+                    <x-form.select name="facilityId" label="Facility" :options="collect($facilities)->map(fn ($f) => ['value' => $f['id'], 'label' => $f['name']])->values()->all()" :clearable="true" placeholder="Not assigned" />
+                    <x-form.segmented name="adapter" label="Protocol" :options="['ZKTECO_ADMS' => 'ZKTeco (ADMS)', 'JSON_PUSH' => 'JSON push']" value="ZKTECO_ADMS" />
+                    <div class="flex justify-end gap-2"><x-btn type="button" variant="secondary" @click="open = false">Cancel</x-btn><x-btn>Register terminal</x-btn></div>
+                </form>
+            </x-dialog>
+        @endif
     @endif
-    <x-pending-api :items="['List and revoke individual staff sessions (only POST /auth/sessions/{id}/revoke exists; there is no sessions list)', 'Security events viewer (security_event.view has no endpoint yet)']" />
 </x-layouts.app>

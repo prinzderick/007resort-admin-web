@@ -71,7 +71,7 @@ final class RuleControl
                 $n = count($options);
                 $long = collect($options)->contains(fn ($o) => mb_strlen($o['label']) > 16);
                 $described = collect($options)->contains(fn ($o) => ! empty($o['description']));
-                $control = $n > 4 ? 'select' : ($described || ($n > 2 && $long) ? 'radio-cards' : 'segmented');
+                $control = $n > 6 ? 'select' : ($described || ($n > 2 && $long) ? 'radio-cards' : ($n > 4 ? 'select' : 'segmented'));
                 $props = ['options' => $options] + ($control === 'select' ? ['searchable' => $n > 10] : []);
                 break;
 

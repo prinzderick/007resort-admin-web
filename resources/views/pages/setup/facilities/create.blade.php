@@ -9,17 +9,17 @@
     <x-page-header title="Add a facility" subtitle="Pick a starting point, give it a name, and check what it can do. Everything can be changed afterwards." :crumbs="['Setup' => route('setup.index'), 'Facilities' => route('setup.facilities'), 'Add' => null]" />
     <x-fetch :of="$templates" what="Facility templates" />
     @unless ($canAdd)
-        <x-pending-api title="Waiting on the API" :items="['Creating facilities needs POST /organization/facilities, which is not in the contract this portal was built against yet. The wizard below is ready and will work as soon as it is.']" />
+        <x-pending-api title="Read-only" :items="['You need the facility.manage permission to add a facility.']" />
     @endunless
     <form method="POST" action="{{ route('setup.facilities.store') }}" x-data="{
-            step: 0, tpl: '', tpls: @js($tplJs), meta: @js($capMeta), kinds: @js($kinds), name: @js(old('name', '')), code: @js(old('code', '')), codeTouched: false, kind: @js(old('kind', '')), parentId: @js(old('parentId', '')), description: @js(old('description', '')), timezone: @js(old('timezone', $timezone)),
-            caps: [], applyStarter: true, labels: @js($ruleLabels),
+            init() { this.$watch('facName', () => this.slug()) }, step: {{ $errors->any() ? (($errors->has('name') || $errors->has('code')) ? 1 : 5) : 0 }}, note: '', tpl: @js(old('templateKey', '')), tpls: @js($tplJs), meta: @js($capMeta), kinds: @js($kinds), facName: @js(old('name', '')), code: @js(old('code', '')), codeTouched: false, kind: @js(old('kind', '')), parentId: @js(old('parentId', '')), description: @js(old('description', '')), timezone: @js(old('timezone', $timezone)),
+            caps: @js(old('capabilities', [])), applyStarter: true, labels: @js($ruleLabels),
             pick(k) { this.tpl = k; const t = this.tpls[k]; if (t) { this.caps = [...t.capabilities]; this.kind = t.defaultKind || this.kind; } else { this.caps = []; } },
-            slug() { if (!this.codeTouched) this.code = this.name.toUpperCase().replace(/[^A-Z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 40); },
-            toggle(c) { if (this.caps.includes(c)) { const dep = this.caps.filter(x => (this.meta[x]?.requires || []).includes(c)); if (dep.length) { alert('Cannot switch this off while these need it: ' + dep.map(d => this.meta[d]?.label || d).join(', ')); return } this.caps = this.caps.filter(x => x !== c) } else { this.caps.push(c); (this.meta[c]?.requires || []).forEach(r => { if (!this.caps.includes(r)) this.caps.push(r) }) } },
+            slug() { if (!this.codeTouched) this.code = this.facName.toUpperCase().replace(/[^A-Z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 40); },
+            toggle(c) { this.note = ''; if (this.caps.includes(c)) { const dep = this.caps.filter(x => (this.meta[x]?.requires || []).includes(c)); if (dep.length) { this.note = 'You cannot switch off ' + (this.meta[c]?.label || c) + ' while ' + dep.map(d => this.meta[d]?.label || d).join(', ') + ' needs it. Switch that off first.'; return } this.caps = this.caps.filter(x => x !== c) } else { this.caps.push(c); const added = []; (this.meta[c]?.requires || []).forEach(r => { if (!this.caps.includes(r)) { this.caps.push(r); added.push(this.meta[r]?.label || r) } }); if (added.length) this.note = (this.meta[c]?.label || c) + ' needs ' + added.join(', ') + ', so that was switched on too.' } },
             tplRules() { const t = this.tpls[this.tpl]; return t ? Object.entries(t.operatingRules || {}) : [] },
             fmt(v) { return Array.isArray(v) ? (v.join(', ') || 'none') : (typeof v === 'boolean' ? (v ? 'On' : 'Off') : v) },
-            valid() { return this.step !== 1 || (this.name.trim() !== '' && /^[A-Za-z][A-Za-z0-9_]{1,63}$/.test(this.code)) }
+            nameError: '', valid() { if (this.step !== 1) return true; if (this.facName.trim() === '') { this.nameError = 'Give the facility a name.'; return false } if (!/^[A-Za-z][A-Za-z0-9_]{1,63}$/.test(this.code)) { this.nameError = 'The code needs letters, digits or underscores, starting with a letter (at least 2 characters).'; return false } this.nameError = ''; return true }
         }" x-effect="if (step === 0 && tpl === '' ) {}" data-testid="facility-wizard">
         @csrf
         <input type="hidden" name="templateKey" :value="tpl">
@@ -47,19 +47,21 @@
         {{-- 2 Details --}}
         <section x-show="step === 1" x-cloak data-step="details">
             <h2 class="mb-4 text-lg font-semibold">Name it</h2>
-            <div class="grid gap-x-4 sm:grid-cols-2">
-                <div class="mb-3"><label class="mb-1 block text-sm font-medium" for="w-name">Name <span class="text-red-600">*</span></label><input id="w-name" name="name" x-model="name" @input="slug()" required maxlength="200" class="min-h-11 w-full rounded-lg border border-stone-300 px-3 text-sm">@error('name')<p class="mt-1 text-xs text-red-700">{{ $message }}</p>@enderror</div>
-                <div class="mb-3"><label class="mb-1 block text-sm font-medium" for="w-code">Code <span class="text-red-600">*</span></label><input id="w-code" name="code" x-model="code" @input="codeTouched = true" required class="min-h-11 w-full rounded-lg border border-stone-300 px-3 font-mono text-sm uppercase"><p class="mt-1 text-xs text-stone-500">Letters, digits and underscores, starting with a letter. Cannot be changed later.</p>@error('code')<p class="mt-1 text-xs text-red-700">{{ $message }}</p>@enderror</div>
-                <div class="mb-3"><label class="mb-1 block text-sm font-medium" for="w-kind">Kind</label><select id="w-kind" name="kind" x-model="kind" class="min-h-11 w-full rounded-lg border border-stone-300 bg-white px-3 text-sm"><option value="">(from the template)</option><template x-for="k in kinds" :key="k"><option :value="k" x-text="k.replace(/_/g, ' ')"></option></template></select></div>
-                <div class="mb-3"><label class="mb-1 block text-sm font-medium" for="w-parent">Sits under</label><select id="w-parent" name="parentId" x-model="parentId" class="min-h-11 w-full rounded-lg border border-stone-300 bg-white px-3 text-sm"><option value="">(top level)</option>@foreach ($facilities as $p)<option value="{{ $p['id'] ?? '' }}">{{ $p['name'] ?? '' }}</option>@endforeach</select></div>
-                <div class="mb-3"><label class="mb-1 block text-sm font-medium" for="w-tz">Time zone</label><input id="w-tz" name="timezone" x-model="timezone" class="min-h-11 w-full rounded-lg border border-stone-300 px-3 text-sm"></div>
-                <div class="mb-3 sm:col-span-2"><label class="mb-1 block text-sm font-medium" for="w-desc">Description</label><textarea id="w-desc" name="description" x-model="description" rows="2" class="w-full rounded-lg border border-stone-300 px-3 py-2 text-sm"></textarea></div>
+            <div class="grid gap-4 sm:grid-cols-2">
+                <x-form.text name="name" label="Name" required x-model="facName" :maxlength="200" placeholder="e.g. Rooftop Bar" />
+                <x-form.text name="code" label="Code" required x-model="code" x-on:input="codeTouched = true" :maxlength="64" hint="Letters, digits and underscores, starting with a letter. Cannot be changed later." />
+                <x-form.select name="kind" label="Kind" :options="collect($kinds)->map(fn ($k) => ['value' => $k, 'label' => ucwords(strtolower(str_replace('_', ' ', $k)))])->all()" x-model="kind" :clearable="true" placeholder="From the template" />
+                <x-form.select name="parentId" label="Sits under" :options="collect($facilities)->map(fn ($p) => ['value' => $p['id'], 'label' => $p['name'] ?? $p['code']])->all()" x-model="parentId" :clearable="true" placeholder="Top level" />
+                <x-form.text name="timezone" label="Time zone" x-model="timezone" hint="Leave as is unless this facility is in another zone." />
+                <div class="sm:col-span-2"><x-form.text name="description" label="Description" x-model="description" :multiline="true" :rows="2" :maxlength="500" /></div>
             </div>
+            <p class="mt-3 text-sm text-red-700" x-show="nameError" x-cloak x-text="nameError" role="alert"></p>
         </section>
 
         {{-- 3 Capabilities --}}
         <section x-show="step === 2" x-cloak data-step="capabilities">
             <h2 class="mb-1 text-lg font-semibold">What can it do?</h2><p class="mb-4 text-sm text-stone-600">Switch on what applies. Turning something on also turns on what it needs.</p>
+            <p x-show="note" x-cloak x-text="note" class="mb-3 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-950" role="status"></p>
             @foreach ($caps->groupBy(fn ($c) => $c['group'] ?? 'Other') as $group => $items)
                 <h3 class="mb-2 mt-4 text-xs font-semibold uppercase tracking-wider text-stone-500">{{ $group }}</h3>
                 <div class="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
@@ -83,7 +85,7 @@
         <section x-show="step === 4" x-cloak data-step="points">
             <h2 class="mb-1 text-lg font-semibold">Operating points</h2><p class="mb-4 text-sm text-stone-600">Counters, table areas and gates where staff work. The template can create the usual ones for you.</p>
             <template x-if="tpls[tpl] && (tpls[tpl].starterOperatingPoints || []).length"><div>
-                <label class="mb-3 flex items-center gap-2 text-sm font-medium"><input type="checkbox" x-model="applyStarter" class="size-5 accent-brand-600"> Create the starter operating points{{ '' }}</label>
+                <div class="mb-3 max-w-xl"><x-form.toggle name="_starter" label="Create the starter operating points" description="The usual counters and table areas for this kind of facility." x-model="applyStarter" :value="true" /></div>
                 <ul class="grid gap-2 sm:grid-cols-2"><template x-for="p in tpls[tpl].starterOperatingPoints" :key="p.code"><li class="rounded-lg border border-stone-200 p-3 text-sm"><b x-text="p.name"></b> <span class="text-xs text-stone-500" x-text="'(' + p.kind.replace(/_/g, ' ').toLowerCase() + ')'"></span></li></template></ul>
                 <template x-if="tpls[tpl].starterKdsStation"><p class="mt-3 text-sm text-stone-600">A kitchen/bar screen station <b x-text="tpls[tpl].starterKdsStation.name"></b> is created too.</p></template>
             </div></template>
@@ -94,7 +96,7 @@
         <section x-show="step === 5" x-cloak data-step="review">
             <h2 class="mb-4 text-lg font-semibold">Review</h2>
             <dl class="grid gap-x-8 gap-y-3 text-sm sm:grid-cols-2">
-                <div><dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Name</dt><dd class="font-medium" x-text="name || '-'"></dd></div>
+                <div><dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Name</dt><dd class="font-medium" x-text="facName || '-'"></dd></div>
                 <div><dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Code</dt><dd class="font-mono" x-text="code.toUpperCase() || '-'"></dd></div>
                 <div><dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Template</dt><dd x-text="tpls[tpl] ? tpls[tpl].label : 'Blank'"></dd></div>
                 <div><dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Capabilities</dt><dd x-text="caps.length ? caps.map(c => meta[c]?.label || c).join(', ') : 'none'"></dd></div>
@@ -106,7 +108,7 @@
             <div><x-btn type="button" variant="secondary" x-show="step > 0" @click="step--">Back</x-btn></div>
             <div class="flex items-center gap-3">
                 <a class="text-sm text-stone-600 underline" href="{{ route('setup.facilities') }}">Cancel</a>
-                <x-btn type="button" x-show="step < 5" @click="if (valid()) step++; else alert('Give the facility a name and a code first.')">Next</x-btn>
+                <x-btn type="button" x-show="step < 5" @click="if (valid()) step++">Next</x-btn>
                 <x-btn x-show="step === 5" x-cloak :disabled="! $canAdd" class="disabled:opacity-50">Create facility</x-btn>
             </div>
         </div>

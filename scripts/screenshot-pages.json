@@ -53,6 +53,14 @@
   "path": "/reports"
  },
  {
+  "name": "25-collected-by-waiters",
+  "path": "/finance/collections"
+ },
+ {
+  "name": "26-cash-handovers",
+  "path": "/finance/handovers"
+ },
+ {
   "name": "30-stock",
   "path": "/inventory"
  },
@@ -91,6 +99,14 @@
  {
   "name": "43-devices",
   "path": "/devices"
+ },
+ {
+  "name": "44-staff-detail",
+  "path": "/staff/1e21bd36-89eb-50c5-9b57-e343729f8e66"
+ },
+ {
+  "name": "45-card-machines",
+  "path": "/devices/payment-terminals"
  },
  {
   "name": "50-setup-hub",
@@ -137,8 +153,28 @@
   "path": "/setup/catalog"
  },
  {
+  "name": "60a-catalog-product",
+  "path": "/setup/catalog/products/f8fc95f1-d0f1-5b0d-afe6-8f1d867a8cd3"
+ },
+ {
+  "name": "60b-catalog-categories",
+  "path": "/setup/catalog?tab=categories"
+ },
+ {
+  "name": "60c-catalog-tax",
+  "path": "/setup/catalog?tab=tax"
+ },
+ {
+  "name": "60d-catalog-import",
+  "path": "/setup/catalog?tab=import"
+ },
+ {
   "name": "61-booking-resources",
   "path": "/setup/bookings"
+ },
+ {
+  "name": "61a-booking-resource",
+  "path": "/setup/bookings/1411115d-7697-56ec-83c4-a7eca2c91081"
  },
  {
   "name": "62-ticket-types",

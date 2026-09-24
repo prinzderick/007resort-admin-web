@@ -1,0 +1,48 @@
+{
+    "q": "rest",
+    "results": {
+        "staff": [],
+        "product": [],
+        "facility": [
+            {
+                "type": "facility",
+                "id": "a206b41c-f916-5185-b405-db8a5b67b4db",
+                "title": "Restaurant",
+                "subtitle": "RESTAURANT - RESTAURANT",
+                "ref": "/organization/facilities/a206b41c-f916-5185-b405-db8a5b67b4db"
+            }
+        ],
+        "order": [
+            {
+                "type": "order",
+                "id": "01a0d13f-9437-72b9-bd94-63fe3b7ee69b",
+                "title": "RESTAU-000004",
+                "subtitle": "SETTLED - 12,000.00",
+                "ref": "/orders/01a0d13f-9437-72b9-bd94-63fe3b7ee69b"
+            },
+            {
+                "type": "order",
+                "id": "01a0d13f-9006-7265-9c5c-98e51adba937",
+                "title": "RESTAU-000003",
+                "subtitle": "SERVED - 12,000.00",
+                "ref": "/orders/01a0d13f-9006-7265-9c5c-98e51adba937"
+            },
+            {
+                "type": "order",
+                "id": "01a0d13f-8c85-7146-83d0-80ac88e54d12",
+                "title": "RESTAU-000002",
+                "subtitle": "SERVED - 12,000.00",
+                "ref": "/orders/01a0d13f-8c85-7146-83d0-80ac88e54d12"
+            },
+            {
+                "type": "order",
+                "id": "01a0d13f-88e1-72bb-9c39-28848dc4b0ec",
+                "title": "RESTAU-000001",
+                "subtitle": "SERVED - 12,000.00",
+                "ref": "/orders/01a0d13f-88e1-72bb-9c39-28848dc4b0ec"
+            }
+        ],
+        "receipt": [],
+        "customer": []
+    }
+}

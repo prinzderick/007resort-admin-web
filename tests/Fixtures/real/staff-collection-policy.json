@@ -1,0 +1,25 @@
+{
+    "staffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+    "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+    "collectionEnabled": true,
+    "cashHolding": {
+        "allowed": true,
+        "source": "facility",
+        "limit": "50000.0000",
+        "limitSource": "facility"
+    },
+    "allowedTenders": [
+        "CARD_TERMINAL",
+        "TRANSFER",
+        "PAY_LINK",
+        "CASH"
+    ],
+    "staffOverride": {
+        "cashHolding": "INHERIT",
+        "cashLimit": null
+    },
+    "facilityRule": {
+        "waiterCashHolding": true,
+        "waiterCashInHandLimit": "50000.0000"
+    }
+}

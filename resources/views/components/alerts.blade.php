@@ -7,7 +7,10 @@
     </div>
 @endif
 @if (session('error'))
-    <x-alert tone="danger">{{ session('error') }}</x-alert>
+    <x-alert tone="danger" data-code="{{ session('error_code') }}">{{ session('error') }}
+        @if (session('blockers'))<ul class="mt-1.5 list-disc space-y-0.5 pl-5" data-testid="blockers">@foreach (session('blockers') as $b)<li>{{ $b }}</li>@endforeach</ul>@endif
+        @if (session('error_code') === 'concurrency_conflict')<a class="mt-1.5 inline-block font-medium underline" href="{{ url()->previous() }}">Reload the latest version</a>@endif
+    </x-alert>
 @elseif ($errors->any())
     <x-alert tone="danger">Please correct the highlighted fields.</x-alert>
 @endif

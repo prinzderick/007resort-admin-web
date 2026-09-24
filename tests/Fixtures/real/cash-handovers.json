@@ -1,0 +1,43 @@
+{
+    "items": [
+        {
+            "id": "01a0d176-ebfb-70cf-936b-63c04f76690b",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "waiterStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "status": "PENDING_SIGNOFF",
+            "expectedInHand": "31000.0000",
+            "declaredAmount": "7000.0000",
+            "countedAmount": "6000.0000",
+            "variance": "-1000.0000",
+            "varianceKind": "SHORT",
+            "requiresSignoff": true,
+            "note": "End of round",
+            "receivedByStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "receivedAt": "2026-09-24T03:30:26.981859Z",
+            "signedOffByStaffId": null,
+            "signedOffAt": null,
+            "createdAt": "2026-09-24T03:30:26.939300Z",
+            "waiterName": "Amaka Okoro"
+        },
+        {
+            "id": "01a0d13f-9899-735b-b69b-04436cb3a690",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "waiterStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "status": "PENDING_SIGNOFF",
+            "expectedInHand": "19000.0000",
+            "declaredAmount": "7000.0000",
+            "countedAmount": "6000.0000",
+            "variance": "-1000.0000",
+            "varianceKind": "SHORT",
+            "requiresSignoff": true,
+            "note": "End of round",
+            "receivedByStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "receivedAt": "2026-09-24T02:30:01.162759Z",
+            "signedOffByStaffId": null,
+            "signedOffAt": null,
+            "createdAt": "2026-09-24T02:30:01.114078Z",
+            "waiterName": "Amaka Okoro"
+        }
+    ],
+    "nextCursor": null
+}

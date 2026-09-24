@@ -92,6 +92,42 @@ class R007ApiClient
         return $this->request('DELETE', $path, [], [], [], $idempotencyKey)->body;
     }
 
+    /**
+     * Non-JSON exchange (CSV export / import): returns the raw response body and its headers. The body, when given, is sent as-is with
+     * the given content type. Failures are RFC 7807 problems like everywhere else.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array{status: int, body: string, headers: array<string, string>}
+     */
+    public function raw(string $method, string $path, array $query = [], ?string $body = null, string $contentType = 'text/csv', array $headers = []): array
+    {
+        $method = strtoupper($method);
+        if ($this->isMock()) {
+            throw new R007ApiException(501, 'Not available in mock mode');
+        }
+        $request = $this->pendingRequest()->withHeaders($headers)->accept('text/csv, application/json, application/problem+json');
+        if ($method !== 'GET') {
+            $request->withHeaders([self::IDEMPOTENCY_HEADER => (string) Str::uuid()]);
+        }
+        if ($body !== null) {
+            $request->withBody($body, $contentType);
+        }
+        try {
+            $response = $request->send($method, ltrim($path, '/'), ['query' => array_filter($query, fn ($v) => $v !== null && $v !== '')]);
+        } catch (ConnectionException $e) {
+            throw R007ApiException::unreachable($e);
+        }
+        if ($response->failed()) {
+            throw R007ApiException::fromResponse($response);
+        }
+        $flat = [];
+        foreach ($response->headers() as $name => $values) {
+            $flat[strtolower((string) $name)] = (string) ($values[0] ?? '');
+        }
+
+        return ['status' => $response->status(), 'body' => $response->body(), 'headers' => $flat];
+    }
+
     public function baseUrl(): string
     {
         return rtrim((string) $this->config['base_url'], '/').'/'.trim((string) ($this->config['prefix'] ?? '/api/v1'), '/');
@@ -163,6 +199,10 @@ class R007ApiClient
         }
 
         $json = $response->json();
+        if ($json === null && ! $this->isMock() && preg_match('/^\s*<br\s*\/?>\s*<b>(Notice|Warning|Deprecated)<\/b>/i', $response->body()) && ($at = strpos($response->body(), "\n{")) !== false) {
+            // PHP's development server prints a notice into the body when its log pipe is closed. Read the JSON that follows it rather than failing the screen.
+            $json = json_decode(substr($response->body(), $at + 1), true);
+        }
         $flat = [];
         foreach ($response->headers() as $name => $values) {
             $flat[strtolower((string) $name)] = (string) ($values[0] ?? '');

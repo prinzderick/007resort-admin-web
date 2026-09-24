@@ -20,7 +20,7 @@
                 "localReserveUnits": 0,
                 "onlineStaleAfterSeconds": 900
             },
-            "rowVersion": 3
+            "rowVersion": 1
         },
         {
             "id": "1d0960ed-cb8d-5918-9035-c88449f6e546",
@@ -161,7 +161,7 @@
             "mode": "WHOLE_RESOURCE",
             "capacity": 1,
             "slotMinutes": 60,
-            "productId": "01a0d040-c134-72ff-971c-df831119ba0a",
+            "productId": "01a0d13a-1800-71cb-b826-45614668f2e2",
             "price": "25000.0000",
             "active": true,
             "code": "PITCH_1",
@@ -249,7 +249,7 @@
             "mode": "INDIVIDUAL_CAPACITY",
             "capacity": 300,
             "slotMinutes": 60,
-            "productId": "01a0d040-c139-72b0-91c9-333793c33429",
+            "productId": "01a0d13a-1802-739a-80a5-b1cd86f8c4ee",
             "price": "5000.0000",
             "active": true,
             "code": "HALL",
@@ -359,7 +359,7 @@
             "mode": "TIME_SLOT",
             "capacity": 1,
             "slotMinutes": 60,
-            "productId": "01a0d040-c135-7354-944a-da0033e06846",
+            "productId": "01a0d13a-1800-71cb-b826-45614768b202",
             "price": "5000.0000",
             "active": true,
             "code": "COURT_1",
@@ -469,7 +469,7 @@
             "mode": "TIME_SLOT",
             "capacity": 1,
             "slotMinutes": 60,
-            "productId": "01a0d040-c136-712b-af12-55f70a80352e",
+            "productId": "01a0d13a-1801-70b5-b33f-7a1cd0aa28bd",
             "price": "8000.0000",
             "active": true,
             "code": "COURT_1",
@@ -535,7 +535,7 @@
             "mode": "TIME_SLOT",
             "capacity": 1,
             "slotMinutes": 60,
-            "productId": "01a0d040-c135-7354-944a-da0033e06846",
+            "productId": "01a0d13a-1800-71cb-b826-45614768b202",
             "price": "5000.0000",
             "active": true,
             "code": "COURT_2",

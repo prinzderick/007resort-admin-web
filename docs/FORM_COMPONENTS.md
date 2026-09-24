@@ -86,3 +86,12 @@ Each rule shows label, plain-language description, danger badge (medium/high), "
 - Nested controls (`x-model` on a child) are evaluated in the child's scope, where `value` is the child's: bridge with plain properties + watchers, not getters.
 - Money in JS is string/BigInt only (`lib.js`); never `parseFloat` an amount.
 - Tests: `php artisan test` (render, Livewire, renderer) and `npm run test:js` (slider math, money, time, dates).
+
+## Added with the Setup screens
+
+- **`<x-field>` is now an adapter over `x-form.*`.** Older pages that say `<x-field name= label= type=>` (text, number, date, time, textarea, password, or `:options` for a select) get the same controls, errors and focus styling with no other change. A leading `'' => 'Choose...'` option becomes the placeholder. `<x-save-bar>` is an alias of `<x-form.actions>`.
+- **`<x-dialog name="...">`** is a modal whose body is built when it opens. Open it with `$dispatch('open-modal', 'name')`. For a long list (devices, tables, collections) use **one** dialog and pass the row: `$dispatch('open-modal', { name: 'edit-table', data: {...row} })`, then bind the fields to `payload.*` with `x-model` and set the form action with `:action`. Do not render a dialog per row: a page with 40 rows and a form each is 1 MB of HTML.
+- **Filter bars:** `<x-filter-form>` with `<x-filter-select|date|text>` (same box, label and focus as the form controls; selects submit on change). Hand-written `form[method=GET]` selects and date boxes are normalised by CSS to the same look.
+- **`<x-form.toggle :hide-label="true">`** keeps the label for screen readers only (used in the payment-methods matrix).
+- **Confirmation:** `x-data="confirmSubmit('Message', 'Button label')" @submit="ask($event)"` on a form shows the styled dialog (`window.r007Confirm`) instead of the browser's `confirm()`.
+- **Gotcha:** when a control is bound with `x-model="name"` inside another Alpine scope, the control's own config (`name`, `value`, `id`, `default`, `danger`, `hasDefault`) shadows a parent property with the same name. Call the parent property something else (`facName`, `payload.name`).

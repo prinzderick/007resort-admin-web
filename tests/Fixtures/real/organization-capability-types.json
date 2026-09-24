@@ -1,0 +1,277 @@
+{
+    "items": [
+        {
+            "code": "POS",
+            "label": "Point of sale",
+            "group": "Selling",
+            "description": "Staff can ring up orders here (tablets, POS terminals).",
+            "requires": [],
+            "ruleKeys": [
+                "payment_timing",
+                "payment_facility_unit_id",
+                "allow_offline_orders",
+                "approval_threshold_amount",
+                "require_approval_for",
+                "approval_threshold_void_amount",
+                "approval_threshold_comp_amount",
+                "approval_threshold_price_override_amount",
+                "online_orderable"
+            ]
+        },
+        {
+            "code": "TABLE_SERVICE",
+            "label": "Table service",
+            "group": "Selling",
+            "description": "Orders are taken per dining table.",
+            "requires": [
+                "POS"
+            ],
+            "ruleKeys": [
+                "payment_timing",
+                "payment_facility_unit_id",
+                "allow_offline_orders",
+                "waiter_collection_enabled",
+                "waiter_cash_holding",
+                "waiter_cash_in_hand_limit",
+                "collection_requires_confirmation",
+                "pending_collection_expiry_minutes",
+                "pre_bill_requires_supervisor_if_reopened",
+                "bill_pay_link_enabled",
+                "cash_handover_max_variance",
+                "require_table_for_orders"
+            ]
+        },
+        {
+            "code": "OPEN_TAB",
+            "label": "Open tabs",
+            "group": "Selling",
+            "description": "Orders accumulate on a tab that is settled later.",
+            "requires": [
+                "POS"
+            ],
+            "ruleKeys": [
+                "payment_timing",
+                "payment_facility_unit_id",
+                "allow_open_tabs",
+                "tab_max_amount",
+                "tab_require_customer_name"
+            ]
+        },
+        {
+            "code": "KITCHEN_ROUTING",
+            "label": "Kitchen routing",
+            "group": "Selling",
+            "description": "Food lines are sent to a kitchen KDS station.",
+            "requires": [
+                "POS"
+            ],
+            "ruleKeys": []
+        },
+        {
+            "code": "BAR_ROUTING",
+            "label": "Bar routing",
+            "group": "Selling",
+            "description": "Drink lines are sent to a bar KDS station.",
+            "requires": [
+                "POS"
+            ],
+            "ruleKeys": []
+        },
+        {
+            "code": "BARCODE_SALES",
+            "label": "Barcode sales",
+            "group": "Selling",
+            "description": "Products are sold by scanning barcodes.",
+            "requires": [
+                "POS"
+            ],
+            "ruleKeys": []
+        },
+        {
+            "code": "PAYMENT_ACCEPTANCE",
+            "label": "Takes payments here",
+            "group": "Payments",
+            "description": "Cash/card/transfer payments are accepted at this facility.",
+            "requires": [],
+            "ruleKeys": [
+                "require_cash_session",
+                "allow_offline_payments",
+                "waiter_collection_enabled",
+                "waiter_cash_holding",
+                "waiter_cash_in_hand_limit",
+                "collection_requires_confirmation",
+                "pending_collection_expiry_minutes",
+                "pre_bill_requires_supervisor_if_reopened",
+                "bill_pay_link_enabled",
+                "cash_handover_max_variance",
+                "approval_threshold_amount",
+                "require_approval_for",
+                "approval_threshold_refund_amount"
+            ]
+        },
+        {
+            "code": "RECEIPT_PRINTING",
+            "label": "Receipt printing",
+            "group": "Payments",
+            "description": "Customer receipts are printed here.",
+            "requires": [],
+            "ruleKeys": [
+                "receipt_auto_print",
+                "receipt_copies"
+            ]
+        },
+        {
+            "code": "TICKETING",
+            "label": "Ticket sales",
+            "group": "Tickets & access",
+            "description": "Tickets/entitlements are issued here.",
+            "requires": [],
+            "ruleKeys": [
+                "payment_facility_unit_id"
+            ]
+        },
+        {
+            "code": "TICKET_VALIDATION",
+            "label": "Ticket validation",
+            "group": "Tickets & access",
+            "description": "Tickets and entitlements are checked/redeemed here.",
+            "requires": [],
+            "ruleKeys": [
+                "payment_facility_unit_id",
+                "validation_mode"
+            ]
+        },
+        {
+            "code": "QR_VALIDATION",
+            "label": "QR validation",
+            "group": "Tickets & access",
+            "description": "QR codes are scanned here.",
+            "requires": [
+                "TICKET_VALIDATION"
+            ],
+            "ruleKeys": []
+        },
+        {
+            "code": "BOOKING",
+            "label": "Bookings",
+            "group": "Booking",
+            "description": "Bookable resources (courts, rooms, chairs) with slots.",
+            "requires": [],
+            "ruleKeys": [
+                "payment_facility_unit_id",
+                "hold_ttl_seconds",
+                "min_notice_minutes",
+                "max_advance_days",
+                "cancel_cutoff_minutes",
+                "cancel_fee_percent",
+                "reschedule_cutoff_minutes",
+                "max_reschedules",
+                "early_entry_minutes",
+                "booking_offline_strategy",
+                "booking_local_reserve_percent",
+                "booking_online_stale_after_seconds"
+            ]
+        },
+        {
+            "code": "APPOINTMENTS",
+            "label": "Appointments",
+            "group": "Booking",
+            "description": "Appointment-style scheduling (spa, salon).",
+            "requires": [
+                "BOOKING"
+            ],
+            "ruleKeys": []
+        },
+        {
+            "code": "TIME_SLOTS",
+            "label": "Time slots",
+            "group": "Booking",
+            "description": "Fixed time-slot scheduling.",
+            "requires": [
+                "BOOKING"
+            ],
+            "ruleKeys": [
+                "slot_granularity_minutes"
+            ]
+        },
+        {
+            "code": "CAPACITY_MANAGEMENT",
+            "label": "Capacity limits",
+            "group": "Booking",
+            "description": "A maximum concurrent occupancy is enforced.",
+            "requires": [],
+            "ruleKeys": [
+                "max_occupancy"
+            ]
+        },
+        {
+            "code": "STAFF_ASSIGNMENT",
+            "label": "Staff assignment",
+            "group": "Booking",
+            "description": "Staff are assigned to appointments or sessions.",
+            "requires": [
+                "APPOINTMENTS"
+            ],
+            "ruleKeys": []
+        },
+        {
+            "code": "INVENTORY",
+            "label": "Stock tracking",
+            "group": "Inventory",
+            "description": "Stock movements and balances are tracked for this facility.",
+            "requires": [],
+            "ruleKeys": [
+                "stock_consumption_timing"
+            ]
+        },
+        {
+            "code": "EQUIPMENT_RENTAL",
+            "label": "Equipment rental",
+            "group": "Inventory",
+            "description": "Returnable rental equipment is issued and tracked.",
+            "requires": [
+                "INVENTORY"
+            ],
+            "ruleKeys": []
+        },
+        {
+            "code": "MEMBERSHIP",
+            "label": "Membership",
+            "group": "Membership",
+            "description": "Memberships are accepted or sold here.",
+            "requires": [],
+            "ruleKeys": []
+        },
+        {
+            "code": "SUBSCRIPTION_BILLING",
+            "label": "Subscription billing",
+            "group": "Membership",
+            "description": "Recurring membership billing.",
+            "requires": [
+                "MEMBERSHIP"
+            ],
+            "ruleKeys": []
+        },
+        {
+            "code": "USAGE_LIMITS",
+            "label": "Usage limits",
+            "group": "Membership",
+            "description": "Per-period visit limits are enforced.",
+            "requires": [
+                "MEMBERSHIP"
+            ],
+            "ruleKeys": []
+        },
+        {
+            "code": "MEMBER_DISCOUNTS",
+            "label": "Member discounts",
+            "group": "Membership",
+            "description": "Member pricing/discounts apply here.",
+            "requires": [
+                "MEMBERSHIP"
+            ],
+            "ruleKeys": []
+        }
+    ],
+    "nextCursor": null
+}

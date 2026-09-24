@@ -1,28 +1,15 @@
 {
     "from": "2026-09-17",
     "to": "2026-09-24",
-    "staff": [
-        {
-            "staffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
-            "staffNumber": "S-0001",
-            "staffName": "Amaka Okoro",
-            "daysRecorded": 1,
-            "closedDays": 1,
-            "openDays": 0,
-            "needsReviewDays": 0,
-            "correctedDays": 1,
-            "totalMinutes": 510,
-            "averageMinutesPerClosedDay": 510
-        }
-    ],
+    "staff": [],
     "totals": {
-        "staffCount": 1,
-        "totalMinutes": 510,
+        "staffCount": 0,
+        "totalMinutes": 0,
         "needsReviewDays": 0,
         "openDays": 0
     },
     "freshness": {
-        "generatedAt": "2026-09-24T00:33:47.655Z",
+        "generatedAt": "2026-09-24T02:30:22.166Z",
         "sourceNode": "local",
         "lastSyncAt": null,
         "stale": false,

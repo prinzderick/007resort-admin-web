@@ -1,0 +1,48 @@
+{
+    "items": [
+        {
+            "id": "eb2f82b2-820e-58c1-b690-931040dd0ebc",
+            "facilityId": "9d502706-2ed5-5bd1-86bf-f895907468b1",
+            "provider": "MANUAL_BANK",
+            "label": "Bush Bar bank POS",
+            "serial": "DEMO-BUSH_BAR",
+            "status": "ACTIVE",
+            "assignedDeviceId": null,
+            "assignedStaffId": null,
+            "rowVersion": 1
+        },
+        {
+            "id": "d1f65259-854e-5985-ae3a-088a15748a4a",
+            "facilityId": "5b2a99cc-7f17-5c53-9461-ccd97644abaa",
+            "provider": "MANUAL_BANK",
+            "label": "Indoor Club bank POS",
+            "serial": "DEMO-INDOOR_CLUB",
+            "status": "ACTIVE",
+            "assignedDeviceId": null,
+            "assignedStaffId": null,
+            "rowVersion": 1
+        },
+        {
+            "id": "02126ded-03a1-519f-a41d-f33ece2767d9",
+            "facilityId": "991c6184-c816-52a5-8dc8-edd5f8e83142",
+            "provider": "MANUAL_BANK",
+            "label": "Pool Bar bank POS",
+            "serial": "DEMO-POOL_BAR",
+            "status": "ACTIVE",
+            "assignedDeviceId": null,
+            "assignedStaffId": null,
+            "rowVersion": 1
+        },
+        {
+            "id": "f77fa287-458e-5b40-9b3e-b32507e87283",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "provider": "MANUAL_BANK",
+            "label": "Restaurant bank POS",
+            "serial": "DEMO-RESTAURANT",
+            "status": "ACTIVE",
+            "assignedDeviceId": null,
+            "assignedStaffId": null,
+            "rowVersion": 1
+        }
+    ]
+}
