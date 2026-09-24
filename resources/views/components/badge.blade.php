@@ -1,11 +1,7 @@
-@props(['tone' => null, 'status' => null])
+@props(['tone' => null, 'status' => null, 'dot' => true])
 @php
-    $tone ??= match (strtoupper((string) $status)) {
-        'ACTIVE', 'ONLINE', 'CAPTURED', 'COMPLETED', 'APPROVED', 'APPLIED', 'SYNCED', 'OK', 'POSTED', 'CLOSED', 'RESOLVED', 'CONFIRMED', 'AVAILABLE' => 'good',
-        'PENDING', 'PENDING_APPROVAL', 'QUEUED', 'SYNCING', 'DEGRADED', 'OPEN', 'AUTHORIZING', 'INITIATED', 'NEEDS_REVIEW', 'DRAFT', 'LOCAL', 'UNKNOWN', 'PARTIALLY_REFUNDED' => 'warn',
-        'FAILED', 'OFFLINE', 'REVOKED', 'REJECTED', 'CONFLICT', 'SUSPENDED', 'TERMINATED', 'REVERSED', 'EXPIRED', 'DOWN', 'CANCELLED' => 'bad',
-        default => 'default',
-    };
-    $cls = ['good' => 'bg-emerald-100 text-emerald-900', 'warn' => 'bg-amber-100 text-amber-900', 'bad' => 'bg-red-100 text-red-900', 'info' => 'bg-sky-100 text-sky-900', 'default' => 'bg-stone-100 text-stone-700'][$tone] ?? 'bg-stone-100 text-stone-700';
+    // Legacy tone names used across the views map onto the semantic ones.
+    $tone = match ($tone) { 'good' => 'success', 'warn' => 'warning', 'bad' => 'danger', 'default' => 'neutral', null => \App\Support\Status::tone($status), default => $tone };
+    $c = \App\Support\Status::classes($tone);
 @endphp
-<span {{ $attributes->merge(['class' => "inline-block whitespace-nowrap rounded-full px-2 py-0.5 text-xs font-semibold {$cls}"]) }}>{{ $slot->isEmpty() ? $status : $slot }}</span>
+<span {{ $attributes->merge(['class' => "inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 py-0.5 text-xs font-semibold ring-1 ring-inset {$c['pill']}", 'data-tone' => $tone]) }}>@if ($dot)<span class="size-1.5 rounded-full {{ $c['dot'] }}" aria-hidden="true"></span>@endif{{ $slot->isEmpty() ? str_replace('_', ' ', (string) $status) : $slot }}</span>

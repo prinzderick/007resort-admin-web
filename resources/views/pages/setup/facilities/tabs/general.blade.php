@@ -42,7 +42,7 @@
             @endforeach
         </div>
     </x-card>
-    @if ($canGeneral)<div class="flex items-center gap-3"><x-btn>Save changes</x-btn><span class="text-xs text-stone-500" x-show="dirty" x-cloak>You have unsaved changes.</span></div>
+    @if ($canGeneral)<x-save-bar />
     @else<x-pending-api :items="['Editing a facility (name, kind, contact, opening hours) needs PATCH /organization/facilities/{facilityId}, which is not in the contract this portal was built against yet']" />@endif
 </form>
 @if ($canEdit && \App\Support\Contract::has('POST', '/organization/facilities/{facilityId}/move'))

@@ -6,8 +6,8 @@
         </x-table-tools>
         <x-fetch :of="$entitlements" what="Tickets" />
         @if ($entitlements->ok())
-            <div class="overflow-x-auto"><table class="data-table" data-testid="entitlements">
-                <thead><tr><th @click="sort(0)" data-sort>Issued</th><th @click="sort(1)" data-sort>Holder</th><th>Items</th><th>Valid until</th><th>Status</th><th></th></tr></thead>
+            <div class="table-scroll"><table class="data-table" data-testid="entitlements">
+                <thead><tr><th data-sort>Issued</th><th data-sort>Holder</th><th>Items</th><th>Valid until</th><th>Status</th><th></th></tr></thead>
                 <tbody x-ref="body">
                 @forelse ($items as $e)
                     @php $first = ($e['items'][0] ?? []); @endphp
@@ -17,7 +17,7 @@
                         <td class="text-right"><x-detail :title="'Ticket for '.($e['holderName'] ?? 'guest')" :fields="collect($e['items'] ?? [])->map(fn ($i) => [($i['name'] ?? 'Item'), ($i['kind'] ?? '').' - '.str_replace('_', ' ', $i['validationMode'] ?? '').' - '.($i['quantityRedeemed'] ?? 0).'/'.($i['quantity'] ?? 0).' used at '.($facilityNames[$i['facilityId'] ?? ''] ?? '')])->prepend(['Status', $e['status'] ?? ''])->all()" /></td></tr>
                 @empty<tr><td colspan="6"><x-empty title="No tickets issued" text="Tickets are issued when a booking or ticket order is paid." icon="ticket" /></td></tr>@endforelse
                 </tbody></table></div>
-            @if ($entitlements->next())<div class="border-t border-stone-100 p-3"><x-btn variant="secondary" :href="request()->fullUrlWithQuery(['cursor' => $entitlements->next()])">Next page</x-btn></div>@endif
+            <x-pagination :count="count($entitlements->items())" :next="$entitlements->next()" />
         @endif
     </x-card>
     <x-pending-api :items="['Redemption history per gate (scan log) and tickets-sold report: the API exposes issued entitlements only', 'Ticket types (pool day pass, sports entry, rental) are managed under Setup > Ticket types']" />

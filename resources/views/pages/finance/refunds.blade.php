@@ -11,8 +11,8 @@
         <x-table-tools placeholder="Filter this page..." />
         <x-fetch :of="$fetch" what="Refunds" />
         @if ($fetch->ok())
-            <div class="overflow-x-auto"><table class="data-table" data-testid="refunds-table">
-                <thead><tr><th @click="sort(0)" data-sort>Payment date</th><th>Facility</th><th>Method</th><th>Status</th><th class="text-right" @click="sort(4, true)" data-sort>Original</th><th class="text-right" @click="sort(5, true)" data-sort>Refunded</th><th></th></tr></thead>
+            <div class="table-scroll"><table class="data-table" data-testid="refunds-table">
+                <thead><tr><th data-sort>Payment date</th><th>Facility</th><th>Method</th><th>Status</th><th class="text-right" data-sort>Original</th><th class="text-right" data-sort>Refunded</th><th></th></tr></thead>
                 <tbody x-ref="body">
                 @forelse ($rows as $p)
                     <tr data-row><td data-sort="{{ $p['createdAt'] ?? '' }}"><x-time :at="$p['createdAt'] ?? null" /></td><td>{{ $facilityNames[$p['facilityId'] ?? ''] ?? '' }}</td><td>{{ str_replace('_', ' ', $p['tenderType'] ?? '') }}</td><td><x-badge :status="$p['status'] ?? 'UNKNOWN'" /></td>

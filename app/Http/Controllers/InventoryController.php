@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Portal\Directory;
 use App\Support\Csv;
 use App\Support\Fetch;
 use App\Support\Money;
@@ -50,11 +51,11 @@ class InventoryController extends Controller
     /** The immutable stock ledger, newest first (GET /inventory/movements). */
     public function movements(Request $request)
     {
-        $q = ['limit' => 100, 'cursor' => $request->query('cursor'), 'itemId' => $request->query('item'), 'reason' => $request->query('reason'), 'locationId' => $request->query('location')];
+        $q = ['limit' => $this->perPage($request), 'cursor' => $request->query('cursor'), 'itemId' => $request->query('item'), 'reason' => $request->query('reason'), 'locationId' => $request->query('location')];
         $moves = Fetch::of(fn () => $this->api->get('inventory/movements', $q), ['GET', '/inventory/movements']);
         $items = $this->all('inventory/items', [], ['GET', '/inventory/items']);
         $locations = $this->all('inventory/locations', [], ['GET', '/inventory/locations']);
-        $staff = app(\App\Services\Portal\Directory::class)->staffNames();
+        $staff = app(Directory::class)->staffNames();
 
         return view('pages.inventory.movements', ['moves' => $moves, 'items' => $items, 'locations' => $locations, 'itemNames' => $this->names($items->items(), 'name'), 'locNames' => $this->names($locations->items(), 'name'), 'staffNames' => $staff, 'q' => $request->query()]);
     }
@@ -62,7 +63,7 @@ class InventoryController extends Controller
     /** Count sheets (GET /inventory/counts). */
     public function counts(Request $request)
     {
-        $counts = Fetch::of(fn () => $this->api->get('inventory/counts', ['limit' => 100, 'cursor' => $request->query('cursor'), 'status' => $request->query('status')]), ['GET', '/inventory/counts']);
+        $counts = Fetch::of(fn () => $this->api->get('inventory/counts', ['limit' => $this->perPage($request), 'cursor' => $request->query('cursor'), 'status' => $request->query('status')]), ['GET', '/inventory/counts']);
         $locations = $this->all('inventory/locations', [], ['GET', '/inventory/locations']);
 
         return view('pages.inventory.counts', ['counts' => $counts, 'locNames' => $this->names($locations->items(), 'name'), 'status' => $request->query('status')]);
@@ -71,7 +72,7 @@ class InventoryController extends Controller
     /** Manual adjustments and count variances awaiting or past approval (GET /inventory/adjustments). */
     public function adjustments(Request $request)
     {
-        $adj = Fetch::of(fn () => $this->api->get('inventory/adjustments', ['limit' => 100, 'cursor' => $request->query('cursor'), 'status' => $request->query('status')]), ['GET', '/inventory/adjustments']);
+        $adj = Fetch::of(fn () => $this->api->get('inventory/adjustments', ['limit' => $this->perPage($request), 'cursor' => $request->query('cursor'), 'status' => $request->query('status')]), ['GET', '/inventory/adjustments']);
         $items = $this->all('inventory/items', [], ['GET', '/inventory/items']);
         $locations = $this->all('inventory/locations', [], ['GET', '/inventory/locations']);
 
@@ -93,7 +94,7 @@ class InventoryController extends Controller
             $docs[$ref]['actor'] = $m['actorStaffId'] ?? null;
             $docs[$ref]['lines'][] = ['item' => $m['itemId'] ?? null, 'qty' => ltrim((string) ($m['quantityDelta'] ?? ''), '-')];
         }
-        $staff = app(\App\Services\Portal\Directory::class)->staffNames();
+        $staff = app(Directory::class)->staffNames();
 
         return view('pages.inventory.transfers', ['moves' => $moves, 'docs' => $docs, 'itemNames' => $this->names($items->items(), 'name'), 'locNames' => $this->names($locations->items(), 'name'), 'staffNames' => $staff]);
     }

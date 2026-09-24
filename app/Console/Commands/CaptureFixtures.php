@@ -73,14 +73,24 @@ class CaptureFixtures extends Command
             $this->grab('report-cashier-shift', "reports/cashier-shift/{$sid}");
             $this->grab('payments-by-session', 'payments', ['filter[cashSessionId]' => $sid, 'limit' => 200]);
         }
-        $payments = $this->grab('payments', 'payments', ['limit' => 50]);
+        $payments = $this->grab('payments', 'payments', ['limit' => 200]);
         if ($pid = $payments['items'][0]['id'] ?? null) {
             $this->grab('payment', "payments/{$pid}");
         }
 
         $this->grab('devices', 'devices', ['limit' => 200]);
         $this->grab('attendance-devices', 'attendance/devices', ['limit' => 100]);
-        $this->grab('orders', 'orders', ['limit' => 100]);
+        $orders = $this->grab('orders', 'orders', ['limit' => 100]);
+        if ($oid = $orders['items'][0]['id'] ?? null) {
+            $this->grab('order', "orders/{$oid}");
+        }
+        if ($fid) {
+            $this->grab('tables', 'tables', ['facilityId' => $fid, 'limit' => 100]);
+        }
+        $this->grab('memberships', 'memberships', ['limit' => 50]);
+        $this->grab('report-attendance-summary', 'reports/attendance-summary', ['from' => $week, 'to' => $today]);
+        $this->grab('report-membership-summary', 'reports/membership-summary', ['from' => $week, 'to' => $today]);
+        $this->grab('kds-tickets-skip', 'kds/stations', ['limit' => 1]);
         $this->grab('bookings', 'bookings', ['limit' => 100]);
         $this->grab('booking-resources', 'bookings/resources', ['limit' => 100]);
         $this->grab('catalog-categories', 'catalog/categories', ['limit' => 200]);

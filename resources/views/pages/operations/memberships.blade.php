@@ -21,8 +21,8 @@
         </x-table-tools>
         <x-fetch :of="$members" what="Members" />
         @if ($members->ok())
-            <div class="overflow-x-auto"><table class="data-table" data-testid="members-table">
-                <thead><tr><th @click="sort(0)" data-sort>Member</th><th @click="sort(1)" data-sort>Plan</th><th>Status</th><th>Valid</th><th class="text-right">Visits</th><th class="text-right">Discount</th><th></th></tr></thead>
+            <div class="table-scroll"><table class="data-table" data-testid="members-table">
+                <thead><tr><th data-sort>Member</th><th data-sort>Plan</th><th>Status</th><th>Valid</th><th class="text-right">Visits</th><th class="text-right">Discount</th><th></th></tr></thead>
                 <tbody x-ref="body">
                 @forelse ($members->items() as $m)
                     <tr data-row><td class="font-medium">{{ $m['holderName'] ?? '-' }}<div class="text-xs font-normal text-stone-500">{{ $m['number'] ?? '' }}</div></td><td>{{ $m['planName'] ?? '' }}</td><td><x-badge :status="$m['status'] ?? 'UNKNOWN'" />@if ($m['inGrace'] ?? false) <x-badge tone="warn">grace</x-badge>@endif</td>
@@ -31,7 +31,7 @@
                         <td class="text-right"><x-detail :title="($m['holderName'] ?? 'Member').' - '.($m['number'] ?? '')" :fields="[['Plan', $m['planName'] ?? ''], ['Status', $m['status'] ?? ''], ['Valid from', \App\Support\Time::format($m['validFrom'] ?? null)], ['Valid until', \App\Support\Time::format($m['validUntil'] ?? null)], ['Grace until', \App\Support\Time::format($m['graceUntil'] ?? null)], ['Visits used', ($m['visitsUsed'] ?? 0).(isset($m['visitLimit']) ? ' of '.$m['visitLimit'] : ' (unlimited)')], ['Guests per visit', $m['guestAllowance'] ?? 0], ['Price paid', \App\Support\Money::format($m['pricePaid'] ?? '0')], ['Renewals', $m['renewalCount'] ?? 0]]" /></td></tr>
                 @empty<tr><td colspan="7"><x-empty title="No members yet" text="Members are signed up at Reception. Create or adjust the plans they can buy under Setup > Membership plans." icon="users" :action="auth_staff()->can('membership.plan.manage') ? 'Manage plans' : null" :href="route('setup.memberships')" /></td></tr>@endforelse
                 </tbody></table></div>
-            @if ($members->next())<div class="border-t border-stone-100 p-3"><x-btn variant="secondary" :href="request()->fullUrlWithQuery(['cursor' => $members->next()])">Next page</x-btn></div>@endif
+            <x-pagination :count="count($members->items())" :next="$members->next()" />
         @endif
     </x-card>
 </x-layouts.app>

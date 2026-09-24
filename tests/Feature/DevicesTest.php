@@ -20,7 +20,7 @@ class DevicesTest extends TestCase
                 ['id' => 'd2', 'name' => 'Tablet-03', 'kind' => 'MOBILE_TABLET', 'status' => 'ACTIVE', 'facilityId' => F::FAC, 'lastSeenAt' => now()->utc()->subMinutes(30)->toIso8601ZuluString(), 'checkout' => null],
                 ['id' => 'd3', 'name' => 'Tablet-lost', 'kind' => 'MOBILE_TABLET', 'status' => 'REVOKED', 'facilityId' => null, 'lastSeenAt' => null, 'checkout' => null],
             ]),
-            'GET /attendance/devices' => F::page([['id' => 't1', 'serial' => 'ZK-0001', 'adapter' => 'ZKTECO_ADMS', 'status' => 'ACTIVE', 'lastSeenAt' => null]]),
+            'GET /attendance/devices' => F::page([['id' => 't1', 'serialNumber' => 'ZK-0001', 'name' => 'Gate terminal', 'adapter' => 'ZKTECO_ADMS', 'status' => 'ACTIVE', 'lastSeenAt' => null]]),
         ]);
     }
 
@@ -62,7 +62,7 @@ class DevicesTest extends TestCase
         $this->api(['POST /attendance/devices' => [201, ['device' => ['id' => 't2'], 'deviceToken' => 'tok-create-1']], 'POST /attendance/devices/*/rotate-token' => ['device' => ['id' => 't1'], 'deviceToken' => 'tok-rotated-2'], 'POST /attendance/devices/*/status' => ['id' => 't1', 'status' => 'DISABLED']]);
         $this->signIn(self::PERMS);
 
-        $this->followingRedirects()->post('/devices/terminals', ['serial' => 'ZK-0002', 'adapter' => 'ZKTECO_ADMS'])->assertSee('tok-create-1');
+        $this->followingRedirects()->post('/devices/terminals', ['serialNumber' => 'ZK-0002', 'name' => 'Spare terminal', 'adapter' => 'ZKTECO_ADMS'])->assertSee('tok-create-1');
         $this->followingRedirects()->post('/devices/terminals/t1/rotate')->assertSee('tok-rotated-2');
         $this->post('/devices/terminals/t1/status', ['status' => 'DISABLED'])->assertSessionHas('success');
         $this->post('/devices/terminals/t1/status', ['status' => 'EXPLODED'])->assertSessionHasErrors('status');

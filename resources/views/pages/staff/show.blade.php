@@ -38,7 +38,7 @@
     <x-card title="Roles and scopes" flush>
         <x-fetch :of="$assign" what="Role assignments" />
         @if ($assign->ok())
-            <div class="overflow-x-auto"><table class="data-table"><thead><tr><th>Role</th><th>Scope</th><th>Granted</th><th></th></tr></thead><tbody>
+            <div class="table-scroll"><table class="data-table"><thead><tr><th>Role</th><th>Scope</th><th>Granted</th><th></th></tr></thead><tbody>
             @forelse ($assign->items() as $a)
                 @if (empty($a['revokedAt']))
                 <tr><td>{{ $roleNames[$a['roleId'] ?? ''] ?? $a['roleCode'] ?? $a['roleId'] ?? '' }}</td><td>{{ $a['scopeType'] ?? '' }}@if (($a['scopeType'] ?? '') === 'FACILITY' && ! empty($a['scopeId']))<div class="text-xs text-stone-500">{{ collect($facilities)->firstWhere('id', $a['scopeId'])['name'] ?? '' }}</div>@endif</td><td><x-time :at="$a['grantedAt'] ?? null" /></td>

@@ -2,7 +2,7 @@
     <x-card title="Operating points" subtitle="Counters, table areas, gates and windows where staff work" flush>
         <x-fetch :of="$points" what="Operating points" />
         @if ($points->ok())
-            <div class="overflow-x-auto"><table class="data-table" data-testid="points-table"><thead><tr><th>Code</th><th>Name</th><th>Kind</th></tr></thead><tbody>
+            <div class="table-scroll"><table class="data-table" data-testid="points-table"><thead><tr><th>Code</th><th>Name</th><th>Kind</th></tr></thead><tbody>
             @forelse ($points->items() as $p)<tr><td class="text-xs">{{ $p['code'] ?? '' }}</td><td class="font-medium">{{ $p['name'] ?? '' }}</td><td>{{ str_replace('_', ' ', $p['kind'] ?? '') }}</td></tr>@empty<tr><td colspan="3"><x-empty title="No operating points" text="Add a counter or table area so devices can be assigned to it." icon="table" /></td></tr>@endforelse
             </tbody></table></div>
         @endif
@@ -10,7 +10,7 @@
     <x-card title="Kitchen & bar stations" subtitle="Where this facility's orders are prepared" flush>
         <x-fetch :of="$stations" what="Stations" />
         @if ($stations->ok())
-            <div class="overflow-x-auto"><table class="data-table"><thead><tr><th>Station</th><th>Kind</th><th>Active</th></tr></thead><tbody>
+            <div class="table-scroll"><table class="data-table"><thead><tr><th>Station</th><th>Kind</th><th>Active</th></tr></thead><tbody>
             @forelse ($stations->items() as $s)<tr><td class="font-medium">{{ $s['name'] ?? '' }}</td><td>{{ $s['kind'] ?? '' }}</td><td><x-badge :tone="($s['active'] ?? true) ? 'good' : 'default'">{{ ($s['active'] ?? true) ? 'Active' : 'Off' }}</x-badge></td></tr>@empty<tr><td colspan="3" class="text-center text-stone-500">None at this facility.</td></tr>@endforelse
             </tbody></table></div>
         @endif

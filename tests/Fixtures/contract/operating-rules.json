@@ -1,0 +1,43 @@
+{
+ "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+ "version": 1,
+ "capabilities": [
+  "POS",
+  "TABLE_SERVICE",
+  "PAYMENT_ACCEPTANCE"
+ ],
+ "values": {
+  "payment_timing": "PAY_AFTER_SERVICE",
+  "require_cash_session": true,
+  "approval_threshold_amount": "5000.0000"
+ },
+ "items": [
+  {
+   "key": "payment_timing",
+   "value": "PAY_AFTER_SERVICE",
+   "isDefault": true,
+   "label": "Payment timing",
+   "group": "Payments & cash",
+   "dangerLevel": "medium"
+  },
+  {
+   "key": "require_cash_session",
+   "value": true,
+   "isDefault": false,
+   "label": "Require an open cash session",
+   "group": "Payments & cash",
+   "dangerLevel": "high"
+  },
+  {
+   "key": "approval_threshold_amount",
+   "value": "5000.0000",
+   "isDefault": false,
+   "label": "Approval threshold",
+   "group": "Approvals",
+   "dangerLevel": "high"
+  }
+ ],
+ "notApplicable": [
+  "hold_ttl_seconds"
+ ]
+}

@@ -14,7 +14,7 @@ class ReportsTest extends TestCase
         $this->fakeApi($o + [
             'GET /organization/facilities' => F::facilities(),
             'GET /reports/facility-daily-summary' => fn (Request $r) => F::summary(str_contains($r->url(), F::FAC2) ? F::FAC2 : F::FAC, str_contains($r->url(), F::FAC2) ? '50000.0000' : '100000.0000'),
-            'GET /reports/revenue' => ['from' => '2026-09-17', 'to' => '2026-09-23', 'data' => ['total' => '900000.0000', 'byFacility' => [['facility' => 'Main Restaurant', 'revenue' => '600000.0000']]], 'freshness' => F::freshness()],
+            'GET /reports/revenue' => ['from' => '2026-09-17', 'to' => '2026-09-23', 'currency' => 'NGN', 'orders' => 40, 'revenue' => '900000.0000', 'byFacility' => [['facilityId' => F::FAC, 'code' => 'R', 'name' => 'Main Restaurant', 'orders' => 30, 'revenue' => '600000.0000']], 'byOperatingPoint' => [], 'byPaymentMethod' => [['tenderType' => 'CASH', 'count' => 4, 'captured' => '700000.0000', 'refunded' => '0.0000', 'net' => '700000.0000']], 'freshness' => F::freshness()],
             'GET /organization/facilities/*/operating-points' => F::page([['id' => 'op1', 'facilityId' => F::FAC, 'code' => 'FLOOR', 'name' => 'Main floor', 'kind' => 'TABLE_AREA']]),
             'GET /organization/facilities/*' => F::facilities()['items'][0],
             'GET /cash-sessions' => F::page([['id' => F::SESSION, 'facilityId' => F::FAC, 'deviceId' => 'dev-1', 'staffId' => F::STAFF, 'status' => 'CLOSED', 'openingFloat' => '20000.0000', 'expectedCash' => '95000.0000', 'countedCash' => '94500.0000', 'variance' => '-500.0000', 'openedAt' => '2026-09-23T07:00:00.000000Z', 'closedAt' => null]]),

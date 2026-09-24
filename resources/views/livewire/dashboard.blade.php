@@ -79,7 +79,7 @@
                 @if ($d['byFacility'] === [])
                     <x-empty title="No sales in this period" text="Facilities appear here as soon as they take orders." icon="building" />
                 @else
-                    <div class="overflow-x-auto"><table class="data-table" data-testid="facility-table"><thead><tr><th>Facility</th><th class="text-right">Orders</th><th class="text-right">Revenue</th><th class="text-right">Avg order</th><th class="w-40">Share</th></tr></thead><tbody>
+                    <div class="table-scroll"><table class="data-table" data-testid="facility-table"><thead><tr><th>Facility</th><th class="text-right">Orders</th><th class="text-right">Revenue</th><th class="text-right">Avg order</th><th class="w-40">Share</th></tr></thead><tbody>
                         @foreach ($d['byFacility'] as $f)
                             <tr><td>@if ($f['id'])<a class="font-medium text-brand-700 underline decoration-brand-200" href="{{ route('reports.facility', ['facility' => $f['id'], 'date' => $range->to]) }}">{{ $f['name'] }}</a>@else{{ $f['name'] }}@endif</td>
                                 <td class="text-right tabular-nums">{{ $f['orders'] }}</td><td class="text-right"><x-money :value="$f['revenue']" /></td><td class="text-right"><x-money :value="$f['orders'] > 0 ? bcdiv($f['revenue'], (string) $f['orders'], 4) : '0'" /></td>
@@ -115,7 +115,7 @@
         {{-- Right rail --}}
         <div class="min-w-0">
             <x-card title="Site status" data-testid="site-status">
-                <div class="flex items-center justify-between"><x-badge :status="$site['health']">{{ $site['health'] }}</x-badge><a class="text-xs font-medium text-brand-700 underline" href="{{ route('sync') }}">Sync &amp; IT</a></div>
+                <div class="flex items-center justify-between"><x-badge :status="$site['health']">{{ $site['health'] }}</x-badge>@if (auth_staff()->can('config.manage'))<a class="text-xs font-medium text-brand-700 underline" href="{{ route('sync') }}">Sync &amp; IT</a>@endif</div>
                 <dl class="mt-3 space-y-2 text-sm">
                     <div class="flex justify-between gap-3"><dt class="text-stone-500">Last successful sync</dt><dd>@if ($site['lastSyncAt']) <x-time :at="$site['lastSyncAt']" ago /> @else <span class="text-stone-500">unknown</span> @endif</dd></div>
                     <div class="flex justify-between gap-3"><dt class="text-stone-500">Outbox queue</dt><dd>@if ($site['detail']){{ $site['detail']['outbox']['queued'] ?? 0 }} queued &middot; {{ $site['detail']['outbox']['failed'] ?? 0 }} failed @else <span class="text-stone-500">visible to IT only</span> @endif</dd></div>

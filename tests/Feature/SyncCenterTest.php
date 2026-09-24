@@ -63,10 +63,10 @@ class SyncCenterTest extends TestCase
 
     public function test_replay_all_failed_reports_counts(): void
     {
-        $this->api(['POST /sync/outbox/replay-failed' => ['outboxRequeued' => 3, 'inboxReprocessed' => 1]]);
+        $this->api(['POST /sync/outbox/replay-failed' => ['outboxRequeued' => 3, 'inbox' => ['reprocessed' => 1, 'applied' => 1]]]);
         $this->signIn(['config.manage']);
 
-        Livewire::test(SyncCenter::class)->set('tab', 'outbox')->call('replayFailed')->assertSee('3 outbox event(s) re-queued, 1 inbox event(s) reprocessed.');
+        Livewire::test(SyncCenter::class)->set('tab', 'outbox')->call('replayFailed')->assertSee('3 outbox event(s) re-queued, 1 failed inbox event(s) reprocessed (1 applied).');
     }
 
     public function test_inbox_reprocess(): void

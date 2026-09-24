@@ -20,7 +20,8 @@ class FinanceTest extends TestCase
         $this->signIn(self::PERMS)->get('/finance/payments?filter[status]=CAPTURED&filter[facilityId]='.F::FAC.'&filter[from]=2026-09-01')->assertOk()
             ->assertSee('₦12,500.00')->assertSee('PSK_1')->assertSee('AUTHORIZING');
 
-        $this->assertTrue($this->sentTo('GET', '/payments', fn (Request $r) => str_contains($r->url(), 'filter%5Bstatus%5D=CAPTURED') && str_contains($r->url(), 'filter%5Bfrom%5D=2026-09-01')));
+        // Dates are property (Lagos) days sent to the API as UTC instants: 2026-09-01 00:00 Lagos = 2026-08-31T23:00Z.
+        $this->assertTrue($this->sentTo('GET', '/payments', fn (Request $r) => str_contains($r->url(), 'filter%5Bstatus%5D=CAPTURED') && str_contains($r->url(), 'filter%5Bfrom%5D=2026-08-31T23')));
     }
 
     public function test_payment_detail_offers_refund_and_reversal_by_permission(): void
@@ -106,7 +107,7 @@ class FinanceTest extends TestCase
             F::payment('d', 'PARTIALLY_REFUNDED', '3000.0000', ['refundedAmount' => '1000.0000']),
         ])]);
 
-        $res = $this->signIn(self::PERMS)->get('/finance/reconciliation?from=2026-09-23&to=2026-09-23')->assertOk();
+        $res = $this->signIn(self::PERMS)->get('/finance/settlements?from=2026-09-23&to=2026-09-23')->assertOk();
 
         $res->assertSee('₦13,000.00')   // CASH captured 10,000 + 3,000
             ->assertSee('₦5,000.50')    // CARD captured (7,000 AUTHORIZING excluded)

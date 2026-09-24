@@ -2,14 +2,15 @@
     <x-page-header title="Products, prices & categories" subtitle="Products are listed per facility. Prices and tax are resolved by the API; changes are audited there." />
     <form method="GET" class="mb-5 flex items-end gap-3"><div><label class="mb-1 block text-sm font-medium">Facility</label>
         <select name="facility" class="min-h-11 rounded-lg border border-stone-300 bg-white px-3 text-sm" onchange="this.form.submit()">@foreach ($facilities as $f)<option value="{{ $f['id'] ?? '' }}" @selected($facilityId === ($f['id'] ?? ''))>{{ $f['name'] ?? '' }}</option>@endforeach</select></div></form>
-    <x-card title="Products" flush>
+    <x-card title="Products" flush x-data="tableTools">
+        <x-table-tools />
         <x-fetch :of="$products" what="Products" />
         <x-fetch :of="$avail" what="Availability" />
         @if ($products->ok())
-            <div class="overflow-x-auto"><table class="data-table" data-testid="products"><thead><tr><th>Product</th><th>Category</th><th>Kind</th><th class="text-right">Price</th><th>Tax</th><th>Prep route</th><th>Available here</th>@if ($canManage)<th></th>@endif</tr></thead><tbody>
+            <div class="table-scroll"><table class="data-table" data-testid="products"><thead><tr><th>Product</th><th>Category</th><th>Kind</th><th class="text-right">Price</th><th>Tax</th><th>Prep route</th><th>Available here</th>@if ($canManage)<th></th>@endif</tr></thead><tbody>
             @forelse ($products->items() as $p)
                 @php $on = $availability[$p['id'] ?? ''] ?? true; $pid = $p['id'] ?? ''; @endphp
-                <tr class="{{ ($p['active'] ?? true) ? '' : 'opacity-60' }}"><td class="font-medium">{{ $p['name'] ?? '' }}@if (! ($p['active'] ?? true)) <x-badge>inactive</x-badge>@endif<div class="text-xs font-normal text-stone-500">{{ $p['sku'] ?? '' }}</div></td><td>{{ $catNames[$p['categoryId'] ?? ''] ?? '' }}</td><td>{{ $p['kind'] ?? '' }}</td>
+                <tr data-row class="{{ ($p['active'] ?? true) ? '' : 'opacity-60' }}"><td class="font-medium">{{ $p['name'] ?? '' }}@if (! ($p['active'] ?? true)) <x-badge>inactive</x-badge>@endif<div class="text-xs font-normal text-stone-500">{{ $p['sku'] ?? '' }}</div></td><td>{{ $catNames[$p['categoryId'] ?? ''] ?? '' }}</td><td>{{ $p['kind'] ?? '' }}</td>
                     <td class="text-right">
                         @if ($canPrice && $pid !== '')
                             <form method="POST" action="{{ route('setup.catalog.price', $pid) }}" class="flex items-center justify-end gap-1">@csrf @method('PUT')<input type="hidden" name="facilityId" value="{{ $facilityId }}">

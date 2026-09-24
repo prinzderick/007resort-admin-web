@@ -8,20 +8,22 @@
         <div><label class="mb-1 block text-sm font-medium">Status</label><select name="status" class="min-h-11 rounded-lg border border-stone-300 bg-white px-3 text-sm"><option value="">Any</option>@foreach (['OPEN', 'CLOSED', 'NEEDS_REVIEW'] as $s)<option @selected($status === $s)>{{ $s }}</option>@endforeach</select></div>
         <x-btn variant="secondary">Apply</x-btn>
     </form>
-    <x-card flush>
+    <x-card flush x-data="tableTools">
+        <x-table-tools :csv="true" />
         <x-fetch :of="$records" what="Attendance" />
         @if ($records->ok())
-            <div class="overflow-x-auto"><table class="data-table" data-testid="attendance-table"><thead><tr><th>Date</th><th>Staff</th><th>In</th><th>Out</th><th class="text-right">Minutes</th><th>Status</th></tr></thead><tbody>
-            @forelse ($records->items() as $r)<tr><td>{{ $r['workDate'] ?? '' }}</td><td>{{ $r['staffName'] ?? $names[$r['staffId'] ?? ''] ?? \App\Services\Portal\Directory::short($r['staffId'] ?? null) }}</td><td><x-time :at="$r['clockIn'] ?? null" /></td><td><x-time :at="$r['clockOut'] ?? null" /></td><td class="text-right tabular-nums">{{ $r['minutesWorked'] ?? '' }}</td><td><x-badge :status="$r['status'] ?? 'UNKNOWN'" /></td></tr>@empty<tr><td colspan="6" class="text-center text-stone-500">No records.</td></tr>@endforelse
+            <div class="table-scroll"><table class="data-table" data-testid="attendance-table"><thead><tr><th>Date</th><th>Staff</th><th>In</th><th>Out</th><th class="text-right">Minutes</th><th>Status</th></tr></thead><tbody>
+            @forelse ($records->items() as $r)<tr data-row><td>{{ $r['workDate'] ?? '' }}</td><td>{{ $r['staffName'] ?? $names[$r['staffId'] ?? ''] ?? \App\Services\Portal\Directory::short($r['staffId'] ?? null) }}</td><td><x-time :at="$r['clockIn'] ?? null" /></td><td><x-time :at="$r['clockOut'] ?? null" /></td><td class="text-right tabular-nums">{{ $r['minutesWorked'] ?? '' }}</td><td><x-badge :status="$r['status'] ?? 'UNKNOWN'" /></td></tr>@empty<tr><td colspan="6" class="text-center text-stone-500">No records.</td></tr>@endforelse
             </tbody></table></div>
         @endif
     </x-card>
-    <x-card title="Pending corrections" flush>
+    <x-card title="Pending corrections" flush x-data="tableTools">
+        <x-table-tools :csv="true" />
         <x-fetch :of="$corrections" what="Corrections" />
         @if ($corrections->ok())
-            <div class="overflow-x-auto"><table class="data-table"><thead><tr><th>Date</th><th>Staff</th><th>Requested times</th><th>Reason</th><th></th></tr></thead><tbody>
+            <div class="table-scroll"><table class="data-table"><thead><tr><th>Date</th><th>Staff</th><th>Requested times</th><th>Reason</th><th></th></tr></thead><tbody>
             @forelse ($corrections->items() as $c)
-                <tr><td>{{ $c['workDate'] ?? '' }}</td><td>{{ $names[$c['staffId'] ?? ''] ?? \App\Services\Portal\Directory::short($c['staffId'] ?? null) }}</td><td><x-time :at="$c['requestedClockIn'] ?? null" /> &ndash; <x-time :at="$c['requestedClockOut'] ?? null" /></td><td>{{ $c['reason'] ?? '' }}</td>
+                <tr data-row><td>{{ $c['workDate'] ?? '' }}</td><td>{{ $names[$c['staffId'] ?? ''] ?? \App\Services\Portal\Directory::short($c['staffId'] ?? null) }}</td><td><x-time :at="$c['requestedClockIn'] ?? null" /> &ndash; <x-time :at="$c['requestedClockOut'] ?? null" /></td><td>{{ $c['reason'] ?? '' }}</td>
                     <td>@if (! empty($c['id']) && ($c['status'] ?? 'PENDING') === 'PENDING' && auth_staff()->can('staff.clock_correction.approve'))<div class="flex gap-2">
                         <form method="POST" action="{{ route('staff.correction', [$c['id'], 'approve']) }}">@csrf<x-btn class="min-h-10">Approve</x-btn></form>
                         <form method="POST" action="{{ route('staff.correction', [$c['id'], 'reject']) }}">@csrf<x-btn variant="secondary" class="min-h-10">Reject</x-btn></form></div>@endif</td></tr>

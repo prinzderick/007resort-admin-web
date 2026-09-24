@@ -71,6 +71,28 @@
             "renewalNoticeDays": 5,
             "active": true,
             "rowVersion": 1
+        },
+        {
+            "id": "01a0d0bc-0b32-7087-8dd8-42f52a800086",
+            "code": "ADMTEST",
+            "name": "Admin Test Plan 2",
+            "description": "test plan",
+            "durationDays": 30,
+            "price": "26000.0000",
+            "currency": "NGN",
+            "facilityIds": [
+                "a206b41c-f916-5185-b405-db8a5b67b4db"
+            ],
+            "propertyWide": false,
+            "visitLimit": null,
+            "guestAllowance": 1,
+            "memberDiscountPercent": "5.00",
+            "bookingAdvanceDays": 3,
+            "bookingPrivileges": [],
+            "gracePeriodDays": 2,
+            "renewalNoticeDays": 5,
+            "active": false,
+            "rowVersion": 2
         }
     ],
     "nextCursor": null

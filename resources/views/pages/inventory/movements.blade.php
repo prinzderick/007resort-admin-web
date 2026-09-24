@@ -10,7 +10,7 @@
     <x-card flush>
         <x-fetch :of="$moves" what="Stock movements" />
         @if ($moves->ok())
-            <div class="overflow-x-auto"><table class="data-table" data-testid="movements-table"><thead><tr><th>When</th><th>Item</th><th>Location</th><th>Kind</th><th class="text-right">Change</th><th class="text-right">Balance</th><th>By</th></tr></thead><tbody>
+            <div class="table-scroll"><table class="data-table" data-testid="movements-table"><thead><tr><th>When</th><th>Item</th><th>Location</th><th>Kind</th><th class="text-right">Change</th><th class="text-right">Balance</th><th>By</th></tr></thead><tbody>
             @forelse ($moves->items() as $m)
                 @php $d = (string) ($m['quantityDelta'] ?? '0'); $neg = str_starts_with($d, '-'); @endphp
                 <tr><td><x-time :at="$m['createdAt'] ?? null" /></td><td>{{ $itemNames[$m['itemId'] ?? ''] ?? \App\Services\Portal\Directory::short($m['itemId'] ?? null) }}</td>
@@ -20,7 +20,7 @@
                     <td class="text-xs">{{ ($m['actorStaffId'] ?? null) ? ($staffNames[$m['actorStaffId']] ?? \App\Services\Portal\Directory::short($m['actorStaffId'])) : 'system' }}</td></tr>
             @empty<tr><td colspan="7" class="text-center text-stone-500">No movements.</td></tr>@endforelse
             </tbody></table></div>
-            @if ($moves->next())<div class="p-3"><x-btn variant="secondary" :href="request()->fullUrlWithQuery(['cursor' => $moves->next()])">Older movements</x-btn></div>@endif
+            <x-pagination :count="count($moves->items())" :next="$moves->next()" />
         @endif
     </x-card>
 </x-layouts.app>

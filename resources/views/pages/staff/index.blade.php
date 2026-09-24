@@ -5,12 +5,13 @@
         <div><label class="mb-1 block text-sm font-medium">Status</label><select name="status" class="min-h-11 rounded-lg border border-stone-300 bg-white px-3 text-sm"><option value="">Any</option>@foreach (['ACTIVE', 'SUSPENDED', 'TERMINATED'] as $s)<option @selected($status === $s)>{{ $s }}</option>@endforeach</select></div>
         <x-btn variant="secondary">Filter</x-btn>
     </form>
-    <x-card flush>
+    <x-card flush x-data="tableTools">
+        <x-table-tools />
         <x-fetch :of="$staff" what="Staff directory" />
         @if ($staff->ok())
-            <div class="overflow-x-auto"><table class="data-table" data-testid="staff-table"><thead><tr><th>No.</th><th>Name</th><th>Status</th><th>Sign-in methods</th><th></th></tr></thead><tbody>
+            <div class="table-scroll"><table class="data-table" data-testid="staff-table"><thead><tr><th>No.</th><th>Name</th><th>Status</th><th>Sign-in methods</th><th></th></tr></thead><tbody>
             @forelse ($staff->items() as $m)
-                <tr><td>{{ $m['staffNumber'] ?? '' }}</td><td class="font-medium">{{ $m['displayName'] ?? trim(($m['firstName'] ?? '').' '.($m['lastName'] ?? '')) }}<div class="text-xs font-normal text-stone-500">{{ $m['email'] ?? '' }}</div></td><td><x-badge :status="$m['status'] ?? 'UNKNOWN'" /></td>
+                <tr data-row><td>{{ $m['staffNumber'] ?? '' }}</td><td class="font-medium">{{ $m['displayName'] ?? trim(($m['firstName'] ?? '').' '.($m['lastName'] ?? '')) }}<div class="text-xs font-normal text-stone-500">{{ $m['email'] ?? '' }}</div></td><td><x-badge :status="$m['status'] ?? 'UNKNOWN'" /></td>
                     <td class="text-xs">{{ implode(', ', array_filter([($m['hasPassword'] ?? false) ? 'password' : null, ($m['hasPin'] ?? false) ? 'PIN' : null, ($m['hasNfcCard'] ?? false) ? 'NFC card' : null])) ?: 'none' }}</td>
                     <td>@if (! empty($m['id']))<a class="underline" href="{{ route('staff.show', $m['id']) }}">Manage</a>@endif</td></tr>
             @empty<tr><td colspan="5" class="text-center text-stone-500">No staff found.</td></tr>@endforelse

@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Support\Fetch;
-
 /** People: the roles and permissions catalogue (who may do what). Read-only: roles are defined by the API. */
 class PeopleController extends Controller
 {

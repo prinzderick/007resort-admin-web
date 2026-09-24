@@ -19,7 +19,7 @@ class FinanceController extends Controller
     {
         $q = $request->only(['filter']);
         $filter = array_filter((array) ($q['filter'] ?? []), fn ($v) => is_string($v) && $v !== '');
-        $params = ['limit' => 50, 'cursor' => $request->query('cursor')];
+        $params = ['limit' => $this->perPage($request, 50), 'cursor' => $request->query('cursor')];
         foreach (['status', 'facilityId', 'tenderType'] as $k) {
             isset($filter[$k]) && $params["filter[{$k}]"] = $filter[$k];
         }
@@ -107,7 +107,7 @@ class FinanceController extends Controller
         $range = DateRange::fromRequest($request, '7d');
         $status = $request->query('status');
         $facilityId = $request->query('facility');
-        $sessions = Fetch::of(fn () => $this->api->get('cash-sessions', ['limit' => 100, 'cursor' => $request->query('cursor'), 'filter[status]' => $status, 'filter[facilityId]' => $facilityId]), ['GET', '/cash-sessions']);
+        $sessions = Fetch::of(fn () => $this->api->get('cash-sessions', ['limit' => $this->perPage($request), 'cursor' => $request->query('cursor'), 'filter[status]' => $status, 'filter[facilityId]' => $facilityId]), ['GET', '/cash-sessions']);
         $tree = Fetch::of(fn () => $this->api->get('organization/facilities'), ['GET', '/organization/facilities']);
         $names = [];
         foreach ($dash->flatten($tree->items()) as $f) {

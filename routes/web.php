@@ -2,14 +2,14 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ConfigurationController;
-use App\Http\Controllers\OperationsController;
-use App\Http\Controllers\PeopleController;
-use App\Http\Controllers\SearchController;
 use App\Http\Controllers\DevicesController;
 use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\OperationsController;
+use App\Http\Controllers\PeopleController;
 use App\Http\Controllers\ReportsController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\StaffController;
 use App\Livewire\ApprovalsQueue;
 use App\Livewire\Dashboard;
@@ -33,6 +33,11 @@ Route::post('/mfa', [AuthController::class, 'verifyMfa'])->middleware('throttle:
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('staff')->group(function (): void {
+    // Component gallery: development only.
+    if (app()->environment(['local', 'testing'])) {
+        Route::view('/styleguide', 'pages.styleguide')->name('styleguide');
+    }
+
     Route::get('/', Dashboard::class)->name('dashboard');
     Route::get('/approvals', ApprovalsQueue::class)->name('approvals');
     Route::get('/search', [SearchController::class, 'index'])->name('search');

@@ -7,7 +7,7 @@
     @if ($doc->ok())
         @php $count = (array) $doc->data; $status = $count['status'] ?? 'UNKNOWN'; @endphp
         <x-card title="Variance" flush>
-            <div class="overflow-x-auto"><table class="data-table" data-testid="variance"><thead><tr><th>Item</th><th class="text-right">Expected</th><th class="text-right">Counted</th><th class="text-right">Variance</th><th>Line status</th></tr></thead><tbody>
+            <div class="table-scroll"><table class="data-table" data-testid="variance"><thead><tr><th>Item</th><th class="text-right">Expected</th><th class="text-right">Counted</th><th class="text-right">Variance</th><th>Line status</th></tr></thead><tbody>
             @foreach ($count['lines'] ?? [] as $l)
                 @php $v = $l['variance'] ?? null; $zero = $v === null || \App\Support\Money::cmp($v, '0') === 0; @endphp
                 <tr class="{{ $zero ? '' : 'bg-amber-50' }}"><td>{{ $names[$l['itemId'] ?? ''] ?? ($l['itemId'] ?? '') }}</td><td class="text-right tabular-nums">{{ $l['expectedQuantity'] ?? '' }}</td><td class="text-right tabular-nums">{{ $l['countedQuantity'] ?? '' }}</td><td class="text-right tabular-nums {{ $zero ? '' : 'font-semibold text-red-800' }}">{{ $v ?? 'after posting' }}</td><td class="text-xs">{{ $l['varianceStatus'] ?? '' }}</td></tr>

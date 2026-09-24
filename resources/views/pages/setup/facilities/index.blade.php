@@ -13,7 +13,7 @@
         <x-table-tools placeholder="Filter facilities..." />
         <x-fetch :of="$tree" what="Facilities" />
         @if ($tree->ok())
-            <div class="overflow-x-auto"><table class="data-table" data-testid="facility-list">
+            <div class="table-scroll"><table class="data-table" data-testid="facility-list">
                 <thead><tr><th>Facility</th><th>Kind</th><th>Status</th><th>Capabilities</th><th></th></tr></thead>
                 <tbody x-ref="body">
                 @forelse ($rows as $r)

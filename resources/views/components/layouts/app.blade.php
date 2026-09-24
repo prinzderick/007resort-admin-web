@@ -86,6 +86,7 @@
             </div>
         </div>
         <x-drawer />
+        <x-toasts />
         @livewireScripts
     </body>
 </html>

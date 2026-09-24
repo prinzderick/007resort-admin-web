@@ -47,11 +47,7 @@
             @endforeach
             @if ($notApplicable !== [])<p class="mb-4 text-xs text-stone-500">Hidden because this facility does not have the capability they need: {{ implode(', ', array_map(fn ($k) => $defMap[$k]['label'] ?? $k, array_slice($notApplicable, 0, 12))) }}{{ count($notApplicable) > 12 ? '...' : '' }}. Turn the capability on under Capabilities to see them.</p>@endif
             @if ($canRules)
-                <div class="sticky bottom-0 -mx-4 flex flex-wrap items-center gap-4 border-t border-stone-200 bg-white/95 px-4 py-3 backdrop-blur lg:-mx-8 lg:px-8">
-                    <x-btn>Save rules</x-btn>
-                    <label class="flex items-center gap-2 text-sm text-red-900"><input type="checkbox" name="confirmRisk" value="1" class="size-4"> I understand that changing a high-risk rule affects money, stock or security</label>
-                    <span class="text-xs text-stone-500" x-show="dirty" x-cloak>Unsaved changes.</span>
-                </div>
+                <x-save-bar label="Save rules"><label class="flex items-center gap-2 text-sm text-red-900"><input type="checkbox" name="confirmRisk" value="1" class="size-4"> I understand that changing a high-risk rule affects money, stock or security</label></x-save-bar>
             @else
                 <x-pending-api :items="['Editing operating rules needs PUT /facilities/{facilityId}/operating-rules (permission config.manage.rules), which is not available to this account or not in the contract yet']" />
             @endif

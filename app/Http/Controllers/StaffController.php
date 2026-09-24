@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Portal\Directory;
 use App\Services\Portal\DashboardData;
+use App\Services\Portal\Directory;
 use App\Support\Csv;
 use App\Support\Fetch;
 use App\Support\Time;
@@ -153,7 +153,7 @@ class StaffController extends Controller
     public function audit(Request $request, Directory $dir)
     {
         // Newest first; `action` is an exact match (e.g. payment.refund), dates are UTC days.
-        $params = ['limit' => 100, 'order' => 'desc', 'action' => $request->query('action'), 'entityType' => $request->query('entityType'), 'actorStaffId' => $request->query('actor'),
+        $params = ['limit' => $this->perPage($request), 'order' => 'desc', 'action' => $request->query('action'), 'entityType' => $request->query('entityType'), 'actorStaffId' => $request->query('actor'),
             'filter[from]' => $this->day($request->query('from')), 'filter[to]' => $this->day($request->query('to')), 'cursor' => $request->query('cursor')];
         $audit = Fetch::of(fn () => $this->api->get('audit', $params), ['GET', '/audit']);
         $names = $dir->staffNames();

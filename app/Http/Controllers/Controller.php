@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Auth\StaffSession;
 use App\Services\R007Api\ApiResponse;
-use App\Support\Fetch;
 use App\Services\R007Api\R007ApiClient;
+use App\Support\Fetch;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 abstract class Controller
 {
@@ -54,6 +55,14 @@ abstract class Controller
 
             return ['items' => $items, 'nextCursor' => $cursor];
         }, $endpoint ?? ['GET', '/'.ltrim($path, '/')]);
+    }
+
+    /** Rows per page chosen in the table toolbar (?per=), within what the API allows. */
+    protected function perPage(Request $request, int $default = 100): int
+    {
+        $n = (int) $request->query('per', $default);
+
+        return in_array($n, [25, 50, 100, 200], true) ? $n : $default;
     }
 
     /** @param  array<string, mixed>  $data */

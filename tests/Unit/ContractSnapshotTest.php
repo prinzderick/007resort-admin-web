@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 
 use App\Auth\Mfa;
-use App\Http\Controllers\ConfigurationController;
 use App\Support\Contract;
 use Tests\TestCase;
 
@@ -18,8 +17,11 @@ class ContractSnapshotTest extends TestCase
     private function pending(): array
     {
         return [
-            implode(' ', ConfigurationController::RULES_WRITE),
-            implode(' ', ConfigurationController::RESOURCE_WRITE),
+            // built on the API's feature/api-config-admin branch, not in the shared contract yet
+            'GET /organization/facility-templates',
+            'GET /organization/capability-types',
+            'GET /organization/rule-definitions',
+            'GET /facilities/{facilityId}/operating-rules',
             implode(' ', Mfa::VERIFY),
         ];
     }

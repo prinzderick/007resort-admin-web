@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\Portal\DashboardData;
+use App\Services\Portal\SetupProgress;
 use App\Support\Contract;
 use App\Support\Fetch;
 use Illuminate\Http\RedirectResponse;
@@ -23,7 +24,7 @@ class ConfigurationController extends Controller
     public const STRATEGIES = ['A_OFFLINE_ALLOCATION' => 'A: offline allocation', 'B_ONLINE_AUTHORITY_REQUIRED' => 'B: online authority required', 'C_DISABLE_ONLINE' => 'C: pause online availability'];
 
     /** The Setup hub: everything an administrator configures, in plain language, plus how far along the setup is. */
-    public function index(\App\Services\Portal\SetupProgress $setup)
+    public function index(SetupProgress $setup)
     {
         return view('pages.setup.index', ['contract' => Contract::version(), 'progress' => $setup->get()]);
     }

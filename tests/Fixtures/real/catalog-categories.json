@@ -55,6 +55,12 @@
             "sortOrder": 90
         },
         {
+            "id": "01a0d0bc-0da0-739d-beca-659742c57f91",
+            "parentId": null,
+            "name": "Admin Test Cat",
+            "sortOrder": 99
+        },
+        {
             "id": "ab7a0907-0d8f-540e-81c9-d75096ab60ff",
             "parentId": null,
             "name": "Hot Drinks",

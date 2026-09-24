@@ -1,12 +1,13 @@
 <x-layouts.app title="Booking rules">
     <x-page-header title="Booking resources & rules" subtitle="Offline-allocation strategy decides what happens to a resource when Local cannot reach Cloud." />
-    <x-card title="Resources" flush>
+    <x-card title="Resources" flush x-data="tableTools">
+        <x-table-tools />
         <x-fetch :of="$resources" what="Booking resources" />
         @if ($resources->ok())
-            <div class="overflow-x-auto"><table class="data-table" data-testid="resources"><thead><tr><th>Resource</th><th>Facility</th><th>Mode</th><th>Capacity</th><th>Slot</th><th class="text-right">Price</th><th>Online</th><th>Booking authority (offline strategy)</th></tr></thead><tbody>
+            <div class="table-scroll"><table class="data-table" data-testid="resources"><thead><tr><th>Resource</th><th>Facility</th><th>Mode</th><th>Capacity</th><th>Slot</th><th class="text-right">Price</th><th>Online</th><th>Booking authority (offline strategy)</th></tr></thead><tbody>
             @forelse ($resources->items() as $r)
                 @php $a = (array) ($r['authority'] ?? []); $strategy = $a['offlineStrategy'] ?? null; @endphp
-                <tr><td class="font-medium">{{ $r['name'] ?? '' }}<div class="text-xs font-normal text-stone-500">{{ $r['code'] ?? '' }}</div></td><td>{{ $facilityNames[$r['facilityId'] ?? ''] ?? '' }}</td><td>{{ str_replace('_', ' ', $r['mode'] ?? '') }}</td><td>{{ $r['capacity'] ?? 1 }}</td><td>{{ $r['slotMinutes'] ?? '-' }} min</td><td class="text-right"><x-money :value="$r['price'] ?? '0'" /></td>
+                <tr data-row><td class="font-medium">{{ $r['name'] ?? '' }}<div class="text-xs font-normal text-stone-500">{{ $r['code'] ?? '' }}</div></td><td>{{ $facilityNames[$r['facilityId'] ?? ''] ?? '' }}</td><td>{{ str_replace('_', ' ', $r['mode'] ?? '') }}</td><td>{{ $r['capacity'] ?? 1 }}</td><td>{{ $r['slotMinutes'] ?? '-' }} min</td><td class="text-right"><x-money :value="$r['price'] ?? '0'" /></td>
                     <td>{{ ($r['onlineBookable'] ?? false) ? 'Yes' : 'No' }}</td>
                     <td>
                         @if ($canWrite && ! empty($r['id']))

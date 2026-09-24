@@ -23,6 +23,26 @@
             "rowVersion": 1
         },
         {
+            "id": "01a0d0bc-0fa7-722d-a52d-6ac482b2ed01",
+            "sku": "ADM-TEST-1",
+            "name": "Admin Test Snack 2",
+            "categoryId": "01a0d0bc-0da0-739d-beca-659742c57f91",
+            "kind": "RETAIL",
+            "commercialKind": "GOOD",
+            "price": "1750.5000",
+            "currency": "NGN",
+            "taxInclusive": false,
+            "taxRatePercent": "0",
+            "taxAmount": "0.0000",
+            "prepRoute": {
+                "kind": "NONE"
+            },
+            "trackStock": false,
+            "active": true,
+            "imageUrl": null,
+            "rowVersion": 3
+        },
+        {
             "id": "04dd7cd6-f5e3-5faf-b2a9-0d65b509155f",
             "sku": "FD-MOIMOI",
             "name": "Moi Moi",

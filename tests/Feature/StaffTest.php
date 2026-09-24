@@ -27,7 +27,7 @@ class StaffTest extends TestCase
             'GET /organization/site' => ['id' => 'site-1', 'name' => '007'],
             'GET /devices' => F::page([['id' => 'd1', 'name' => 'POS-01', 'kind' => 'POS_TERMINAL', 'status' => 'ACTIVE', 'checkout' => ['staffId' => F::STAFF, 'facilityId' => F::FAC, 'checkedOutAt' => '2026-09-23T07:00:00.000000Z', 'checkedInAt' => null]],
                 ['id' => 'd2', 'name' => 'POS-02', 'kind' => 'POS_TERMINAL', 'status' => 'ACTIVE', 'checkout' => ['staffId' => 'someone-else', 'facilityId' => F::FAC, 'checkedOutAt' => '2026-09-23T07:00:00.000000Z', 'checkedInAt' => null]]]),
-            'GET /audit' => F::page([['id' => 'au1', 'seq' => 7, 'occurredAt' => '2026-09-23T08:00:00.000000Z', 'actorName' => 'Ngozi', 'action' => 'staff.update', 'entityType' => 'staff', 'entityId' => F::STAFF, 'before' => ['status' => 'ACTIVE'], 'after' => ['status' => 'SUSPENDED'], 'hash' => 'abc']]),
+            'GET /audit' => F::page([['id' => 'au1', 'seq' => 7, 'occurredAt' => '2026-09-23T08:00:00.000000Z', 'actorName' => 'Ngozi', 'action' => 'staff.update', 'entityType' => 'staff', 'entityId' => F::STAFF, 'oldValue' => ['status' => 'ACTIVE'], 'newValue' => ['status' => 'SUSPENDED'], 'hash' => 'abc']]),
         ]);
     }
 
@@ -141,13 +141,13 @@ class StaffTest extends TestCase
     public function test_audit_trail_viewer_with_filters(): void
     {
         $this->api();
-        $this->signIn(self::PERMS)->get('/staff/audit?action=staff&entityType=staff&from=2026-09-01')->assertOk()->assertSee('staff.update')->assertSee('Ngozi')->assertSee('SUSPENDED');
+        $this->signIn(self::PERMS)->get('/system/audit?action=staff&entityType=staff&from=2026-09-01')->assertOk()->assertSee('staff.update')->assertSee('SUSPENDED');
         $this->assertTrue($this->sentTo('GET', '/audit', fn (Request $r) => str_contains($r->url(), 'action=staff') && str_contains($r->url(), 'entityType=staff')));
     }
 
     public function test_audit_needs_its_permission(): void
     {
         $this->api();
-        $this->signIn(['staff.manage'])->get('/staff/audit')->assertForbidden();
+        $this->signIn(['staff.manage'])->get('/system/audit')->assertForbidden();
     }
 }

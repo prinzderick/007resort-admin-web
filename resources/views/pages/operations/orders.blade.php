@@ -9,8 +9,8 @@
         </x-table-tools>
         <x-fetch :of="$orders" what="Orders" />
         @if ($orders->ok())
-            <div class="overflow-x-auto"><table class="data-table" data-testid="orders-table">
-                <thead><tr><th @click="sort(0)" data-sort>Order</th><th @click="sort(1)" data-sort>Facility</th><th>Table</th><th @click="sort(3)" data-sort>Status</th><th class="text-right">Lines</th><th class="text-right" @click="sort(5, true)" data-sort>Total</th><th class="text-right">Balance due</th><th @click="sort(7)" data-sort>Created</th><th></th></tr></thead>
+            <div class="table-scroll"><table class="data-table" data-testid="orders-table">
+                <thead><tr><th data-sort>Order</th><th data-sort>Facility</th><th>Table</th><th data-sort>Status</th><th class="text-right">Lines</th><th class="text-right" data-sort>Total</th><th class="text-right">Balance due</th><th data-sort>Created</th><th></th></tr></thead>
                 <tbody x-ref="body">
                 @forelse ($orders->items() as $o)
                     <tr data-row><td class="font-medium">{{ $o['number'] ?? '' }}</td><td>{{ $facilityNames[$o['facilityId'] ?? ''] ?? '' }}</td><td>{{ $o['tableLabel'] ?? '-' }}</td><td><x-badge :status="$o['status'] ?? 'UNKNOWN'" /></td><td class="text-right tabular-nums">{{ $o['lineCount'] ?? 0 }}</td>
@@ -18,7 +18,7 @@
                         <td class="text-right">@if (! empty($o['id']))<x-detail :title="'Order '.($o['number'] ?? '')" :href="route('orders.show', $o['id'])" link-label="Open order" :fields="[['Status', $o['status'] ?? ''], ['Facility', $facilityNames[$o['facilityId'] ?? ''] ?? ''], ['Table', $o['tableLabel'] ?? '-'], ['Lines', $o['lineCount'] ?? 0], ['Total', \App\Support\Money::format($o['total'] ?? '0')], ['Balance due', \App\Support\Money::format($o['balanceDue'] ?? '0')], ['Created', \App\Support\Time::format($o['createdAt'] ?? null)]]" />@endif</td></tr>
                 @empty<tr><td colspan="9"><x-empty title="No orders match" text="Try another facility or status. Orders appear here as soon as a waiter or cashier starts one." icon="cart" /></td></tr>@endforelse
                 </tbody></table></div>
-            @if ($orders->next())<div class="border-t border-stone-100 p-3"><x-btn variant="secondary" :href="request()->fullUrlWithQuery(['cursor' => $orders->next()])">Older orders</x-btn></div>@endif
+            <x-pagination :count="count($orders->items())" :next="$orders->next()" />
         @endif
     </x-card>
 </x-layouts.app>

@@ -6,7 +6,7 @@
         <x-table-tools placeholder="Filter this page (item, store...)" />
         <x-fetch :of="$moves" what="Transfers" />
         @if ($moves->ok())
-            <div class="overflow-x-auto"><table class="data-table" data-testid="transfers-table"><thead><tr><th @click="sort(0)" data-sort>When</th><th>From</th><th>To</th><th>Items</th><th>By</th></tr></thead><tbody x-ref="body">
+            <div class="table-scroll"><table class="data-table" data-testid="transfers-table"><thead><tr><th data-sort>When</th><th>From</th><th>To</th><th>Items</th><th>By</th></tr></thead><tbody x-ref="body">
             @forelse ($docs as $d)
                 <tr data-row><td data-sort="{{ $d['at'] ?? '' }}"><x-time :at="$d['at'] ?? null" /></td><td>{{ $locNames[$d['from'] ?? ''] ?? '' }}</td><td>{{ $locNames[$d['to'] ?? ''] ?? '' }}</td>
                     <td class="text-xs">@foreach ($d['lines'] ?? [] as $l){{ $itemNames[$l['item'] ?? ''] ?? '' }}: <b>{{ $l['qty'] }}</b><br>@endforeach</td>

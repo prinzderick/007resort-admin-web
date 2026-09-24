@@ -1,2 +1,3 @@
 @props(['value', 'currency' => 'NGN'])
-<span class="tabular-nums">{{ \App\Support\Money::format($value, $currency) }}</span>
+@php $neg = str_starts_with(trim((string) $value), '-') && \App\Support\Money::cmp($value, '0') < 0; @endphp
+<span {{ $attributes->merge(['class' => 'tabular-nums whitespace-nowrap'.($neg ? ' text-red-700' : '')]) }}>{{ \App\Support\Money::format($value, $currency) }}</span>

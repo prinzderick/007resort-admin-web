@@ -9,15 +9,17 @@
     </form>
     <x-fetch :of="$payments" what="Payments" />
     @if ($payments->ok())
-        <x-card title="Captured by method" flush><div class="overflow-x-auto"><table class="data-table" data-testid="recon-methods"><thead><tr><th>Method</th><th class="text-right">Payments</th><th class="text-right">Captured</th><th class="text-right">Refunded</th><th class="text-right">Net</th></tr></thead><tbody>
-            @forelse ($byMethod as $m => $v)<tr><td>{{ str_replace('_', ' ', $m) }}</td><td class="text-right">{{ $v['count'] }}</td><td class="text-right"><x-money :value="$v['captured']" /></td><td class="text-right"><x-money :value="$v['refunded']" /></td><td class="text-right"><x-money :value="\App\Support\Money::sub($v['captured'], $v['refunded'])" /></td></tr>@empty<tr><td colspan="5" class="text-center text-stone-500">No payments in range.</td></tr>@endforelse
+        <x-card title="Captured by method" flush x-data="tableTools">
+        <x-table-tools /><div class="table-scroll"><table class="data-table" data-testid="recon-methods"><thead><tr><th>Method</th><th class="text-right">Payments</th><th class="text-right">Captured</th><th class="text-right">Refunded</th><th class="text-right">Net</th></tr></thead><tbody>
+            @forelse ($byMethod as $m => $v)<tr data-row><td>{{ str_replace('_', ' ', $m) }}</td><td class="text-right">{{ $v['count'] }}</td><td class="text-right"><x-money :value="$v['captured']" /></td><td class="text-right"><x-money :value="$v['refunded']" /></td><td class="text-right"><x-money :value="\App\Support\Money::sub($v['captured'], $v['refunded'])" /></td></tr>@empty<tr><td colspan="5" class="text-center text-stone-500">No payments in range.</td></tr>@endforelse
         </tbody></table></div></x-card>
 
-        <x-card title="Provider transactions to match" flush>
+        <x-card title="Provider transactions to match" flush x-data="tableTools">
+        <x-table-tools />
             @if ($unsettled !== [])<div class="border-b border-amber-300 bg-amber-50 px-4 py-2 text-sm text-amber-950" data-testid="unsettled">{{ count($unsettled) }} provider payment(s) are not captured. Verify them against the provider before closing the day.</div>@endif
-            <div class="overflow-x-auto"><table class="data-table"><thead><tr><th>Reference</th><th>Provider</th><th>Status</th><th class="text-right">Amount</th><th></th></tr></thead><tbody>
+            <div class="table-scroll"><table class="data-table"><thead><tr><th>Reference</th><th>Provider</th><th>Status</th><th class="text-right">Amount</th><th></th></tr></thead><tbody>
             @forelse ($provider as $p)
-                <tr><td class="text-xs">{{ $p['providerReference'] ?? '' }}</td><td>{{ $p['provider'] ?? '' }}</td><td><x-badge :status="$p['status'] ?? 'UNKNOWN'" /></td><td class="text-right"><x-money :value="$p['amount'] ?? '0'" /></td>
+                <tr data-row><td class="text-xs">{{ $p['providerReference'] ?? '' }}</td><td>{{ $p['provider'] ?? '' }}</td><td><x-badge :status="$p['status'] ?? 'UNKNOWN'" /></td><td class="text-right"><x-money :value="$p['amount'] ?? '0'" /></td>
                     <td><form method="POST" action="{{ route('finance.paystack-verify') }}">@csrf<input type="hidden" name="reference" value="{{ $p['providerReference'] ?? '' }}"><button class="min-h-10 rounded-lg border border-stone-300 px-3 text-sm hover:bg-stone-50">Verify with Paystack</button></form></td></tr>
             @empty<tr><td colspan="5" class="text-center text-stone-500">No provider payments.</td></tr>@endforelse
             </tbody></table></div>

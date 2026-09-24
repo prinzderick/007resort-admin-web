@@ -1,0 +1,94 @@
+{
+ "items": [
+  {
+   "key": "payment_timing",
+   "label": "Payment timing",
+   "description": "When customers pay.",
+   "group": "Payments & cash",
+   "type": "enum",
+   "capability": "POS",
+   "capabilities": [
+    "POS"
+   ],
+   "default": "PAY_AFTER_SERVICE",
+   "unit": null,
+   "allowed": [
+    {
+     "value": "PAY_AFTER_SERVICE",
+     "label": "Pay after service"
+    },
+    {
+     "value": "PAY_FIRST",
+     "label": "Pay first"
+    }
+   ],
+   "min": null,
+   "max": null,
+   "integer": false,
+   "dangerLevel": "medium",
+   "enforcement": "server",
+   "name": "paymentTiming"
+  },
+  {
+   "key": "require_cash_session",
+   "label": "Require an open cash session",
+   "description": "Cash needs an open drawer session.",
+   "group": "Payments & cash",
+   "type": "bool",
+   "capability": "PAYMENT_ACCEPTANCE",
+   "capabilities": [
+    "PAYMENT_ACCEPTANCE"
+   ],
+   "default": true,
+   "unit": null,
+   "allowed": null,
+   "min": null,
+   "max": null,
+   "integer": false,
+   "dangerLevel": "high",
+   "enforcement": "server",
+   "name": "requireCashSession"
+  },
+  {
+   "key": "approval_threshold_amount",
+   "label": "Approval threshold",
+   "description": "Above this needs a supervisor.",
+   "group": "Approvals",
+   "type": "money",
+   "capability": "POS",
+   "capabilities": [
+    "POS"
+   ],
+   "default": "0.0000",
+   "unit": "NGN",
+   "allowed": null,
+   "min": null,
+   "max": null,
+   "integer": false,
+   "dangerLevel": "high",
+   "enforcement": "server",
+   "name": "approvalThresholdAmount"
+  },
+  {
+   "key": "hold_ttl_seconds",
+   "label": "Hold time",
+   "description": "Slot hold.",
+   "group": "Booking",
+   "type": "duration",
+   "capability": "BOOKING",
+   "capabilities": [
+    "BOOKING"
+   ],
+   "default": 600,
+   "unit": "seconds",
+   "allowed": null,
+   "min": 30,
+   "max": 86400,
+   "integer": true,
+   "dangerLevel": "medium",
+   "enforcement": "server",
+   "name": "holdTtlSeconds"
+  }
+ ],
+ "nextCursor": null
+}

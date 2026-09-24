@@ -11,8 +11,8 @@
         </x-table-tools>
         <x-fetch :of="$sessions" what="Cash sessions" />
         @if ($sessions->ok())
-            <div class="overflow-x-auto"><table class="data-table" data-testid="sessions-table">
-                <thead><tr><th @click="sort(0)" data-sort>Opened</th><th>Facility</th><th>Cashier</th><th>Status</th><th class="text-right">Float</th><th class="text-right" @click="sort(5, true)" data-sort>Expected cash</th><th class="text-right">Counted</th><th class="text-right" @click="sort(7, true)" data-sort>Variance</th><th></th></tr></thead>
+            <div class="table-scroll"><table class="data-table" data-testid="sessions-table">
+                <thead><tr><th data-sort>Opened</th><th>Facility</th><th>Cashier</th><th>Status</th><th class="text-right">Float</th><th class="text-right" data-sort>Expected cash</th><th class="text-right">Counted</th><th class="text-right" data-sort>Variance</th><th></th></tr></thead>
                 <tbody x-ref="body">
                 @forelse ($items as $c)
                     @php $v = $c['variance'] ?? null; $short = $v !== null && \App\Support\Money::cmp($v, '0') !== 0; @endphp
@@ -23,7 +23,7 @@
                         <td>@if (! empty($c['id']))<a class="underline" href="{{ route('reports.shift', $c['id']) }}">Shift report</a>@endif</td></tr>
                 @empty<tr><td colspan="9"><x-empty title="No cash sessions in this period" text="A session opens when a cashier starts a shift on a POS or tablet." icon="cash" /></td></tr>@endforelse
                 </tbody></table></div>
-            @if ($sessions->next())<div class="border-t border-stone-100 p-3"><x-btn variant="secondary" :href="request()->fullUrlWithQuery(['cursor' => $sessions->next()])">Older sessions</x-btn></div>@endif
+            <x-pagination :count="count($sessions->items())" :next="$sessions->next()" />
         @endif
     </x-card>
 </x-layouts.app>

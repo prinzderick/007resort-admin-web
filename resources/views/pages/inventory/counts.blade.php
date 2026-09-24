@@ -8,13 +8,13 @@
     <x-card flush>
         <x-fetch :of="$counts" what="Stock counts" />
         @if ($counts->ok())
-            <div class="overflow-x-auto"><table class="data-table" data-testid="counts-table"><thead><tr><th>Created</th><th>Location</th><th>Lines</th><th>Status</th><th>Posted</th><th></th></tr></thead><tbody>
+            <div class="table-scroll"><table class="data-table" data-testid="counts-table"><thead><tr><th>Created</th><th>Location</th><th>Lines</th><th>Status</th><th>Posted</th><th></th></tr></thead><tbody>
             @forelse ($counts->items() as $c)
                 <tr><td><x-time :at="$c['createdAt'] ?? null" /></td><td>{{ $locNames[$c['locationId'] ?? ''] ?? '' }}</td><td>{{ count($c['lines'] ?? []) }}</td><td><x-badge :status="$c['status'] ?? 'UNKNOWN'" /></td><td><x-time :at="$c['postedAt'] ?? null" /></td>
                     <td>@if (! empty($c['id']))<a class="underline" href="{{ route('inventory.count.show', $c['id']) }}">Open</a>@endif</td></tr>
             @empty<tr><td colspan="6" class="text-center text-stone-500">No counts yet.</td></tr>@endforelse
             </tbody></table></div>
-            @if ($counts->next())<div class="p-3"><x-btn variant="secondary" :href="request()->fullUrlWithQuery(['cursor' => $counts->next()])">Older counts</x-btn></div>@endif
+            <x-pagination :count="count($counts->items())" :next="$counts->next()" />
         @endif
     </x-card>
 </x-layouts.app>

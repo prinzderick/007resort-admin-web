@@ -42,10 +42,10 @@ class MockModeSmokeTest extends TestCase
 
         $paths = [
             '/', '/approvals', '/reports', '/reports/facility/0192f6a0-7b1c-7d2e-9a3b-000000000101', '/reports/shift/0192f6a0-7b1c-7d2e-9a3b-000000000700',
-            '/finance/payments', '/finance/payments/0192f6a0-7b1c-7d2e-9a3b-000000000800', '/finance/reconciliation',
+            '/finance/payments', '/finance/payments/0192f6a0-7b1c-7d2e-9a3b-000000000800', '/finance/settlements', '/finance/refunds', '/finance/cash-sessions', '/operations/orders', '/people/roles',
             '/inventory', '/inventory/receive', '/inventory/transfer', '/inventory/adjust', '/inventory/wastage', '/inventory/count',
-            '/staff', '/staff/0192f6a0-7b1c-7d2e-9a3b-000000000201', '/staff/attendance', '/staff/audit',
-            '/config', '/config/facilities?facility=0192f6a0-7b1c-7d2e-9a3b-000000000101', '/config/catalog', '/config/tax', '/config/memberships', '/config/bookings', '/config/tickets', '/config/kds', '/config/payments',
+            '/staff', '/staff/0192f6a0-7b1c-7d2e-9a3b-000000000201', '/staff/attendance', '/system/audit',
+            '/setup', '/setup/facilities', '/setup/facilities/0192f6a0-7b1c-7d2e-9a3b-000000000101', '/setup/catalog', '/setup/business', '/setup/memberships', '/setup/bookings', '/setup/tickets', '/setup/kds', '/setup/payments',
             '/devices', '/sync',
         ];
         foreach ($paths as $p) {
@@ -56,7 +56,7 @@ class MockModeSmokeTest extends TestCase
     public function test_cashier_sees_a_reduced_portal(): void
     {
         $this->login('cashier');
-        $this->get('/')->assertOk()->assertDontSee('Finance')->assertDontSee('Sync &amp; IT', false);
+        $this->get('/')->assertOk()->assertDontSee('Sync &amp; IT', false)->assertDontSee('Business &amp; receipts', false)->assertDontSee('Membership plans');
         $this->get('/finance/payments')->assertForbidden();
         $this->get('/sync')->assertForbidden();
     }
@@ -65,13 +65,13 @@ class MockModeSmokeTest extends TestCase
     {
         config(['r007.mock_scenario' => 'offline']);
         $this->login();
-        $this->get('/')->assertOk()->assertSee('SITE OFFLINE')->assertDontSee('>LIVE<', false);
+        $this->get('/')->assertOk()->assertSee('data-level="offline"', false)->assertDontSee('data-level="live"', false);
     }
 
     public function test_stale_scenario_is_flagged(): void
     {
         config(['r007.mock_scenario' => 'stale', 'r007.instance' => 'cloud']);
         $this->login();
-        $this->get('/')->assertOk()->assertSee('STALE DATA');
+        $this->get('/')->assertOk()->assertSee('data-level="stale"', false);
     }
 }

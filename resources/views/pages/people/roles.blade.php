@@ -4,7 +4,7 @@
     @if ($roles->ok())
         @php $rs = collect($roles->items()); @endphp
         <x-card title="Permission matrix" subtitle="Number of permissions each role holds in each area" flush>
-            <div class="overflow-x-auto"><table class="data-table" data-testid="role-matrix">
+            <div class="table-scroll"><table class="data-table" data-testid="role-matrix">
                 <thead><tr><th>Area</th>@foreach ($rs as $r)<th class="text-center" title="{{ $r['description'] ?? '' }}">{{ $r['name'] ?? $r['code'] ?? '' }}</th>@endforeach</tr></thead>
                 <tbody>
                 @foreach ($groups as $area => $codes)

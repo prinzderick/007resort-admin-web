@@ -7,7 +7,6 @@ use App\Services\Portal\Directory;
 use App\Support\Csv;
 use App\Support\DateRange;
 use App\Support\Fetch;
-use App\Support\Money;
 use Carbon\CarbonImmutable;
 use Illuminate\Http\Request;
 
@@ -22,7 +21,7 @@ class OperationsController extends Controller
         $tree = Fetch::of(fn () => $this->api->get('organization/facilities'), ['GET', '/organization/facilities']);
         $facilityId = $request->query('facility');
         $status = $request->query('status');
-        $orders = Fetch::of(fn () => $this->api->get('orders', ['limit' => 100, 'cursor' => $request->query('cursor'), 'filter[facilityId]' => $facilityId, 'filter[status]' => $status]), ['GET', '/orders']);
+        $orders = Fetch::of(fn () => $this->api->get('orders', ['limit' => $this->perPage($request), 'cursor' => $request->query('cursor'), 'filter[facilityId]' => $facilityId, 'filter[status]' => $status]), ['GET', '/orders']);
         $names = $this->facilityNames($dash, $tree);
 
         if ($request->query('format') === 'csv') {
@@ -66,7 +65,7 @@ class OperationsController extends Controller
         // Bookings are filtered by start time; the picker covers the past AND the coming month so upcoming ones show.
         $from = CarbonImmutable::parse($range->from, 'Africa/Lagos')->startOfDay()->utc();
         $to = CarbonImmutable::parse($range->to, 'Africa/Lagos')->addDays(31)->startOfDay()->utc();
-        $q = ['limit' => 100, 'cursor' => $request->query('cursor'), 'q' => $request->query('q'), 'filter[facilityId]' => $facilityId, 'filter[status]' => $status,
+        $q = ['limit' => $this->perPage($request), 'cursor' => $request->query('cursor'), 'q' => $request->query('q'), 'filter[facilityId]' => $facilityId, 'filter[status]' => $status,
             'filter[from]' => $from->toIso8601ZuluString(), 'filter[to]' => $to->toIso8601ZuluString()];
         $bookings = Fetch::of(fn () => $this->api->get('bookings', $q), ['GET', '/bookings']);
         $names = $this->facilityNames($dash, $tree);
@@ -83,7 +82,7 @@ class OperationsController extends Controller
     public function tickets(Request $request, DashboardData $dash)
     {
         $tree = Fetch::of(fn () => $this->api->get('organization/facilities'), ['GET', '/organization/facilities']);
-        $entitlements = Fetch::of(fn () => $this->api->get('entitlements', ['limit' => 100, 'cursor' => $request->query('cursor')]), ['GET', '/entitlements']);
+        $entitlements = Fetch::of(fn () => $this->api->get('entitlements', ['limit' => $this->perPage($request), 'cursor' => $request->query('cursor')]), ['GET', '/entitlements']);
         $items = array_map(function ($e) {
             unset($e['qrToken']);
 
@@ -99,7 +98,7 @@ class OperationsController extends Controller
     {
         $status = $request->query('status');
         $q = $request->query('q');
-        $members = Fetch::of(fn () => $this->api->get('memberships', ['limit' => 100, 'cursor' => $request->query('cursor'), 'q' => $q, 'filter[status]' => $status]), ['GET', '/memberships']);
+        $members = Fetch::of(fn () => $this->api->get('memberships', ['limit' => $this->perPage($request), 'cursor' => $request->query('cursor'), 'q' => $q, 'filter[status]' => $status]), ['GET', '/memberships']);
         $range = DateRange::fromRequest($request, '30d');
         $summary = $this->staff->canAny('report.view', 'report.view.all')
             ? Fetch::of(fn () => $this->api->get('reports/membership-summary', ['from' => $range->from, 'to' => $range->to]), ['GET', '/reports/membership-summary'])

@@ -8,7 +8,7 @@
     <x-card flush>
         <x-fetch :of="$adjustments" what="Adjustments" />
         @if ($adjustments->ok())
-            <div class="overflow-x-auto"><table class="data-table" data-testid="adjustments-table"><thead><tr><th>Requested</th><th>Location</th><th>Kind</th><th>Lines</th><th>Reason</th><th>Status</th></tr></thead><tbody>
+            <div class="table-scroll"><table class="data-table" data-testid="adjustments-table"><thead><tr><th>Requested</th><th>Location</th><th>Kind</th><th>Lines</th><th>Reason</th><th>Status</th></tr></thead><tbody>
             @forelse ($adjustments->items() as $a)
                 <tr><td><x-time :at="$a['createdAt'] ?? null" /></td><td>{{ $locNames[$a['locationId'] ?? ''] ?? '' }}</td><td>{{ str_replace('_', ' ', $a['kind'] ?? '') }}</td>
                     <td class="text-xs">@foreach ($a['lines'] ?? [] as $l){{ $itemNames[$l['itemId'] ?? ''] ?? '' }}: <b>{{ $l['quantityDelta'] ?? '' }}</b><br>@endforeach</td>
@@ -16,7 +16,7 @@
                     <td><x-badge :status="$a['status'] ?? 'UNKNOWN'" /></td></tr>
             @empty<tr><td colspan="6" class="text-center text-stone-500">No adjustments.</td></tr>@endforelse
             </tbody></table></div>
-            @if ($adjustments->next())<div class="p-3"><x-btn variant="secondary" :href="request()->fullUrlWithQuery(['cursor' => $adjustments->next()])">Older</x-btn></div>@endif
+            <x-pagination :count="count($adjustments->items())" :next="$adjustments->next()" />
         @endif
     </x-card>
 </x-layouts.app>

@@ -52,7 +52,7 @@
             </x-slot:aside>
             <x-fetch :of="$outbox" what="Outbox" />
             @if ($outbox->ok())
-            <div class="overflow-x-auto"><table class="data-table">
+            <div class="table-scroll"><table class="data-table">
                 <thead><tr><th>#</th><th>Event</th><th>Status</th><th>Retries</th><th>Last error</th><th>Created</th><th></th></tr></thead>
                 <tbody>
                 @forelse ($outbox->items() as $e)
@@ -77,7 +77,7 @@
             </x-slot:aside>
             <x-fetch :of="$inbox" what="Inbox" />
             @if ($inbox->ok())
-            <div class="overflow-x-auto"><table class="data-table">
+            <div class="table-scroll"><table class="data-table">
                 <thead><tr><th>Event</th><th>From</th><th>Result</th><th>Attempts</th><th>Received</th><th>Last error</th><th></th></tr></thead>
                 <tbody>
                 @forelse ($inbox->items() as $e)

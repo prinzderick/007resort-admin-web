@@ -12,7 +12,7 @@
             <x-stat label="Balance due" :value="\App\Support\Money::format($o['balanceDue'] ?? '0')" :tone="\App\Support\Money::cmp($o['balanceDue'] ?? '0', '0') > 0 ? 'warn' : 'default'" />
         </div>
         <x-card title="Lines" flush>
-            <div class="overflow-x-auto"><table class="data-table"><thead><tr><th>Item</th><th class="text-right">Qty</th><th class="text-right">Unit price</th><th class="text-right">Line total</th><th>Status</th><th>Adjustments</th></tr></thead><tbody>
+            <div class="table-scroll"><table class="data-table"><thead><tr><th>Item</th><th class="text-right">Qty</th><th class="text-right">Unit price</th><th class="text-right">Line total</th><th>Status</th><th>Adjustments</th></tr></thead><tbody>
             @forelse ($o['lines'] ?? [] as $l)
                 <tr><td>{{ $l['name'] ?? '' }}@if (! empty($l['notes']))<div class="text-xs text-stone-500">{{ $l['notes'] }}</div>@endif</td><td class="text-right">{{ $l['quantity'] ?? '' }}</td><td class="text-right"><x-money :value="$l['unitPrice'] ?? '0'" /></td><td class="text-right"><x-money :value="$l['lineTotal'] ?? '0'" /></td><td><x-badge :status="$l['status'] ?? 'UNKNOWN'" /></td>
                     <td class="text-xs">@foreach ($l['adjustments'] ?? [] as $a){{ is_array($a) ? ($a['kind'] ?? '').' '.($a['value'] ?? $a['amount'] ?? '') : $a }}<br>@endforeach</td></tr>
@@ -29,7 +29,7 @@
             <x-card title="Payments on this order" flush>
                 <x-fetch :of="$payments" what="Payments" />
                 @if ($payments->ok())
-                    <div class="overflow-x-auto"><table class="data-table"><thead><tr><th>When</th><th>Method</th><th>Status</th><th class="text-right">Amount</th><th></th></tr></thead><tbody>
+                    <div class="table-scroll"><table class="data-table"><thead><tr><th>When</th><th>Method</th><th>Status</th><th class="text-right">Amount</th><th></th></tr></thead><tbody>
                     @forelse ($payments->items() as $p)<tr><td><x-time :at="$p['createdAt'] ?? null" /></td><td>{{ str_replace('_', ' ', $p['tenderType'] ?? '') }}</td><td><x-badge :status="$p['status'] ?? 'UNKNOWN'" /></td><td class="text-right"><x-money :value="$p['amount'] ?? '0'" /></td><td>@if (! empty($p['id']))<a class="underline" href="{{ route('finance.payment', $p['id']) }}">Open</a>@endif</td></tr>@empty<tr><td colspan="5" class="text-center text-stone-500">No payments yet.</td></tr>@endforelse
                     </tbody></table></div>
                 @endif

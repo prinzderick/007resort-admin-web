@@ -12,8 +12,8 @@
         </x-table-tools>
         <x-fetch :of="$bookings" what="Bookings" />
         @if ($bookings->ok())
-            <div class="overflow-x-auto"><table class="data-table" data-testid="bookings-table">
-                <thead><tr><th @click="sort(0)" data-sort>Booking</th><th @click="sort(1)" data-sort>Resource</th><th>Facility</th><th @click="sort(3)" data-sort>Starts</th><th>Customer</th><th>Status</th><th class="text-right">Total</th><th class="text-right">Paid</th><th></th></tr></thead>
+            <div class="table-scroll"><table class="data-table" data-testid="bookings-table">
+                <thead><tr><th data-sort>Booking</th><th data-sort>Resource</th><th>Facility</th><th data-sort>Starts</th><th>Customer</th><th>Status</th><th class="text-right">Total</th><th class="text-right">Paid</th><th></th></tr></thead>
                 <tbody x-ref="body">
                 @forelse ($bookings->items() as $b)
                     <tr data-row><td class="font-medium">{{ $b['number'] ?? '' }}</td><td>{{ $b['resourceName'] ?? '' }}@if (($b['quantity'] ?? 1) > 1) <span class="text-xs text-stone-500">x{{ $b['quantity'] }}</span>@endif</td><td>{{ $facilityNames[$b['facilityId'] ?? ''] ?? '' }}</td>
@@ -22,7 +22,7 @@
                         <td class="text-right"><x-detail :title="'Booking '.($b['number'] ?? '')" :fields="[['Resource', $b['resourceName'] ?? ''], ['Facility', $facilityNames[$b['facilityId'] ?? ''] ?? ''], ['Starts', \App\Support\Time::format($b['start'] ?? null)], ['Ends', \App\Support\Time::format($b['end'] ?? null)], ['Status', $b['status'] ?? ''], ['Customer', $b['customer']['name'] ?? '-'], ['Phone', $b['customer']['phone'] ?? '-'], ['Total', \App\Support\Money::format($b['total'] ?? '0')], ['Paid', \App\Support\Money::format($b['amountPaid'] ?? '0')], ['Source', $b['source'] ?? ''], ['Cancellation fee', \App\Support\Money::format($b['cancellationFee'] ?? '0')]]" /></td></tr>
                 @empty<tr><td colspan="9"><x-empty title="No bookings in this period" text="Widen the date range or clear the filters." icon="calendar" /></td></tr>@endforelse
                 </tbody></table></div>
-            @if ($bookings->next())<div class="border-t border-stone-100 p-3"><x-btn variant="secondary" :href="request()->fullUrlWithQuery(['cursor' => $bookings->next()])">Next page</x-btn></div>@endif
+            <x-pagination :count="count($bookings->items())" :next="$bookings->next()" />
         @endif
     </x-card>
 </x-layouts.app>

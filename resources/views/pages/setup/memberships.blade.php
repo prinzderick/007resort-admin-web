@@ -1,12 +1,13 @@
 @php $canEdit = auth_staff()->can('membership.plan.manage'); @endphp
 <x-layouts.app title="Membership plans">
     <x-page-header title="Membership plans" />
-    <x-card title="Plans" flush>
+    <x-card title="Plans" flush x-data="tableTools">
+        <x-table-tools />
         <x-fetch :of="$plans" what="Plans" />
         @if ($plans->ok())
-            <div class="overflow-x-auto"><table class="data-table" data-testid="plans"><thead><tr><th>Plan</th><th>Duration</th><th class="text-right">Price</th><th>Visits</th><th>Scope</th><th>Status</th><th></th></tr></thead><tbody>
+            <div class="table-scroll"><table class="data-table" data-testid="plans"><thead><tr><th>Plan</th><th>Duration</th><th class="text-right">Price</th><th>Visits</th><th>Scope</th><th>Status</th><th></th></tr></thead><tbody>
             @forelse ($plans->items() as $p)
-                <tr><td class="font-medium">{{ $p['name'] ?? '' }}<div class="text-xs font-normal text-stone-500">{{ $p['code'] ?? '' }}@if (! empty($p['memberDiscountPercent']) && $p['memberDiscountPercent'] !== '0.00') &middot; {{ $p['memberDiscountPercent'] }}% member discount @endif</div></td><td>{{ $p['durationDays'] ?? '' }} days</td><td class="text-right"><x-money :value="$p['price'] ?? '0'" /></td><td>{{ $p['visitLimit'] ?? 'Unlimited' }}</td>
+                <tr data-row><td class="font-medium">{{ $p['name'] ?? '' }}<div class="text-xs font-normal text-stone-500">{{ $p['code'] ?? '' }}@if (! empty($p['memberDiscountPercent']) && $p['memberDiscountPercent'] !== '0.00') &middot; {{ $p['memberDiscountPercent'] }}% member discount @endif</div></td><td>{{ $p['durationDays'] ?? '' }} days</td><td class="text-right"><x-money :value="$p['price'] ?? '0'" /></td><td>{{ $p['visitLimit'] ?? 'Unlimited' }}</td>
                     <td>{{ ($p['propertyWide'] ?? empty($p['facilityIds'])) ? 'Whole property' : count($p['facilityIds'] ?? []).' facility(ies)' }}</td><td><x-badge :tone="($p['active'] ?? true) ? 'good' : 'default'">{{ ($p['active'] ?? true) ? 'Active' : 'Inactive' }}</x-badge></td>
                     <td>@if ($canEdit && ! empty($p['id']))<a class="underline" href="{{ route('setup.memberships', ['edit' => $p['id']]) }}#plan-form">Edit</a>@endif</td></tr>
             @empty<tr><td colspan="7" class="text-center text-stone-500">No plans.</td></tr>@endforelse

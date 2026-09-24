@@ -22,8 +22,8 @@ class InventoryTest extends TestCase
         $this->fakeApi($o + [
             'GET /inventory/items' => F::page([['id' => self::ITEM, 'sku' => 'B1', 'name' => 'Star Lager', 'unit' => 'bottle', 'reorderLevel' => '48']]),
             'GET /inventory/locations' => F::page([['id' => self::LOC, 'name' => 'Main Store', 'kind' => 'MAIN_STORE'], ['id' => self::LOC2, 'name' => 'Pool Bar Store', 'kind' => 'BAR']]),
-            'GET /inventory/balances' => F::page([['itemId' => self::ITEM, 'itemName' => 'Star Lager', 'locationId' => self::LOC, 'quantity' => '240', 'unit' => 'bottle', 'updatedAt' => '2026-09-23T08:00:00.000000Z'],
-                ['itemId' => self::ITEM, 'itemName' => 'Star Lager', 'locationId' => self::LOC2, 'quantity' => '30.5000', 'unit' => 'bottle', 'updatedAt' => '2026-09-23T08:00:00.000000Z']]),
+            'GET /inventory/balances' => F::page([['itemId' => self::ITEM, 'itemName' => 'Star Lager', 'locationId' => self::LOC, 'quantity' => '240', 'unit' => 'bottle', 'reorderLevel' => '48.0000', 'belowReorder' => false, 'updatedAt' => '2026-09-23T08:00:00.000000Z'],
+                ['itemId' => self::ITEM, 'itemName' => 'Star Lager', 'locationId' => self::LOC2, 'quantity' => '30.5000', 'unit' => 'bottle', 'reorderLevel' => '48.0000', 'belowReorder' => true, 'updatedAt' => '2026-09-23T08:00:00.000000Z']]),
         ]);
     }
 
@@ -105,14 +105,16 @@ class InventoryTest extends TestCase
     public function test_count_shows_variance_then_posts(): void
     {
         $count = ['id' => 'cnt-1', 'locationId' => self::LOC, 'status' => 'DRAFT', 'lines' => [['itemId' => self::ITEM, 'expectedQuantity' => '240.0000', 'countedQuantity' => '236.0000', 'variance' => '-4.0000']]];
-        $this->api(['POST /inventory/counts' => [201, $count], 'POST /inventory/counts/cnt-1/post' => [200, ['status' => 'POSTED'] + $count]]);
+        $posted = ['status' => 'POSTED'] + $count;
+        $this->api(['POST /inventory/counts' => [201, $count], 'POST /inventory/counts/cnt-1/post' => [200, $posted], 'GET /inventory/counts/cnt-1' => $count]);
         $this->signIn(self::PERMS);
 
         $this->post('/inventory/count', ['locationId' => self::LOC, 'lines' => [1 => ['itemId' => self::ITEM, 'countedQuantity' => '236']]])->assertRedirect('/inventory/count/cnt-1');
         $this->get('/inventory/count/cnt-1')->assertOk()->assertSee('Variance')->assertSee('-4.0000')->assertSee('Star Lager')->assertSee('Post count');
 
         $this->post('/inventory/count/cnt-1/post')->assertRedirect('/inventory/count/cnt-1');
-        $this->get('/inventory/count/cnt-1')->assertSee('Count posted')->assertSee('POSTED')->assertDontSee('Post count');
+        $this->api(['GET /inventory/counts/cnt-1' => $posted]);
+        $this->get('/inventory/count/cnt-1')->assertSee('POSTED')->assertDontSee('Post count');
     }
 
     public function test_posting_a_count_needs_its_own_permission(): void
@@ -121,9 +123,9 @@ class InventoryTest extends TestCase
         $this->signIn(['inventory.view', 'inventory.count.create'])->post('/inventory/count/cnt-1/post')->assertForbidden();
     }
 
-    public function test_movements_history_is_flagged_as_pending_api(): void
+    public function test_movements_history_reads_the_ledger(): void
     {
-        $this->api();
-        $this->signIn(self::PERMS)->get('/inventory')->assertSee('Movement history list')->assertSee('data-testid="pending-api"', false);
+        $this->api(['GET /inventory/movements' => F::page([['id' => 'm1', 'itemId' => self::ITEM, 'locationId' => self::LOC, 'kind' => 'CONSUMPTION', 'reason' => 'SALE', 'quantityDelta' => '-1.0000', 'balanceAfter' => '239.0000', 'createdAt' => '2026-09-23T08:00:00.000Z', 'actorStaffId' => null]])]);
+        $this->signIn(self::PERMS)->get('/inventory/movements')->assertOk()->assertSee('Star Lager')->assertSee('-1.0000')->assertSee('239.0000');
     }
 }

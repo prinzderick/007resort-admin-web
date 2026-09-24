@@ -59,28 +59,123 @@ document.addEventListener('alpine:init', () => {
         },
     }));
 
-    // Client-side sort + filter for small tables (<table x-data="sortableTable">).
+    // Tables: quick filter, sort with indicators, density, column visibility, row selection + export (x-data="tableTools").
     window.Alpine.data('tableTools', () => ({
         q: '',
         sortCol: null,
         sortDir: 1,
+        density: 'comfortable',
+        columns: [],
+        selected: 0,
+        offset: 0,
+        init() {
+            this.density = localStorage.getItem('r007.density') || 'comfortable';
+            document.documentElement.dataset.density = this.density;
+            this.$nextTick(() => this.setup());
+        },
+        table() {
+            return this.$el.querySelector('table.data-table');
+        },
+        setup() {
+            const t = this.table();
+            if (!t || t.dataset.ready) return;
+            t.dataset.ready = '1';
+            const rows = Array.from(t.querySelectorAll('tbody tr[data-row]'));
+            if (rows.length && this.$el.querySelector('[data-component=table-tools]')) {
+                // selection column
+                this.offset = 1;
+                const hr = t.querySelector('thead tr');
+                const th = document.createElement('th');
+                th.className = 'w-10';
+                th.innerHTML = '<input type="checkbox" class="size-4 accent-brand-600" aria-label="Select all rows">';
+                th.firstChild.addEventListener('change', (e) => rows.forEach((r) => this.mark(r, e.target.checked)));
+                hr.insertBefore(th, hr.firstChild);
+                rows.forEach((r) => {
+                    const td = document.createElement('td');
+                    td.innerHTML = '<input type="checkbox" class="size-4 accent-brand-600" aria-label="Select row">';
+                    td.firstChild.addEventListener('change', (e) => this.mark(r, e.target.checked));
+                    r.insertBefore(td, r.firstChild);
+                });
+                t.querySelectorAll('tbody tr:not([data-row]) td[colspan], tfoot td[colspan]').forEach((td) => td.setAttribute('colspan', Number(td.getAttribute('colspan')) + 1));
+            }
+            this.columns = Array.from(t.querySelectorAll('thead th')).map((h, i) => ({ i, label: h.textContent.trim(), hidden: false })).filter((c) => c.label !== '' && !(this.offset && c.i === 0));
+            // sort headers
+            t.querySelectorAll('thead th[data-sort]').forEach((h) => {
+                h.tabIndex = 0;
+                const idx = Array.from(h.parentNode.children).indexOf(h);
+                const numeric = h.classList.contains('num') || h.classList.contains('text-right');
+                h.addEventListener('click', () => this.sortBy(idx, numeric));
+                h.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.sortBy(idx, numeric); } });
+            });
+        },
         rows() {
-            return Array.from(this.$refs.body.querySelectorAll('tr[data-row]'));
+            return Array.from((this.$refs.body || this.table()?.tBodies[0] || document.body).querySelectorAll('tr[data-row]'));
+        },
+        mark(r, on) {
+            r.dataset.selected = on ? 'true' : 'false';
+            const c = r.querySelector('td input[type=checkbox]');
+            if (c) c.checked = on;
+            this.selected = this.rows().filter((x) => x.dataset.selected === 'true').length;
+        },
+        clearSelection() {
+            this.rows().forEach((r) => this.mark(r, false));
+            const all = this.table()?.querySelector('thead input[type=checkbox]');
+            if (all) all.checked = false;
+        },
+        exportSelected() {
+            const t = this.table();
+            const head = Array.from(t.querySelectorAll('thead th')).map((h) => h.textContent.trim());
+            const keep = head.map((h, i) => (h !== '' && !(this.offset && i === 0) ? i : -1)).filter((i) => i >= 0);
+            const esc = (v) => '"' + String(v).replace(/\s+/g, ' ').trim().replace(/"/g, '""') + '"';
+            const lines = [keep.map((i) => esc(head[i])).join(',')];
+            this.rows().filter((r) => r.dataset.selected === 'true').forEach((r) => lines.push(keep.map((i) => esc(r.children[i].textContent)).join(',')));
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(new Blob(['\ufeff' + lines.join('\n')], { type: 'text/csv' }));
+            a.download = 'selected-rows.csv';
+            a.click();
         },
         filter() {
             const q = this.q.trim().toLowerCase();
             this.rows().forEach((r) => (r.hidden = q !== '' && !r.textContent.toLowerCase().includes(q)));
         },
-        sort(i, numeric) {
+        sortBy(i, numeric) {
             this.sortDir = this.sortCol === i ? -this.sortDir : 1;
             this.sortCol = i;
-            const rows = this.rows();
+            const t = this.table();
+            t.querySelectorAll('thead th').forEach((h, k) => (k === i ? h.setAttribute('aria-sort', this.sortDir === 1 ? 'ascending' : 'descending') : h.removeAttribute('aria-sort')));
             const val = (r) => {
-                const t = (r.children[i]?.dataset.sort ?? r.children[i]?.textContent ?? '').trim();
-                return numeric ? parseFloat(t.replace(/[^0-9.\-]/g, '')) || 0 : t.toLowerCase();
+                const c = r.children[i];
+                const raw = (c?.dataset.sort ?? c?.textContent ?? '').trim();
+                return numeric ? parseFloat(raw.replace(/[^0-9.\-]/g, '')) || 0 : raw.toLowerCase();
             };
-            rows.sort((a, b) => (val(a) > val(b) ? 1 : val(a) < val(b) ? -1 : 0) * this.sortDir);
-            rows.forEach((r) => this.$refs.body.appendChild(r));
+            const body = this.rows()[0]?.parentNode;
+            this.rows().sort((a, b) => (val(a) > val(b) ? 1 : val(a) < val(b) ? -1 : 0) * this.sortDir).forEach((r) => body.appendChild(r));
+        },
+        // legacy call sites pass a body-relative index
+        sort(i, numeric) {
+            this.sortBy(i + this.offset, !!numeric);
+        },
+        setDensity(d) {
+            this.density = d;
+            localStorage.setItem('r007.density', d);
+            document.documentElement.dataset.density = d;
+        },
+        toggleCol(i) {
+            const c = this.columns.find((x) => x.i === i);
+            c.hidden = !c.hidden;
+            this.table().querySelectorAll('tr').forEach((r) => { if (r.children[i] && !r.children[i].hasAttribute('colspan')) r.children[i].style.display = c.hidden ? 'none' : ''; });
         },
     }));
 });
+
+// No double submits: a form (or a wire:click button) that is in flight shows a spinner and ignores further clicks.
+document.addEventListener('submit', (e) => {
+    const f = e.target;
+    if (!(f instanceof HTMLFormElement) || e.defaultPrevented) return;
+    setTimeout(() => {
+        if (e.defaultPrevented) return;
+        f.querySelectorAll('button:not([type=button])').forEach((b) => { if (!b.dataset.keep) { b.dataset.loading = 'true'; b.setAttribute('aria-busy', 'true'); } });
+        f.addEventListener('submit', (ev) => ev.preventDefault(), { once: false });
+    }, 0);
+});
+window.addEventListener('pageshow', () => document.querySelectorAll('[data-loading]').forEach((b) => { delete b.dataset.loading; b.removeAttribute('aria-busy'); }));

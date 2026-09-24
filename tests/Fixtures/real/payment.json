@@ -1,27 +1,27 @@
 {
-    "id": "01a0d0a4-e3a2-742e-8a3f-0382bf819607",
-    "groupId": "01a0d0a4-e3b3-73a3-aa8c-318f0f318e2f",
-    "facilityId": "5996b8b4-1b06-5150-adca-659ac70055e7",
+    "id": "01a0d0c6-057e-7dbf-87c4-fd8be2f61a08",
+    "groupId": "01a0d0c6-0593-70a1-91ae-56e9d455c528",
+    "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
     "tenderType": "CASH",
     "provider": "MANUAL",
     "providerReference": null,
     "reference": null,
-    "status": "REVERSED",
-    "amount": "1400.0000",
-    "tendered": "1400.0000",
-    "changeGiven": "0.0000",
+    "status": "CAPTURED",
+    "amount": "2000.0000",
+    "tendered": "2500.0000",
+    "changeGiven": "500.0000",
     "refundedAmount": "0.0000",
     "currency": "NGN",
     "allocations": [
         {
-            "orderId": "01a0d0a4-e359-7bcd-ae02-db350da13c57",
-            "amount": "1400.0000"
+            "orderId": "01a0d0c6-036a-7b5a-8bf3-8012ec57641f",
+            "amount": "2000.0000"
         }
     ],
-    "cashSessionId": "01a0d0a4-db52-71ed-b2f0-90aaa107bc09",
-    "receiptId": "01a0d0a4-e3b3-73a3-aa8c-318f0fab7694",
-    "takenByStaffId": "e66698a3-4e33-5b2c-9e2d-d5566b2510a8",
-    "createdAt": "2026-09-23T23:41:02.259323Z",
-    "capturedAt": "2026-09-23T23:41:02.259323Z",
+    "cashSessionId": "01a0d0c6-01ad-71f5-8f35-42fb7cd73d43",
+    "receiptId": "01a0d0c6-0594-70c8-a387-6fe47a722103",
+    "takenByStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+    "createdAt": "2026-09-24T00:17:13.619469Z",
+    "capturedAt": "2026-09-24T00:17:13.619469Z",
     "unallocatedAmount": "0.0000"
 }

@@ -11,10 +11,11 @@
     @if ($devices->state !== 'forbidden')
     <form method="GET" class="mb-4 flex items-end gap-3"><div><label class="mb-1 block text-sm font-medium">Status</label>
         <select name="status" class="min-h-11 rounded-lg border border-stone-300 bg-white px-3 text-sm" onchange="this.form.submit()"><option value="">All</option>@foreach (['ACTIVE', 'PENDING', 'REVOKED'] as $s)<option @selected($status === $s)>{{ $s }}</option>@endforeach</select></div></form>
-    <x-card title="Registered devices" flush>
+    <x-card title="Registered devices" flush x-data="tableTools">
+        <x-table-tools />
         <x-fetch :of="$devices" what="Devices" />
         @if ($devices->ok())
-            <div class="overflow-x-auto"><table class="data-table" data-testid="devices-table"><thead><tr><th>Device</th><th>Kind / mode</th><th>Status</th><th>Home facility</th><th>Checked out at</th><th>App</th><th>Last seen</th><th>Checked out to</th><th></th></tr></thead><tbody>
+            <div class="table-scroll"><table class="data-table" data-testid="devices-table"><thead><tr><th>Device</th><th>Kind / mode</th><th>Status</th><th>Home facility</th><th>Checked out at</th><th>App</th><th>Last seen</th><th>Checked out to</th><th></th></tr></thead><tbody>
             @forelse ($devices->items() as $d)
                 @php
                     $seen = \App\Support\Time::parse($d['lastSeenAt'] ?? null);
@@ -25,7 +26,7 @@
                     $home = $d['homeFacility']['name'] ?? ($facilityNames[$d['homeFacilityId'] ?? ''] ?? null);
                     $devName = $d['name'] ?? ($d['id'] ?? 'device');
                 @endphp
-                <tr><td class="font-medium">{{ $devName }}<div class="text-xs font-normal text-stone-500">{{ $d['platform'] ?? '' }}</div></td><td>{{ str_replace('_', ' ', $d['kind'] ?? '') }}@if (! empty($d['mode']))<div class="text-xs text-stone-500">{{ $d['mode'] }}</div>@endif</td><td><x-badge :status="$status" /></td>
+                <tr data-row><td class="font-medium">{{ $devName }}<div class="text-xs font-normal text-stone-500">{{ $d['platform'] ?? '' }}</div></td><td>{{ str_replace('_', ' ', $d['kind'] ?? '') }}@if (! empty($d['mode']))<div class="text-xs text-stone-500">{{ $d['mode'] }}</div>@endif</td><td><x-badge :status="$status" /></td>
                     <td>{{ $home ?? '-' }}</td><td>{{ $out ? ($facilityNames[$d['facilityId'] ?? ($co['facilityId'] ?? '')] ?? '-') : '-' }}</td><td>{{ $d['appVersion'] ?? '' }}</td>
                     <td><x-time :at="$d['lastSeenAt'] ?? null" ago />@if ($quiet)<x-badge tone="warn" class="ml-1">quiet</x-badge>@endif</td>
                     <td class="text-xs">{{ $out ? ($staffNames[$co['staffId'] ?? ''] ?? \Illuminate\Support\Str::limit((string) ($co['staffId'] ?? ''), 8, '')) : '-' }}</td>
@@ -48,13 +49,14 @@
     @endif
 
     @if ($attendance->state !== 'forbidden')
-        <x-card title="Attendance terminals (biometric)" flush>
+        <x-card title="Attendance terminals (biometric)" flush x-data="tableTools">
+        <x-table-tools />
             <x-fetch :of="$attendance" what="Attendance terminals" />
             @if ($attendance->ok())
-                <div class="overflow-x-auto"><table class="data-table"><thead><tr><th>Serial</th><th>Name</th><th>Adapter</th><th>Facility</th><th>Status</th><th>Last seen</th><th>Last punch</th><th></th></tr></thead><tbody>
+                <div class="table-scroll"><table class="data-table"><thead><tr><th>Serial</th><th>Name</th><th>Adapter</th><th>Facility</th><th>Status</th><th>Last seen</th><th>Last punch</th><th></th></tr></thead><tbody>
                 @forelse ($attendance->items() as $t)
                     @php $tStatus = $t['status'] ?? 'UNKNOWN'; @endphp
-                    <tr><td class="font-medium">{{ $t['serialNumber'] ?? '-' }}</td><td>{{ $t['name'] ?? '' }}</td><td>{{ $t['adapter'] ?? '' }}</td><td>{{ $facilityNames[$t['facilityId'] ?? ''] ?? '-' }}</td><td><x-badge :status="$tStatus" /></td><td><x-time :at="$t['lastSeenAt'] ?? null" ago /></td><td><x-time :at="$t['lastPunchAt'] ?? null" ago /></td>
+                    <tr data-row><td class="font-medium">{{ $t['serialNumber'] ?? '-' }}</td><td>{{ $t['name'] ?? '' }}</td><td>{{ $t['adapter'] ?? '' }}</td><td>{{ $facilityNames[$t['facilityId'] ?? ''] ?? '-' }}</td><td><x-badge :status="$tStatus" /></td><td><x-time :at="$t['lastSeenAt'] ?? null" ago /></td><td><x-time :at="$t['lastPunchAt'] ?? null" ago /></td>
                         <td class="flex gap-3">
                             @if (! empty($t['id']))
                             <form method="POST" action="{{ route('devices.terminal.status', $t['id']) }}">@csrf<input type="hidden" name="status" value="{{ $tStatus === 'ACTIVE' ? 'DISABLED' : 'ACTIVE' }}"><button class="text-sm underline">{{ $tStatus === 'ACTIVE' ? 'Disable' : 'Enable' }}</button></form>
