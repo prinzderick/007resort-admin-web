@@ -1,0 +1,61 @@
+{
+    "id": "01a0d26f-3021-7260-850a-927da91f9b9d",
+    "slug": "cocktails-by-the-water",
+    "title": "Cocktails by the water",
+    "excerpt": "Our poolside bar menu, from zero-proof coolers to long summer drinks.",
+    "bodyMarkdown": "The poolside bar has a short menu built for hot afternoons: citrus, ginger, hibiscus and plenty of ice.\n\n### Favourites\n\n- **Zobo spritz**, hibiscus, ginger and lime\n- **Palm sunset**, pineapple, orange and grenadine (alcohol-free)\n- **The 007**, a dry martini for the traditionalists\n\nAsk the bartender for a tasting flight.",
+    "bodyHtml": "<p>The poolside bar has a short menu built for hot afternoons: citrus, ginger, hibiscus and plenty of ice.</p>\n<h3>Favourites</h3>\n<ul>\n<li><strong>Zobo spritz</strong>, hibiscus, ginger and lime</li>\n<li><strong>Palm sunset</strong>, pineapple, orange and grenadine (alcohol-free)</li>\n<li><strong>The 007</strong>, a dry martini for the traditionalists</li>\n</ul>\n<p>Ask the bartender for a tasting flight.</p>",
+    "coverMediaId": "01a0d26f-2043-70e3-b5b2-4861e1205bc9",
+    "cover": {
+        "id": "01a0d26f-2043-70e3-b5b2-4861e1205bc9",
+        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2043-70e3-b5b2-4861e1205bc9.jpg",
+        "width": 1333,
+        "height": 2000,
+        "mimeType": "image/jpeg",
+        "alt": "Ruby cocktail with a lime garnish on a bar counter with warm bokeh lights",
+        "credit": "Photo: Tai's Captures / Unsplash",
+        "dominantColor": "#6a492a",
+        "variants": [
+            {
+                "width": 1333,
+                "format": "webp",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2043-70e3-b5b2-4861e1205bc9-1333.webp"
+            }
+        ],
+        "sourceUrl": "https://unsplash.com/photos/2EBTwzczg2A",
+        "tags": [
+            "dining",
+            "cocktail",
+            "bar",
+            "evening"
+        ],
+        "sizeBytes": 344891,
+        "originalName": "dining-05-bar-cocktail.jpg",
+        "usageCount": 3,
+        "rowVersion": 1,
+        "createdAt": "2026-09-24T08:01:33.475Z",
+        "updatedAt": "2026-09-24T08:01:33.475Z"
+    },
+    "authorName": "The 007 team",
+    "categoryId": "01a0d26f-2fe9-7233-b1dc-040715dca508",
+    "category": {
+        "id": "01a0d26f-2fe9-7233-b1dc-040715dca508",
+        "slug": "food-drink",
+        "name": "Food & Drink"
+    },
+    "tags": [
+        "bar",
+        "drinks"
+    ],
+    "readingTimeMinutes": 1,
+    "featured": false,
+    "seoTitle": null,
+    "seoDescription": null,
+    "seoOgMediaId": null,
+    "seoOgImage": null,
+    "status": "PUBLISHED",
+    "publishedAt": "2026-08-17T08:01:37.000Z",
+    "rowVersion": 2,
+    "createdAt": "2026-09-24T08:01:37.315Z",
+    "updatedAt": "2026-09-24T08:01:37.318Z"
+}

@@ -1,0 +1,13 @@
+{
+    "id": "01a0d26f-31d6-734b-8206-8d7d3c83dc72",
+    "name": "Promo Bot",
+    "email": "bot@example.com",
+    "phone": null,
+    "topic": "OTHER",
+    "message": "Buy cheap watches now http://spam.example now now now",
+    "status": "SPAM",
+    "internalNote": null,
+    "handledBy": null,
+    "handledAt": null,
+    "createdAt": "2026-09-24T08:01:37.750Z"
+}

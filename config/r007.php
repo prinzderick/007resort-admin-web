@@ -32,6 +32,9 @@ return [
     // normal | stale (site online but sync behind) | offline (site unreachable)
     'mock_scenario' => env('R007_MOCK_SCENARIO', 'normal'),
 
+    // Public website address (for "preview on site" links in the Website area). Empty = links are hidden.
+    'site_url' => env('R007_SITE_URL', ''),
+
     // Seconds between re-reading /auth/me to refresh the permission set that
     // drives navigation (login always reads it).
     'me_ttl' => (int) env('R007_ME_TTL', 300),

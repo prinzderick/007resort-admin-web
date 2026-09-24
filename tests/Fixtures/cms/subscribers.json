@@ -1,0 +1,82 @@
+{
+    "items": [
+        {
+            "id": "01a0d26f-31a1-716d-9f44-29e50fe82a2c",
+            "email": "bisi@example.com",
+            "name": "Bisi L.",
+            "source": "footer",
+            "status": "UNSUBSCRIBED",
+            "consentText": "I agree to receive news.",
+            "consentedAt": "2026-09-24T08:01:37.697Z",
+            "confirmedAt": null,
+            "unsubscribedAt": "2026-09-24T08:01:55.413Z",
+            "createdAt": "2026-09-24T08:01:37.697Z"
+        },
+        {
+            "id": "01a0d26f-3194-709d-a6f5-179c5a3a4277",
+            "email": "chidi@example.com",
+            "name": "Chidi O.",
+            "source": "checkout",
+            "status": "CONFIRMED",
+            "consentText": "I agree to receive news.",
+            "consentedAt": "2026-09-24T08:01:37.683Z",
+            "confirmedAt": "2026-09-24T08:01:44.689Z",
+            "unsubscribedAt": null,
+            "createdAt": "2026-09-24T08:01:37.683Z"
+        },
+        {
+            "id": "01a0d26f-3187-7289-b8a2-f05f40bf740a",
+            "email": "ngozi@example.com",
+            "name": null,
+            "source": "popup",
+            "status": "PENDING",
+            "consentText": "I agree to receive news.",
+            "consentedAt": "2026-09-24T08:01:37.670Z",
+            "confirmedAt": null,
+            "unsubscribedAt": null,
+            "createdAt": "2026-09-24T08:01:37.670Z"
+        },
+        {
+            "id": "01a0d26f-317a-714b-8907-907c3679f05d",
+            "email": "tolu@example.com",
+            "name": "Tolu A.",
+            "source": "event",
+            "status": "CONFIRMED",
+            "consentText": "I agree to receive news.",
+            "consentedAt": "2026-09-24T08:01:37.657Z",
+            "confirmedAt": "2026-09-24T08:01:44.675Z",
+            "unsubscribedAt": null,
+            "createdAt": "2026-09-24T08:01:37.657Z"
+        },
+        {
+            "id": "01a0d26f-316d-73e6-aa5b-c30dfe2a1246",
+            "email": "emeka@example.com",
+            "name": "Emeka N.",
+            "source": "blog",
+            "status": "CONFIRMED",
+            "consentText": "I agree to receive news.",
+            "consentedAt": "2026-09-24T08:01:37.644Z",
+            "confirmedAt": "2026-09-24T08:01:44.662Z",
+            "unsubscribedAt": null,
+            "createdAt": "2026-09-24T08:01:37.644Z"
+        },
+        {
+            "id": "01a0d26f-315e-7186-ae8a-f753f89dbb4a",
+            "email": "ada@example.com",
+            "name": "Ada Obi",
+            "source": "footer",
+            "status": "CONFIRMED",
+            "consentText": "I agree to receive news.",
+            "consentedAt": "2026-09-24T08:01:37.629Z",
+            "confirmedAt": "2026-09-24T08:01:44.649Z",
+            "unsubscribedAt": null,
+            "createdAt": "2026-09-24T08:01:37.629Z"
+        }
+    ],
+    "nextCursor": null,
+    "counts": {
+        "pending": 1,
+        "confirmed": 4,
+        "unsubscribed": 1
+    }
+}

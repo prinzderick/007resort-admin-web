@@ -1,0 +1,1027 @@
+{
+    "staff": {
+        "id": "935dbdcf-d514-5c33-9889-5a14f39c65c4",
+        "displayName": "Ebiye Owei",
+        "staffNumber": "S-0013",
+        "roles": [
+            "OWNER"
+        ],
+        "permissions": [
+            "attendance.correction.request",
+            "attendance.device.manage",
+            "attendance.view",
+            "audit.view",
+            "bill.cancel.approve",
+            "bill.cancel.execute",
+            "bill.print",
+            "booking.cancel",
+            "booking.configure",
+            "booking.create",
+            "booking.reschedule",
+            "booking.view",
+            "cash_handover.create",
+            "cash_handover.receive",
+            "cash_handover.signoff",
+            "cash_handover.view",
+            "cash_movement.record",
+            "cash_session.close",
+            "cash_session.close_any",
+            "cash_session.open",
+            "cash_session.view",
+            "catalog.availability.manage",
+            "catalog.manage",
+            "cms.manage",
+            "cms.media.manage",
+            "cms.messages.manage",
+            "cms.publish",
+            "cms.subscribers.export",
+            "cms.subscribers.view",
+            "cms.view",
+            "config.manage",
+            "config.manage.capabilities",
+            "config.manage.rules",
+            "config.view",
+            "device.manage",
+            "device.register",
+            "device.revoke",
+            "device.view",
+            "facility.configure",
+            "facility.manage",
+            "finance.report.view",
+            "inventory.adjustment.approve",
+            "inventory.adjustment.request",
+            "inventory.count.create",
+            "inventory.count.post",
+            "inventory.item.manage",
+            "inventory.location.manage",
+            "inventory.purchase_receipt.create",
+            "inventory.receive",
+            "inventory.return.create",
+            "inventory.transfer.create",
+            "inventory.view",
+            "inventory.wastage.create",
+            "membership.manage",
+            "membership.plan.manage",
+            "membership.sell",
+            "membership.validate",
+            "membership.view",
+            "order.comp.approve",
+            "order.comp.execute",
+            "order.create",
+            "order.discount.approve",
+            "order.discount.execute",
+            "order.line.add",
+            "order.line.remove_unsent",
+            "order.price_override.approve",
+            "order.price_override.execute",
+            "order.send",
+            "order.serve",
+            "order.settle",
+            "order.view",
+            "order.void.approve",
+            "order.void.execute",
+            "payment.collect",
+            "payment.confirm",
+            "payment.reversal.approve",
+            "payment.reversal.execute",
+            "payment.split",
+            "payment.take",
+            "payment.view",
+            "prep_ticket.transition",
+            "prep_ticket.view",
+            "pricing.manage",
+            "receipt.reprint",
+            "receipt.view",
+            "refund.approve",
+            "refund.execute",
+            "report.view",
+            "report.view.all",
+            "role.manage",
+            "role_assignment.manage",
+            "security_event.view",
+            "session.revoke",
+            "settings.manage",
+            "settlement.reconcile",
+            "staff.clock_correction.approve",
+            "staff.manage",
+            "supplier.manage",
+            "tab.open",
+            "tab.view_own_facility",
+            "table.manage",
+            "ticket.issue",
+            "ticket.override",
+            "ticket.redeem",
+            "ticket.release",
+            "ticket.view",
+            "ticket_type.manage"
+        ],
+        "facilityIds": [
+            "18e4ff16-9acb-5341-9161-975fb22fcefe",
+            "1e95200c-b53f-5be0-9c8d-b21c4e1f1862",
+            "37d18ea1-de71-5c47-a382-02e0186a7125",
+            "3bdbd9ba-da71-5b5a-9db1-16d5ef9cd60a",
+            "4c3d3bbd-ddc3-553a-8083-f966d56eedf5",
+            "54bc6067-29d9-537a-a678-1cbe54942163",
+            "5996b8b4-1b06-5150-adca-659ac70055e7",
+            "5b2a99cc-7f17-5c53-9461-ccd97644abaa",
+            "6ba54aaa-169a-5945-aa14-af22c0c33bea",
+            "6c3e41ca-b525-5197-9471-afb89ca64c59",
+            "6db7c536-2faf-59d6-b444-624d85c72d68",
+            "783110f0-20c0-55fd-9ab3-4da8c18802a2",
+            "7b708d65-561b-5ec3-b23f-707ba9c1b5cf",
+            "84ea0412-4610-5afe-95a3-98242a14ce96",
+            "991c6184-c816-52a5-8dc8-edd5f8e83142",
+            "9bcf2d5a-8603-5fe6-b208-d510f1c2e50b",
+            "9d502706-2ed5-5bd1-86bf-f895907468b1",
+            "a0545ca5-e812-5e7b-ad1f-3a200728b352",
+            "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "a3585e25-ca02-5800-971b-4185cfe4e163",
+            "a4edab24-e6c7-5b73-a47d-eb112c2aa21a",
+            "be24bd49-d9a8-56a5-a04d-861ecba17101",
+            "bfc27353-a410-5c1a-bf7e-ef32660866e5",
+            "c3d3b51c-c131-5673-9508-0976c6a93b4b",
+            "d996a202-cc71-5ad7-819f-50e8089de191",
+            "e72222e7-c136-535e-9e25-d2a8668c2b18"
+        ],
+        "email": "owner1@demo.007resort.test",
+        "phone": null,
+        "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+        "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa"
+    },
+    "session": {
+        "id": "01a0d26f-78f8-73e5-a4d9-6271f594804f",
+        "expiresAt": "2026-10-24T08:01:55.766Z",
+        "deviceId": null
+    },
+    "device": null,
+    "username": "owner1",
+    "grants": [
+        {
+            "permission": "attendance.correction.request",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "attendance.device.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "attendance.view",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "audit.view",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "bill.cancel.approve",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "bill.cancel.execute",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "bill.print",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "booking.cancel",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "booking.configure",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "booking.create",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "booking.reschedule",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "booking.view",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "cash_handover.create",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "cash_handover.receive",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "cash_handover.signoff",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "cash_handover.view",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "cash_movement.record",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "cash_session.close",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "cash_session.close_any",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "cash_session.open",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "cash_session.view",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "catalog.availability.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "catalog.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "cms.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "cms.media.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "cms.messages.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "cms.publish",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "cms.subscribers.export",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "cms.subscribers.view",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "cms.view",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "config.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "config.manage.capabilities",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "config.manage.rules",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "config.view",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "device.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "device.register",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "device.revoke",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "device.view",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "facility.configure",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "facility.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "finance.report.view",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "inventory.adjustment.approve",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "inventory.adjustment.request",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "inventory.count.create",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "inventory.count.post",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "inventory.item.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "inventory.location.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "inventory.purchase_receipt.create",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "inventory.receive",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "inventory.return.create",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "inventory.transfer.create",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "inventory.view",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "inventory.wastage.create",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "membership.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "membership.plan.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "membership.sell",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "membership.validate",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "membership.view",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "order.comp.approve",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "order.comp.execute",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "order.create",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "order.discount.approve",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "order.discount.execute",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "order.line.add",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "order.line.remove_unsent",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "order.price_override.approve",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "order.price_override.execute",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "order.send",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "order.serve",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "order.settle",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "order.view",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "order.void.approve",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "order.void.execute",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "payment.collect",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "payment.confirm",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "payment.reversal.approve",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "payment.reversal.execute",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "payment.split",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "payment.take",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "payment.view",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "prep_ticket.transition",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "prep_ticket.view",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "pricing.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "receipt.reprint",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "receipt.view",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "refund.approve",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "refund.execute",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "report.view",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "report.view.all",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "role_assignment.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "role.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "security_event.view",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "session.revoke",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "settings.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "settlement.reconcile",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "staff.clock_correction.approve",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "staff.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "supplier.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "tab.open",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "tab.view_own_facility",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "table.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "ticket_type.manage",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "ticket.issue",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "ticket.override",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "ticket.redeem",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "ticket.release",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        },
+        {
+            "permission": "ticket.view",
+            "requiresApproval": false,
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        }
+    ],
+    "assignments": [
+        {
+            "id": "aa35f3b9-97e6-5386-ac1a-3134b262b698",
+            "roleCode": "OWNER",
+            "roleName": "Owner / super admin",
+            "scopeLevel": "ORGANIZATION",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": null,
+            "facilityUnitId": null
+        }
+    ]
+}

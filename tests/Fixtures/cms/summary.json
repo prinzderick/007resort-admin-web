@@ -1,0 +1,37 @@
+{
+    "pages": {
+        "draft": 0,
+        "published": 3,
+        "archived": 0
+    },
+    "posts": {
+        "draft": 0,
+        "published": 6,
+        "archived": 0
+    },
+    "events": {
+        "draft": 0,
+        "published": 8,
+        "archived": 0
+    },
+    "albums": {
+        "draft": 0,
+        "published": 4,
+        "archived": 0
+    },
+    "homeSections": {
+        "enabled": 28,
+        "disabled": 0
+    },
+    "subscribers": {
+        "pending": 1,
+        "confirmed": 4,
+        "unsubscribed": 1
+    },
+    "messages": {
+        "new": 1
+    },
+    "media": {
+        "count": 34
+    }
+}

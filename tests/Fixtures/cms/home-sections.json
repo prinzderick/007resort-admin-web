@@ -1,0 +1,749 @@
+{
+    "items": [
+        {
+            "id": "01a0d26f-2f03-707b-bc40-eb9effdec2e3",
+            "type": "HERO_SLIDE",
+            "sortOrder": 10,
+            "enabled": true,
+            "payload": {
+                "ctaLink": "/book",
+                "mediaId": "01a0d26f-13f7-71de-9c3c-cf9cf4b18cb2",
+                "ctaLabel": "Book a court",
+                "headline": "Play hard. Splash harder.",
+                "alignment": "LEFT",
+                "subheadline": "Floodlit courts, a resort pool and a kitchen that never slows down, all in one place in Bayelsa."
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.027Z",
+            "updatedAt": "2026-09-24T08:01:37.032Z"
+        },
+        {
+            "id": "01a0d26f-2f1a-7167-9df8-4d242d291212",
+            "type": "HIGHLIGHT",
+            "sortOrder": 10,
+            "enabled": true,
+            "payload": {
+                "link": "/book",
+                "blurb": "Football pitch, basketball and tennis courts under floodlights. Book by the hour or bring the whole team.",
+                "title": "Sports Arena",
+                "mediaId": "01a0d26f-293e-72c8-abf3-cb9bdca982f0",
+                "category": "play",
+                "priceFrom": "From NGN 15,000 / hour"
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.050Z",
+            "updatedAt": "2026-09-24T08:01:37.054Z"
+        },
+        {
+            "id": "01a0d26f-2f43-72a5-98a5-6afbb2bfbc5c",
+            "type": "STAT",
+            "sortOrder": 10,
+            "enabled": true,
+            "payload": {
+                "icon": "building",
+                "label": "Facilities",
+                "value": "26",
+                "suffix": "+"
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.091Z",
+            "updatedAt": "2026-09-24T08:01:37.094Z"
+        },
+        {
+            "id": "01a0d26f-2f5c-7060-a478-52b8ec98383f",
+            "type": "TESTIMONIAL",
+            "sortOrder": 10,
+            "enabled": true,
+            "payload": {
+                "name": "Chinedu Okafor",
+                "role": "Weekend regular",
+                "quote": "We booked the pitch for our Saturday five-a-side and the floodlit game was unreal. Easy booking, friendly staff.",
+                "rating": 5,
+                "avatarMediaId": null
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.116Z",
+            "updatedAt": "2026-09-24T08:01:37.119Z"
+        },
+        {
+            "id": "01a0d26f-2f7b-72d0-9c44-7e1d29fe8a61",
+            "type": "FAQ",
+            "sortOrder": 10,
+            "enabled": true,
+            "payload": {
+                "topic": null,
+                "answer": "Pick a resource and a time slot on the **Book** page and pay online. Your QR ticket arrives instantly and is scanned at the gate.",
+                "question": "How do I book a court or pitch?"
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.147Z",
+            "updatedAt": "2026-09-24T08:01:37.149Z"
+        },
+        {
+            "id": "01a0d26f-2fac-734f-b0ab-bd8d7836b994",
+            "type": "CTA_BAND",
+            "sortOrder": 10,
+            "enabled": true,
+            "payload": {
+                "text": "Book a court, grab pool tickets or join the club in a couple of minutes.",
+                "title": "Ready for your weekend?",
+                "ctaLink": "/book",
+                "mediaId": "01a0d26f-1658-72bf-a018-1263d5eeb299",
+                "ctaLabel": "Start booking"
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.196Z",
+            "updatedAt": "2026-09-24T08:01:37.199Z"
+        },
+        {
+            "id": "01a0d26f-2fb2-724d-b569-d89e3b38d3dd",
+            "type": "PARTNER",
+            "sortOrder": 10,
+            "enabled": true,
+            "payload": {
+                "link": "https://paystack.com",
+                "name": "Paystack",
+                "logoMediaId": null
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.203Z",
+            "updatedAt": "2026-09-24T08:01:37.205Z"
+        },
+        {
+            "id": "01a0d26f-2f0c-73a0-bcb3-267cc35d404b",
+            "type": "HERO_SLIDE",
+            "sortOrder": 20,
+            "enabled": true,
+            "payload": {
+                "ctaLink": "/tickets",
+                "mediaId": "01a0d26f-14d0-70ea-827d-d1bb807d989f",
+                "ctaLabel": "Get tickets",
+                "headline": "Your weekend, sorted.",
+                "alignment": "CENTER",
+                "subheadline": "Day passes, memberships and group bookings for families, teams and friends."
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.036Z",
+            "updatedAt": "2026-09-24T08:01:37.040Z"
+        },
+        {
+            "id": "01a0d26f-2f21-704f-a181-f505805c003e",
+            "type": "HIGHLIGHT",
+            "sortOrder": 20,
+            "enabled": true,
+            "payload": {
+                "link": "/book",
+                "blurb": "Clay and hard tennis courts, plus badminton and table tennis, with rackets and balls to hire.",
+                "title": "Racket Sports",
+                "mediaId": "01a0d26f-26e9-7119-a6b6-bba514043629",
+                "category": "play",
+                "priceFrom": "From NGN 6,000 / hour"
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.057Z",
+            "updatedAt": "2026-09-24T08:01:37.060Z"
+        },
+        {
+            "id": "01a0d26f-2f49-7146-865a-1330a077bbee",
+            "type": "STAT",
+            "sortOrder": 20,
+            "enabled": true,
+            "payload": {
+                "icon": "trophy",
+                "label": "Courts and pitches",
+                "value": "9",
+                "suffix": null
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.098Z",
+            "updatedAt": "2026-09-24T08:01:37.100Z"
+        },
+        {
+            "id": "01a0d26f-2f62-7395-a98f-437e5a8a215c",
+            "type": "TESTIMONIAL",
+            "sortOrder": 20,
+            "enabled": true,
+            "payload": {
+                "name": "Amaka Eze",
+                "role": "Family of four",
+                "quote": "The kids lived in the pool and we finally sat down for a proper lunch. We are already planning the next visit.",
+                "rating": 5,
+                "avatarMediaId": null
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.122Z",
+            "updatedAt": "2026-09-24T08:01:37.125Z"
+        },
+        {
+            "id": "01a0d26f-2f80-7102-8882-f8691522a4ca",
+            "type": "FAQ",
+            "sortOrder": 20,
+            "enabled": true,
+            "payload": {
+                "topic": null,
+                "answer": "We open every day. Weekday hours are 08:00 to 22:00, and weekends run a little later. Holiday hours are listed in the footer.",
+                "question": "What are your opening hours?"
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.152Z",
+            "updatedAt": "2026-09-24T08:01:37.155Z"
+        },
+        {
+            "id": "01a0d26f-2f13-70af-84cb-f05b5edaa962",
+            "type": "HERO_SLIDE",
+            "sortOrder": 30,
+            "enabled": true,
+            "payload": {
+                "ctaLink": "/events",
+                "mediaId": "01a0d26f-17f4-7284-b823-693cb59f37ac",
+                "ctaLabel": "See what is on",
+                "headline": "Nights worth staying up for.",
+                "alignment": "LEFT",
+                "subheadline": "Live bands, match nights and poolside parties, every week."
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.043Z",
+            "updatedAt": "2026-09-24T08:01:37.047Z"
+        },
+        {
+            "id": "01a0d26f-2f28-7010-95d3-7b07159b66db",
+            "type": "HIGHLIGHT",
+            "sortOrder": 30,
+            "enabled": true,
+            "payload": {
+                "link": "/tickets",
+                "blurb": "Loungers, palms and a big blue pool. Day tickets for adults and kids, cabanas for groups.",
+                "title": "The Resort Pool",
+                "mediaId": "01a0d26f-18ee-71aa-a761-e2c11f5ed56f",
+                "category": "splash",
+                "priceFrom": "Day pass from NGN 5,000"
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.065Z",
+            "updatedAt": "2026-09-24T08:01:37.068Z"
+        },
+        {
+            "id": "01a0d26f-2f50-70fb-860f-d933f009a3d8",
+            "type": "STAT",
+            "sortOrder": 30,
+            "enabled": true,
+            "payload": {
+                "icon": "calendar",
+                "label": "Open every week",
+                "value": "7",
+                "suffix": "days"
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.104Z",
+            "updatedAt": "2026-09-24T08:01:37.107Z"
+        },
+        {
+            "id": "01a0d26f-2f69-73ef-b8a0-690f2e8e1b5c",
+            "type": "TESTIMONIAL",
+            "sortOrder": 30,
+            "enabled": true,
+            "payload": {
+                "name": "Tonye Briggs",
+                "role": "Gold member",
+                "quote": "Membership pays for itself. Tennis mornings, spa Sundays, and the grill on Fridays.",
+                "rating": 5,
+                "avatarMediaId": null
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.129Z",
+            "updatedAt": "2026-09-24T08:01:37.131Z"
+        },
+        {
+            "id": "01a0d26f-2f86-7222-8ee4-dce8ab7df718",
+            "type": "FAQ",
+            "sortOrder": 30,
+            "enabled": true,
+            "payload": {
+                "topic": null,
+                "answer": "Yes. Buy adult or child day tickets online and show the QR code at reception. Same-day tickets can also be bought at the gate.",
+                "question": "Can I buy pool tickets online?"
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.158Z",
+            "updatedAt": "2026-09-24T08:01:37.162Z"
+        },
+        {
+            "id": "01a0d26f-2f2f-73ea-8381-60b61553c26d",
+            "type": "HIGHLIGHT",
+            "sortOrder": 40,
+            "enabled": true,
+            "payload": {
+                "link": "/spa",
+                "blurb": "Hot stone, deep tissue and facials in a quiet, candle-lit spa with sauna and steam.",
+                "title": "Spa & Massage",
+                "mediaId": "01a0d26f-1c8e-72fe-b88a-9d2c739a32e7",
+                "category": "reset",
+                "priceFrom": "Treatments from NGN 18,000"
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.071Z",
+            "updatedAt": "2026-09-24T08:01:37.074Z"
+        },
+        {
+            "id": "01a0d26f-2f56-73ab-a0bd-89aafde328f3",
+            "type": "STAT",
+            "sortOrder": 40,
+            "enabled": true,
+            "payload": {
+                "icon": "users",
+                "label": "Guests a month",
+                "value": "4,000",
+                "suffix": "+"
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.110Z",
+            "updatedAt": "2026-09-24T08:01:37.113Z"
+        },
+        {
+            "id": "01a0d26f-2f6e-72f5-ba0a-8e186174898e",
+            "type": "TESTIMONIAL",
+            "sortOrder": 40,
+            "enabled": true,
+            "payload": {
+                "name": "Ifeoma Nwosu",
+                "role": "Corporate retreat organiser",
+                "quote": "Handled our team day from courts to catering without a single hiccup.",
+                "rating": 4,
+                "avatarMediaId": null
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.134Z",
+            "updatedAt": "2026-09-24T08:01:37.137Z"
+        },
+        {
+            "id": "01a0d26f-2f8c-7284-ac60-dd239e0c035d",
+            "type": "FAQ",
+            "sortOrder": 40,
+            "enabled": true,
+            "payload": {
+                "topic": null,
+                "answer": "Bookings can be cancelled or rescheduled from your account up to the cut-off shown on the booking. Late changes may carry a fee.",
+                "question": "Is there a cancellation policy?"
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.165Z",
+            "updatedAt": "2026-09-24T08:01:37.167Z"
+        },
+        {
+            "id": "01a0d26f-2f36-7247-9591-6fe3c3ad4739",
+            "type": "HIGHLIGHT",
+            "sortOrder": 50,
+            "enabled": true,
+            "payload": {
+                "link": "/dining",
+                "blurb": "Flame-grilled meats, smoky jollof, fresh fish and a brunch spread on weekends.",
+                "title": "The Restaurant",
+                "mediaId": "01a0d26f-1f7d-7097-9b28-67d38d13e6cf",
+                "category": "feast",
+                "priceFrom": "Mains from NGN 4,500"
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.078Z",
+            "updatedAt": "2026-09-24T08:01:37.081Z"
+        },
+        {
+            "id": "01a0d26f-2f74-72c1-8746-8120bf95d6ee",
+            "type": "TESTIMONIAL",
+            "sortOrder": 50,
+            "enabled": true,
+            "payload": {
+                "name": "Daniel Adeyemi",
+                "role": "First-time visitor",
+                "quote": "Came for the live band night and stayed for the suya. Great atmosphere and fair prices.",
+                "rating": 5,
+                "avatarMediaId": null
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.140Z",
+            "updatedAt": "2026-09-24T08:01:37.143Z"
+        },
+        {
+            "id": "01a0d26f-2f93-735c-a0d9-e3f4af77f139",
+            "type": "FAQ",
+            "sortOrder": 50,
+            "enabled": true,
+            "payload": {
+                "topic": null,
+                "answer": "Gold, Silver and Pool Pass plans include set visits and discounts across the resort. Join online or at reception.",
+                "question": "How does membership work?"
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.171Z",
+            "updatedAt": "2026-09-24T08:01:37.174Z"
+        },
+        {
+            "id": "01a0d26f-2f3d-721d-b608-c5da665d1557",
+            "type": "HIGHLIGHT",
+            "sortOrder": 60,
+            "enabled": true,
+            "payload": {
+                "link": "/dining",
+                "blurb": "Cold beers, cocktails and shots by the water, with a DJ on event nights.",
+                "title": "Poolside Bar",
+                "mediaId": "01a0d26f-2043-70e3-b5b2-4861e1205bc9",
+                "category": "feast",
+                "priceFrom": "Cocktails from NGN 3,500"
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.085Z",
+            "updatedAt": "2026-09-24T08:01:37.088Z"
+        },
+        {
+            "id": "01a0d26f-2f99-7257-a344-b6f1dc3c5f6a",
+            "type": "FAQ",
+            "sortOrder": 60,
+            "enabled": true,
+            "payload": {
+                "topic": null,
+                "answer": "Please enjoy our restaurant and bars. Outside food and drinks are not permitted in the pool area.",
+                "question": "Can we bring our own food and drinks?"
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.177Z",
+            "updatedAt": "2026-09-24T08:01:37.180Z"
+        },
+        {
+            "id": "01a0d26f-2f9f-71f5-9a65-364cc37e72da",
+            "type": "FAQ",
+            "sortOrder": 70,
+            "enabled": true,
+            "payload": {
+                "topic": null,
+                "answer": "Yes, free secure parking is available on site for guests and members.",
+                "question": "Is there parking?"
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.183Z",
+            "updatedAt": "2026-09-24T08:01:37.186Z"
+        },
+        {
+            "id": "01a0d26f-2fa5-7269-8d5e-cf92be45db3a",
+            "type": "FAQ",
+            "sortOrder": 80,
+            "enabled": true,
+            "payload": {
+                "topic": null,
+                "answer": "We host birthdays, corporate days and team-building. Send us a message from the contact page with your date and group size.",
+                "question": "Do you host private events?"
+            },
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.189Z",
+            "updatedAt": "2026-09-24T08:01:37.192Z"
+        }
+    ],
+    "nextCursor": null,
+    "media": {
+        "01a0d26f-13f7-71de-9c3c-cf9cf4b18cb2": {
+            "id": "01a0d26f-13f7-71de-9c3c-cf9cf4b18cb2",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-13f7-71de-9c3c-cf9cf4b18cb2.jpg",
+            "width": 1600,
+            "height": 1200,
+            "mimeType": "image/jpeg",
+            "alt": "Turquoise swimming pool beside a curved terrace as the sun sets over the ocean under a moody orange sky",
+            "credit": "Photo: Giuseppe Famiani / Unsplash",
+            "dominantColor": "#60838b",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-13f7-71de-9c3c-cf9cf4b18cb2-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/p_GlcvWVUso",
+            "tags": [
+                "hero",
+                "pool",
+                "sunset",
+                "golden hour",
+                "terrace"
+            ],
+            "sizeBytes": 297556,
+            "originalName": "hero-01-pool-golden-hour.jpg",
+            "usageCount": 2,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:30.285Z",
+            "updatedAt": "2026-09-24T08:01:30.285Z"
+        },
+        "01a0d26f-293e-72c8-abf3-cb9bdca982f0": {
+            "id": "01a0d26f-293e-72c8-abf3-cb9bdca982f0",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-293e-72c8-abf3-cb9bdca982f0.jpg",
+            "width": 1600,
+            "height": 1067,
+            "mimeType": "image/jpeg",
+            "alt": "Small-sided football game played under a single floodlight on a dark pitch",
+            "credit": "Photo: Abigail Keenan / Unsplash",
+            "dominantColor": "#173033",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-293e-72c8-abf3-cb9bdca982f0-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/8-s5QuUBtyM",
+            "tags": [
+                "football",
+                "five-a-side",
+                "night",
+                "floodlight"
+            ],
+            "sizeBytes": 242704,
+            "originalName": "football-02-floodlit-pitch-players.jpg",
+            "usageCount": 5,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:35.695Z",
+            "updatedAt": "2026-09-24T08:01:35.695Z"
+        },
+        "01a0d26f-1658-72bf-a018-1263d5eeb299": {
+            "id": "01a0d26f-1658-72bf-a018-1263d5eeb299",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1658-72bf-a018-1263d5eeb299.jpg",
+            "width": 1600,
+            "height": 1200,
+            "mimeType": "image/jpeg",
+            "alt": "Resort hotel wing glowing with warm balcony lights above a landscaped pool at blue-hour dusk",
+            "credit": "Photo: Zion C / Unsplash",
+            "dominantColor": "#47495e",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1658-72bf-a018-1263d5eeb299-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/4Y7DTHX1ins",
+            "tags": [
+                "hero",
+                "resort",
+                "exterior",
+                "dusk",
+                "pool",
+                "architecture"
+            ],
+            "sizeBytes": 413618,
+            "originalName": "hero-04-resort-exterior-dusk.jpg",
+            "usageCount": 2,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:30.902Z",
+            "updatedAt": "2026-09-24T08:01:30.902Z"
+        },
+        "01a0d26f-14d0-70ea-827d-d1bb807d989f": {
+            "id": "01a0d26f-14d0-70ea-827d-d1bb807d989f",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-14d0-70ea-827d-d1bb807d989f.jpg",
+            "width": 1600,
+            "height": 1067,
+            "mimeType": "image/jpeg",
+            "alt": "Guests relaxing on a wooden deck beside an infinity pool under string lights as a pink and purple sunset fades over the sea",
+            "credit": "Photo: Cassie Gallegos / Unsplash",
+            "dominantColor": "#826e80",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-14d0-70ea-827d-d1bb807d989f-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/6wCWCPwmRJY",
+            "tags": [
+                "hero",
+                "pool",
+                "sunset",
+                "string lights",
+                "guests",
+                "evening"
+            ],
+            "sizeBytes": 441334,
+            "originalName": "hero-02-sunset-infinity-pool-crowd.jpg",
+            "usageCount": 1,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:30.509Z",
+            "updatedAt": "2026-09-24T08:01:30.509Z"
+        },
+        "01a0d26f-26e9-7119-a6b6-bba514043629": {
+            "id": "01a0d26f-26e9-7119-a6b6-bba514043629",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-26e9-7119-a6b6-bba514043629.jpg",
+            "width": 1600,
+            "height": 1067,
+            "mimeType": "image/jpeg",
+            "alt": "Overhead view of a tennis player serving on a warm orange clay court with long shadows",
+            "credit": "Photo: Moises Alex / Unsplash",
+            "dominantColor": "#c1642b",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-26e9-7119-a6b6-bba514043629-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/WqI-PbYugn4",
+            "tags": [
+                "tennis",
+                "clay",
+                "aerial",
+                "player"
+            ],
+            "sizeBytes": 455368,
+            "originalName": "tennis-02-clay-court-serve.jpg",
+            "usageCount": 3,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:35.151Z",
+            "updatedAt": "2026-09-24T08:01:35.151Z"
+        },
+        "01a0d26f-17f4-7284-b823-693cb59f37ac": {
+            "id": "01a0d26f-17f4-7284-b823-693cb59f37ac",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-17f4-7284-b823-693cb59f37ac.jpg",
+            "width": 1600,
+            "height": 1067,
+            "mimeType": "image/jpeg",
+            "alt": "Crowd of people jumping and cheering at a lively pool party among palm trees at dusk",
+            "credit": "Photo: Jed Villejo / Unsplash",
+            "dominantColor": "#4f5a52",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-17f4-7284-b823-693cb59f37ac-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/tEnL33Z0-Ho",
+            "tags": [
+                "hero",
+                "pool party",
+                "crowd",
+                "energy",
+                "palms"
+            ],
+            "sizeBytes": 572695,
+            "originalName": "hero-06-pool-party-energy.jpg",
+            "usageCount": 1,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:31.340Z",
+            "updatedAt": "2026-09-24T08:01:31.340Z"
+        },
+        "01a0d26f-18ee-71aa-a761-e2c11f5ed56f": {
+            "id": "01a0d26f-18ee-71aa-a761-e2c11f5ed56f",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-18ee-71aa-a761-e2c11f5ed56f.jpg",
+            "width": 1333,
+            "height": 2000,
+            "mimeType": "image/jpeg",
+            "alt": "Resort pool with lounge chairs and umbrellas silhouetted by palms against an orange sunset",
+            "credit": "Photo: Tim Mossholder / Unsplash",
+            "dominantColor": "#907c69",
+            "variants": [
+                {
+                    "width": 1333,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-18ee-71aa-a761-e2c11f5ed56f-1333.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/5yWwAqTjP20",
+            "tags": [
+                "pool",
+                "sunset",
+                "loungers",
+                "palms"
+            ],
+            "sizeBytes": 480160,
+            "originalName": "pool-01-sunset-loungers-palms.jpg",
+            "usageCount": 3,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:31.625Z",
+            "updatedAt": "2026-09-24T08:01:31.625Z"
+        },
+        "01a0d26f-1c8e-72fe-b88a-9d2c739a32e7": {
+            "id": "01a0d26f-1c8e-72fe-b88a-9d2c739a32e7",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1c8e-72fe-b88a-9d2c739a32e7.jpg",
+            "width": 1600,
+            "height": 1067,
+            "mimeType": "image/jpeg",
+            "alt": "Person receiving a hot stone massage with smooth black stones along the spine and white orchids",
+            "credit": "Photo: engin akyurt / Unsplash",
+            "dominantColor": "#ac8568",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1c8e-72fe-b88a-9d2c739a32e7-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/SMwCQZWayj0",
+            "tags": [
+                "spa",
+                "hot stones",
+                "massage",
+                "flowers"
+            ],
+            "sizeBytes": 174647,
+            "originalName": "spa-01-hot-stone-massage.jpg",
+            "usageCount": 2,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:32.433Z",
+            "updatedAt": "2026-09-24T08:01:32.433Z"
+        },
+        "01a0d26f-1f7d-7097-9b28-67d38d13e6cf": {
+            "id": "01a0d26f-1f7d-7097-9b28-67d38d13e6cf",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1f7d-7097-9b28-67d38d13e6cf.jpg",
+            "width": 1600,
+            "height": 1067,
+            "mimeType": "image/jpeg",
+            "alt": "Skewers of grilled chicken and peppers on a dish of jollof-style rice beside African print fabric",
+            "credit": "Photo: Keesha's Kitchen / Unsplash",
+            "dominantColor": "#a27058",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1f7d-7097-9b28-67d38d13e6cf-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/woC24wGXsQ8",
+            "tags": [
+                "dining",
+                "jollof",
+                "skewers",
+                "african food",
+                "rice"
+            ],
+            "sizeBytes": 326584,
+            "originalName": "dining-03-jollof-rice-skewers.jpg",
+            "usageCount": 5,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:33.219Z",
+            "updatedAt": "2026-09-24T08:01:33.219Z"
+        },
+        "01a0d26f-2043-70e3-b5b2-4861e1205bc9": {
+            "id": "01a0d26f-2043-70e3-b5b2-4861e1205bc9",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2043-70e3-b5b2-4861e1205bc9.jpg",
+            "width": 1333,
+            "height": 2000,
+            "mimeType": "image/jpeg",
+            "alt": "Ruby cocktail with a lime garnish on a bar counter with warm bokeh lights",
+            "credit": "Photo: Tai's Captures / Unsplash",
+            "dominantColor": "#6a492a",
+            "variants": [
+                {
+                    "width": 1333,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2043-70e3-b5b2-4861e1205bc9-1333.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/2EBTwzczg2A",
+            "tags": [
+                "dining",
+                "cocktail",
+                "bar",
+                "evening"
+            ],
+            "sizeBytes": 344891,
+            "originalName": "dining-05-bar-cocktail.jpg",
+            "usageCount": 3,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:33.475Z",
+            "updatedAt": "2026-09-24T08:01:33.475Z"
+        }
+    }
+}

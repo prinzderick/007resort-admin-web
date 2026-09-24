@@ -131,6 +131,24 @@
                 @endforelse
             </x-card>
 
+            @if ($website && $website->ok())
+                @php $w = (array) $website->data; $wn = fn ($k) => (int) data_get($w, $k, 0); @endphp
+                <x-card title="Website" subtitle="What visitors can see and who has written" data-testid="website-card">
+                    <x-slot:aside><a class="text-xs font-medium text-brand-700 underline" href="{{ route('website.index') }}">Open</a></x-slot:aside>
+                    <dl class="grid grid-cols-2 gap-3 text-sm">
+                        <div class="rounded-lg border border-stone-200 px-3 py-2"><dt class="text-xs text-stone-500">Published posts</dt><dd class="text-xl font-semibold tabular-nums" data-testid="w-posts">{{ $wn('posts.published') }}</dd></div>
+                        <div class="rounded-lg border border-stone-200 px-3 py-2"><dt class="text-xs text-stone-500">Published events</dt><dd class="text-xl font-semibold tabular-nums" data-testid="w-events">{{ $wn('events.published') }}</dd></div>
+                        <div class="rounded-lg border border-stone-200 px-3 py-2"><dt class="text-xs text-stone-500">Subscribers</dt><dd class="text-xl font-semibold tabular-nums" data-testid="w-subscribers">{{ $wn('subscribers.confirmed') }}</dd></div>
+                        <div class="rounded-lg border px-3 py-2 {{ $wn('messages.new') > 0 ? 'border-amber-300 bg-amber-50' : 'border-stone-200' }}"><dt class="text-xs text-stone-500">Unread messages</dt><dd class="text-xl font-semibold tabular-nums" data-testid="w-messages">{{ $wn('messages.new') }}</dd></div>
+                    </dl>
+                    <ul class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs font-medium">
+                        @if (auth_staff()->can('cms.manage'))<li><a class="text-brand-700 underline" href="{{ route('website.posts.create') }}">Write a post</a></li><li><a class="text-brand-700 underline" href="{{ route('website.events.create') }}">Add an event</a></li>@endif
+                        @if (auth_staff()->can('cms.messages.manage'))<li><a class="text-brand-700 underline" href="{{ route('website.messages', ['status' => 'NEW']) }}">Read messages</a></li>@endif
+                        @if (auth_staff()->can('cms.subscribers.view'))<li><a class="text-brand-700 underline" href="{{ route('website.subscribers') }}">Subscribers</a></li>@endif
+                    </ul>
+                </x-card>
+            @endif
+
             @if ($onboarding && ($onboarding['percent'] ?? 100) < 100)
                 <x-card title="Finish setting up" :subtitle="($onboarding['percent'] ?? 0).'% complete'" data-testid="setup-progress">
                     <div class="mb-3 h-2 overflow-hidden rounded-full bg-stone-100"><div class="h-full rounded-full bg-brand-600" style="width: {{ $onboarding['percent'] ?? 0 }}%"></div></div>

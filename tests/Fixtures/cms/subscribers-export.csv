@@ -1,0 +1,5 @@
+email,name,source,status,consentedAt,confirmedAt,unsubscribedAt
+ada@example.com,"Ada Obi",footer,CONFIRMED,2026-09-24T08:01:37.629Z,2026-09-24T08:01:44.649Z,
+emeka@example.com,"Emeka N.",blog,CONFIRMED,2026-09-24T08:01:37.644Z,2026-09-24T08:01:44.662Z,
+tolu@example.com,"Tolu A.",event,CONFIRMED,2026-09-24T08:01:37.657Z,2026-09-24T08:01:44.675Z,
+chidi@example.com,"Chidi O.",checkout,CONFIRMED,2026-09-24T08:01:37.683Z,2026-09-24T08:01:44.689Z,

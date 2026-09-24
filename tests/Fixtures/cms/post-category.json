@@ -1,0 +1,11 @@
+{
+    "id": "01a0d26f-2fe3-70b9-b4f1-a8553aa4b5e6",
+    "slug": "news",
+    "name": "News",
+    "description": "What is new at the resort",
+    "sortOrder": 10,
+    "postCount": 2,
+    "rowVersion": 1,
+    "createdAt": "2026-09-24T08:01:37.251Z",
+    "updatedAt": "2026-09-24T08:01:37.251Z"
+}

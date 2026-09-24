@@ -1,0 +1,12 @@
+{
+    "__status": 409,
+    "__problem": {
+        "type": "urn:r007:problem:must_archive_first",
+        "title": "Conflict",
+        "status": 409,
+        "code": "must_archive_first",
+        "detail": "A published item must be unpublished or archived before it can be deleted.",
+        "instance": "/api/v1/admin/cms/posts/01a0d26f-3021-7260-850a-927da91f9b9d",
+        "correlationId": "01a0d26f-7a51-7008-83fe-f44f9a9aa40f"
+    }
+}

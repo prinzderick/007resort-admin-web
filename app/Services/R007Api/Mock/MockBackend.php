@@ -63,6 +63,10 @@ class MockBackend
             return $this->ok(['verified' => true]);
         }
 
+        if (str_starts_with($path, '/admin/cms')) {
+            return app(MockCms::class)->handle($method, $path, $query, $body, $perms);
+        }
+
         foreach ($this->routes() as [$m, $pattern, $perm, $handler]) {
             if ($m !== $method || ! preg_match('#^'.$pattern.'$#', $path, $match)) {
                 continue;

@@ -1,0 +1,99 @@
+{
+    "items": [
+        {
+            "id": "01a0d26f-2fdb-7392-a46f-6b0a74174af2",
+            "slug": "terms",
+            "title": "Terms of use",
+            "subtitle": "Tickets, bookings and payments",
+            "heroMediaId": null,
+            "hero": null,
+            "bodyMarkdown": "## Tickets and bookings\n\nA ticket or booking is valid for the date and time shown. Tickets are personal to the bearer and may be scanned once per entry.\n\n## Payments\n\nOnline payments are processed by our payment partner. Prices are in Nigerian Naira (NGN).\n\n## Cancellations\n\nCancellations and rescheduling follow the policy shown on your booking at the time of purchase.\n\n## Privacy\n\nWe store the details you give us to run your booking and, only if you opt in, to send news and offers. You can unsubscribe at any time.\n\n*This is demo text for the development environment and must be replaced with your approved terms before launch.*",
+            "bodyHtml": "<h2>Tickets and bookings</h2>\n<p>A ticket or booking is valid for the date and time shown. Tickets are personal to the bearer and may be scanned once per entry.</p>\n<h2>Payments</h2>\n<p>Online payments are processed by our payment partner. Prices are in Nigerian Naira (NGN).</p>\n<h2>Cancellations</h2>\n<p>Cancellations and rescheduling follow the policy shown on your booking at the time of purchase.</p>\n<h2>Privacy</h2>\n<p>We store the details you give us to run your booking and, only if you opt in, to send news and offers. You can unsubscribe at any time.</p>\n<p><em>This is demo text for the development environment and must be replaced with your approved terms before launch.</em></p>",
+            "seoTitle": null,
+            "seoDescription": null,
+            "seoOgMediaId": null,
+            "seoOgImage": null,
+            "showInFooter": true,
+            "sortOrder": 30,
+            "status": "PUBLISHED",
+            "publishedAt": "2026-09-23T08:01:37.000Z",
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.245Z",
+            "updatedAt": "2026-09-24T08:01:37.248Z"
+        },
+        {
+            "id": "01a0d26f-2fd5-7195-93e4-09c42929afc7",
+            "slug": "house-rules",
+            "title": "House rules",
+            "subtitle": "Keeping the resort safe and fun for everyone",
+            "heroMediaId": null,
+            "hero": null,
+            "bodyMarkdown": "## Before you arrive\n\n1. Bring your QR ticket or booking confirmation.\n2. Children under 12 must be with an adult at the pool and courts.\n\n## On site\n\n- Swimwear only in the pool; shower before you swim.\n- No glass in the pool area.\n- Outside food and drinks are not permitted.\n- Proper sports shoes on tennis and basketball courts.\n- Respect other guests and staff. Management may ask anyone to leave for unsafe or abusive behaviour.\n\n## Safety\n\nLifeguards are on duty during opening hours. Follow staff instructions at all times.",
+            "bodyHtml": "<h2>Before you arrive</h2>\n<ol>\n<li>Bring your QR ticket or booking confirmation.</li>\n<li>Children under 12 must be with an adult at the pool and courts.</li>\n</ol>\n<h2>On site</h2>\n<ul>\n<li>Swimwear only in the pool; shower before you swim.</li>\n<li>No glass in the pool area.</li>\n<li>Outside food and drinks are not permitted.</li>\n<li>Proper sports shoes on tennis and basketball courts.</li>\n<li>Respect other guests and staff. Management may ask anyone to leave for unsafe or abusive behaviour.</li>\n</ul>\n<h2>Safety</h2>\n<p>Lifeguards are on duty during opening hours. Follow staff instructions at all times.</p>",
+            "seoTitle": null,
+            "seoDescription": null,
+            "seoOgMediaId": null,
+            "seoOgImage": null,
+            "showInFooter": true,
+            "sortOrder": 20,
+            "status": "PUBLISHED",
+            "publishedAt": "2026-09-23T08:01:37.000Z",
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.238Z",
+            "updatedAt": "2026-09-24T08:01:37.241Z"
+        },
+        {
+            "id": "01a0d26f-2fb9-7148-bd0e-10677f0cc91c",
+            "slug": "about",
+            "title": "About 007 Resort & Spa",
+            "subtitle": "Sport, water, food and rest in one place",
+            "heroMediaId": "01a0d26f-1658-72bf-a018-1263d5eeb299",
+            "hero": {
+                "id": "01a0d26f-1658-72bf-a018-1263d5eeb299",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1658-72bf-a018-1263d5eeb299.jpg",
+                "width": 1600,
+                "height": 1200,
+                "mimeType": "image/jpeg",
+                "alt": "Resort hotel wing glowing with warm balcony lights above a landscaped pool at blue-hour dusk",
+                "credit": "Photo: Zion C / Unsplash",
+                "dominantColor": "#47495e",
+                "variants": [
+                    {
+                        "width": 1600,
+                        "format": "webp",
+                        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1658-72bf-a018-1263d5eeb299-1600.webp"
+                    }
+                ],
+                "sourceUrl": "https://unsplash.com/photos/4Y7DTHX1ins",
+                "tags": [
+                    "hero",
+                    "resort",
+                    "exterior",
+                    "dusk",
+                    "pool",
+                    "architecture"
+                ],
+                "sizeBytes": 413618,
+                "originalName": "hero-04-resort-exterior-dusk.jpg",
+                "usageCount": 2,
+                "rowVersion": 1,
+                "createdAt": "2026-09-24T08:01:30.902Z",
+                "updatedAt": "2026-09-24T08:01:30.902Z"
+            },
+            "bodyMarkdown": "## Play. Splash. Reset. Feast.\n\n007 Resort & Spa was built for the kind of weekend where everyone in the group gets what they want. Some of you want a floodlit game, some want a quiet hour by the water, and somebody always wants a second plate of jollof.\n\nOn one property you will find:\n\n- a **sports arena** with football, basketball and tennis courts\n- a **resort pool** with loungers, kids' areas and a poolside bar\n- a **spa** for massages, facials, sauna and steam\n- a **restaurant and bars** serving grills, fresh fish and cocktails\n\n### Made for groups\n\nFamilies, teams, colleagues and friends book together and pay once. Everything is scanned at the gate with a QR ticket, so there is no queue at the desk.\n\n### Find us\n\nWe are in Otueke, Bayelsa State. See the contact page for directions and opening hours.",
+            "bodyHtml": "<h2>Play. Splash. Reset. Feast.</h2>\n<p>007 Resort &amp; Spa was built for the kind of weekend where everyone in the group gets what they want. Some of you want a floodlit game, some want a quiet hour by the water, and somebody always wants a second plate of jollof.</p>\n<p>On one property you will find:</p>\n<ul>\n<li>a <strong>sports arena</strong> with football, basketball and tennis courts</li>\n<li>a <strong>resort pool</strong> with loungers, kids' areas and a poolside bar</li>\n<li>a <strong>spa</strong> for massages, facials, sauna and steam</li>\n<li>a <strong>restaurant and bars</strong> serving grills, fresh fish and cocktails</li>\n</ul>\n<h3>Made for groups</h3>\n<p>Families, teams, colleagues and friends book together and pay once. Everything is scanned at the gate with a QR ticket, so there is no queue at the desk.</p>\n<h3>Find us</h3>\n<p>We are in Otueke, Bayelsa State. See the contact page for directions and opening hours.</p>",
+            "seoTitle": null,
+            "seoDescription": "Sports arena, pool, spa, restaurant and bars in Bayelsa. Learn about 007 Resort & Spa.",
+            "seoOgMediaId": null,
+            "seoOgImage": null,
+            "showInFooter": true,
+            "sortOrder": 10,
+            "status": "PUBLISHED",
+            "publishedAt": "2026-09-23T08:01:37.000Z",
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.225Z",
+            "updatedAt": "2026-09-24T08:01:37.231Z"
+        }
+    ],
+    "nextCursor": null
+}

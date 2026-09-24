@@ -1,0 +1,373 @@
+{
+    "items": [
+        {
+            "id": "01a0d26f-3021-7260-850a-927da91f9b9d",
+            "slug": "cocktails-by-the-water",
+            "title": "Cocktails by the water",
+            "excerpt": "Our poolside bar menu, from zero-proof coolers to long summer drinks.",
+            "bodyMarkdown": "The poolside bar has a short menu built for hot afternoons: citrus, ginger, hibiscus and plenty of ice.\n\n### Favourites\n\n- **Zobo spritz**, hibiscus, ginger and lime\n- **Palm sunset**, pineapple, orange and grenadine (alcohol-free)\n- **The 007**, a dry martini for the traditionalists\n\nAsk the bartender for a tasting flight.",
+            "bodyHtml": "<p>The poolside bar has a short menu built for hot afternoons: citrus, ginger, hibiscus and plenty of ice.</p>\n<h3>Favourites</h3>\n<ul>\n<li><strong>Zobo spritz</strong>, hibiscus, ginger and lime</li>\n<li><strong>Palm sunset</strong>, pineapple, orange and grenadine (alcohol-free)</li>\n<li><strong>The 007</strong>, a dry martini for the traditionalists</li>\n</ul>\n<p>Ask the bartender for a tasting flight.</p>",
+            "coverMediaId": "01a0d26f-2043-70e3-b5b2-4861e1205bc9",
+            "cover": {
+                "id": "01a0d26f-2043-70e3-b5b2-4861e1205bc9",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2043-70e3-b5b2-4861e1205bc9.jpg",
+                "width": 1333,
+                "height": 2000,
+                "mimeType": "image/jpeg",
+                "alt": "Ruby cocktail with a lime garnish on a bar counter with warm bokeh lights",
+                "credit": "Photo: Tai's Captures / Unsplash",
+                "dominantColor": "#6a492a",
+                "variants": [
+                    {
+                        "width": 1333,
+                        "format": "webp",
+                        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2043-70e3-b5b2-4861e1205bc9-1333.webp"
+                    }
+                ],
+                "sourceUrl": "https://unsplash.com/photos/2EBTwzczg2A",
+                "tags": [
+                    "dining",
+                    "cocktail",
+                    "bar",
+                    "evening"
+                ],
+                "sizeBytes": 344891,
+                "originalName": "dining-05-bar-cocktail.jpg",
+                "usageCount": 3,
+                "rowVersion": 1,
+                "createdAt": "2026-09-24T08:01:33.475Z",
+                "updatedAt": "2026-09-24T08:01:33.475Z"
+            },
+            "authorName": "The 007 team",
+            "categoryId": "01a0d26f-2fe9-7233-b1dc-040715dca508",
+            "category": {
+                "id": "01a0d26f-2fe9-7233-b1dc-040715dca508",
+                "slug": "food-drink",
+                "name": "Food & Drink"
+            },
+            "tags": [
+                "bar",
+                "drinks"
+            ],
+            "readingTimeMinutes": 1,
+            "featured": false,
+            "seoTitle": null,
+            "seoDescription": null,
+            "seoOgMediaId": null,
+            "seoOgImage": null,
+            "status": "PUBLISHED",
+            "publishedAt": "2026-08-17T08:01:37.000Z",
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.315Z",
+            "updatedAt": "2026-09-24T08:01:37.318Z"
+        },
+        {
+            "id": "01a0d26f-3018-72b3-9843-92dfb07b437d",
+            "slug": "inside-the-grill-jollof-and-suya",
+            "title": "Inside the grill: jollof, suya and fire",
+            "excerpt": "Our chefs share how the restaurant gets that smoky flavour.",
+            "bodyMarkdown": "The secret to our jollof is patience and a little smoke. Rice is finished on the same charcoal grill that cooks the suya, so it picks up flavour you cannot fake.\n\nThe grill menu changes weekly with the catch and the market, but the classics always stay: peppered chicken, flame-grilled fish and skewers with yaji spice.\n\nBooking a table is easy for groups; just add your date and headcount from the contact page.",
+            "bodyHtml": "<p>The secret to our jollof is patience and a little smoke. Rice is finished on the same charcoal grill that cooks the suya, so it picks up flavour you cannot fake.</p>\n<p>The grill menu changes weekly with the catch and the market, but the classics always stay: peppered chicken, flame-grilled fish and skewers with yaji spice.</p>\n<p>Booking a table is easy for groups; just add your date and headcount from the contact page.</p>",
+            "coverMediaId": "01a0d26f-1f7d-7097-9b28-67d38d13e6cf",
+            "cover": {
+                "id": "01a0d26f-1f7d-7097-9b28-67d38d13e6cf",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1f7d-7097-9b28-67d38d13e6cf.jpg",
+                "width": 1600,
+                "height": 1067,
+                "mimeType": "image/jpeg",
+                "alt": "Skewers of grilled chicken and peppers on a dish of jollof-style rice beside African print fabric",
+                "credit": "Photo: Keesha's Kitchen / Unsplash",
+                "dominantColor": "#a27058",
+                "variants": [
+                    {
+                        "width": 1600,
+                        "format": "webp",
+                        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1f7d-7097-9b28-67d38d13e6cf-1600.webp"
+                    }
+                ],
+                "sourceUrl": "https://unsplash.com/photos/woC24wGXsQ8",
+                "tags": [
+                    "dining",
+                    "jollof",
+                    "skewers",
+                    "african food",
+                    "rice"
+                ],
+                "sizeBytes": 326584,
+                "originalName": "dining-03-jollof-rice-skewers.jpg",
+                "usageCount": 5,
+                "rowVersion": 1,
+                "createdAt": "2026-09-24T08:01:33.219Z",
+                "updatedAt": "2026-09-24T08:01:33.219Z"
+            },
+            "authorName": "The 007 team",
+            "categoryId": "01a0d26f-2fe9-7233-b1dc-040715dca508",
+            "category": {
+                "id": "01a0d26f-2fe9-7233-b1dc-040715dca508",
+                "slug": "food-drink",
+                "name": "Food & Drink"
+            },
+            "tags": [
+                "restaurant",
+                "grill"
+            ],
+            "readingTimeMinutes": 1,
+            "featured": true,
+            "seoTitle": null,
+            "seoDescription": null,
+            "seoOgMediaId": null,
+            "seoOgImage": null,
+            "status": "PUBLISHED",
+            "publishedAt": "2026-08-24T08:01:37.000Z",
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.305Z",
+            "updatedAt": "2026-09-24T08:01:37.308Z"
+        },
+        {
+            "id": "01a0d26f-300e-7355-9f0d-b4aef74df6e2",
+            "slug": "serve-up-tennis-mornings",
+            "title": "Serve up: tennis mornings for beginners",
+            "excerpt": "Weekday morning coaching for first-timers, with rackets and balls provided.",
+            "bodyMarkdown": "New to tennis? Our weekday morning sessions are designed for you.\n\nA coach walks you through grip, footwork and your first rallies on the clay court. Rackets and balls are included, and sessions are small so you get real attention.\n\nBook a one-hour court slot and ask for a coach at reception, or join the Gold membership for included coaching credits.",
+            "bodyHtml": "<p>New to tennis? Our weekday morning sessions are designed for you.</p>\n<p>A coach walks you through grip, footwork and your first rallies on the clay court. Rackets and balls are included, and sessions are small so you get real attention.</p>\n<p>Book a one-hour court slot and ask for a coach at reception, or join the Gold membership for included coaching credits.</p>",
+            "coverMediaId": "01a0d26f-26e9-7119-a6b6-bba514043629",
+            "cover": {
+                "id": "01a0d26f-26e9-7119-a6b6-bba514043629",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-26e9-7119-a6b6-bba514043629.jpg",
+                "width": 1600,
+                "height": 1067,
+                "mimeType": "image/jpeg",
+                "alt": "Overhead view of a tennis player serving on a warm orange clay court with long shadows",
+                "credit": "Photo: Moises Alex / Unsplash",
+                "dominantColor": "#c1642b",
+                "variants": [
+                    {
+                        "width": 1600,
+                        "format": "webp",
+                        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-26e9-7119-a6b6-bba514043629-1600.webp"
+                    }
+                ],
+                "sourceUrl": "https://unsplash.com/photos/WqI-PbYugn4",
+                "tags": [
+                    "tennis",
+                    "clay",
+                    "aerial",
+                    "player"
+                ],
+                "sizeBytes": 455368,
+                "originalName": "tennis-02-clay-court-serve.jpg",
+                "usageCount": 3,
+                "rowVersion": 1,
+                "createdAt": "2026-09-24T08:01:35.151Z",
+                "updatedAt": "2026-09-24T08:01:35.151Z"
+            },
+            "authorName": "The 007 team",
+            "categoryId": "01a0d26f-2fe6-711c-a412-e80c25978adb",
+            "category": {
+                "id": "01a0d26f-2fe6-711c-a412-e80c25978adb",
+                "slug": "sports",
+                "name": "Sports"
+            },
+            "tags": [
+                "tennis",
+                "coaching"
+            ],
+            "readingTimeMinutes": 1,
+            "featured": false,
+            "seoTitle": null,
+            "seoDescription": null,
+            "seoOgMediaId": null,
+            "seoOgImage": null,
+            "status": "PUBLISHED",
+            "publishedAt": "2026-08-31T08:01:37.000Z",
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.295Z",
+            "updatedAt": "2026-09-24T08:01:37.299Z"
+        },
+        {
+            "id": "01a0d26f-3004-72f9-ac13-5386c07f2821",
+            "slug": "how-to-plan-a-family-pool-day",
+            "title": "How to plan the perfect family pool day",
+            "excerpt": "Arrive early, pick a shaded lounger and let the kids run out of energy first.",
+            "bodyMarkdown": "A great pool day is mostly about timing.\n\n1. **Arrive before 11am** to claim shaded loungers near the kids' area.\n2. **Buy tickets online** so you can walk straight in with the QR code.\n3. **Swim first, eat second.** The restaurant is quietest between 2pm and 4pm.\n4. **Pack a spare towel** and sunscreen; the shop by the gate has both if you forget.\n\nCabanas can be booked for larger groups.",
+            "bodyHtml": "<p>A great pool day is mostly about timing.</p>\n<ol>\n<li><strong>Arrive before 11am</strong> to claim shaded loungers near the kids' area.</li>\n<li><strong>Buy tickets online</strong> so you can walk straight in with the QR code.</li>\n<li><strong>Swim first, eat second.</strong> The restaurant is quietest between 2pm and 4pm.</li>\n<li><strong>Pack a spare towel</strong> and sunscreen; the shop by the gate has both if you forget.</li>\n</ol>\n<p>Cabanas can be booked for larger groups.</p>",
+            "coverMediaId": "01a0d26f-1a07-736f-8af6-df7729903a46",
+            "cover": {
+                "id": "01a0d26f-1a07-736f-8af6-df7729903a46",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1a07-736f-8af6-df7729903a46.jpg",
+                "width": 1600,
+                "height": 1067,
+                "mimeType": "image/jpeg",
+                "alt": "Two young children playing together in sparkling shallow pool water",
+                "credit": "Photo: Cor Dulce / Unsplash",
+                "dominantColor": "#94bdd6",
+                "variants": [
+                    {
+                        "width": 1600,
+                        "format": "webp",
+                        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1a07-736f-8af6-df7729903a46-1600.webp"
+                    }
+                ],
+                "sourceUrl": "https://unsplash.com/photos/lMMas1V5Z3w",
+                "tags": [
+                    "pool",
+                    "kids",
+                    "family",
+                    "splash"
+                ],
+                "sizeBytes": 375674,
+                "originalName": "pool-02-kids-playing-in-pool.jpg",
+                "usageCount": 2,
+                "rowVersion": 1,
+                "createdAt": "2026-09-24T08:01:31.835Z",
+                "updatedAt": "2026-09-24T08:01:31.835Z"
+            },
+            "authorName": "The 007 team",
+            "categoryId": "01a0d26f-2fe3-70b9-b4f1-a8553aa4b5e6",
+            "category": {
+                "id": "01a0d26f-2fe3-70b9-b4f1-a8553aa4b5e6",
+                "slug": "news",
+                "name": "News"
+            },
+            "tags": [
+                "pool",
+                "family"
+            ],
+            "readingTimeMinutes": 1,
+            "featured": false,
+            "seoTitle": null,
+            "seoDescription": null,
+            "seoOgMediaId": null,
+            "seoOgImage": null,
+            "status": "PUBLISHED",
+            "publishedAt": "2026-09-07T08:01:37.000Z",
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.286Z",
+            "updatedAt": "2026-09-24T08:01:37.290Z"
+        },
+        {
+            "id": "01a0d26f-2ffa-71ce-9360-6f83e6e33b18",
+            "slug": "new-floodlights-on-the-arena",
+            "title": "New floodlights on the arena",
+            "excerpt": "The football pitch and basketball court now run under new LED floodlights.",
+            "bodyMarkdown": "We have finished upgrading the sports arena with new LED floodlights, which means brighter games and later kick-offs.\n\nEvening slots are now bookable until 22:00 on both the football pitch and the basketball court. Early evening is the busiest window, so reserve your slot a few days ahead.\n\n> Tip: a five-a-side team can split the hourly price and still pay less than a cinema ticket each.",
+            "bodyHtml": "<p>We have finished upgrading the sports arena with new LED floodlights, which means brighter games and later kick-offs.</p>\n<p>Evening slots are now bookable until 22:00 on both the football pitch and the basketball court. Early evening is the busiest window, so reserve your slot a few days ahead.</p>\n<blockquote>\n<p>Tip: a five-a-side team can split the hourly price and still pay less than a cinema ticket each.</p>\n</blockquote>",
+            "coverMediaId": "01a0d26f-293e-72c8-abf3-cb9bdca982f0",
+            "cover": {
+                "id": "01a0d26f-293e-72c8-abf3-cb9bdca982f0",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-293e-72c8-abf3-cb9bdca982f0.jpg",
+                "width": 1600,
+                "height": 1067,
+                "mimeType": "image/jpeg",
+                "alt": "Small-sided football game played under a single floodlight on a dark pitch",
+                "credit": "Photo: Abigail Keenan / Unsplash",
+                "dominantColor": "#173033",
+                "variants": [
+                    {
+                        "width": 1600,
+                        "format": "webp",
+                        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-293e-72c8-abf3-cb9bdca982f0-1600.webp"
+                    }
+                ],
+                "sourceUrl": "https://unsplash.com/photos/8-s5QuUBtyM",
+                "tags": [
+                    "football",
+                    "five-a-side",
+                    "night",
+                    "floodlight"
+                ],
+                "sizeBytes": 242704,
+                "originalName": "football-02-floodlit-pitch-players.jpg",
+                "usageCount": 5,
+                "rowVersion": 1,
+                "createdAt": "2026-09-24T08:01:35.695Z",
+                "updatedAt": "2026-09-24T08:01:35.695Z"
+            },
+            "authorName": "The 007 team",
+            "categoryId": "01a0d26f-2fe6-711c-a412-e80c25978adb",
+            "category": {
+                "id": "01a0d26f-2fe6-711c-a412-e80c25978adb",
+                "slug": "sports",
+                "name": "Sports"
+            },
+            "tags": [
+                "football",
+                "basketball"
+            ],
+            "readingTimeMinutes": 1,
+            "featured": false,
+            "seoTitle": null,
+            "seoDescription": null,
+            "seoOgMediaId": null,
+            "seoOgImage": null,
+            "status": "PUBLISHED",
+            "publishedAt": "2026-09-14T08:01:37.000Z",
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.275Z",
+            "updatedAt": "2026-09-24T08:01:37.280Z"
+        },
+        {
+            "id": "01a0d26f-2fee-70c9-a35e-416eac2681a0",
+            "slug": "friday-night-live-is-back",
+            "title": "Friday Night Live is back",
+            "excerpt": "Live band, grill and cocktails return to the poolside deck every Friday.",
+            "bodyMarkdown": "Every Friday from 7pm the poolside deck turns into the best seat in Bayelsa.\n\n## What to expect\n\n- A live band playing highlife, afrobeats and covers\n- The grill open until late\n- Two-for-one cocktails until 8pm\n\nTickets are limited, so book ahead from the **Events** page. Groups of six or more can reserve a cabana.",
+            "bodyHtml": "<p>Every Friday from 7pm the poolside deck turns into the best seat in Bayelsa.</p>\n<h2>What to expect</h2>\n<ul>\n<li>A live band playing highlife, afrobeats and covers</li>\n<li>The grill open until late</li>\n<li>Two-for-one cocktails until 8pm</li>\n</ul>\n<p>Tickets are limited, so book ahead from the <strong>Events</strong> page. Groups of six or more can reserve a cabana.</p>",
+            "coverMediaId": "01a0d26f-22c6-70a0-ac58-f8b85d2852ee",
+            "cover": {
+                "id": "01a0d26f-22c6-70a0-ac58-f8b85d2852ee",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-22c6-70a0-ac58-f8b85d2852ee.jpg",
+                "width": 1600,
+                "height": 1067,
+                "mimeType": "image/jpeg",
+                "alt": "DJ silhouetted behind beams of pink and white stage lights above a cheering crowd",
+                "credit": "Photo: A J. / Unsplash",
+                "dominantColor": "#a8335e",
+                "variants": [
+                    {
+                        "width": 1600,
+                        "format": "webp",
+                        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-22c6-70a0-ac58-f8b85d2852ee-1600.webp"
+                    }
+                ],
+                "sourceUrl": "https://unsplash.com/photos/r3XvSBEQQLo",
+                "tags": [
+                    "events",
+                    "dj",
+                    "party",
+                    "lights",
+                    "crowd"
+                ],
+                "sizeBytes": 248705,
+                "originalName": "events-01-dj-light-show.jpg",
+                "usageCount": 4,
+                "rowVersion": 1,
+                "createdAt": "2026-09-24T08:01:34.045Z",
+                "updatedAt": "2026-09-24T08:01:34.045Z"
+            },
+            "authorName": "The 007 team",
+            "categoryId": "01a0d26f-2fe3-70b9-b4f1-a8553aa4b5e6",
+            "category": {
+                "id": "01a0d26f-2fe3-70b9-b4f1-a8553aa4b5e6",
+                "slug": "news",
+                "name": "News"
+            },
+            "tags": [
+                "events",
+                "music"
+            ],
+            "readingTimeMinutes": 1,
+            "featured": true,
+            "seoTitle": null,
+            "seoDescription": null,
+            "seoOgMediaId": null,
+            "seoOgImage": null,
+            "status": "PUBLISHED",
+            "publishedAt": "2026-09-21T08:01:37.000Z",
+            "rowVersion": 2,
+            "createdAt": "2026-09-24T08:01:37.263Z",
+            "updatedAt": "2026-09-24T08:01:37.269Z"
+        }
+    ],
+    "nextCursor": null
+}

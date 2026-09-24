@@ -1,0 +1,618 @@
+{
+    "items": [
+        {
+            "id": "01a0d26f-2e68-700e-95c7-f7a35eee25d6",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2e68-700e-95c7-f7a35eee25d6.jpg",
+            "width": 1600,
+            "height": 1067,
+            "mimeType": "image/jpeg",
+            "alt": "Badminton player leaping to smash a shuttlecock on an indoor green court",
+            "credit": "Photo: Muktasim Azlan / Unsplash",
+            "dominantColor": "#152f33",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2e68-700e-95c7-f7a35eee25d6-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/rjWfNR_AC5g",
+            "tags": [
+                "padel",
+                "badminton",
+                "indoor",
+                "action"
+            ],
+            "sizeBytes": 187234,
+            "originalName": "padel-01-badminton-smash.jpg",
+            "usageCount": 1,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:37.003Z",
+            "updatedAt": "2026-09-24T08:01:37.003Z"
+        },
+        {
+            "id": "01a0d26f-2d3c-738d-939b-e8632d7dc526",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2d3c-738d-939b-e8632d7dc526.jpg",
+            "width": 1600,
+            "height": 2000,
+            "mimeType": "image/jpeg",
+            "alt": "Black marble reception desk with gold trim in a stylish hotel lounge",
+            "credit": "Photo: Dylan Calluy / Unsplash",
+            "dominantColor": "#6c4d2f",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2d3c-738d-939b-e8632d7dc526-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/8BYahZcwYgI",
+            "tags": [
+                "membership",
+                "reception",
+                "lounge",
+                "luxury"
+            ],
+            "sizeBytes": 474791,
+            "originalName": "membership-02-lounge-reception-desk.jpg",
+            "usageCount": 0,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:36.846Z",
+            "updatedAt": "2026-09-24T08:01:36.846Z"
+        },
+        {
+            "id": "01a0d26f-2c60-7026-a219-87964bcb78c5",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2c60-7026-a219-87964bcb78c5.jpg",
+            "width": 1600,
+            "height": 1067,
+            "mimeType": "image/jpeg",
+            "alt": "Park garden with tree trunks wrapped in fairy lights at night",
+            "credit": "Photo: Lily Miller / Unsplash",
+            "dominantColor": "#201d13",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2c60-7026-a219-87964bcb78c5-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/T9DL0p3qpd0",
+            "tags": [
+                "gallery",
+                "lights",
+                "garden",
+                "night",
+                "ambience"
+            ],
+            "sizeBytes": 332366,
+            "originalName": "gallery-04-garden-lights-night.jpg",
+            "usageCount": 1,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:36.516Z",
+            "updatedAt": "2026-09-24T08:01:36.516Z"
+        },
+        {
+            "id": "01a0d26f-2bd6-7021-afb6-79794fc12bf7",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2bd6-7021-afb6-79794fc12bf7.jpg",
+            "width": 1600,
+            "height": 1067,
+            "mimeType": "image/jpeg",
+            "alt": "Glowing festoon bulbs on a string against a black night background",
+            "credit": "Photo: Keenan Davidson / Unsplash",
+            "dominantColor": "#2a2316",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2bd6-7021-afb6-79794fc12bf7-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/gpFAEiBchKI",
+            "tags": [
+                "gallery",
+                "lights",
+                "night",
+                "bokeh",
+                "warm"
+            ],
+            "sizeBytes": 131431,
+            "originalName": "gallery-03-festoon-bulb-bokeh.jpg",
+            "usageCount": 1,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:36.321Z",
+            "updatedAt": "2026-09-24T08:01:36.321Z"
+        },
+        {
+            "id": "01a0d26f-2b42-70dd-9333-4476134f3569",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2b42-70dd-9333-4476134f3569.jpg",
+            "width": 1600,
+            "height": 1067,
+            "mimeType": "image/jpeg",
+            "alt": "Palm silhouettes against an orange and magenta sunset sky",
+            "credit": "Photo: Prometey Sanchez Noskov / Unsplash",
+            "dominantColor": "#984f42",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2b42-70dd-9333-4476134f3569-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/c6M7AoevSXE",
+            "tags": [
+                "gallery",
+                "palms",
+                "sunset",
+                "silhouette",
+                "tropical"
+            ],
+            "sizeBytes": 187228,
+            "originalName": "gallery-01-palm-silhouettes-sunset.jpg",
+            "usageCount": 0,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:36.193Z",
+            "updatedAt": "2026-09-24T08:01:36.193Z"
+        },
+        {
+            "id": "01a0d26f-2a9b-7203-a191-ce680f67b177",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2a9b-7203-a191-ce680f67b177.jpg",
+            "width": 1600,
+            "height": 1067,
+            "mimeType": "image/jpeg",
+            "alt": "Personal trainer coaching a woman on a gym machine",
+            "credit": "Photo: Sergio Kian / Unsplash",
+            "dominantColor": "#323938",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2a9b-7203-a191-ce680f67b177-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/G6svDyPVRrc",
+            "tags": [
+                "lifestyle",
+                "coaching",
+                "gym",
+                "fitness",
+                "trainer"
+            ],
+            "sizeBytes": 238287,
+            "originalName": "lifestyle-05-personal-trainer-session.jpg",
+            "usageCount": 1,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:36.045Z",
+            "updatedAt": "2026-09-24T08:01:36.045Z"
+        },
+        {
+            "id": "01a0d26f-29e6-729a-a67d-83ddec99b2e4",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-29e6-729a-a67d-83ddec99b2e4.jpg",
+            "width": 1600,
+            "height": 1067,
+            "mimeType": "image/jpeg",
+            "alt": "Smiling family with two young children sitting together on a sofa",
+            "credit": "Photo: Eyo Archibong / Unsplash",
+            "dominantColor": "#ab8f88",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-29e6-729a-a67d-83ddec99b2e4-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/RJo9OowwG4g",
+            "tags": [
+                "lifestyle",
+                "family",
+                "children",
+                "portrait",
+                "home"
+            ],
+            "sizeBytes": 269973,
+            "originalName": "lifestyle-02-family-portrait-sofa.jpg",
+            "usageCount": 0,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:35.869Z",
+            "updatedAt": "2026-09-24T08:01:35.869Z"
+        },
+        {
+            "id": "01a0d26f-293e-72c8-abf3-cb9bdca982f0",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-293e-72c8-abf3-cb9bdca982f0.jpg",
+            "width": 1600,
+            "height": 1067,
+            "mimeType": "image/jpeg",
+            "alt": "Small-sided football game played under a single floodlight on a dark pitch",
+            "credit": "Photo: Abigail Keenan / Unsplash",
+            "dominantColor": "#173033",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-293e-72c8-abf3-cb9bdca982f0-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/8-s5QuUBtyM",
+            "tags": [
+                "football",
+                "five-a-side",
+                "night",
+                "floodlight"
+            ],
+            "sizeBytes": 242704,
+            "originalName": "football-02-floodlit-pitch-players.jpg",
+            "usageCount": 5,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:35.695Z",
+            "updatedAt": "2026-09-24T08:01:35.695Z"
+        },
+        {
+            "id": "01a0d26f-288a-70db-bd83-7d62fcba3367",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-288a-70db-bd83-7d62fcba3367.jpg",
+            "width": 1600,
+            "height": 1067,
+            "mimeType": "image/jpeg",
+            "alt": "Two people playing basketball on an outdoor court lit by a floodlight at night with city lights behind",
+            "credit": "Photo: MChe Lee / Unsplash",
+            "dominantColor": "#202316",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-288a-70db-bd83-7d62fcba3367-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/zmfYgYwRzjA",
+            "tags": [
+                "basketball",
+                "night",
+                "floodlit",
+                "court"
+            ],
+            "sizeBytes": 260066,
+            "originalName": "basketball-02-floodlit-court-night.jpg",
+            "usageCount": 1,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:35.520Z",
+            "updatedAt": "2026-09-24T08:01:35.520Z"
+        },
+        {
+            "id": "01a0d26f-27cc-712b-a891-55d3453b1b98",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-27cc-712b-a891-55d3453b1b98.jpg",
+            "width": 1600,
+            "height": 1044,
+            "mimeType": "image/jpeg",
+            "alt": "Player mid-swing on a blue and green hard tennis court seen from behind",
+            "credit": "Photo: Andrew Heald / Unsplash",
+            "dominantColor": "#316d6e",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-27cc-712b-a891-55d3453b1b98-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/C1bGTi-rSus",
+            "tags": [
+                "tennis",
+                "player",
+                "action",
+                "hard court"
+            ],
+            "sizeBytes": 325835,
+            "originalName": "tennis-03-forehand-blue-court.jpg",
+            "usageCount": 1,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:35.345Z",
+            "updatedAt": "2026-09-24T08:01:35.345Z"
+        },
+        {
+            "id": "01a0d26f-26e9-7119-a6b6-bba514043629",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-26e9-7119-a6b6-bba514043629.jpg",
+            "width": 1600,
+            "height": 1067,
+            "mimeType": "image/jpeg",
+            "alt": "Overhead view of a tennis player serving on a warm orange clay court with long shadows",
+            "credit": "Photo: Moises Alex / Unsplash",
+            "dominantColor": "#c1642b",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-26e9-7119-a6b6-bba514043629-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/WqI-PbYugn4",
+            "tags": [
+                "tennis",
+                "clay",
+                "aerial",
+                "player"
+            ],
+            "sizeBytes": 455368,
+            "originalName": "tennis-02-clay-court-serve.jpg",
+            "usageCount": 3,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:35.151Z",
+            "updatedAt": "2026-09-24T08:01:35.151Z"
+        },
+        {
+            "id": "01a0d26f-2615-7069-a5e0-01e942de1955",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2615-7069-a5e0-01e942de1955.jpg",
+            "width": 1600,
+            "height": 1067,
+            "mimeType": "image/jpeg",
+            "alt": "Children holding hands in a circle playing on a sunny park lawn",
+            "credit": "Photo: Jay Chen / Unsplash",
+            "dominantColor": "#899d69",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2615-7069-a5e0-01e942de1955-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/mKbZ3zAdiB4",
+            "tags": [
+                "events",
+                "kids",
+                "play",
+                "lawn",
+                "family"
+            ],
+            "sizeBytes": 380508,
+            "originalName": "events-06-kids-circle-lawn.jpg",
+            "usageCount": 2,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:34.921Z",
+            "updatedAt": "2026-09-24T08:01:34.921Z"
+        },
+        {
+            "id": "01a0d26f-2519-70c3-8ade-0f7d98ffe5f8",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2519-70c3-8ade-0f7d98ffe5f8.jpg",
+            "width": 1333,
+            "height": 2000,
+            "mimeType": "image/jpeg",
+            "alt": "Group doing yoga on mats on a lawn as the low sun filters through trees",
+            "credit": "Photo: Amauri Mejia / Unsplash",
+            "dominantColor": "#a6a493",
+            "variants": [
+                {
+                    "width": 1333,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2519-70c3-8ade-0f7d98ffe5f8-1333.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/GvF7RkA-E9Q",
+            "tags": [
+                "events",
+                "yoga",
+                "wellness",
+                "outdoor",
+                "class"
+            ],
+            "sizeBytes": 374980,
+            "originalName": "events-05-outdoor-yoga-sunset.jpg",
+            "usageCount": 2,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:34.712Z",
+            "updatedAt": "2026-09-24T08:01:34.712Z"
+        },
+        {
+            "id": "01a0d26f-2444-70ed-a381-7dcc66796816",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2444-70ed-a381-7dcc66796816.jpg",
+            "width": 1600,
+            "height": 1164,
+            "mimeType": "image/jpeg",
+            "alt": "Guests at a bar counter watching sport on a wall of large screens",
+            "credit": "Photo: Amit Lahav / Unsplash",
+            "dominantColor": "#453b32",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2444-70ed-a381-7dcc66796816-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/6I-HWjwn-hk",
+            "tags": [
+                "events",
+                "match night",
+                "big screen",
+                "bar",
+                "sport"
+            ],
+            "sizeBytes": 381065,
+            "originalName": "events-03-match-night-big-screens.jpg",
+            "usageCount": 2,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:34.459Z",
+            "updatedAt": "2026-09-24T08:01:34.459Z"
+        },
+        {
+            "id": "01a0d26f-2378-7376-9e2d-9dce12ef46bb",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2378-7376-9e2d-9dce12ef46bb.jpg",
+            "width": 1600,
+            "height": 1068,
+            "mimeType": "image/jpeg",
+            "alt": "Huge crowd with confetti falling in front of a bright stage",
+            "credit": "Photo: Danny Howe / Unsplash",
+            "dominantColor": "#4e4240",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2378-7376-9e2d-9dce12ef46bb-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/Hq9BwndSFAY",
+            "tags": [
+                "events",
+                "crowd",
+                "confetti",
+                "concert",
+                "energy"
+            ],
+            "sizeBytes": 398617,
+            "originalName": "events-02-confetti-crowd.jpg",
+            "usageCount": 2,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:34.248Z",
+            "updatedAt": "2026-09-24T08:01:34.248Z"
+        },
+        {
+            "id": "01a0d26f-22c6-70a0-ac58-f8b85d2852ee",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-22c6-70a0-ac58-f8b85d2852ee.jpg",
+            "width": 1600,
+            "height": 1067,
+            "mimeType": "image/jpeg",
+            "alt": "DJ silhouetted behind beams of pink and white stage lights above a cheering crowd",
+            "credit": "Photo: A J. / Unsplash",
+            "dominantColor": "#a8335e",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-22c6-70a0-ac58-f8b85d2852ee-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/r3XvSBEQQLo",
+            "tags": [
+                "events",
+                "dj",
+                "party",
+                "lights",
+                "crowd"
+            ],
+            "sizeBytes": 248705,
+            "originalName": "events-01-dj-light-show.jpg",
+            "usageCount": 4,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:34.045Z",
+            "updatedAt": "2026-09-24T08:01:34.045Z"
+        },
+        {
+            "id": "01a0d26f-21ea-70d2-8f81-b272e86e4715",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-21ea-70d2-8f81-b272e86e4715.jpg",
+            "width": 1600,
+            "height": 1067,
+            "mimeType": "image/jpeg",
+            "alt": "Overhead brunch table of waffles, eggs, fresh fruit and juice",
+            "credit": "Photo: Rachel Park / Unsplash",
+            "dominantColor": "#b0997f",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-21ea-70d2-8f81-b272e86e4715-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/hrlvr2ZlUNk",
+            "tags": [
+                "dining",
+                "breakfast",
+                "brunch",
+                "food",
+                "flat lay"
+            ],
+            "sizeBytes": 475749,
+            "originalName": "dining-08-brunch-spread.jpg",
+            "usageCount": 1,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:33.868Z",
+            "updatedAt": "2026-09-24T08:01:33.868Z"
+        },
+        {
+            "id": "01a0d26f-2139-71b1-acf3-32790cde2717",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2139-71b1-acf3-32790cde2717.jpg",
+            "width": 1600,
+            "height": 1280,
+            "mimeType": "image/jpeg",
+            "alt": "Outdoor terrace at night with festoon string lights and tables",
+            "credit": "Photo: Bence Balla-Schottner / Unsplash",
+            "dominantColor": "#0c1623",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2139-71b1-acf3-32790cde2717-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/b34NWlh8G_M",
+            "tags": [
+                "dining",
+                "terrace",
+                "night",
+                "string lights",
+                "bar"
+            ],
+            "sizeBytes": 212545,
+            "originalName": "dining-06-terrace-string-lights-night.jpg",
+            "usageCount": 1,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:33.649Z",
+            "updatedAt": "2026-09-24T08:01:33.649Z"
+        },
+        {
+            "id": "01a0d26f-2043-70e3-b5b2-4861e1205bc9",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2043-70e3-b5b2-4861e1205bc9.jpg",
+            "width": 1333,
+            "height": 2000,
+            "mimeType": "image/jpeg",
+            "alt": "Ruby cocktail with a lime garnish on a bar counter with warm bokeh lights",
+            "credit": "Photo: Tai's Captures / Unsplash",
+            "dominantColor": "#6a492a",
+            "variants": [
+                {
+                    "width": 1333,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2043-70e3-b5b2-4861e1205bc9-1333.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/2EBTwzczg2A",
+            "tags": [
+                "dining",
+                "cocktail",
+                "bar",
+                "evening"
+            ],
+            "sizeBytes": 344891,
+            "originalName": "dining-05-bar-cocktail.jpg",
+            "usageCount": 3,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:33.475Z",
+            "updatedAt": "2026-09-24T08:01:33.475Z"
+        },
+        {
+            "id": "01a0d26f-1f7d-7097-9b28-67d38d13e6cf",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1f7d-7097-9b28-67d38d13e6cf.jpg",
+            "width": 1600,
+            "height": 1067,
+            "mimeType": "image/jpeg",
+            "alt": "Skewers of grilled chicken and peppers on a dish of jollof-style rice beside African print fabric",
+            "credit": "Photo: Keesha's Kitchen / Unsplash",
+            "dominantColor": "#a27058",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1f7d-7097-9b28-67d38d13e6cf-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/woC24wGXsQ8",
+            "tags": [
+                "dining",
+                "jollof",
+                "skewers",
+                "african food",
+                "rice"
+            ],
+            "sizeBytes": 326584,
+            "originalName": "dining-03-jollof-rice-skewers.jpg",
+            "usageCount": 5,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:33.219Z",
+            "updatedAt": "2026-09-24T08:01:33.219Z"
+        }
+    ],
+    "nextCursor": "eyJ2IjoiMjAyNi0wOS0yNCAwODowMTozMy4yMTk2NjYiLCJpIjoiMDFhMGQyNmYtMWY3ZC03MDk3LTliMjgtNjdkMzhkMTNlNmNmIn0"
+}

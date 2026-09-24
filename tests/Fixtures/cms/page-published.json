@@ -1,0 +1,21 @@
+{
+    "id": "01a0d26f-2fdb-7392-a46f-6b0a74174af2",
+    "slug": "terms",
+    "title": "Terms of use",
+    "subtitle": "Tickets, bookings and payments",
+    "heroMediaId": null,
+    "hero": null,
+    "bodyMarkdown": "## Tickets and bookings\n\nA ticket or booking is valid for the date and time shown. Tickets are personal to the bearer and may be scanned once per entry.\n\n## Payments\n\nOnline payments are processed by our payment partner. Prices are in Nigerian Naira (NGN).\n\n## Cancellations\n\nCancellations and rescheduling follow the policy shown on your booking at the time of purchase.\n\n## Privacy\n\nWe store the details you give us to run your booking and, only if you opt in, to send news and offers. You can unsubscribe at any time.\n\n*This is demo text for the development environment and must be replaced with your approved terms before launch.*",
+    "bodyHtml": "<h2>Tickets and bookings</h2>\n<p>A ticket or booking is valid for the date and time shown. Tickets are personal to the bearer and may be scanned once per entry.</p>\n<h2>Payments</h2>\n<p>Online payments are processed by our payment partner. Prices are in Nigerian Naira (NGN).</p>\n<h2>Cancellations</h2>\n<p>Cancellations and rescheduling follow the policy shown on your booking at the time of purchase.</p>\n<h2>Privacy</h2>\n<p>We store the details you give us to run your booking and, only if you opt in, to send news and offers. You can unsubscribe at any time.</p>\n<p><em>This is demo text for the development environment and must be replaced with your approved terms before launch.</em></p>",
+    "seoTitle": null,
+    "seoDescription": null,
+    "seoOgMediaId": null,
+    "seoOgImage": null,
+    "showInFooter": true,
+    "sortOrder": 30,
+    "status": "PUBLISHED",
+    "publishedAt": "2026-09-23T08:01:37.000Z",
+    "rowVersion": 2,
+    "createdAt": "2026-09-24T08:01:37.245Z",
+    "updatedAt": "2026-09-24T08:01:37.248Z"
+}

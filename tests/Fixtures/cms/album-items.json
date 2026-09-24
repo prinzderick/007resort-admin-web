@@ -1,0 +1,358 @@
+{
+    "items": [
+        {
+            "id": "01a0d26f-307b-72d4-8ffb-916036d9579b",
+            "albumId": "01a0d26f-306f-72a0-be6a-a5e9ca216197",
+            "mediaId": "01a0d26f-18ee-71aa-a761-e2c11f5ed56f",
+            "media": {
+                "id": "01a0d26f-18ee-71aa-a761-e2c11f5ed56f",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-18ee-71aa-a761-e2c11f5ed56f.jpg",
+                "width": 1333,
+                "height": 2000,
+                "mimeType": "image/jpeg",
+                "alt": "Resort pool with lounge chairs and umbrellas silhouetted by palms against an orange sunset",
+                "credit": "Photo: Tim Mossholder / Unsplash",
+                "dominantColor": "#907c69",
+                "variants": [
+                    {
+                        "width": 1333,
+                        "format": "webp",
+                        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-18ee-71aa-a761-e2c11f5ed56f-1333.webp"
+                    }
+                ],
+                "sourceUrl": "https://unsplash.com/photos/5yWwAqTjP20",
+                "tags": [
+                    "pool",
+                    "sunset",
+                    "loungers",
+                    "palms"
+                ],
+                "sizeBytes": 480160,
+                "originalName": "pool-01-sunset-loungers-palms.jpg",
+                "usageCount": 3,
+                "rowVersion": 1,
+                "createdAt": "2026-09-24T08:01:31.625Z",
+                "updatedAt": "2026-09-24T08:01:31.625Z"
+            },
+            "caption": null,
+            "altText": null,
+            "category": "pool",
+            "tags": [],
+            "featured": true,
+            "sortOrder": 10,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:37.403Z",
+            "updatedAt": "2026-09-24T08:01:37.403Z"
+        },
+        {
+            "id": "01a0d26f-307d-71f2-ba86-64af1de79c93",
+            "albumId": "01a0d26f-306f-72a0-be6a-a5e9ca216197",
+            "mediaId": "01a0d26f-1a07-736f-8af6-df7729903a46",
+            "media": {
+                "id": "01a0d26f-1a07-736f-8af6-df7729903a46",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1a07-736f-8af6-df7729903a46.jpg",
+                "width": 1600,
+                "height": 1067,
+                "mimeType": "image/jpeg",
+                "alt": "Two young children playing together in sparkling shallow pool water",
+                "credit": "Photo: Cor Dulce / Unsplash",
+                "dominantColor": "#94bdd6",
+                "variants": [
+                    {
+                        "width": 1600,
+                        "format": "webp",
+                        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1a07-736f-8af6-df7729903a46-1600.webp"
+                    }
+                ],
+                "sourceUrl": "https://unsplash.com/photos/lMMas1V5Z3w",
+                "tags": [
+                    "pool",
+                    "kids",
+                    "family",
+                    "splash"
+                ],
+                "sizeBytes": 375674,
+                "originalName": "pool-02-kids-playing-in-pool.jpg",
+                "usageCount": 2,
+                "rowVersion": 1,
+                "createdAt": "2026-09-24T08:01:31.835Z",
+                "updatedAt": "2026-09-24T08:01:31.835Z"
+            },
+            "caption": null,
+            "altText": null,
+            "category": "pool",
+            "tags": [],
+            "featured": false,
+            "sortOrder": 20,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:37.405Z",
+            "updatedAt": "2026-09-24T08:01:37.405Z"
+        },
+        {
+            "id": "01a0d26f-307e-70a1-9ccf-ee3e2f33d964",
+            "albumId": "01a0d26f-306f-72a0-be6a-a5e9ca216197",
+            "mediaId": "01a0d26f-1ade-71eb-a762-c2a080c8b9b6",
+            "media": {
+                "id": "01a0d26f-1ade-71eb-a762-c2a080c8b9b6",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1ade-71eb-a762-c2a080c8b9b6.jpg",
+                "width": 1600,
+                "height": 1067,
+                "mimeType": "image/jpeg",
+                "alt": "Aerial view of a woman swimming in a turquoise pool beside a striped float",
+                "credit": "Photo: Briana Tozour / Unsplash",
+                "dominantColor": "#91beba",
+                "variants": [
+                    {
+                        "width": 1600,
+                        "format": "webp",
+                        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1ade-71eb-a762-c2a080c8b9b6-1600.webp"
+                    }
+                ],
+                "sourceUrl": "https://unsplash.com/photos/YsFgsZJ4az0",
+                "tags": [
+                    "pool",
+                    "swimming",
+                    "aerial",
+                    "turquoise"
+                ],
+                "sizeBytes": 404518,
+                "originalName": "pool-04-swimmer-aerial.jpg",
+                "usageCount": 1,
+                "rowVersion": 1,
+                "createdAt": "2026-09-24T08:01:32.053Z",
+                "updatedAt": "2026-09-24T08:01:32.053Z"
+            },
+            "caption": null,
+            "altText": null,
+            "category": "pool",
+            "tags": [],
+            "featured": false,
+            "sortOrder": 30,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:37.406Z",
+            "updatedAt": "2026-09-24T08:01:37.406Z"
+        },
+        {
+            "id": "01a0d26f-307f-7170-9b0b-27f1167ce2f0",
+            "albumId": "01a0d26f-306f-72a0-be6a-a5e9ca216197",
+            "mediaId": "01a0d26f-1bb3-7042-9512-0c020f5a9b0b",
+            "media": {
+                "id": "01a0d26f-1bb3-7042-9512-0c020f5a9b0b",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1bb3-7042-9512-0c020f5a9b0b.jpg",
+                "width": 1600,
+                "height": 1067,
+                "mimeType": "image/jpeg",
+                "alt": "Man diving into a turquoise pool over a pink flamingo float at a lively pool party",
+                "credit": "Photo: Jakob Owens / Unsplash",
+                "dominantColor": "#4b816b",
+                "variants": [
+                    {
+                        "width": 1600,
+                        "format": "webp",
+                        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1bb3-7042-9512-0c020f5a9b0b-1600.webp"
+                    }
+                ],
+                "sourceUrl": "https://unsplash.com/photos/cL1m55GcwXE",
+                "tags": [
+                    "pool",
+                    "pool party",
+                    "dive",
+                    "summer",
+                    "energy"
+                ],
+                "sizeBytes": 506075,
+                "originalName": "pool-06-pool-party-dive.jpg",
+                "usageCount": 1,
+                "rowVersion": 1,
+                "createdAt": "2026-09-24T08:01:32.280Z",
+                "updatedAt": "2026-09-24T08:01:32.280Z"
+            },
+            "caption": null,
+            "altText": null,
+            "category": "pool",
+            "tags": [],
+            "featured": false,
+            "sortOrder": 40,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:37.407Z",
+            "updatedAt": "2026-09-24T08:01:37.407Z"
+        },
+        {
+            "id": "01a0d26f-3080-7385-b7ca-b0f41a194c25",
+            "albumId": "01a0d26f-306f-72a0-be6a-a5e9ca216197",
+            "mediaId": "01a0d26f-1c8e-72fe-b88a-9d2c739a32e7",
+            "media": {
+                "id": "01a0d26f-1c8e-72fe-b88a-9d2c739a32e7",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1c8e-72fe-b88a-9d2c739a32e7.jpg",
+                "width": 1600,
+                "height": 1067,
+                "mimeType": "image/jpeg",
+                "alt": "Person receiving a hot stone massage with smooth black stones along the spine and white orchids",
+                "credit": "Photo: engin akyurt / Unsplash",
+                "dominantColor": "#ac8568",
+                "variants": [
+                    {
+                        "width": 1600,
+                        "format": "webp",
+                        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1c8e-72fe-b88a-9d2c739a32e7-1600.webp"
+                    }
+                ],
+                "sourceUrl": "https://unsplash.com/photos/SMwCQZWayj0",
+                "tags": [
+                    "spa",
+                    "hot stones",
+                    "massage",
+                    "flowers"
+                ],
+                "sizeBytes": 174647,
+                "originalName": "spa-01-hot-stone-massage.jpg",
+                "usageCount": 2,
+                "rowVersion": 1,
+                "createdAt": "2026-09-24T08:01:32.433Z",
+                "updatedAt": "2026-09-24T08:01:32.433Z"
+            },
+            "caption": null,
+            "altText": null,
+            "category": "spa",
+            "tags": [],
+            "featured": false,
+            "sortOrder": 50,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:37.408Z",
+            "updatedAt": "2026-09-24T08:01:37.408Z"
+        },
+        {
+            "id": "01a0d26f-3082-7305-99ac-1b0db17eb25a",
+            "albumId": "01a0d26f-306f-72a0-be6a-a5e9ca216197",
+            "mediaId": "01a0d26f-1d2e-7025-bc6d-74e287c12ce0",
+            "media": {
+                "id": "01a0d26f-1d2e-7025-bc6d-74e287c12ce0",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1d2e-7025-bc6d-74e287c12ce0.jpg",
+                "width": 1600,
+                "height": 1067,
+                "mimeType": "image/jpeg",
+                "alt": "Woman with a headband smiling while a beautician applies a clay facial mask",
+                "credit": "Photo: Rosa Rafael / Unsplash",
+                "dominantColor": "#928573",
+                "variants": [
+                    {
+                        "width": 1600,
+                        "format": "webp",
+                        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1d2e-7025-bc6d-74e287c12ce0-1600.webp"
+                    }
+                ],
+                "sourceUrl": "https://unsplash.com/photos/Pe9IXUuC6QU",
+                "tags": [
+                    "spa",
+                    "facial",
+                    "skincare",
+                    "treatment"
+                ],
+                "sizeBytes": 301568,
+                "originalName": "spa-03-facial-mask-treatment.jpg",
+                "usageCount": 1,
+                "rowVersion": 1,
+                "createdAt": "2026-09-24T08:01:32.624Z",
+                "updatedAt": "2026-09-24T08:01:32.624Z"
+            },
+            "caption": null,
+            "altText": null,
+            "category": "spa",
+            "tags": [],
+            "featured": false,
+            "sortOrder": 60,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:37.410Z",
+            "updatedAt": "2026-09-24T08:01:37.410Z"
+        },
+        {
+            "id": "01a0d26f-3083-7263-bf1e-c363d325158b",
+            "albumId": "01a0d26f-306f-72a0-be6a-a5e9ca216197",
+            "mediaId": "01a0d26f-1de5-705a-8bf8-54af773110c7",
+            "media": {
+                "id": "01a0d26f-1de5-705a-8bf8-54af773110c7",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1de5-705a-8bf8-54af773110c7.jpg",
+                "width": 1600,
+                "height": 1143,
+                "mimeType": "image/jpeg",
+                "alt": "Warm glowing pillar candles on a wooden table with dried leaves",
+                "credit": "Photo: Sixteen Miles Out / Unsplash",
+                "dominantColor": "#a67b58",
+                "variants": [
+                    {
+                        "width": 1600,
+                        "format": "webp",
+                        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1de5-705a-8bf8-54af773110c7-1600.webp"
+                    }
+                ],
+                "sourceUrl": "https://unsplash.com/photos/bdVmIkx_gIs",
+                "tags": [
+                    "spa",
+                    "candles",
+                    "ambience",
+                    "warm"
+                ],
+                "sizeBytes": 181855,
+                "originalName": "spa-04-spa-candles.jpg",
+                "usageCount": 1,
+                "rowVersion": 1,
+                "createdAt": "2026-09-24T08:01:32.785Z",
+                "updatedAt": "2026-09-24T08:01:32.785Z"
+            },
+            "caption": null,
+            "altText": null,
+            "category": "spa",
+            "tags": [],
+            "featured": false,
+            "sortOrder": 70,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:37.411Z",
+            "updatedAt": "2026-09-24T08:01:37.411Z"
+        },
+        {
+            "id": "01a0d26f-3085-70a1-bd6b-6f3a145cb545",
+            "albumId": "01a0d26f-306f-72a0-be6a-a5e9ca216197",
+            "mediaId": "01a0d26f-1e91-71ba-8a72-9b5c47cf60ee",
+            "media": {
+                "id": "01a0d26f-1e91-71ba-8a72-9b5c47cf60ee",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1e91-71ba-8a72-9b5c47cf60ee.jpg",
+                "width": 1333,
+                "height": 2000,
+                "mimeType": "image/jpeg",
+                "alt": "Smiling woman in a white robe and hair towel holding a cup of tea",
+                "credit": "Photo: Vladimir Yelizarov / Unsplash",
+                "dominantColor": "#b6aca4",
+                "variants": [
+                    {
+                        "width": 1333,
+                        "format": "webp",
+                        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1e91-71ba-8a72-9b5c47cf60ee-1333.webp"
+                    }
+                ],
+                "sourceUrl": "https://unsplash.com/photos/crnAlC9fcqE",
+                "tags": [
+                    "spa",
+                    "robe",
+                    "towel",
+                    "relaxation"
+                ],
+                "sizeBytes": 286534,
+                "originalName": "spa-05-robe-and-towel-tea.jpg",
+                "usageCount": 1,
+                "rowVersion": 1,
+                "createdAt": "2026-09-24T08:01:33.025Z",
+                "updatedAt": "2026-09-24T08:01:33.025Z"
+            },
+            "caption": null,
+            "altText": null,
+            "category": "spa",
+            "tags": [],
+            "featured": false,
+            "sortOrder": 80,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:37.413Z",
+            "updatedAt": "2026-09-24T08:01:37.413Z"
+        }
+    ],
+    "nextCursor": null
+}
