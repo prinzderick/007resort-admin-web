@@ -90,7 +90,6 @@ class CaptureFixtures extends Command
         $this->grab('memberships', 'memberships', ['limit' => 50]);
         $this->grab('report-attendance-summary', 'reports/attendance-summary', ['from' => $week, 'to' => $today]);
         $this->grab('report-membership-summary', 'reports/membership-summary', ['from' => $week, 'to' => $today]);
-        $this->grab('kds-tickets-skip', 'kds/stations', ['limit' => 1]);
         $this->grab('bookings', 'bookings', ['limit' => 100]);
         $this->grab('booking-resources', 'bookings/resources', ['limit' => 100]);
         $this->grab('catalog-categories', 'catalog/categories', ['limit' => 200]);
@@ -127,9 +126,66 @@ class CaptureFixtures extends Command
         $this->grab('approvals', 'approvals', ['limit' => 100]);
         $this->grab('approvals-pending', 'approvals', ['filter[status]' => 'PENDING', 'limit' => 100]);
 
+        $this->captureConfig($fid);
+        $this->captureCollections($fid);
+
         $this->info('Fixtures written to '.$this->out);
 
         return self::SUCCESS;
+    }
+
+    /** Configuration-management API (docs/CONFIG_ADMIN_API.md): everything the Setup screens read. */
+    private function captureConfig(?string $fid): void
+    {
+        $this->grab('organization-facility-templates', 'organization/facility-templates');
+        $this->grab('organization-capability-types', 'organization/capability-types');
+        $this->grab('organization-rule-definitions', 'organization/rule-definitions');
+        $this->grab('admin-setup-status', 'admin/setup-status');
+        $this->grab('admin-search', 'admin/search', ['q' => 'rest', 'limit' => 5]);
+        $this->grab('admin-settings-business', 'admin/settings/business');
+        $this->grab('admin-settings-receipt', 'admin/settings/receipt');
+        $this->grab('ticket-types', 'ticketing/ticket-types');
+        $this->grab('catalog-price-lists', 'catalog/price-lists');
+        $this->grab('catalog-prices', 'catalog/prices', ['limit' => 100]);
+        $products = $this->grab('admin-catalog-products', 'admin/catalog/products', ['limit' => 100]);
+        if ($pid = $products['items'][0]['id'] ?? null) {
+            $this->grab('admin-catalog-product', "admin/catalog/products/{$pid}");
+            $this->grab('catalog-product-stock-links', "catalog/products/{$pid}/stock-links");
+        }
+        if ($fid) {
+            $this->grab('operating-rules', "facilities/{$fid}/operating-rules");
+            $this->grab('facility-payment-methods', "facilities/{$fid}/payment-methods");
+            $this->grab('config-operating-points', 'organization/operating-points', ['facilityId' => $fid]);
+            $this->grab('config-tables', 'organization/tables', ['facilityId' => $fid]);
+            $this->grab('catalog-prep-route-stations', 'catalog/prep-route-stations', ['facilityId' => $fid]);
+            $this->grab('audit-facility', 'audit', ['entityType' => 'Facility', 'entityId' => $fid, 'order' => 'desc', 'limit' => 20]);
+        }
+        $roles = $this->grab('roles', 'roles', ['limit' => 100]);
+        $role = $this->find($roles, 'code', 'MANAGER') ?? ($roles['items'][0] ?? []);
+        if (! empty($role['id'])) {
+            $this->grab('role-permissions', "roles/{$role['id']}/permissions");
+        }
+        $resources = $this->grab('booking-resources', 'bookings/resources', ['limit' => 100]);
+        if ($rid = $resources['items'][0]['id'] ?? null) {
+            $this->grab('booking-resource-schedule', "bookings/resources/{$rid}/schedule");
+            $this->grab('booking-resource-blackouts', "bookings/resources/{$rid}/blackouts");
+            $this->grab('booking-resource-rules', "bookings/resources/{$rid}/rules");
+        }
+    }
+
+    /** Waiter collection (docs/WAITER_COLLECTION.md): pending list, terminals, handovers, cash-in-hand, collection policy. */
+    private function captureCollections(?string $fid): void
+    {
+        $pending = $this->grab('payments-pending-confirmation', 'payments', ['status' => 'PENDING_CONFIRMATION', 'limit' => 100]);
+        $this->grab('payment-terminals', 'payment-terminals', ['limit' => 100]);
+        $this->grab('cash-handovers', 'cash-handovers', ['limit' => 100]);
+        $staff = $this->grab('staff', 'staff', ['limit' => 100]);
+        $waiter = $this->find($staff, 'username', 'wait1') ?? $this->find($staff, 'staffNumber', 'S-0001');
+        if (! empty($waiter['id'])) {
+            $this->grab('staff-collection-policy', "staff/{$waiter['id']}/collection-policy");
+            $this->grab('staff-cash-in-hand', "staff/{$waiter['id']}/cash-in-hand");
+        }
+        unset($pending);
     }
 
     /** @return array<mixed> */

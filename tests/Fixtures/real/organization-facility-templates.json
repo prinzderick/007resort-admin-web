@@ -1,0 +1,351 @@
+{
+    "items": [
+        {
+            "key": "RESTAURANT",
+            "label": "Restaurant",
+            "description": "A sit-down restaurant: table service, open tabs, food goes to the kitchen.",
+            "defaultKind": "RESTAURANT",
+            "capabilities": [
+                "POS",
+                "PAYMENT_ACCEPTANCE",
+                "RECEIPT_PRINTING",
+                "TABLE_SERVICE",
+                "OPEN_TAB",
+                "KITCHEN_ROUTING",
+                "INVENTORY"
+            ],
+            "operatingRules": {
+                "approval_threshold_amount": "5000.0000",
+                "require_approval_for": [
+                    "order.void",
+                    "order.discount",
+                    "order.comp"
+                ],
+                "require_cash_session": true,
+                "payment_timing": "PAY_BEFORE_LEAVING",
+                "stock_consumption_timing": "SEND"
+            },
+            "starterOperatingPoints": [
+                {
+                    "code": "MAIN_DINING",
+                    "name": "Main dining",
+                    "kind": "TABLE_AREA"
+                },
+                {
+                    "code": "COUNTER_1",
+                    "name": "Cash counter",
+                    "kind": "COUNTER"
+                }
+            ],
+            "starterKdsStation": null
+        },
+        {
+            "key": "BAR",
+            "label": "Bar / lounge",
+            "description": "A bar with table service and tabs; drinks go to a bar station.",
+            "defaultKind": "BAR",
+            "capabilities": [
+                "POS",
+                "PAYMENT_ACCEPTANCE",
+                "RECEIPT_PRINTING",
+                "TABLE_SERVICE",
+                "OPEN_TAB",
+                "BAR_ROUTING",
+                "INVENTORY"
+            ],
+            "operatingRules": {
+                "approval_threshold_amount": "5000.0000",
+                "require_approval_for": [
+                    "order.void",
+                    "order.discount",
+                    "order.comp"
+                ],
+                "require_cash_session": true,
+                "payment_timing": "PAY_BEFORE_LEAVING",
+                "stock_consumption_timing": "SEND"
+            },
+            "starterOperatingPoints": [
+                {
+                    "code": "LOUNGE",
+                    "name": "Lounge",
+                    "kind": "TABLE_AREA"
+                },
+                {
+                    "code": "COUNTER_1",
+                    "name": "Bar counter",
+                    "kind": "COUNTER"
+                }
+            ],
+            "starterKdsStation": {
+                "code": "BAR_STATION",
+                "name": "Bar station",
+                "kind": "BAR"
+            }
+        },
+        {
+            "key": "CLUB",
+            "label": "Club",
+            "description": "A club: bar service, members get discounts, tabs settled on exit.",
+            "defaultKind": "CLUB",
+            "capabilities": [
+                "POS",
+                "PAYMENT_ACCEPTANCE",
+                "RECEIPT_PRINTING",
+                "TABLE_SERVICE",
+                "OPEN_TAB",
+                "BAR_ROUTING",
+                "INVENTORY",
+                "MEMBERSHIP",
+                "MEMBER_DISCOUNTS"
+            ],
+            "operatingRules": {
+                "approval_threshold_amount": "5000.0000",
+                "require_approval_for": [
+                    "order.void",
+                    "order.discount",
+                    "order.comp"
+                ],
+                "require_cash_session": true,
+                "payment_timing": "PAY_ON_EXIT",
+                "stock_consumption_timing": "SEND"
+            },
+            "starterOperatingPoints": [
+                {
+                    "code": "CLUB_FLOOR",
+                    "name": "Club floor",
+                    "kind": "TABLE_AREA"
+                },
+                {
+                    "code": "COUNTER_1",
+                    "name": "Club counter",
+                    "kind": "COUNTER"
+                }
+            ],
+            "starterKdsStation": {
+                "code": "BAR_STATION",
+                "name": "Bar station",
+                "kind": "BAR"
+            }
+        },
+        {
+            "key": "SPA_SERVICE",
+            "label": "Spa (appointments)",
+            "description": "Bookable treatments with staff assignment, stock and member discounts.",
+            "defaultKind": "SPA",
+            "capabilities": [
+                "POS",
+                "PAYMENT_ACCEPTANCE",
+                "RECEIPT_PRINTING",
+                "BOOKING",
+                "APPOINTMENTS",
+                "STAFF_ASSIGNMENT",
+                "INVENTORY",
+                "MEMBERSHIP",
+                "MEMBER_DISCOUNTS",
+                "CAPACITY_MANAGEMENT"
+            ],
+            "operatingRules": {
+                "approval_threshold_amount": "5000.0000",
+                "require_cash_session": true,
+                "hold_ttl_seconds": 900
+            },
+            "starterOperatingPoints": [
+                {
+                    "code": "COUNTER_1",
+                    "name": "Spa counter",
+                    "kind": "COUNTER"
+                },
+                {
+                    "code": "ROOMS",
+                    "name": "Treatment rooms",
+                    "kind": "ROOM"
+                }
+            ],
+            "starterKdsStation": null
+        },
+        {
+            "key": "SALON",
+            "label": "Salon (appointments)",
+            "description": "Chair-based appointments with staff assignment and stock.",
+            "defaultKind": "SALON",
+            "capabilities": [
+                "POS",
+                "PAYMENT_ACCEPTANCE",
+                "RECEIPT_PRINTING",
+                "BOOKING",
+                "APPOINTMENTS",
+                "STAFF_ASSIGNMENT",
+                "INVENTORY",
+                "MEMBERSHIP",
+                "MEMBER_DISCOUNTS"
+            ],
+            "operatingRules": {
+                "require_cash_session": true,
+                "hold_ttl_seconds": 900
+            },
+            "starterOperatingPoints": [
+                {
+                    "code": "COUNTER_1",
+                    "name": "Salon counter",
+                    "kind": "COUNTER"
+                }
+            ],
+            "starterKdsStation": null
+        },
+        {
+            "key": "RETAIL_STORE",
+            "label": "Retail store",
+            "description": "Barcode-scanned retail sales with stock tracking.",
+            "defaultKind": "RETAIL",
+            "capabilities": [
+                "POS",
+                "PAYMENT_ACCEPTANCE",
+                "RECEIPT_PRINTING",
+                "BARCODE_SALES",
+                "INVENTORY"
+            ],
+            "operatingRules": {
+                "require_cash_session": true,
+                "stock_consumption_timing": "SETTLE"
+            },
+            "starterOperatingPoints": [
+                {
+                    "code": "TILL_1",
+                    "name": "Till 1",
+                    "kind": "COUNTER"
+                }
+            ],
+            "starterKdsStation": null
+        },
+        {
+            "key": "SPORTS_RESOURCE_GROUP",
+            "label": "Sports venue (bookable pitches/courts)",
+            "description": "Bookable courts and pitches with time slots, capacity and entry validation.",
+            "defaultKind": "SPORTS",
+            "capabilities": [
+                "BOOKING",
+                "TIME_SLOTS",
+                "CAPACITY_MANAGEMENT",
+                "TICKET_VALIDATION",
+                "QR_VALIDATION",
+                "MEMBERSHIP"
+            ],
+            "operatingRules": {
+                "slot_granularity_minutes": 60,
+                "validation_mode": "ENTRY",
+                "hold_ttl_seconds": 900
+            },
+            "starterOperatingPoints": [
+                {
+                    "code": "ENTRANCE",
+                    "name": "Entrance",
+                    "kind": "GATE"
+                }
+            ],
+            "starterKdsStation": null
+        },
+        {
+            "key": "POOL",
+            "label": "Pool",
+            "description": "Ticket/member entry and exit control.",
+            "defaultKind": "POOL",
+            "capabilities": [
+                "TICKET_VALIDATION",
+                "QR_VALIDATION",
+                "MEMBERSHIP"
+            ],
+            "operatingRules": {
+                "validation_mode": "ENTRY_EXIT"
+            },
+            "starterOperatingPoints": [
+                {
+                    "code": "ENTRANCE",
+                    "name": "Pool entrance",
+                    "kind": "GATE"
+                }
+            ],
+            "starterKdsStation": null
+        },
+        {
+            "key": "CAFE",
+            "label": "Cafe",
+            "description": "A counter cafe with stock tracking.",
+            "defaultKind": "CAFE",
+            "capabilities": [
+                "POS",
+                "PAYMENT_ACCEPTANCE",
+                "RECEIPT_PRINTING",
+                "INVENTORY"
+            ],
+            "operatingRules": {
+                "require_cash_session": true,
+                "stock_consumption_timing": "SEND",
+                "payment_timing": "PAY_FIRST"
+            },
+            "starterOperatingPoints": [
+                {
+                    "code": "COUNTER_1",
+                    "name": "Cafe counter",
+                    "kind": "COUNTER"
+                }
+            ],
+            "starterKdsStation": null
+        },
+        {
+            "key": "STORE_ROOM",
+            "label": "Store room",
+            "description": "A stock room: receives, transfers and counts stock. No selling.",
+            "defaultKind": "STORE",
+            "capabilities": [
+                "INVENTORY"
+            ],
+            "operatingRules": [],
+            "starterOperatingPoints": [
+                {
+                    "code": "STORE_WINDOW",
+                    "name": "Issue window",
+                    "kind": "STORE_WINDOW"
+                }
+            ],
+            "starterKdsStation": null
+        },
+        {
+            "key": "KITCHEN",
+            "label": "Kitchen",
+            "description": "A production kitchen with a KDS station where orders from other facilities are prepared.",
+            "defaultKind": "KITCHEN",
+            "capabilities": [
+                "INVENTORY"
+            ],
+            "operatingRules": {
+                "stock_consumption_timing": "SEND"
+            },
+            "starterOperatingPoints": [],
+            "starterKdsStation": {
+                "code": "PASS",
+                "name": "Kitchen pass",
+                "kind": "KITCHEN"
+            }
+        }
+    ],
+    "kinds": [
+        "RECEPTION",
+        "RESTAURANT",
+        "CLUB",
+        "BAR",
+        "SPA",
+        "SALON",
+        "CAFE",
+        "KITCHEN",
+        "RETAIL",
+        "STORE",
+        "SPORTS",
+        "SPORTS_VENUE",
+        "POOL",
+        "EVENT_CENTRE",
+        "OFFICE",
+        "GATE",
+        "GENERAL"
+    ],
+    "nextCursor": null
+}

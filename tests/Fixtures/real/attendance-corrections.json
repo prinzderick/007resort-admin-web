@@ -1,33 +1,4 @@
 {
-    "items": [
-        {
-            "id": "01a0d0bc-dceb-715e-8f21-e81fcdfe5f73",
-            "staffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
-            "workDate": "2026-09-23",
-            "requestedClockIn": "2026-09-23T07:00:00.000Z",
-            "requestedClockOut": "2026-09-23T15:30:00.000Z",
-            "reason": "Forgot to clock in",
-            "status": "APPROVED",
-            "requestedBy": "935dbdcf-d514-5c33-9889-5a14f39c65c4",
-            "decidedBy": "836ddfab-7d19-54cb-9bcd-6bd44ef52b7b",
-            "decidedAt": "2026-09-24T00:07:31.700Z",
-            "decisionNote": null,
-            "createdAt": "2026-09-24T00:07:13.388Z"
-        },
-        {
-            "id": "01a0d0bc-9420-73a1-9c1f-2c54a6d956d0",
-            "staffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
-            "workDate": "2026-09-23",
-            "requestedClockIn": "2026-09-23T07:00:00.000Z",
-            "requestedClockOut": "2026-09-23T15:30:00.000Z",
-            "reason": "Forgot to clock in",
-            "status": "PENDING",
-            "requestedBy": "935dbdcf-d514-5c33-9889-5a14f39c65c4",
-            "decidedBy": null,
-            "decidedAt": null,
-            "decisionNote": null,
-            "createdAt": "2026-09-24T00:06:54.753Z"
-        }
-    ],
+    "items": [],
     "nextCursor": null
 }

@@ -17,6 +17,18 @@
             "description": "View the audit trail"
         },
         {
+            "code": "bill.cancel.approve",
+            "description": "Approve cancelling a printed bill"
+        },
+        {
+            "code": "bill.cancel.execute",
+            "description": "Request or execute cancelling a printed bill (reopens the order)"
+        },
+        {
+            "code": "bill.print",
+            "description": "Print or reprint a pre-bill (freezes the order)"
+        },
+        {
             "code": "booking.cancel",
             "description": "Cancel a booking per policy"
         },
@@ -35,6 +47,22 @@
         {
             "code": "booking.view",
             "description": "View bookings and resource availability"
+        },
+        {
+            "code": "cash_handover.create",
+            "description": "Declare cash to hand over to the cashier"
+        },
+        {
+            "code": "cash_handover.receive",
+            "description": "Receive and count a waiter cash handover"
+        },
+        {
+            "code": "cash_handover.signoff",
+            "description": "Sign off a cash handover variance"
+        },
+        {
+            "code": "cash_handover.view",
+            "description": "View cash handovers and waiter cash-in-hand"
         },
         {
             "code": "cash_movement.record",
@@ -69,6 +97,22 @@
             "description": "Manage system configuration"
         },
         {
+            "code": "config.manage.capabilities",
+            "description": "Enable or disable facility capabilities"
+        },
+        {
+            "code": "config.manage.rules",
+            "description": "Change facility operating rules (payment timing, approval thresholds, booking rules...)"
+        },
+        {
+            "code": "config.view",
+            "description": "View configuration screens: facility templates, capability/rule catalogue, operating rules, setup progress, config history"
+        },
+        {
+            "code": "device.manage",
+            "description": "Manage payment terminals and device assignments"
+        },
+        {
             "code": "device.register",
             "description": "Register a device"
         },
@@ -83,6 +127,10 @@
         {
             "code": "facility.configure",
             "description": "Configure facility capabilities/operating rules"
+        },
+        {
+            "code": "facility.manage",
+            "description": "Create, edit, deactivate, reactivate and move facilities; manage operating points, KDS stations and dining tables"
         },
         {
             "code": "finance.report.view",
@@ -217,6 +265,14 @@
             "description": "Void an order or line"
         },
         {
+            "code": "payment.collect",
+            "description": "Collect money at the customer table (pending confirmation)"
+        },
+        {
+            "code": "payment.confirm",
+            "description": "Confirm or reject a pending waiter collection"
+        },
+        {
             "code": "payment.reversal.approve",
             "description": "Approve a payment reversal"
         },
@@ -277,12 +333,20 @@
             "description": "Grant or revoke role assignments below one's own level"
         },
         {
+            "code": "role.manage",
+            "description": "Create and edit roles and their permission sets"
+        },
+        {
             "code": "security_event.view",
             "description": "View security events"
         },
         {
             "code": "session.revoke",
             "description": "Revoke a staff session"
+        },
+        {
+            "code": "settings.manage",
+            "description": "Edit business profile, receipt settings and payment methods per facility"
         },
         {
             "code": "settlement.reconcile",
@@ -311,6 +375,10 @@
         {
             "code": "table.manage",
             "description": "Change table status, assignment and transfer orders between tables"
+        },
+        {
+            "code": "ticket_type.manage",
+            "description": "Create and edit ticket types"
         },
         {
             "code": "ticket.issue",

@@ -6,6 +6,13 @@
     "name": "Restaurant",
     "kind": "RESTAURANT",
     "status": "ACTIVE",
+    "active": true,
+    "description": null,
+    "timezone": null,
+    "sortOrder": 0,
+    "contact": null,
+    "openingHours": null,
+    "templateKey": null,
     "capabilities": [
         "INVENTORY",
         "KITCHEN_ROUTING",
@@ -15,5 +22,5 @@
         "RECEIPT_PRINTING",
         "TABLE_SERVICE"
     ],
-    "rowVersion": 1
+    "rowVersion": 2
 }

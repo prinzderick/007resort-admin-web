@@ -165,8 +165,8 @@ class FacilitiesController extends Controller
     }
 
     /**
-     * Operating rules: only the values that changed are sent (null = back to the default), with the version this form was
-     * built from. High-risk rules need the explicit confirmation box.
+     * Operating rules: only the values that changed are sent (a value equal to the standard one is sent as null = reset to the
+     * default), with the version this form was built from. A change to a high-impact rule needs the acknowledgement (confirm).
      */
     public function setRules(Request $request, string $facility): RedirectResponse
     {
@@ -174,32 +174,54 @@ class FacilitiesController extends Controller
         $current = $this->api->request('GET', "facilities/{$facility}/operating-rules");
         $defs = collect($this->api->get('organization/rule-definitions')['items'] ?? [])->keyBy('key')->all();
         $values = (array) ($current->body['values'] ?? []);
-        $input = (array) $request->input('rules', []);
-        $reset = (array) $request->input('reset', []);
         $changes = [];
         $risky = false;
+        $input = (array) $request->input('rules', []);
+        foreach ($values as $key => $_) { // an unticked checkbox group posts nothing: that means "none"
+            if (! array_key_exists($key, $input) && ($defs[$key]['type'] ?? '') === 'multi_enum' && $request->has('_rules_present')) {
+                $input[$key] = [];
+            }
+        }
         foreach ($input as $key => $raw) {
             $def = $defs[$key] ?? null;
-            if ($def === null) {
+            if ($def === null || ! array_key_exists($key, $values)) {
+                continue; // not applicable at this facility: the API would reject it
+            }
+            $value = $this->coerce($def, $raw);
+            if ($this->same($def, $value, $values[$key])) {
                 continue;
             }
-            $value = ! empty($reset[$key]) ? null : $this->coerce($def, $raw);
-            $before = array_key_exists($key, $values) ? $values[$key] : ($def['default'] ?? null);
-            if (($value ?? ($def['default'] ?? null)) == $before && empty($reset[$key])) {
-                continue;
-            }
-            $changes[$key] = $value;
+            $changes[$key] = $this->same($def, $value, $def['default'] ?? null) ? null : $value;
             $risky = $risky || ($def['dangerLevel'] ?? '') === 'high';
         }
+        $back = redirect()->route('setup.facilities.show', ['facility' => $facility, 'tab' => 'rules']);
         if ($changes === []) {
-            return redirect()->route('setup.facilities.show', ['facility' => $facility, 'tab' => 'rules'])->with('status', 'Nothing changed.');
+            return $back->with('status', 'Nothing changed.');
         }
-        if ($risky && ! $request->boolean('confirmRisk')) {
-            return redirect()->route('setup.facilities.show', ['facility' => $facility, 'tab' => 'rules'])->withInput()->with('error', 'You changed a high-risk rule (money, stock or security). Tick "I understand" to apply it.');
+        if ($risky && ! $request->boolean('confirm')) {
+            return $back->withInput()->with('error', 'You changed a high-impact setting (money, stock or security). Tick the confirmation under the settings, then save again.');
         }
-        $this->api->request('PUT', "facilities/{$facility}/operating-rules", [], ['rules' => $changes] + ($risky ? ['confirm' => true] : []), $this->ifMatch((string) ($current->body['version'] ?? '')));
+        $this->api->request('PUT', "facilities/{$facility}/operating-rules", [], ['rules' => $changes] + ($risky ? ['confirm' => true] : []), $this->ifMatch((string) $current->etag()));
 
-        return redirect()->route('setup.facilities.show', ['facility' => $facility, 'tab' => 'rules'])->with('success', count($changes).' rule(s) saved.');
+        return $back->with('success', count($changes) === 1 ? '1 setting saved.' : count($changes).' settings saved.');
+    }
+
+    /** @param  array<string, mixed>  $def */
+    private function same(array $def, mixed $a, mixed $b): bool
+    {
+        if (($def['type'] ?? '') === 'money') {
+            return $a !== null && $b !== null && bccomp((string) $a, (string) $b, 4) === 0;
+        }
+        if (($def['type'] ?? '') === 'multi_enum') {
+            $x = (array) $a;
+            $y = (array) $b;
+            sort($x);
+            sort($y);
+
+            return $x === $y;
+        }
+
+        return $a === $b || (is_numeric($a) && is_numeric($b) && (float) $a === (float) $b);
     }
 
     public function deactivate(Request $request, string $facility): RedirectResponse
@@ -246,23 +268,17 @@ class FacilitiesController extends Controller
      */
     private function rulesData(string $facility, array $flat): array
     {
-        $eff = Fetch::of(fn () => $this->api->get("facilities/{$facility}/operating-rules"), ['GET', '/facilities/{facilityId}/operating-rules']);
+        $eff = Fetch::of(fn () => $this->api->request('GET', "facilities/{$facility}/operating-rules"), ['GET', '/facilities/{facilityId}/operating-rules']);
         $defs = Fetch::of(fn () => $this->api->get('organization/rule-definitions'), ['GET', '/organization/rule-definitions']);
-        $defMap = collect($defs->items())->keyBy('key')->all();
-        // Until the rules endpoint exists, the capabilities read model still carries the current values (read-only).
-        $legacy = $eff->ok() ? new Fetch(null, 'pending') : Fetch::of(fn () => $this->api->get("facilities/{$facility}/capabilities"), ['GET', '/facilities/{facilityId}/capabilities']);
-        $groups = [];
-        if ($eff->ok()) {
-            foreach ((array) ($eff->data['items'] ?? []) as $item) {
-                $def = $defMap[$item['key'] ?? ''] ?? null;
-                if ($def === null) {
-                    continue;
-                }
-                $groups[$def['group'] ?? 'Other'][] = ['def' => $def, 'value' => $item['value'] ?? null, 'isDefault' => (bool) ($item['isDefault'] ?? false)];
-            }
-        }
+        $body = $eff->ok() ? (array) $eff->data->body : [];
+        $facilities = collect($flat)->filter(fn ($f) => in_array('PAYMENT_ACCEPTANCE', (array) ($f['capabilities'] ?? []), true))
+            ->map(fn ($f) => ['value' => $f['id'], 'label' => $f['name'] ?? $f['code']])->values()->all();
 
-        return ['eff' => $eff, 'legacy' => $legacy, 'defs' => $defs, 'ruleGroups' => $groups, 'notApplicable' => $eff->ok() ? (array) ($eff->data['notApplicable'] ?? []) : [], 'ruleVersion' => $eff->ok() ? ($eff->data['version'] ?? null) : null, 'defMap' => $defMap];
+        return [
+            'eff' => $eff->ok() ? new Fetch($body) : $eff, 'defs' => $defs, 'defMap' => collect($defs->items())->keyBy('key')->all(),
+            'ruleValues' => (array) ($body['values'] ?? []), 'ruleCapabilities' => (array) ($body['capabilities'] ?? []), 'ruleVersion' => $eff->ok() ? $eff->data->etag() : null,
+            'notApplicable' => (array) ($body['notApplicable'] ?? []), 'ruleOptions' => ['payment_facility_unit_id' => $facilities],
+        ];
     }
 
     /** @return array<string, mixed> */

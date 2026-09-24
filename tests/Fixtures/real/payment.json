@@ -1,27 +1,48 @@
 {
-    "id": "01a0d0c6-057e-7dbf-87c4-fd8be2f61a08",
-    "groupId": "01a0d0c6-0593-70a1-91ae-56e9d455c528",
+    "id": "01a0d13f-97c4-70e0-b48b-9a84c8602519",
+    "groupId": "01a0d13f-97c4-70e0-b48b-9a84c8602519",
     "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
     "tenderType": "CASH",
     "provider": "MANUAL",
     "providerReference": null,
     "reference": null,
     "status": "CAPTURED",
-    "amount": "2000.0000",
-    "tendered": "2500.0000",
-    "changeGiven": "500.0000",
+    "amount": "12000.0000",
+    "tendered": "12000.0000",
+    "changeGiven": "0.0000",
     "refundedAmount": "0.0000",
     "currency": "NGN",
     "allocations": [
         {
-            "orderId": "01a0d0c6-036a-7b5a-8bf3-8012ec57641f",
-            "amount": "2000.0000"
+            "orderId": "01a0d13f-9437-72b9-bd94-63fe3b7ee69b",
+            "amount": "12000.0000"
         }
     ],
-    "cashSessionId": "01a0d0c6-01ad-71f5-8f35-42fb7cd73d43",
-    "receiptId": "01a0d0c6-0594-70c8-a387-6fe47a722103",
-    "takenByStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
-    "createdAt": "2026-09-24T00:17:13.619469Z",
-    "capturedAt": "2026-09-24T00:17:13.619469Z",
-    "unallocatedAmount": "0.0000"
+    "cashSessionId": "01a0d13f-8620-7384-b5bc-40f3e670fc30",
+    "receiptId": "01a0d13f-9834-7115-be0f-cd6c39cc5d9b",
+    "takenByStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+    "createdAt": "2026-09-24T02:30:00.900694Z",
+    "capturedAt": "2026-09-24T02:30:01.025186Z",
+    "unallocatedAmount": "0.0000",
+    "collection": {
+        "tender": "CASH",
+        "channel": "MANUAL",
+        "collectedByStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+        "collectedDeviceId": "e612c5af-f79f-508d-98ae-73f229403ebb",
+        "terminalId": null,
+        "approvalCode": null,
+        "slipReference": null,
+        "last4": null,
+        "bankReference": null,
+        "note": null,
+        "clientCreatedAt": null,
+        "expiresAt": "2026-09-24T03:00:00.900705Z",
+        "autoConfirm": false,
+        "decision": "CONFIRMED",
+        "confirmationMode": "MANUAL",
+        "decidedByStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+        "decidedAt": "2026-09-24T02:30:01.025186Z",
+        "decisionReason": "Counted",
+        "matchedReference": null
+    }
 }

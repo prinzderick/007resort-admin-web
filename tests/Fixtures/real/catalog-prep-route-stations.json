@@ -1,0 +1,15 @@
+{
+    "items": [
+        {
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "prepRouteId": "35c17f7d-e784-5930-aec7-5c560e519830",
+            "kdsStationId": "9ac72d5b-5285-55ed-92a1-f4528a7debbc"
+        },
+        {
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "prepRouteId": "84b6f7a9-2c32-59b1-a727-0edf83f50c0e",
+            "kdsStationId": "a04b0443-92a2-5109-912a-09f2d108b558"
+        }
+    ],
+    "nextCursor": null
+}

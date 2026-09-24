@@ -1,36 +1,37 @@
 {
     "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
     "date": "2026-09-24",
-    "orders": 12,
-    "grossSales": "20000.0000",
+    "orders": 1,
+    "grossSales": "12000.0000",
     "discounts": "0.0000",
     "tax": "0.0000",
-    "total": "20000.0000",
-    "netSales": "20000.0000",
+    "total": "12000.0000",
+    "netSales": "12000.0000",
     "refunds": "0.0000",
     "reversals": "0.0000",
     "voids": {
-        "count": 31,
-        "amount": "70800.0000"
+        "count": 0,
+        "amount": "0.0000"
     },
     "byTender": [
         {
             "tenderType": "CASH",
-            "amount": "16000.0000",
-            "count": 8
-        },
-        {
-            "tenderType": "TRANSFER",
-            "amount": "4000.0000",
-            "count": 4
+            "amount": "12000.0000",
+            "count": 1
         }
     ],
     "topProducts": [
         {
-            "productId": "04dd7cd6-f5e3-5faf-b2a9-0d65b509155f",
-            "name": "Moi Moi",
-            "quantity": 20,
-            "revenue": "20000.0000"
+            "productId": "3685ad1a-f0c3-52d4-9660-2ec349ab84eb",
+            "name": "Jollof Rice & Chicken",
+            "quantity": 2,
+            "revenue": "9000.0000"
+        },
+        {
+            "productId": "cd4c4ace-18c7-5304-bf60-0d36d5bf4541",
+            "name": "Star Lager 60cl",
+            "quantity": 2,
+            "revenue": "3000.0000"
         }
     ],
     "ticketsRedeemed": 0,
@@ -44,7 +45,7 @@
         "tickets": true
     },
     "freshness": {
-        "generatedAt": "2026-09-24T00:33:47.328Z",
+        "generatedAt": "2026-09-24T02:30:21.948Z",
         "sourceNode": "local",
         "lastSyncAt": null,
         "stale": false,

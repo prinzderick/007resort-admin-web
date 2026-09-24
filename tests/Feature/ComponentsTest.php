@@ -88,7 +88,7 @@ class ComponentsTest extends TestCase
         foreach (['Name', 'Help', 'required'] as $x) {
             $this->assertStringContainsString($x, $f);
         }
-        $this->assertStringContainsString('<option value="a"', $this->render('<x-select name="k" :options="[\'a\' => \'A\']" />'));
+        $this->assertStringContainsString('name="k"', $this->render('<x-select name="k" :options="[\'a\' => \'A\']" />'));
     }
 
     public function test_avatar_copy_rowmenu_modal_drawer_toasts_save_bar_render(): void

@@ -1,0 +1,126 @@
+{
+    "percent": 100,
+    "complete": true,
+    "steps": [
+        {
+            "key": "business_profile",
+            "label": "Business profile",
+            "done": true,
+            "required": true,
+            "count": null,
+            "hint": null
+        },
+        {
+            "key": "facilities",
+            "label": "Facilities set up",
+            "done": true,
+            "required": true,
+            "count": 22,
+            "hint": null
+        },
+        {
+            "key": "products",
+            "label": "Products",
+            "done": true,
+            "required": true,
+            "count": 89,
+            "hint": null
+        },
+        {
+            "key": "prices",
+            "label": "Prices for every product",
+            "done": true,
+            "required": true,
+            "count": 89,
+            "hint": null
+        },
+        {
+            "key": "tax",
+            "label": "Tax",
+            "done": true,
+            "required": true,
+            "count": 2,
+            "hint": null
+        },
+        {
+            "key": "staff",
+            "label": "Staff",
+            "done": true,
+            "required": true,
+            "count": 13,
+            "hint": null
+        },
+        {
+            "key": "roles",
+            "label": "Roles assigned",
+            "done": true,
+            "required": true,
+            "count": 13,
+            "hint": null
+        },
+        {
+            "key": "devices",
+            "label": "Devices registered",
+            "done": true,
+            "required": true,
+            "count": 33,
+            "hint": null
+        },
+        {
+            "key": "kds_stations",
+            "label": "Kitchen/bar screens",
+            "done": true,
+            "required": true,
+            "count": 7,
+            "hint": null
+        },
+        {
+            "key": "payment_methods",
+            "label": "Payment methods",
+            "done": true,
+            "required": true,
+            "count": 12,
+            "hint": null
+        },
+        {
+            "key": "receipt_settings",
+            "label": "Receipt settings",
+            "done": true,
+            "required": true,
+            "count": 1,
+            "hint": null
+        },
+        {
+            "key": "booking_resources",
+            "label": "Bookable resources",
+            "done": true,
+            "required": true,
+            "count": 25,
+            "hint": null
+        },
+        {
+            "key": "tables",
+            "label": "Dining tables",
+            "done": true,
+            "required": true,
+            "count": 46,
+            "hint": null
+        }
+    ],
+    "missing": [],
+    "counts": {
+        "facilities": 26,
+        "facilitiesConfigured": 22,
+        "products": 89,
+        "productsPriced": 89,
+        "taxRates": 2,
+        "staff": 13,
+        "staffWithRoles": 13,
+        "customRoles": 0,
+        "devices": 33,
+        "kdsStations": 7,
+        "paymentFacilities": 12,
+        "bookingResources": 25,
+        "tables": 46
+    }
+}

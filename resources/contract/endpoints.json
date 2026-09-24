@@ -3,6 +3,48 @@
     "endpoints": [
         {
             "method": "GET",
+            "path": "/admin/catalog/products",
+            "operationId": "adminListProducts",
+            "permission": "'catalog.manage|pricing.manage'"
+        },
+        {
+            "method": "GET",
+            "path": "/admin/catalog/products/{productId}",
+            "operationId": "adminGetProduct",
+            "permission": "'catalog.manage|pricing.manage'"
+        },
+        {
+            "method": "GET",
+            "path": "/admin/search",
+            "operationId": "adminSearch",
+            "permission": "'any"
+        },
+        {
+            "method": "GET",
+            "path": "/admin/settings/business",
+            "operationId": "getBusinessProfile",
+            "permission": "'config.view'"
+        },
+        {
+            "method": "PUT",
+            "path": "/admin/settings/business",
+            "operationId": "updateBusinessProfile",
+            "permission": "'settings.manage'"
+        },
+        {
+            "method": "GET",
+            "path": "/admin/settings/receipt",
+            "operationId": "getReceiptSettings",
+            "permission": "'config.view'"
+        },
+        {
+            "method": "PUT",
+            "path": "/admin/settings/receipt",
+            "operationId": "updateReceiptSettings",
+            "permission": "'settings.manage'"
+        },
+        {
+            "method": "GET",
             "path": "/admin/settings/tax",
             "operationId": "getTaxSetting",
             "permission": "config.manage"
@@ -12,6 +54,12 @@
             "path": "/admin/settings/tax",
             "operationId": "updateTaxSetting",
             "permission": "config.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/admin/setup-status",
+            "operationId": "getSetupStatus",
+            "permission": "'config.view'"
         },
         {
             "method": "GET",
@@ -177,6 +225,18 @@
         },
         {
             "method": "POST",
+            "path": "/bookings/blackouts",
+            "operationId": "createFacilityBlackout",
+            "permission": "'booking.configure'"
+        },
+        {
+            "method": "DELETE",
+            "path": "/bookings/blackouts/{blackoutId}",
+            "operationId": "deleteBlackout",
+            "permission": "'booking.configure'"
+        },
+        {
+            "method": "POST",
             "path": "/bookings/hold",
             "operationId": "holdBooking",
             "permission": "booking.create"
@@ -206,10 +266,40 @@
             "permission": null
         },
         {
+            "method": "GET",
+            "path": "/bookings/resources/{resourceId}/blackouts",
+            "operationId": "listResourceBlackouts",
+            "permission": "'booking.configure'"
+        },
+        {
             "method": "POST",
             "path": "/bookings/resources/{resourceId}/blackouts",
             "operationId": "createBlackout",
             "permission": "booking.configure"
+        },
+        {
+            "method": "GET",
+            "path": "/bookings/resources/{resourceId}/rules",
+            "operationId": "getResourceRules",
+            "permission": "'booking.configure'"
+        },
+        {
+            "method": "PUT",
+            "path": "/bookings/resources/{resourceId}/rules",
+            "operationId": "setResourceRules",
+            "permission": "'booking.configure'"
+        },
+        {
+            "method": "GET",
+            "path": "/bookings/resources/{resourceId}/schedule",
+            "operationId": "getResourceSchedule",
+            "permission": "'booking.configure'"
+        },
+        {
+            "method": "PUT",
+            "path": "/bookings/resources/{resourceId}/schedule",
+            "operationId": "setResourceSchedule",
+            "permission": "'booking.configure'"
         },
         {
             "method": "GET",
@@ -246,6 +336,36 @@
             "path": "/broadcasting/auth",
             "operationId": "broadcastAuth",
             "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/cash-handovers",
+            "operationId": "listCashHandovers",
+            "permission": "cash_handover.view"
+        },
+        {
+            "method": "POST",
+            "path": "/cash-handovers",
+            "operationId": "declareCashHandover",
+            "permission": "cash_handover.create"
+        },
+        {
+            "method": "GET",
+            "path": "/cash-handovers/{handoverId}",
+            "operationId": "getCashHandover",
+            "permission": "cash_handover.view"
+        },
+        {
+            "method": "POST",
+            "path": "/cash-handovers/{handoverId}/receive",
+            "operationId": "receiveCashHandover",
+            "permission": "cash_handover.receive"
+        },
+        {
+            "method": "POST",
+            "path": "/cash-handovers/{handoverId}/signoff",
+            "operationId": "signoffCashHandover",
+            "permission": "cash_handover.signoff"
         },
         {
             "method": "GET",
@@ -296,6 +416,12 @@
             "permission": "catalog.manage"
         },
         {
+            "method": "POST",
+            "path": "/catalog/categories/{categoryId}/prep-route",
+            "operationId": "setCategoryPrepRoute",
+            "permission": "'catalog.manage'"
+        },
+        {
             "method": "PATCH",
             "path": "/catalog/categories/{id}",
             "operationId": "updateCategory",
@@ -303,9 +429,81 @@
         },
         {
             "method": "GET",
+            "path": "/catalog/prep-route-stations",
+            "operationId": "listPrepRouteStations",
+            "permission": "'catalog.manage'"
+        },
+        {
+            "method": "PUT",
+            "path": "/catalog/prep-route-stations",
+            "operationId": "setPrepRouteStation",
+            "permission": "'catalog.manage'"
+        },
+        {
+            "method": "GET",
             "path": "/catalog/prep-routes",
             "operationId": "listPrepRoutes",
             "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/catalog/prep-routes",
+            "operationId": "createPrepRoute",
+            "permission": "'catalog.manage'"
+        },
+        {
+            "method": "PATCH",
+            "path": "/catalog/prep-routes/{prepRouteId}",
+            "operationId": "updatePrepRoute",
+            "permission": "'catalog.manage'"
+        },
+        {
+            "method": "GET",
+            "path": "/catalog/price-lists",
+            "operationId": "listPriceLists",
+            "permission": "'pricing.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/catalog/price-lists",
+            "operationId": "createPriceList",
+            "permission": "'pricing.manage'"
+        },
+        {
+            "method": "PATCH",
+            "path": "/catalog/price-lists/{priceListId}",
+            "operationId": "updatePriceList",
+            "permission": "'pricing.manage'"
+        },
+        {
+            "method": "GET",
+            "path": "/catalog/prices",
+            "operationId": "listPrices",
+            "permission": "'pricing.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/catalog/prices",
+            "operationId": "createPrice",
+            "permission": "'pricing.manage'"
+        },
+        {
+            "method": "GET",
+            "path": "/catalog/prices/export",
+            "operationId": "exportPricesCsv",
+            "permission": "'pricing.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/catalog/prices/import",
+            "operationId": "importPricesCsv",
+            "permission": "'pricing.manage'"
+        },
+        {
+            "method": "PATCH",
+            "path": "/catalog/prices/{priceId}",
+            "operationId": "updatePrice",
+            "permission": "'pricing.manage'"
         },
         {
             "method": "GET",
@@ -318,6 +516,18 @@
             "path": "/catalog/products",
             "operationId": "createProduct",
             "permission": "catalog.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/catalog/products/export",
+            "operationId": "exportProductsCsv",
+            "permission": "'catalog.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/catalog/products/import",
+            "operationId": "importProductsCsv",
+            "permission": "'catalog.manage'"
         },
         {
             "method": "PATCH",
@@ -344,9 +554,123 @@
             "permission": "catalog.availability.manage"
         },
         {
+            "method": "DELETE",
+            "path": "/catalog/products/{productId}/facilities/{facilityId}",
+            "operationId": "removeProductFacility",
+            "permission": "'catalog.manage'"
+        },
+        {
+            "method": "PUT",
+            "path": "/catalog/products/{productId}/facilities/{facilityId}",
+            "operationId": "setProductFacility",
+            "permission": "'catalog.manage'"
+        },
+        {
+            "method": "GET",
+            "path": "/catalog/products/{productId}/stock-links",
+            "operationId": "getProductStockLinks",
+            "permission": "'catalog.manage'"
+        },
+        {
+            "method": "PUT",
+            "path": "/catalog/products/{productId}/stock-links",
+            "operationId": "setProductStockLinks",
+            "permission": "'catalog.manage'"
+        },
+        {
             "method": "GET",
             "path": "/catalog/tax-rates",
             "operationId": "listTaxRates",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/catalog/tax-rates",
+            "operationId": "createTaxRate",
+            "permission": "'catalog.manage'"
+        },
+        {
+            "method": "PATCH",
+            "path": "/catalog/tax-rates/{taxRateId}",
+            "operationId": "updateTaxRate",
+            "permission": "'catalog.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/customer/auth/forgot",
+            "operationId": "customerForgot",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/customer/auth/login",
+            "operationId": "customerLogin",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/customer/auth/logout",
+            "operationId": "customerLogout",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/customer/auth/refresh",
+            "operationId": "customerRefresh",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/customer/auth/register",
+            "operationId": "customerRegister",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/customer/auth/reset",
+            "operationId": "customerReset",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/customer/auth/verify",
+            "operationId": "customerVerify",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/customer/auth/verify/resend",
+            "operationId": "customerVerifyResend",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/customer/bookings",
+            "operationId": "customerBookings",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/customer/entitlements",
+            "operationId": "customerEntitlements",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/customer/me",
+            "operationId": "customerMe",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/customer/memberships",
+            "operationId": "customerMemberships",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/customer/orders/{orderId}",
+            "operationId": "customerOrder",
             "permission": null
         },
         {
@@ -372,6 +696,12 @@
             "path": "/devices/{deviceId}",
             "operationId": "getDevice",
             "permission": null
+        },
+        {
+            "method": "PATCH",
+            "path": "/devices/{deviceId}",
+            "operationId": "updateDevice",
+            "permission": "'device.manage'"
         },
         {
             "method": "POST",
@@ -456,6 +786,36 @@
             "path": "/facilities/{facilityId}/capabilities",
             "operationId": "getFacilityCapabilities",
             "permission": null
+        },
+        {
+            "method": "PUT",
+            "path": "/facilities/{facilityId}/capabilities",
+            "operationId": "setFacilityCapabilities",
+            "permission": "'config.manage.capabilities'"
+        },
+        {
+            "method": "GET",
+            "path": "/facilities/{facilityId}/operating-rules",
+            "operationId": "getFacilityOperatingRules",
+            "permission": "'config.view|config.manage.rules'"
+        },
+        {
+            "method": "PUT",
+            "path": "/facilities/{facilityId}/operating-rules",
+            "operationId": "setFacilityOperatingRules",
+            "permission": "'config.manage.rules'"
+        },
+        {
+            "method": "GET",
+            "path": "/facilities/{facilityId}/payment-methods",
+            "operationId": "getFacilityPaymentMethods",
+            "permission": "'config.view|settings.manage'"
+        },
+        {
+            "method": "PUT",
+            "path": "/facilities/{facilityId}/payment-methods",
+            "operationId": "setFacilityPaymentMethods",
+            "permission": "'settings.manage'"
         },
         {
             "method": "GET",
@@ -741,6 +1101,24 @@
         },
         {
             "method": "POST",
+            "path": "/orders/{orderId}/bill",
+            "operationId": "printBill",
+            "permission": "bill.print"
+        },
+        {
+            "method": "POST",
+            "path": "/orders/{orderId}/bill/cancel",
+            "operationId": "cancelBill",
+            "permission": "bill.cancel.execute"
+        },
+        {
+            "method": "POST",
+            "path": "/orders/{orderId}/collections",
+            "operationId": "collectPayment",
+            "permission": "payment.collect"
+        },
+        {
+            "method": "POST",
             "path": "/orders/{orderId}/lines",
             "operationId": "addOrderLine",
             "permission": "order.line.add"
@@ -783,9 +1161,27 @@
         },
         {
             "method": "GET",
+            "path": "/organization/capability-types",
+            "operationId": "listCapabilityTypes",
+            "permission": "'config.view|facility.manage'"
+        },
+        {
+            "method": "GET",
             "path": "/organization/facilities",
             "operationId": "listFacilityTree",
             "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/organization/facilities",
+            "operationId": "createFacility",
+            "permission": "'facility.manage'"
+        },
+        {
+            "method": "DELETE",
+            "path": "/organization/facilities/{facilityId}",
+            "operationId": "deleteFacility",
+            "permission": "'facility.manage'"
         },
         {
             "method": "GET",
@@ -794,16 +1190,154 @@
             "permission": null
         },
         {
+            "method": "PATCH",
+            "path": "/organization/facilities/{facilityId}",
+            "operationId": "updateFacility",
+            "permission": "'facility.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/organization/facilities/{facilityId}/deactivate",
+            "operationId": "deactivateFacility",
+            "permission": "'facility.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/organization/facilities/{facilityId}/move",
+            "operationId": "moveFacility",
+            "permission": "'facility.manage'"
+        },
+        {
             "method": "GET",
             "path": "/organization/facilities/{facilityId}/operating-points",
             "operationId": "listOperatingPoints",
             "permission": null
         },
         {
+            "method": "POST",
+            "path": "/organization/facilities/{facilityId}/operating-points",
+            "operationId": "createOperatingPoint",
+            "permission": "'facility.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/organization/facilities/{facilityId}/reactivate",
+            "operationId": "reactivateFacility",
+            "permission": "'facility.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/organization/facilities/{facilityId}/tables",
+            "operationId": "createDiningTable",
+            "permission": "'facility.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/organization/facilities/{facilityId}/tables/bulk",
+            "operationId": "bulkCreateDiningTables",
+            "permission": "'facility.manage'"
+        },
+        {
+            "method": "GET",
+            "path": "/organization/facility-templates",
+            "operationId": "listFacilityTemplates",
+            "permission": "'config.view|facility.manage'"
+        },
+        {
+            "method": "GET",
+            "path": "/organization/operating-points",
+            "operationId": "listOperatingPoints",
+            "permission": "'config.view|facility.manage'"
+        },
+        {
+            "method": "PATCH",
+            "path": "/organization/operating-points/{operatingPointId}",
+            "operationId": "updateOperatingPoint",
+            "permission": "'facility.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/organization/operating-points/{operatingPointId}/deactivate",
+            "operationId": "deactivateOperatingPoint",
+            "permission": "'facility.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/organization/operating-points/{operatingPointId}/reactivate",
+            "operationId": "reactivateOperatingPoint",
+            "permission": "'facility.manage'"
+        },
+        {
+            "method": "GET",
+            "path": "/organization/rule-definitions",
+            "operationId": "listRuleDefinitions",
+            "permission": "'config.view|config.manage.rules'"
+        },
+        {
             "method": "GET",
             "path": "/organization/site",
             "operationId": "getSite",
             "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/organization/tables",
+            "operationId": "listDiningTablesAdmin",
+            "permission": "'config.view|facility.manage|table.manage'"
+        },
+        {
+            "method": "PATCH",
+            "path": "/organization/tables/{tableId}",
+            "operationId": "updateDiningTable",
+            "permission": "'facility.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/organization/tables/{tableId}/deactivate",
+            "operationId": "deactivateDiningTable",
+            "permission": "'facility.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/organization/tables/{tableId}/merge",
+            "operationId": "mergeDiningTable",
+            "permission": "'facility.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/organization/tables/{tableId}/reactivate",
+            "operationId": "reactivateDiningTable",
+            "permission": "'facility.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/organization/tables/{tableId}/unmerge",
+            "operationId": "unmergeDiningTable",
+            "permission": "'facility.manage'"
+        },
+        {
+            "method": "GET",
+            "path": "/payment-terminals",
+            "operationId": "listPaymentTerminals",
+            "permission": "payment.collect"
+        },
+        {
+            "method": "POST",
+            "path": "/payment-terminals",
+            "operationId": "createPaymentTerminal",
+            "permission": "device.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/payment-terminals/{terminalId}",
+            "operationId": "getPaymentTerminal",
+            "permission": "payment.collect"
+        },
+        {
+            "method": "PATCH",
+            "path": "/payment-terminals/{terminalId}",
+            "operationId": "updatePaymentTerminal",
+            "permission": "device.manage"
         },
         {
             "method": "GET",
@@ -831,6 +1365,12 @@
         },
         {
             "method": "POST",
+            "path": "/payments/terminal-callbacks/{provider}",
+            "operationId": "terminalCallback",
+            "permission": "signature"
+        },
+        {
+            "method": "POST",
             "path": "/payments/webhooks/{provider}",
             "operationId": "paymentWebhook",
             "permission": null
@@ -843,9 +1383,27 @@
         },
         {
             "method": "POST",
+            "path": "/payments/{paymentId}/cancel",
+            "operationId": "cancelCollection",
+            "permission": "payment.collect"
+        },
+        {
+            "method": "POST",
+            "path": "/payments/{paymentId}/confirm",
+            "operationId": "confirmCollection",
+            "permission": "payment.confirm"
+        },
+        {
+            "method": "POST",
             "path": "/payments/{paymentId}/refund",
             "operationId": "refundPayment",
             "permission": "refund.execute"
+        },
+        {
+            "method": "POST",
+            "path": "/payments/{paymentId}/reject",
+            "operationId": "rejectCollection",
+            "permission": "payment.confirm"
         },
         {
             "method": "POST",
@@ -870,6 +1428,18 @@
             "path": "/prep-tickets/{ticketId}/transition",
             "operationId": "transitionPrepTicket",
             "permission": "prep_ticket.transition"
+        },
+        {
+            "method": "GET",
+            "path": "/public/site",
+            "operationId": "getPublicSite",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/public/ticket-orders",
+            "operationId": "createTicketOrder",
+            "permission": null
         },
         {
             "method": "GET",
@@ -914,6 +1484,60 @@
             "permission": "role_assignment.manage"
         },
         {
+            "method": "POST",
+            "path": "/roles",
+            "operationId": "createRole",
+            "permission": "'role.manage'"
+        },
+        {
+            "method": "DELETE",
+            "path": "/roles/{roleId}",
+            "operationId": "deleteRole",
+            "permission": "'role.manage'"
+        },
+        {
+            "method": "PATCH",
+            "path": "/roles/{roleId}",
+            "operationId": "updateRole",
+            "permission": "'role.manage'"
+        },
+        {
+            "method": "GET",
+            "path": "/roles/{roleId}/permissions",
+            "operationId": "getRolePermissionMatrix",
+            "permission": "'role_assignment.manage|role.manage'"
+        },
+        {
+            "method": "PUT",
+            "path": "/roles/{roleId}/permissions",
+            "operationId": "setRolePermissions",
+            "permission": "'role.manage'"
+        },
+        {
+            "method": "GET",
+            "path": "/service-tokens",
+            "operationId": "listServiceTokens",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/service-tokens",
+            "operationId": "createServiceToken",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/service-tokens/{id}/revoke",
+            "operationId": "revokeServiceToken",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/service-tokens/{id}/rotate",
+            "operationId": "rotateServiceToken",
+            "permission": null
+        },
+        {
             "method": "GET",
             "path": "/staff",
             "operationId": "listStaff",
@@ -935,6 +1559,24 @@
             "method": "PATCH",
             "path": "/staff/{staffId}",
             "operationId": "updateStaff",
+            "permission": "staff.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/staff/{staffId}/cash-in-hand",
+            "operationId": "getCashInHand",
+            "permission": "own"
+        },
+        {
+            "method": "GET",
+            "path": "/staff/{staffId}/collection-policy",
+            "operationId": "getCollectionPolicy",
+            "permission": "own"
+        },
+        {
+            "method": "PATCH",
+            "path": "/staff/{staffId}/collection-policy",
+            "operationId": "updateCollectionPolicy",
             "permission": "staff.manage"
         },
         {
@@ -1140,6 +1782,24 @@
             "path": "/tabs/{tabId}/settle",
             "operationId": "settleTab",
             "permission": "order.settle"
+        },
+        {
+            "method": "GET",
+            "path": "/ticketing/ticket-types",
+            "operationId": "listTicketTypes",
+            "permission": "'config.view|ticket_type.manage|ticket.issue'"
+        },
+        {
+            "method": "POST",
+            "path": "/ticketing/ticket-types",
+            "operationId": "createTicketType",
+            "permission": "'ticket_type.manage'"
+        },
+        {
+            "method": "PATCH",
+            "path": "/ticketing/ticket-types/{ticketTypeId}",
+            "operationId": "updateTicketType",
+            "permission": "'ticket_type.manage'"
         },
         {
             "method": "GET",

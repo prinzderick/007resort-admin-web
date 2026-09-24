@@ -1,26 +1,24 @@
-@props(['name', 'label', 'type' => 'text', 'value' => null, 'hint' => null, 'required' => false, 'options' => null, 'placeholder' => null])
+@props(['name', 'label', 'type' => 'text', 'value' => null, 'hint' => null, 'required' => false, 'options' => null, 'placeholder' => null, 'disabled' => false, 'readonly' => false, 'suffix' => null, 'prefix' => null, 'maxlength' => null, 'min' => null, 'max' => null, 'step' => null])
+{{-- One-line adapter over the x-form.* control library: every page that says <x-field> gets the same label / hint / error / focus styling.
+     Prefer the specific x-form.* control (slider, money, toggle, radio-cards, ...) where one fits; this is the fallback for plain text, number, date, select and password. --}}
 @php
-    // Form names like contact[phone] map to the dotted key Laravel uses for old input and for the API's field errors.
-    $key = trim(str_replace(['[', ']'], ['.', ''], $name), '.');
-    $id = 'f-'.preg_replace('/[^A-Za-z0-9_-]/', '-', $name);
+    $key = \App\Support\Form\FormField::dot($name);
+    $val = $type === 'password' ? null : old($key, $value);
+    $common = ['name' => $name, 'label' => $label, 'hint' => $hint, 'required' => $required, 'disabled' => $disabled, 'readonly' => $readonly];
+    $optCount = $options !== null ? count(is_array($options) ? $options : iterator_to_array($options)) : 0;
 @endphp
-<div class="mb-3">
-    <label for="{{ $id }}" class="mb-1 block text-sm font-medium text-stone-700">{{ $label }}@if ($required)<span class="text-red-600"> *</span>@endif</label>
-    @if ($options !== null)
-        <select id="{{ $id }}" name="{{ $name }}" {{ $required ? 'required' : '' }}
-                class="min-h-11 w-full rounded-lg border border-stone-300 bg-white px-3 text-sm focus:border-brand-600 focus:outline-none">
-            @foreach ($options as $k => $v)
-                <option value="{{ $k }}" @selected((string) old($key, $value) === (string) $k)>{{ $v }}</option>
-            @endforeach
-        </select>
-    @elseif ($type === 'textarea')
-        <textarea id="{{ $id }}" name="{{ $name }}" rows="3" {{ $required ? 'required' : '' }}
-                  class="w-full rounded-lg border border-stone-300 px-3 py-2 text-sm focus:border-brand-600 focus:outline-none">{{ old($key, $value) }}</textarea>
-    @else
-        <input id="{{ $id }}" name="{{ $name }}" type="{{ $type }}" value="{{ $type === 'password' ? '' : old($key, $value) }}"
-               placeholder="{{ $placeholder }}" {{ $required ? 'required' : '' }} autocomplete="{{ $type === 'password' ? 'current-password' : 'off' }}"
-               class="min-h-11 w-full rounded-lg border border-stone-300 px-3 text-sm focus:border-brand-600 focus:outline-none">
-    @endif
-    @if ($hint)<p class="mt-1 text-xs text-stone-500">{{ $hint }}</p>@endif
-    @error($key)<p class="mt-1 text-xs text-red-700">{{ $message }}</p>@enderror
-</div>
+@if ($options !== null)
+    <x-form.select {{ $attributes }} :name="$name" :label="$label" :hint="$hint" :required="$required" :disabled="$disabled" :options="$options" :value="$val" :searchable="$optCount > 8" :placeholder="$placeholder ?? 'Select...'" />
+@elseif ($type === 'textarea')
+    <x-form.text {{ $attributes }} :name="$name" :label="$label" :hint="$hint" :required="$required" :disabled="$disabled" :readonly="$readonly" :value="$val" :multiline="true" :rows="3" :maxlength="$maxlength" :placeholder="$placeholder" />
+@elseif ($type === 'password')
+    <x-form.password {{ $attributes->except("autocomplete") }} autocomplete="{{ $attributes->get("autocomplete", "current-password") }}" :name="$name" :label="$label" :hint="$hint" :required="$required" :disabled="$disabled" :placeholder="$placeholder" />
+@elseif ($type === 'date')
+    <x-form.date {{ $attributes }} :name="$name" :label="$label" :hint="$hint" :required="$required" :disabled="$disabled" :value="$val" />
+@elseif ($type === 'time')
+    <x-form.time {{ $attributes }} :name="$name" :label="$label" :hint="$hint" :required="$required" :disabled="$disabled" :value="$val" />
+@elseif ($type === 'number')
+    <x-form.text {{ $attributes }} :name="$name" :label="$label" :hint="$hint" :required="$required" :disabled="$disabled" :readonly="$readonly" :value="$val" type="text" inputmode="decimal" :suffix="$suffix" :prefix="$prefix" :placeholder="$placeholder" />
+@else
+    <x-form.text {{ $attributes }} :name="$name" :label="$label" :hint="$hint" :required="$required" :disabled="$disabled" :readonly="$readonly" :value="$val" :type="$type" :suffix="$suffix" :prefix="$prefix" :maxlength="$maxlength" :placeholder="$placeholder" />
+@endif

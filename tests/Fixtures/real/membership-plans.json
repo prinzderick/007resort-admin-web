@@ -1,7 +1,7 @@
 {
     "items": [
         {
-            "id": "01a0d040-c344-71d8-a017-7398f632b2ac",
+            "id": "01a0d13a-19c1-7257-a07c-abc99cf8b76f",
             "code": "GOLD",
             "name": "Gold Monthly",
             "description": "Unlimited access to every facility, 2 guests per visit, 15% member discount.",
@@ -24,7 +24,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c346-7249-aa44-d2972af9ee22",
+            "id": "01a0d13a-19c2-71fd-89ad-d1736f9a2596",
             "code": "SILVER",
             "name": "Silver Monthly",
             "description": "12 visits a month to the pool, gym and restaurant, 1 guest, 10% member discount.",
@@ -51,7 +51,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c348-722b-a449-10e75e77b710",
+            "id": "01a0d13a-19c4-7379-9bd7-5feeaadda31c",
             "code": "POOL_PASS",
             "name": "Pool Pass",
             "description": "8 pool visits, no guests.",
@@ -71,28 +71,6 @@
             "renewalNoticeDays": 5,
             "active": true,
             "rowVersion": 1
-        },
-        {
-            "id": "01a0d0bc-0b32-7087-8dd8-42f52a800086",
-            "code": "ADMTEST",
-            "name": "Admin Test Plan 2",
-            "description": "test plan",
-            "durationDays": 30,
-            "price": "26000.0000",
-            "currency": "NGN",
-            "facilityIds": [
-                "a206b41c-f916-5185-b405-db8a5b67b4db"
-            ],
-            "propertyWide": false,
-            "visitLimit": null,
-            "guestAllowance": 1,
-            "memberDiscountPercent": "5.00",
-            "bookingAdvanceDays": 3,
-            "bookingPrivileges": [],
-            "gracePeriodDays": 2,
-            "renewalNoticeDays": 5,
-            "active": false,
-            "rowVersion": 2
         }
     ],
     "nextCursor": null

@@ -1,7 +1,7 @@
 {
     "items": [
         {
-            "id": "01a0d040-c1a0-733a-aa40-c887ee129b74",
+            "id": "01a0d13a-1857-713c-9728-072ceac98ced",
             "sku": "BEV-STAR-60",
             "name": "Star Lager Beer 60cl",
             "unit": "bottle",
@@ -11,7 +11,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1a1-7185-b35d-9cb7a977783c",
+            "id": "01a0d13a-1857-713c-9728-072ceaf1b6ff",
             "sku": "BEV-GUIN-60",
             "name": "Guinness Stout 60cl",
             "unit": "bottle",
@@ -21,7 +21,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1a2-700d-95e8-1922510b6407",
+            "id": "01a0d13a-1858-73c0-9ad3-88191e6af4da",
             "sku": "BEV-HERO-60",
             "name": "Heineken 60cl",
             "unit": "bottle",
@@ -31,7 +31,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1a2-700d-95e8-192251c96401",
+            "id": "01a0d13a-1858-73c0-9ad3-88191f33843b",
             "sku": "BEV-TROP-50",
             "name": "Trophy Lager 50cl",
             "unit": "bottle",
@@ -41,7 +41,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1a3-7080-a031-5c6314840059",
+            "id": "01a0d13a-1859-739d-82f4-f874efb6878a",
             "sku": "BEV-HENN-70",
             "name": "Hennessy VS 70cl",
             "unit": "bottle",
@@ -51,7 +51,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1a4-70fe-8456-7a14f3a67742",
+            "id": "01a0d13a-1859-739d-82f4-f874f004cc24",
             "sku": "BEV-JACK-75",
             "name": "Jack Daniel's 75cl",
             "unit": "bottle",
@@ -61,7 +61,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1a4-70fe-8456-7a14f3acabeb",
+            "id": "01a0d13a-185a-7201-b0f0-e19c7673b27d",
             "sku": "BEV-JOHN-75",
             "name": "Johnnie Walker Black 75cl",
             "unit": "bottle",
@@ -71,7 +71,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1a5-7331-a58f-ac9b4a788761",
+            "id": "01a0d13a-185a-7201-b0f0-e19c7750a558",
             "sku": "BEV-SMIR-75",
             "name": "Smirnoff Vodka 75cl",
             "unit": "bottle",
@@ -81,7 +81,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1a6-7091-a3c0-861ee4807843",
+            "id": "01a0d13a-185b-7381-b41d-dd4ed4b783ba",
             "sku": "BEV-GORD-75",
             "name": "Gordon's Dry Gin 75cl",
             "unit": "bottle",
@@ -91,7 +91,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1a6-7091-a3c0-861ee4b2756b",
+            "id": "01a0d13a-185b-7381-b41d-dd4ed5359e6f",
             "sku": "BEV-BACA-75",
             "name": "Bacardi White Rum 75cl",
             "unit": "bottle",
@@ -101,7 +101,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1a7-7338-84a1-9309795f86e4",
+            "id": "01a0d13a-185c-72d9-8084-bcf0be0736b0",
             "sku": "BEV-CHAM-75",
             "name": "Chamdor Sparkling Wine 75cl",
             "unit": "bottle",
@@ -111,7 +111,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1a7-7338-84a1-930979ee0d40",
+            "id": "01a0d13a-185c-72d9-8084-bcf0bea3ea2d",
             "sku": "BEV-REDW-75",
             "name": "Red Wine House 75cl",
             "unit": "bottle",
@@ -121,7 +121,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1a8-7060-932f-c27d2b75740b",
+            "id": "01a0d13a-185c-72d9-8084-bcf0bf2a6ad7",
             "sku": "BEV-WHTW-75",
             "name": "White Wine House 75cl",
             "unit": "bottle",
@@ -131,7 +131,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1a9-71a5-80b5-119f030dd442",
+            "id": "01a0d13a-185d-72e9-8642-e2c58937d7ac",
             "sku": "SFT-COKE-50",
             "name": "Coca-Cola 50cl",
             "unit": "bottle",
@@ -141,7 +141,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1aa-70c1-9932-0af6b59fa028",
+            "id": "01a0d13a-185d-72e9-8642-e2c589a0f65a",
             "sku": "SFT-FANT-50",
             "name": "Fanta Orange 50cl",
             "unit": "bottle",
@@ -151,7 +151,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1aa-70c1-9932-0af6b605b84f",
+            "id": "01a0d13a-185d-72e9-8642-e2c58a76da70",
             "sku": "SFT-SPRT-50",
             "name": "Sprite 50cl",
             "unit": "bottle",
@@ -161,7 +161,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1ab-7035-a3b4-7e2bf5574454",
+            "id": "01a0d13a-185e-7204-af44-cb083aa389dc",
             "sku": "SFT-WATR-75",
             "name": "Bottled Water 75cl",
             "unit": "bottle",
@@ -171,7 +171,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1ac-71a9-8b35-e966ddfdb424",
+            "id": "01a0d13a-185e-7204-af44-cb083b51732b",
             "sku": "SFT-TONI-20",
             "name": "Tonic Water 20cl",
             "unit": "bottle",
@@ -181,7 +181,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1ac-71a9-8b35-e966dee22541",
+            "id": "01a0d13a-185f-7105-8813-fb3eb832c071",
             "sku": "SFT-ORJC-1L",
             "name": "Orange Juice 1L",
             "unit": "carton",
@@ -191,7 +191,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1ad-7222-aa39-9f5675899800",
+            "id": "01a0d13a-185f-7105-8813-fb3eb8597470",
             "sku": "SFT-PINE-1L",
             "name": "Pineapple Juice 1L",
             "unit": "carton",
@@ -201,7 +201,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1ae-715b-a8fc-a84766546ca6",
+            "id": "01a0d13a-1860-7316-95ff-891833f9681b",
             "sku": "SFT-REDB-25",
             "name": "Red Bull 25cl",
             "unit": "can",
@@ -211,7 +211,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1ae-715b-a8fc-a84766ab1691",
+            "id": "01a0d13a-1860-7316-95ff-891834357231",
             "sku": "KIT-RICE-50",
             "name": "Long Grain Rice 50kg",
             "unit": "bag",
@@ -221,7 +221,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1af-7185-87a6-a673b051f46e",
+            "id": "01a0d13a-1860-7316-95ff-891834df45a8",
             "sku": "KIT-BEAN-25",
             "name": "Brown Beans 25kg",
             "unit": "bag",
@@ -231,7 +231,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1b0-7242-80a1-3ed431681346",
+            "id": "01a0d13a-1861-73be-aff8-f8c842699c43",
             "sku": "KIT-YAMS-EA",
             "name": "Yam Tuber (medium)",
             "unit": "each",
@@ -241,7 +241,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1b0-7242-80a1-3ed4316930e5",
+            "id": "01a0d13a-1861-73be-aff8-f8c84290004a",
             "sku": "KIT-TOMA-KG",
             "name": "Fresh Tomatoes",
             "unit": "kg",
@@ -251,7 +251,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1b1-70fe-8f4d-e5433973189b",
+            "id": "01a0d13a-1862-71e1-adf1-72a8f351cf20",
             "sku": "KIT-ONIO-KG",
             "name": "Onions",
             "unit": "kg",
@@ -261,7 +261,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1b2-73da-a8f9-7352645b6c62",
+            "id": "01a0d13a-1862-71e1-adf1-72a8f42f5f49",
             "sku": "KIT-PEPP-KG",
             "name": "Fresh Pepper (Tatashe/Rodo)",
             "unit": "kg",
@@ -271,7 +271,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1b3-7339-956c-cf023af7d067",
+            "id": "01a0d13a-1862-71e1-adf1-72a8f4d182f5",
             "sku": "KIT-CHKN-KG",
             "name": "Frozen Chicken",
             "unit": "kg",
@@ -281,7 +281,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1b3-7339-956c-cf023afb23f5",
+            "id": "01a0d13a-1863-70d7-980d-42cf7b84828e",
             "sku": "KIT-BEEF-KG",
             "name": "Beef",
             "unit": "kg",
@@ -291,7 +291,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1b4-7269-8f59-2d2ac881498e",
+            "id": "01a0d13a-1863-70d7-980d-42cf7be21d45",
             "sku": "KIT-FISH-KG",
             "name": "Catfish (fresh)",
             "unit": "kg",
@@ -301,7 +301,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1b5-7175-a659-730028a562fe",
+            "id": "01a0d13a-1863-70d7-980d-42cf7c1fc29e",
             "sku": "KIT-TILA-KG",
             "name": "Tilapia (frozen)",
             "unit": "kg",
@@ -311,7 +311,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1b5-7175-a659-73002928a45f",
+            "id": "01a0d13a-1863-70d7-980d-42cf7c810590",
             "sku": "KIT-EGGS-30",
             "name": "Eggs (crate of 30)",
             "unit": "crate",
@@ -321,7 +321,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1b6-71b4-ae4e-bc603c45c134",
+            "id": "01a0d13a-1864-70a9-b6d2-cd4b02b899ea",
             "sku": "KIT-OILV-25",
             "name": "Vegetable Oil 25L",
             "unit": "jerrycan",
@@ -331,7 +331,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1b7-70f4-aa80-cdfbe0ef022d",
+            "id": "01a0d13a-1864-70a9-b6d2-cd4b0393ac34",
             "sku": "KIT-FLOU-50",
             "name": "Wheat Flour 50kg",
             "unit": "bag",
@@ -341,7 +341,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1b7-70f4-aa80-cdfbe1c4950f",
+            "id": "01a0d13a-1865-7016-844e-6da4be83c238",
             "sku": "KIT-SUGR-50",
             "name": "Sugar 50kg",
             "unit": "bag",
@@ -351,7 +351,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1b8-717b-a6ff-a4af998ea9c7",
+            "id": "01a0d13a-1866-7181-bb3e-3e018770dd6e",
             "sku": "KIT-SALT-1K",
             "name": "Table Salt 1kg",
             "unit": "pack",
@@ -361,7 +361,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1b9-70fa-8238-19e989dcc717",
+            "id": "01a0d13a-1866-7181-bb3e-3e01882907dd",
             "sku": "KIT-SEAS-CB",
             "name": "Seasoning Cubes (box of 100)",
             "unit": "box",
@@ -371,7 +371,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1b9-70fa-8238-19e98a007c2e",
+            "id": "01a0d13a-1866-7181-bb3e-3e01889e712a",
             "sku": "KIT-SPAG-500",
             "name": "Spaghetti 500g",
             "unit": "pack",
@@ -381,7 +381,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1ba-730c-82a7-7b24c2020e3a",
+            "id": "01a0d13a-1867-71f1-b095-813e245af931",
             "sku": "KIT-PLTN-EA",
             "name": "Plantain (bunch)",
             "unit": "bunch",
@@ -391,7 +391,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1bb-7250-bc44-2b752a0285fc",
+            "id": "01a0d13a-1867-71f1-b095-813e25366713",
             "sku": "KIT-GARI-25",
             "name": "Garri 25kg",
             "unit": "bag",
@@ -401,7 +401,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1bb-7250-bc44-2b752ad028e9",
+            "id": "01a0d13a-1867-71f1-b095-813e25473595",
             "sku": "KIT-MILK-400",
             "name": "Peak Milk Powder 400g",
             "unit": "tin",
@@ -411,7 +411,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1bc-71ce-a336-451e0627dc67",
+            "id": "01a0d13a-1868-71ed-9d22-cd29aeb90c86",
             "sku": "KIT-BUTR-500",
             "name": "Butter 500g",
             "unit": "pack",
@@ -421,7 +421,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1bd-72c4-93da-937cbd377619",
+            "id": "01a0d13a-1868-71ed-9d22-cd29af52e95c",
             "sku": "SUP-INDM-70",
             "name": "Indomie Noodles 70g (carton of 40)",
             "unit": "carton",
@@ -431,7 +431,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1bd-72c4-93da-937cbdfd9a8d",
+            "id": "01a0d13a-1868-71ed-9d22-cd29b01be876",
             "sku": "SUP-BRED-EA",
             "name": "Sliced Bread Loaf",
             "unit": "each",
@@ -441,7 +441,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1be-73cc-a20f-c4427abfa4d4",
+            "id": "01a0d13a-1869-72d6-8dbe-d27d673bf114",
             "sku": "SUP-BISC-EA",
             "name": "Cabin Biscuits Pack",
             "unit": "pack",
@@ -451,7 +451,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1bf-7152-9ba5-c9873eeccc1e",
+            "id": "01a0d13a-1869-72d6-8dbe-d27d680c846a",
             "sku": "SUP-CHIP-EA",
             "name": "Plantain Chips Pack",
             "unit": "pack",
@@ -461,7 +461,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1bf-7152-9ba5-c9873fafcdd0",
+            "id": "01a0d13a-1869-72d6-8dbe-d27d68cdfb36",
             "sku": "SUP-TISS-EA",
             "name": "Toilet Tissue (pack of 10)",
             "unit": "pack",
@@ -471,7 +471,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1c0-7330-a531-c97520df0fa2",
+            "id": "01a0d13a-186a-71d2-8ccb-6205e62353d6",
             "sku": "SUP-DETG-1K",
             "name": "Detergent Powder 1kg",
             "unit": "pack",
@@ -481,7 +481,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1c1-71f5-83a8-0b26a2fb6285",
+            "id": "01a0d13a-186a-71d2-8ccb-6205e6a158d6",
             "sku": "SUP-TOOT-EA",
             "name": "Toothpaste 100g",
             "unit": "tube",
@@ -491,7 +491,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1c1-71f5-83a8-0b26a3bd2c48",
+            "id": "01a0d13a-186a-71d2-8ccb-6205e6a5b025",
             "sku": "SUP-SOAP-EA",
             "name": "Bathing Soap Bar",
             "unit": "bar",
@@ -501,7 +501,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1c2-716e-9710-0d8506a64cc2",
+            "id": "01a0d13a-186b-71bb-a741-8265d7691d2c",
             "sku": "SUP-SUNS-EA",
             "name": "Sunscreen Lotion 100ml",
             "unit": "bottle",
@@ -511,7 +511,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1c3-7328-be29-79d9fc6a1168",
+            "id": "01a0d13a-186b-71bb-a741-8265d7a574ac",
             "sku": "SUP-BATT-AA",
             "name": "AA Batteries (pack of 4)",
             "unit": "pack",
@@ -521,7 +521,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1c4-73a3-a921-b36e132873f3",
+            "id": "01a0d13a-186b-71bb-a741-8265d7ecbd2b",
             "sku": "SAL-SHMP-1L",
             "name": "Professional Shampoo 1L",
             "unit": "bottle",
@@ -531,7 +531,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1c4-73a3-a921-b36e138ce92f",
+            "id": "01a0d13a-186c-7262-b208-1993bf4a4bef",
             "sku": "SAL-COND-1L",
             "name": "Conditioner 1L",
             "unit": "bottle",
@@ -541,7 +541,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1c5-7083-8ef8-b3708a1b4135",
+            "id": "01a0d13a-186c-7262-b208-1993c0306c21",
             "sku": "SAL-NAIL-EA",
             "name": "Nail Polish (assorted)",
             "unit": "bottle",
@@ -551,7 +551,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1c5-7083-8ef8-b3708aef901c",
+            "id": "01a0d13a-186c-7262-b208-1993c09e2173",
             "sku": "SAL-HAIR-EA",
             "name": "Hair Relaxer Kit",
             "unit": "kit",
@@ -561,7 +561,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1c6-7004-a48f-559fa7e78801",
+            "id": "01a0d13a-186d-7289-9f1b-0e14a722440f",
             "sku": "SAL-TOWL-EA",
             "name": "Salon Towel",
             "unit": "each",
@@ -571,7 +571,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1c6-7004-a48f-559fa883be67",
+            "id": "01a0d13a-186d-7289-9f1b-0e14a792f503",
             "sku": "SPT-FBAL-EA",
             "name": "Football (size 5)",
             "unit": "each",
@@ -581,7 +581,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1c7-7177-8e27-d35f39e2955d",
+            "id": "01a0d13a-186d-7289-9f1b-0e14a83d79cb",
             "sku": "SPT-TTBL-EA",
             "name": "Table Tennis Bat",
             "unit": "each",
@@ -591,7 +591,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1c7-7177-8e27-d35f3a300412",
+            "id": "01a0d13a-186e-72d2-b668-33014a1213d9",
             "sku": "SPT-TBAL-EA",
             "name": "Tennis Ball (can of 3)",
             "unit": "can",
@@ -601,7 +601,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1c8-70e1-9cc4-9921015ed7ea",
+            "id": "01a0d13a-186e-72d2-b668-33014b076fcd",
             "sku": "SPT-TRKT-EA",
             "name": "Tennis Racket (rental)",
             "unit": "each",
@@ -611,7 +611,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1c8-70e1-9cc4-992101f9c4f2",
+            "id": "01a0d13a-186f-7350-bb8c-d193c92a83e4",
             "sku": "SPT-BRKT-EA",
             "name": "Badminton Racket (rental)",
             "unit": "each",
@@ -621,7 +621,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1c9-707e-9b3c-1e3c29576241",
+            "id": "01a0d13a-186f-7350-bb8c-d193c9c3aef9",
             "sku": "SPT-JCKT-EA",
             "name": "Life Jacket (rental)",
             "unit": "each",
@@ -631,7 +631,7 @@
             "rowVersion": 1
         },
         {
-            "id": "01a0d040-c1c9-707e-9b3c-1e3c2a494789",
+            "id": "01a0d13a-1870-721a-af6b-fb41e27a584d",
             "sku": "SPT-PTWL-EA",
             "name": "Pool Towel (rental)",
             "unit": "each",

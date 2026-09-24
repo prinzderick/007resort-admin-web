@@ -1,0 +1,54 @@
+{
+    "items": [
+        {
+            "id": "158e880f-fe51-5c3f-8c7a-c234ba45e6c7",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "code": "CASH_COUNTER",
+            "name": "Restaurant Cash Counter",
+            "kind": "COUNTER",
+            "defaultPrepStationId": null,
+            "active": true,
+            "rowVersion": 1,
+            "kdsStation": null
+        },
+        {
+            "id": "82d5d85a-60d4-58af-8dc0-2d95a62af927",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "code": "MAIN_DINING",
+            "name": "Main Dining",
+            "kind": "TABLE_AREA",
+            "defaultPrepStationId": "9ac72d5b-5285-55ed-92a1-f4528a7debbc",
+            "active": true,
+            "rowVersion": 1,
+            "kdsStation": null
+        },
+        {
+            "id": "a04b0443-92a2-5109-912a-09f2d108b558",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "code": "RESTAURANT_COUNTER",
+            "name": "Restaurant Counter",
+            "kind": "STATION",
+            "defaultPrepStationId": null,
+            "active": true,
+            "rowVersion": 1,
+            "kdsStation": {
+                "id": "a04b0443-92a2-5109-912a-09f2d108b558",
+                "kind": "BAR",
+                "prepRouteId": "84b6f7a9-2c32-59b1-a727-0edf83f50c0e",
+                "active": true
+            }
+        },
+        {
+            "id": "b42e26de-014f-5447-b2cb-8215def748ed",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "code": "TERRACE",
+            "name": "Terrace",
+            "kind": "TABLE_AREA",
+            "defaultPrepStationId": "9ac72d5b-5285-55ed-92a1-f4528a7debbc",
+            "active": true,
+            "rowVersion": 1,
+            "kdsStation": null
+        }
+    ],
+    "nextCursor": null
+}

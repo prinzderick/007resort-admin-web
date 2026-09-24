@@ -5,7 +5,6 @@ namespace Tests\Support;
 /**
  * The API as it REALLY answers: JSON recorded from a running node (`php artisan r007:capture-fixtures`) into
  * tests/Fixtures/real, secrets redacted. A screen that reads a key the real API does not send fails here, not in production.
- * tests/Fixtures/contract holds hand-written shapes for endpoints that are built but not yet on the shared node.
  */
 final class RealApi
 {
@@ -49,7 +48,7 @@ final class RealApi
             'GET /sync/status' => $r('sync-status'),
             'GET /sync/outbox' => $r('sync-outbox'),
             'GET /sync/inbox-events' => $r('sync-inbox-events'),
-            'GET /sync/conflicts' => self::load('sync-conflicts-open', 'contract'),
+            'GET /sync/conflicts' => self::load('sync-conflicts-open', 'synthetic'),
             'GET /organization/facilities/*/operating-points' => $r('organization-operating-points'),
             'GET /organization/facilities/*' => $r('organization-facility'),
             'GET /organization/facilities' => $r('organization-facilities'),
@@ -101,10 +100,10 @@ final class RealApi
         ];
         if ($withConfig) {
             $routes = [
-                'GET /organization/facility-templates' => self::load('facility-templates', 'contract'),
-                'GET /organization/capability-types' => self::load('capability-types', 'contract'),
-                'GET /organization/rule-definitions' => self::load('rule-definitions', 'contract'),
-                'GET /facilities/*/operating-rules' => self::load('operating-rules', 'contract'),
+                'GET /organization/facility-templates' => $r('organization-facility-templates'),
+                'GET /organization/capability-types' => $r('organization-capability-types'),
+                'GET /organization/rule-definitions' => $r('organization-rule-definitions'),
+                'GET /facilities/*/operating-rules' => $r('operating-rules'),
             ] + $routes;
         }
 

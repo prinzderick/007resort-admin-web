@@ -1,0 +1,13 @@
+{
+    "items": [
+        {
+            "id": "4199c3a6-7372-50a1-a6f8-72daa311e061",
+            "name": "Standard",
+            "currency": "NGN",
+            "isDefault": true,
+            "active": true,
+            "rowVersion": 1
+        }
+    ],
+    "nextCursor": null
+}

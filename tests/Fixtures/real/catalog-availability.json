@@ -8,13 +8,6 @@
             "quantityOnHand": null
         },
         {
-            "productId": "01a0d0bc-0fa7-722d-a52d-6ac482b2ed01",
-            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
-            "available": true,
-            "reason": null,
-            "quantityOnHand": null
-        },
-        {
             "productId": "04dd7cd6-f5e3-5faf-b2a9-0d65b509155f",
             "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
             "available": true,
@@ -257,7 +250,7 @@
             "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
             "available": true,
             "reason": null,
-            "quantityOnHand": "70.0000"
+            "quantityOnHand": "88.0000"
         },
         {
             "productId": "d5fbc9a0-108b-592f-b181-07531e36cabb",

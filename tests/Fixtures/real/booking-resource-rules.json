@@ -1,0 +1,21 @@
+{
+    "holdTtlSeconds": null,
+    "minNoticeMinutes": null,
+    "maxAdvanceDays": null,
+    "cancelCutoffMinutes": null,
+    "cancelFeePercent": null,
+    "rescheduleCutoffMinutes": null,
+    "maxReschedules": null,
+    "earlyEntryMinutes": null,
+    "effective": {
+        "holdTtlSeconds": 600,
+        "minNoticeMinutes": 0,
+        "maxAdvanceDays": 90,
+        "cancelCutoffMinutes": 120,
+        "cancelFeePercent": 0,
+        "rescheduleCutoffMinutes": 120,
+        "maxReschedules": 2,
+        "earlyEntryMinutes": 15
+    },
+    "rowVersion": 1
+}
