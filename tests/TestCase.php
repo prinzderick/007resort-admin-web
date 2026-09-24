@@ -77,6 +77,19 @@ abstract class TestCase extends BaseTestCase
         return self::API.'/'.ltrim($path, '/');
     }
 
+    /** The last recorded API request to a method + path (query ignored), or null. */
+    protected function lastSent(string $method, string $path): ?Request
+    {
+        $found = null;
+        foreach (Http::recorded() as [$request]) {
+            if ($request->method() === strtoupper($method) && rtrim(parse_url($request->url(), PHP_URL_PATH), '/') === '/api/v1/'.trim($path, '/')) {
+                $found = $request;
+            }
+        }
+
+        return $found;
+    }
+
     /** True when a recorded outgoing API request matches. */
     protected function sentTo(string $method, string $path, ?callable $extra = null): bool
     {

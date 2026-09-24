@@ -47,7 +47,7 @@ class DevicesController extends Controller
         $points = $this->staff->canAny('device.manage', 'facility.manage', 'config.view')
             ? $this->all('organization/operating-points', [], ['GET', '/organization/operating-points'], 2) : new Fetch(null, 'forbidden');
 
-        return view('pages.devices.index', ['points' => $points, 'canManage' => $this->staff->can('device.manage') && Contract::has('PATCH', '/devices/{deviceId}'), 'modes' => self::MODES,'devices' => $devices, 'attendance' => $attendance, 'facilities' => $dash->flatten($tree->items()), 'facilityNames' => $names, 'staffNames' => $staffNames, 'status' => $status]);
+        return view('pages.devices.index', ['points' => $points, 'canManage' => $this->staff->can('device.manage') && Contract::has('PATCH', '/devices/{deviceId}'), 'modes' => self::MODES, 'devices' => $devices, 'attendance' => $attendance, 'facilities' => $dash->flatten($tree->items()), 'facilityNames' => $names, 'staffNames' => $staffNames, 'status' => $status]);
     }
 
     /** Issue a one-time registration code. The device registers itself with it (POST /devices/register). */

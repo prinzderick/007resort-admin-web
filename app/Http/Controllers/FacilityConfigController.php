@@ -113,7 +113,9 @@ class FacilityConfigController extends Controller
         $d = $request->validate(['facilityId' => ['required', 'uuid']]);
         $this->api->request('POST', "organization/tables/{$table}/{$state}", [], [], $this->ifMatch($request));
 
-        return $this->back($d['facilityId'], match ($state) { 'deactivate' => 'Table switched off.', 'reactivate' => 'Table switched back on.', default => 'Tables separated.' });
+        return $this->back($d['facilityId'], match ($state) {
+            'deactivate' => 'Table switched off.', 'reactivate' => 'Table switched back on.', default => 'Tables separated.'
+        });
     }
 
     public function mergeTable(Request $request, string $table): RedirectResponse

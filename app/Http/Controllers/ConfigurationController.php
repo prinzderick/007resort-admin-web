@@ -257,5 +257,4 @@ class ConfigurationController extends Controller
 
         return redirect()->route('setup.payments')->with($saved ? 'success' : 'status', $saved ? ($saved === 1 ? 'Payment methods saved for 1 facility.' : "Payment methods saved for {$saved} facilities.") : 'Nothing changed.');
     }
-
 }
