@@ -22,11 +22,11 @@
             @if ($staff->can('refund.execute'))
                 <x-card title="Refund">
                     @if ($captured && \App\Support\Money::cmp($refundable, '0') > 0)
-                        <form method="POST" action="{{ route('finance.refund', $id) }}">
+                        <form method="POST" action="{{ route('finance.refund', $id) }}" x-data="confirmSubmit('Send this refund request? Money moves only once it is approved, if approval is needed.', 'Request refund')" @submit="ask($event)">
                             @csrf
-                            <x-field name="amount" label="Amount (max {{ \App\Support\Money::format($refundable) }})" :value="$refundable" required hint="Full or partial. Over the facility threshold this waits for approval." />
+                            <x-form.money name="amount" label="Refund amount (up to {{ \App\Support\Money::format($refundable) }})" :value="$refundable" :max="$refundable" :scale="2" required hint="Full or partial. Over the facility threshold this waits for approval." />
                             <x-field name="reason" label="Reason" type="textarea" required />
-                            <x-btn variant="danger" onclick="return confirm('Submit this refund?')">Request refund</x-btn>
+                            <x-btn variant="danger">Request refund</x-btn>
                         </form>
                     @else
                         <p class="text-sm text-stone-600">This payment cannot be refunded (status {{ $status }}).</p>
@@ -36,10 +36,10 @@
             @if ($staff->can('payment.reversal.execute'))
                 <x-card title="Reverse (same-session correction)">
                     @if ($status === 'CAPTURED')
-                        <form method="POST" action="{{ route('finance.reversal', $id) }}">
+                        <form method="POST" action="{{ route('finance.reversal', $id) }}" x-data="confirmSubmit('Reverse this payment? Use it only to correct a mistake in the same session.', 'Reverse payment')" @submit="ask($event)">
                             @csrf
                             <x-field name="reason" label="Reason" type="textarea" required />
-                            <x-btn variant="danger" onclick="return confirm('Reverse this payment?')">Request reversal</x-btn>
+                            <x-btn variant="danger">Request reversal</x-btn>
                         </form>
                     @else
                         <p class="text-sm text-stone-600">Only captured payments can be reversed.</p>

@@ -5,6 +5,11 @@
     $key = \App\Support\Form\FormField::dot($name);
     $val = $type === 'password' ? null : old($key, $value);
     $common = ['name' => $name, 'label' => $label, 'hint' => $hint, 'required' => $required, 'disabled' => $disabled, 'readonly' => $readonly];
+    // A leading '' => 'Choose...' entry is a placeholder, not a choice.
+    if (is_array($options) && array_key_exists('', $options)) {
+        $placeholder ??= (string) $options[''];
+        unset($options['']);
+    }
     $optCount = $options !== null ? count(is_array($options) ? $options : iterator_to_array($options)) : 0;
 @endphp
 @if ($options !== null)

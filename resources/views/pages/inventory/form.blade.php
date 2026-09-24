@@ -26,15 +26,18 @@
             </div>
 
             @if ($multi)
-                <div class="mb-2 text-sm font-medium">Lines</div>
-                <template x-for="i in rows" :key="i">
-                    <div class="mb-2 grid gap-2 sm:grid-cols-[2fr_1fr_1fr]">
-                        <select :name="`lines[${i}][itemId]`" class="min-h-11 rounded-lg border border-stone-300 bg-white px-3 text-sm">@foreach ($itemOpts as $k => $v)<option value="{{ $k }}">{{ $v }}</option>@endforeach</select>
-                        <input :name="`lines[${i}][{{ $action === 'count' ? 'countedQuantity' : 'quantity' }}]`" placeholder="{{ $action === 'count' ? 'Counted qty' : 'Quantity' }}" inputmode="decimal" class="min-h-11 rounded-lg border border-stone-300 px-3 text-sm">
-                        @if ($action === 'receive')<input :name="`lines[${i}][unitCost]`" placeholder="Unit cost (optional)" inputmode="decimal" class="min-h-11 rounded-lg border border-stone-300 px-3 text-sm">@endif
-                    </div>
-                </template>
-                <button type="button" class="mb-4 text-sm underline" @click="rows++">Add line</button>
+                @php $qtyKey = $action === 'count' ? 'countedQuantity' : 'quantity'; $cleanItems = collect($itemOpts)->except('')->map(fn ($l, $v) => ['value' => $v, 'label' => $l])->values()->all(); @endphp
+                <div class="mb-2 mt-2 text-sm font-semibold">Lines</div>
+                <div class="grid gap-3" data-testid="lines">
+                    @for ($i = 0; $i < 12; $i++)
+                        <div class="grid items-start gap-3 {{ $action === 'receive' ? 'sm:grid-cols-[2fr_1fr_1fr]' : 'sm:grid-cols-[2fr_1fr]' }}" x-show="rows > {{ $i }}" @if ($i >= 2) x-cloak @endif>
+                            <x-form.select :name="'lines['.$i.'][itemId]'" :label="'Item '.($i + 1)" :options="$cleanItems" :bare="true" placeholder="Choose an item" />
+                            <x-form.text :name="'lines['.$i.']['.$qtyKey.']'" :label="$action === 'count' ? 'Counted quantity '.($i + 1) : 'Quantity '.($i + 1)" :bare="true" :placeholder="$action === 'count' ? 'Counted quantity' : 'Quantity'" inputmode="decimal" />
+                            @if ($action === 'receive')<x-form.money :name="'lines['.$i.'][unitCost]'" :label="'Unit cost '.($i + 1)" :bare="true" :scale="2" placeholder="Unit cost (optional)" />@endif
+                        </div>
+                    @endfor
+                </div>
+                <div class="mb-4 mt-3"><button type="button" class="f-btn" x-show="rows < 12" @click="rows++">Add a line</button></div>
                 @error('lines')<p class="mb-2 text-xs text-red-700">{{ $message }}</p>@enderror
                 @foreach ($errors->keys() as $k)@if (str_starts_with($k, 'lines.'))<p class="text-xs text-red-700">{{ $errors->first($k) }}</p>@endif @endforeach
             @else
@@ -50,7 +53,7 @@
                 @endif
             @endif
             @if ($action === 'transfer' || $action === 'count')<x-field name="note" label="Note" />@endif
-            <x-btn>{{ $action === 'count' ? 'Create count sheet' : 'Submit' }}</x-btn>
+            <x-form.actions :submit="$action === 'count' ? 'Create count sheet' : 'Submit'" :show-cancel="false" />
         </form>
     </x-card>
 </x-layouts.app>

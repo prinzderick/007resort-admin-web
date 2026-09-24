@@ -105,3 +105,25 @@ button[data-loading='true']::before { content: ''; @apply mr-2 inline-block size
 .nav-item:hover { @apply bg-stone-100 text-stone-900; }
 .nav-item[aria-current='page'] { @apply bg-brand-50 text-brand-700; }
 .nav-item[aria-disabled='true'] { @apply cursor-not-allowed text-stone-300 hover:bg-transparent hover:text-stone-300; }
+
+/* ---- Filter bars ------------------------------------------------------------------------------------------------
+   Every GET filter form (older pages hand-write their selects and date boxes) gets the same label, height, radius and focus ring as
+   the x-form controls, so a filter never looks like a different product from the form next to it. */
+form[method='GET'] select:not(.f-input),
+form[method='GET'] input:not(.f-input, [type='hidden'], [type='checkbox'], [type='radio']) {
+    min-height: 2.5rem;
+    border: 1px solid var(--color-stone-300);
+    border-radius: 0.625rem;
+    background-color: #fff;
+    padding-inline: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-stone-900);
+    transition: border-color 0.12s, box-shadow 0.12s;
+}
+form[method='GET'] select:not(.f-input) { padding-right: 2rem; cursor: pointer; }
+form[method='GET'] select:not(.f-input):hover,
+form[method='GET'] input:not(.f-input, [type='hidden'], [type='checkbox'], [type='radio']):hover { border-color: var(--color-stone-400); }
+form[method='GET'] select:not(.f-input):focus,
+form[method='GET'] input:not(.f-input, [type='hidden'], [type='checkbox'], [type='radio']):focus { outline: none; border-color: var(--color-brand-600); box-shadow: 0 0 0 3px rgb(31 149 96 / 0.3); }
+form[method='GET'] label.block { font-size: 0.8125rem; font-weight: 600; color: var(--color-stone-800); margin-bottom: 0.25rem; }
+form[method='GET'] label.block.text-xs { font-size: 0.8125rem; color: var(--color-stone-800); }
