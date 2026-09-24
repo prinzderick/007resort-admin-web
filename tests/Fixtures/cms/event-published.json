@@ -1,0 +1,68 @@
+{
+    "id": "01a0d26f-3058-70ea-a9f1-cec85d1649cd",
+    "slug": "kids-holiday-camp",
+    "title": "Kids Holiday Camp",
+    "summary": "Games, swimming lessons and crafts for ages 6 to 12.",
+    "bodyMarkdown": "A supervised day of fun for children. Lunch and snacks included.",
+    "bodyHtml": "<p>A supervised day of fun for children. Lunch and snacks included.</p>",
+    "coverMediaId": "01a0d26f-2615-7069-a5e0-01e942de1955",
+    "cover": {
+        "id": "01a0d26f-2615-7069-a5e0-01e942de1955",
+        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2615-7069-a5e0-01e942de1955.jpg",
+        "width": 1600,
+        "height": 1067,
+        "mimeType": "image/jpeg",
+        "alt": "Children holding hands in a circle playing on a sunny park lawn",
+        "credit": "Photo: Jay Chen / Unsplash",
+        "dominantColor": "#899d69",
+        "variants": [
+            {
+                "width": 1600,
+                "format": "webp",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2615-7069-a5e0-01e942de1955-1600.webp"
+            }
+        ],
+        "sourceUrl": "https://unsplash.com/photos/mKbZ3zAdiB4",
+        "tags": [
+            "events",
+            "kids",
+            "play",
+            "lawn",
+            "family"
+        ],
+        "sizeBytes": 380508,
+        "originalName": "events-06-kids-circle-lawn.jpg",
+        "usageCount": 2,
+        "rowVersion": 1,
+        "createdAt": "2026-09-24T08:01:34.921Z",
+        "updatedAt": "2026-09-24T08:01:34.921Z"
+    },
+    "category": "OTHER",
+    "startsAt": "2026-10-24T08:00:00.000Z",
+    "endsAt": "2026-10-24T14:00:00.000Z",
+    "startsAtLocal": "2026-10-24T09:00:00+01:00",
+    "endsAtLocal": "2026-10-24T15:00:00+01:00",
+    "timezone": "Africa/Lagos",
+    "venueLabel": "Palm Lawn",
+    "facilityId": null,
+    "priceText": "NGN 12,000 per day",
+    "capacity": 60,
+    "ticketUrl": null,
+    "ticketProductId": null,
+    "recurrence": "NONE",
+    "recurrenceUntil": null,
+    "featured": false,
+    "seoTitle": null,
+    "seoDescription": null,
+    "seoOgMediaId": null,
+    "seoOgImage": null,
+    "nextOccurrence": {
+        "startsAt": "2026-10-24T08:00:00.000Z",
+        "endsAt": "2026-10-24T14:00:00.000Z"
+    },
+    "status": "PUBLISHED",
+    "publishedAt": "2026-08-15T08:01:37.000Z",
+    "rowVersion": 2,
+    "createdAt": "2026-09-24T08:01:37.369Z",
+    "updatedAt": "2026-09-24T08:01:37.373Z"
+}

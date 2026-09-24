@@ -1,0 +1,325 @@
+{
+    "statuses": [
+        "DRAFT",
+        "PUBLISHED",
+        "ARCHIVED"
+    ],
+    "eventCategories": [
+        "SPORT",
+        "MUSIC",
+        "PARTY",
+        "WELLNESS",
+        "FOOD",
+        "OTHER"
+    ],
+    "homeSectionTypes": {
+        "HERO_SLIDE": {
+            "fields": [
+                {
+                    "name": "headline",
+                    "kind": "string",
+                    "required": true,
+                    "max": 140,
+                    "options": null
+                },
+                {
+                    "name": "subheadline",
+                    "kind": "string",
+                    "required": false,
+                    "max": 300,
+                    "options": null
+                },
+                {
+                    "name": "mediaId",
+                    "kind": "media",
+                    "required": true,
+                    "max": null,
+                    "options": null
+                },
+                {
+                    "name": "ctaLabel",
+                    "kind": "string",
+                    "required": false,
+                    "max": 40,
+                    "options": null
+                },
+                {
+                    "name": "ctaLink",
+                    "kind": "link",
+                    "required": false,
+                    "max": null,
+                    "options": null
+                },
+                {
+                    "name": "alignment",
+                    "kind": "enum",
+                    "required": false,
+                    "max": null,
+                    "options": [
+                        "LEFT",
+                        "CENTER",
+                        "RIGHT"
+                    ]
+                }
+            ]
+        },
+        "HIGHLIGHT": {
+            "fields": [
+                {
+                    "name": "title",
+                    "kind": "string",
+                    "required": true,
+                    "max": 80,
+                    "options": null
+                },
+                {
+                    "name": "blurb",
+                    "kind": "text",
+                    "required": true,
+                    "max": 400,
+                    "options": null
+                },
+                {
+                    "name": "priceFrom",
+                    "kind": "string",
+                    "required": false,
+                    "max": 60,
+                    "options": null
+                },
+                {
+                    "name": "mediaId",
+                    "kind": "media",
+                    "required": false,
+                    "max": null,
+                    "options": null
+                },
+                {
+                    "name": "link",
+                    "kind": "link",
+                    "required": false,
+                    "max": null,
+                    "options": null
+                },
+                {
+                    "name": "category",
+                    "kind": "enum",
+                    "required": true,
+                    "max": null,
+                    "options": [
+                        "play",
+                        "splash",
+                        "reset",
+                        "feast"
+                    ]
+                }
+            ]
+        },
+        "STAT": {
+            "fields": [
+                {
+                    "name": "label",
+                    "kind": "string",
+                    "required": true,
+                    "max": 60,
+                    "options": null
+                },
+                {
+                    "name": "value",
+                    "kind": "string",
+                    "required": true,
+                    "max": 20,
+                    "options": null
+                },
+                {
+                    "name": "suffix",
+                    "kind": "string",
+                    "required": false,
+                    "max": 20,
+                    "options": null
+                },
+                {
+                    "name": "icon",
+                    "kind": "string",
+                    "required": false,
+                    "max": 40,
+                    "options": null
+                }
+            ]
+        },
+        "TESTIMONIAL": {
+            "fields": [
+                {
+                    "name": "name",
+                    "kind": "string",
+                    "required": true,
+                    "max": 80,
+                    "options": null
+                },
+                {
+                    "name": "role",
+                    "kind": "string",
+                    "required": false,
+                    "max": 80,
+                    "options": null
+                },
+                {
+                    "name": "quote",
+                    "kind": "text",
+                    "required": true,
+                    "max": 600,
+                    "options": null
+                },
+                {
+                    "name": "rating",
+                    "kind": "int",
+                    "required": false,
+                    "max": null,
+                    "options": null
+                },
+                {
+                    "name": "avatarMediaId",
+                    "kind": "media",
+                    "required": false,
+                    "max": null,
+                    "options": null
+                }
+            ]
+        },
+        "FAQ": {
+            "fields": [
+                {
+                    "name": "question",
+                    "kind": "string",
+                    "required": true,
+                    "max": 200,
+                    "options": null
+                },
+                {
+                    "name": "answer",
+                    "kind": "markdown",
+                    "required": true,
+                    "max": 2000,
+                    "options": null
+                },
+                {
+                    "name": "topic",
+                    "kind": "string",
+                    "required": false,
+                    "max": 60,
+                    "options": null
+                }
+            ]
+        },
+        "PARTNER": {
+            "fields": [
+                {
+                    "name": "name",
+                    "kind": "string",
+                    "required": true,
+                    "max": 80,
+                    "options": null
+                },
+                {
+                    "name": "logoMediaId",
+                    "kind": "media",
+                    "required": false,
+                    "max": null,
+                    "options": null
+                },
+                {
+                    "name": "link",
+                    "kind": "link",
+                    "required": false,
+                    "max": null,
+                    "options": null
+                }
+            ]
+        },
+        "CTA_BAND": {
+            "fields": [
+                {
+                    "name": "title",
+                    "kind": "string",
+                    "required": true,
+                    "max": 120,
+                    "options": null
+                },
+                {
+                    "name": "text",
+                    "kind": "string",
+                    "required": false,
+                    "max": 300,
+                    "options": null
+                },
+                {
+                    "name": "ctaLabel",
+                    "kind": "string",
+                    "required": true,
+                    "max": 40,
+                    "options": null
+                },
+                {
+                    "name": "ctaLink",
+                    "kind": "link",
+                    "required": true,
+                    "max": null,
+                    "options": null
+                },
+                {
+                    "name": "mediaId",
+                    "kind": "media",
+                    "required": false,
+                    "max": null,
+                    "options": null
+                }
+            ]
+        }
+    },
+    "settingGroups": [
+        "brand",
+        "contact",
+        "hours",
+        "social",
+        "seo",
+        "announcement",
+        "booking",
+        "footer"
+    ],
+    "contactTopics": [
+        "GENERAL",
+        "BOOKING",
+        "EVENTS",
+        "MEMBERSHIP",
+        "FEEDBACK",
+        "PRESS",
+        "OTHER"
+    ],
+    "contactStatuses": [
+        "NEW",
+        "READ",
+        "REPLIED",
+        "SPAM"
+    ],
+    "subscriberSources": [
+        "footer",
+        "blog",
+        "event",
+        "popup",
+        "checkout"
+    ],
+    "subscriberStatuses": [
+        "PENDING",
+        "CONFIRMED",
+        "UNSUBSCRIBED"
+    ],
+    "timezone": "Africa/Lagos",
+    "media": {
+        "maxBytes": 8388608,
+        "mimeTypes": [
+            "image/jpeg",
+            "image/png",
+            "image/webp",
+            "image/avif"
+        ]
+    }
+}

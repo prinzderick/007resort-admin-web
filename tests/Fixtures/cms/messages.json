@@ -1,0 +1,63 @@
+{
+    "items": [
+        {
+            "id": "01a0d26f-31d6-734b-8206-8d7d3c83dc72",
+            "name": "Promo Bot",
+            "email": "bot@example.com",
+            "phone": null,
+            "topic": "OTHER",
+            "message": "Buy cheap watches now http://spam.example now now now",
+            "status": "SPAM",
+            "internalNote": null,
+            "handledBy": null,
+            "handledAt": null,
+            "createdAt": "2026-09-24T08:01:37.750Z"
+        },
+        {
+            "id": "01a0d26f-31c9-7138-9991-c43cea971e22",
+            "name": "Sam Ade",
+            "email": "sam@example.com",
+            "phone": null,
+            "topic": "EVENTS",
+            "message": "Is the Friday band free for hotel guests? Thanks!",
+            "status": "READ",
+            "internalNote": null,
+            "handledBy": "935dbdcf-d514-5c33-9889-5a14f39c65c4",
+            "handledAt": "2026-09-24T08:01:55.450Z",
+            "createdAt": "2026-09-24T08:01:37.737Z"
+        },
+        {
+            "id": "01a0d26f-31bd-7294-967d-39af0b3248f6",
+            "name": "Grace Peters",
+            "email": "grace@example.com",
+            "phone": null,
+            "topic": "GENERAL",
+            "message": "Do you allow outside cake for birthday dinners at the restaurant?",
+            "status": "REPLIED",
+            "internalNote": "Emailed the cake policy.",
+            "handledBy": "935dbdcf-d514-5c33-9889-5a14f39c65c4",
+            "handledAt": "2026-09-24T08:01:55.469Z",
+            "createdAt": "2026-09-24T08:01:37.725Z"
+        },
+        {
+            "id": "01a0d26f-31ae-70ba-bdfd-e09dd49188ec",
+            "name": "Chinedu Eze",
+            "email": "chinedu@example.com",
+            "phone": "+234 803 111 2222",
+            "topic": "BOOKING",
+            "message": "Hello, can we book the event hall for a 60-person birthday on 14 November? Please send a quote.",
+            "status": "NEW",
+            "internalNote": null,
+            "handledBy": null,
+            "handledAt": null,
+            "createdAt": "2026-09-24T08:01:37.710Z"
+        }
+    ],
+    "nextCursor": null,
+    "counts": {
+        "new": 1,
+        "read": 1,
+        "replied": 1,
+        "spam": 1
+    }
+}

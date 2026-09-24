@@ -1,0 +1,21 @@
+{
+    "__status": 409,
+    "__problem": {
+        "type": "urn:r007:problem:media_in_use",
+        "title": "Conflict",
+        "status": 409,
+        "code": "media_in_use",
+        "detail": "This media is still used; remove it from the content that references it first.",
+        "instance": "/api/v1/admin/cms/media/01a0d26f-2e68-700e-95c7-f7a35eee25d6",
+        "correlationId": "01a0d26f-7bd6-70a8-b190-bc1b10328631",
+        "usage": [
+            {
+                "type": "galleryItem",
+                "id": "01a0d26f-30a8-7234-812c-209e802f6a2b",
+                "label": "Courts & Pitches",
+                "field": "mediaId"
+            }
+        ],
+        "usageCount": 1
+    }
+}

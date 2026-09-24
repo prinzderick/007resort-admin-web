@@ -1,0 +1,183 @@
+{
+    "items": [
+        {
+            "id": "01a0d26f-306f-72a0-be6a-a5e9ca216197",
+            "slug": "pool-and-spa",
+            "title": "Pool & Spa",
+            "description": "Loungers, palms and quiet corners to reset.",
+            "coverMediaId": "01a0d26f-18ee-71aa-a761-e2c11f5ed56f",
+            "cover": {
+                "id": "01a0d26f-18ee-71aa-a761-e2c11f5ed56f",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-18ee-71aa-a761-e2c11f5ed56f.jpg",
+                "width": 1333,
+                "height": 2000,
+                "mimeType": "image/jpeg",
+                "alt": "Resort pool with lounge chairs and umbrellas silhouetted by palms against an orange sunset",
+                "credit": "Photo: Tim Mossholder / Unsplash",
+                "dominantColor": "#907c69",
+                "variants": [
+                    {
+                        "width": 1333,
+                        "format": "webp",
+                        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-18ee-71aa-a761-e2c11f5ed56f-1333.webp"
+                    }
+                ],
+                "sourceUrl": "https://unsplash.com/photos/5yWwAqTjP20",
+                "tags": [
+                    "pool",
+                    "sunset",
+                    "loungers",
+                    "palms"
+                ],
+                "sizeBytes": 480160,
+                "originalName": "pool-01-sunset-loungers-palms.jpg",
+                "usageCount": 3,
+                "rowVersion": 1,
+                "createdAt": "2026-09-24T08:01:31.625Z",
+                "updatedAt": "2026-09-24T08:01:31.625Z"
+            },
+            "sortOrder": 10,
+            "itemCount": 8,
+            "status": "PUBLISHED",
+            "publishedAt": "2026-09-23T08:01:37.000Z",
+            "rowVersion": 3,
+            "createdAt": "2026-09-24T08:01:37.391Z",
+            "updatedAt": "2026-09-24T08:01:37.414Z"
+        },
+        {
+            "id": "01a0d26f-3096-71c5-bae7-cb6f3f1c5d5f",
+            "slug": "courts-and-pitches",
+            "title": "Courts & Pitches",
+            "description": "Floodlit games, clay courts and five-a-side.",
+            "coverMediaId": "01a0d26f-293e-72c8-abf3-cb9bdca982f0",
+            "cover": {
+                "id": "01a0d26f-293e-72c8-abf3-cb9bdca982f0",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-293e-72c8-abf3-cb9bdca982f0.jpg",
+                "width": 1600,
+                "height": 1067,
+                "mimeType": "image/jpeg",
+                "alt": "Small-sided football game played under a single floodlight on a dark pitch",
+                "credit": "Photo: Abigail Keenan / Unsplash",
+                "dominantColor": "#173033",
+                "variants": [
+                    {
+                        "width": 1600,
+                        "format": "webp",
+                        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-293e-72c8-abf3-cb9bdca982f0-1600.webp"
+                    }
+                ],
+                "sourceUrl": "https://unsplash.com/photos/8-s5QuUBtyM",
+                "tags": [
+                    "football",
+                    "five-a-side",
+                    "night",
+                    "floodlight"
+                ],
+                "sizeBytes": 242704,
+                "originalName": "football-02-floodlit-pitch-players.jpg",
+                "usageCount": 5,
+                "rowVersion": 1,
+                "createdAt": "2026-09-24T08:01:35.695Z",
+                "updatedAt": "2026-09-24T08:01:35.695Z"
+            },
+            "sortOrder": 20,
+            "itemCount": 6,
+            "status": "PUBLISHED",
+            "publishedAt": "2026-09-23T08:01:37.000Z",
+            "rowVersion": 3,
+            "createdAt": "2026-09-24T08:01:37.430Z",
+            "updatedAt": "2026-09-24T08:01:37.451Z"
+        },
+        {
+            "id": "01a0d26f-30b6-7004-acab-db410ebc6b8f",
+            "slug": "food-and-drinks",
+            "title": "Food & Drinks",
+            "description": "From the grill, the bar and the brunch table.",
+            "coverMediaId": "01a0d26f-1f7d-7097-9b28-67d38d13e6cf",
+            "cover": {
+                "id": "01a0d26f-1f7d-7097-9b28-67d38d13e6cf",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1f7d-7097-9b28-67d38d13e6cf.jpg",
+                "width": 1600,
+                "height": 1067,
+                "mimeType": "image/jpeg",
+                "alt": "Skewers of grilled chicken and peppers on a dish of jollof-style rice beside African print fabric",
+                "credit": "Photo: Keesha's Kitchen / Unsplash",
+                "dominantColor": "#a27058",
+                "variants": [
+                    {
+                        "width": 1600,
+                        "format": "webp",
+                        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-1f7d-7097-9b28-67d38d13e6cf-1600.webp"
+                    }
+                ],
+                "sourceUrl": "https://unsplash.com/photos/woC24wGXsQ8",
+                "tags": [
+                    "dining",
+                    "jollof",
+                    "skewers",
+                    "african food",
+                    "rice"
+                ],
+                "sizeBytes": 326584,
+                "originalName": "dining-03-jollof-rice-skewers.jpg",
+                "usageCount": 5,
+                "rowVersion": 1,
+                "createdAt": "2026-09-24T08:01:33.219Z",
+                "updatedAt": "2026-09-24T08:01:33.219Z"
+            },
+            "sortOrder": 30,
+            "itemCount": 4,
+            "status": "PUBLISHED",
+            "publishedAt": "2026-09-23T08:01:37.000Z",
+            "rowVersion": 3,
+            "createdAt": "2026-09-24T08:01:37.463Z",
+            "updatedAt": "2026-09-24T08:01:37.477Z"
+        },
+        {
+            "id": "01a0d26f-30cd-7358-a73f-0e26c9a403de",
+            "slug": "nights-and-events",
+            "title": "Nights & Events",
+            "description": "Live music, match nights and celebrations.",
+            "coverMediaId": "01a0d26f-22c6-70a0-ac58-f8b85d2852ee",
+            "cover": {
+                "id": "01a0d26f-22c6-70a0-ac58-f8b85d2852ee",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-22c6-70a0-ac58-f8b85d2852ee.jpg",
+                "width": 1600,
+                "height": 1067,
+                "mimeType": "image/jpeg",
+                "alt": "DJ silhouetted behind beams of pink and white stage lights above a cheering crowd",
+                "credit": "Photo: A J. / Unsplash",
+                "dominantColor": "#a8335e",
+                "variants": [
+                    {
+                        "width": 1600,
+                        "format": "webp",
+                        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-22c6-70a0-ac58-f8b85d2852ee-1600.webp"
+                    }
+                ],
+                "sourceUrl": "https://unsplash.com/photos/r3XvSBEQQLo",
+                "tags": [
+                    "events",
+                    "dj",
+                    "party",
+                    "lights",
+                    "crowd"
+                ],
+                "sizeBytes": 248705,
+                "originalName": "events-01-dj-light-show.jpg",
+                "usageCount": 4,
+                "rowVersion": 1,
+                "createdAt": "2026-09-24T08:01:34.045Z",
+                "updatedAt": "2026-09-24T08:01:34.045Z"
+            },
+            "sortOrder": 40,
+            "itemCount": 7,
+            "status": "PUBLISHED",
+            "publishedAt": "2026-09-23T08:01:37.000Z",
+            "rowVersion": 3,
+            "createdAt": "2026-09-24T08:01:37.485Z",
+            "updatedAt": "2026-09-24T08:01:37.505Z"
+        }
+    ],
+    "nextCursor": null
+}

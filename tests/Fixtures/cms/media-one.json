@@ -1,0 +1,30 @@
+{
+    "id": "01a0d26f-2e68-700e-95c7-f7a35eee25d6",
+    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2e68-700e-95c7-f7a35eee25d6.jpg",
+    "width": 1600,
+    "height": 1067,
+    "mimeType": "image/jpeg",
+    "alt": "Badminton player leaping to smash a shuttlecock on an indoor green court",
+    "credit": "Photo: Muktasim Azlan / Unsplash",
+    "dominantColor": "#152f33",
+    "variants": [
+        {
+            "width": 1600,
+            "format": "webp",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-2e68-700e-95c7-f7a35eee25d6-1600.webp"
+        }
+    ],
+    "sourceUrl": "https://unsplash.com/photos/rjWfNR_AC5g",
+    "tags": [
+        "padel",
+        "badminton",
+        "indoor",
+        "action"
+    ],
+    "sizeBytes": 187234,
+    "originalName": "padel-01-badminton-smash.jpg",
+    "usageCount": 1,
+    "rowVersion": 1,
+    "createdAt": "2026-09-24T08:01:37.003Z",
+    "updatedAt": "2026-09-24T08:01:37.003Z"
+}

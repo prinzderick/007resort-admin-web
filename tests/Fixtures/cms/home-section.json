@@ -1,0 +1,50 @@
+{
+    "id": "01a0d26f-2f03-707b-bc40-eb9effdec2e3",
+    "type": "HERO_SLIDE",
+    "sortOrder": 10,
+    "enabled": true,
+    "payload": {
+        "ctaLink": "/book",
+        "mediaId": "01a0d26f-13f7-71de-9c3c-cf9cf4b18cb2",
+        "ctaLabel": "Book a court",
+        "headline": "Play hard. Splash harder.",
+        "alignment": "LEFT",
+        "subheadline": "Floodlit courts, a resort pool and a kitchen that never slows down, all in one place in Bayelsa."
+    },
+    "rowVersion": 2,
+    "createdAt": "2026-09-24T08:01:37.027Z",
+    "updatedAt": "2026-09-24T08:01:37.032Z",
+    "media": {
+        "01a0d26f-13f7-71de-9c3c-cf9cf4b18cb2": {
+            "id": "01a0d26f-13f7-71de-9c3c-cf9cf4b18cb2",
+            "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-13f7-71de-9c3c-cf9cf4b18cb2.jpg",
+            "width": 1600,
+            "height": 1200,
+            "mimeType": "image/jpeg",
+            "alt": "Turquoise swimming pool beside a curved terrace as the sun sets over the ocean under a moody orange sky",
+            "credit": "Photo: Giuseppe Famiani / Unsplash",
+            "dominantColor": "#60838b",
+            "variants": [
+                {
+                    "width": 1600,
+                    "format": "webp",
+                    "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-13f7-71de-9c3c-cf9cf4b18cb2-1600.webp"
+                }
+            ],
+            "sourceUrl": "https://unsplash.com/photos/p_GlcvWVUso",
+            "tags": [
+                "hero",
+                "pool",
+                "sunset",
+                "golden hour",
+                "terrace"
+            ],
+            "sizeBytes": 297556,
+            "originalName": "hero-01-pool-golden-hour.jpg",
+            "usageCount": 2,
+            "rowVersion": 1,
+            "createdAt": "2026-09-24T08:01:30.285Z",
+            "updatedAt": "2026-09-24T08:01:30.285Z"
+        }
+    }
+}

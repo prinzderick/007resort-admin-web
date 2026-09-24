@@ -72,6 +72,12 @@ class CmsApi
      */
     public function csv(string $path, array $query = []): array
     {
+        if ($this->api->isMock()) { // the fixture backend answers JSON; its CSV text travels in `_raw`
+            $r = $this->api->request('GET', self::BASE.'/'.ltrim($path, '/'), $query);
+
+            return ['status' => $r->status, 'body' => (string) ($r->body['_raw'] ?? ''), 'headers' => $r->headers];
+        }
+
         return $this->api->raw('GET', self::BASE.'/'.ltrim($path, '/'), $query);
     }
 

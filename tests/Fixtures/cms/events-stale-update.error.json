@@ -1,0 +1,13 @@
+{
+    "__status": 412,
+    "__problem": {
+        "type": "urn:r007:problem:concurrency_conflict",
+        "title": "Precondition failed",
+        "status": 412,
+        "code": "concurrency_conflict",
+        "detail": "The event was changed by someone else (expected v0, current v2). Reload and retry.",
+        "instance": "/api/v1/admin/cms/events/01a0d26f-3058-70ea-a9f1-cec85d1649cd",
+        "correlationId": "01a0d26f-7aca-7318-9b55-9faee454eb5c",
+        "currentRowVersion": 2
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "__status": 422,
+    "__problem": {
+        "type": "urn:r007:problem:validation_failed",
+        "title": "Validation failed",
+        "status": 422,
+        "code": "validation_failed",
+        "detail": "One or more fields are invalid.",
+        "instance": "/api/v1/admin/cms/pages",
+        "correlationId": "01a0d26f-7aeb-711a-bf17-db687c188814",
+        "errors": {
+            "title": [
+                "The title field is required."
+            ],
+            "bodyMarkdown": [
+                "The body markdown field is required."
+            ]
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "__status": 403,
+    "__problem": {
+        "type": "urn:r007:problem:permission_denied",
+        "title": "Forbidden",
+        "status": 403,
+        "code": "permission_denied",
+        "detail": "Missing permission: cms.view.",
+        "instance": "/api/v1/admin/cms/summary",
+        "correlationId": "01a0d26f-7cf9-7339-a727-11e0e923592b",
+        "permission": "cms.view",
+        "meta": {
+            "permission": "cms.view"
+        }
+    }
+}

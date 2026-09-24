@@ -1,0 +1,17 @@
+{
+    "__status": 422,
+    "__problem": {
+        "type": "urn:r007:problem:validation_failed",
+        "title": "Validation failed",
+        "status": 422,
+        "code": "validation_failed",
+        "detail": "One or more fields are invalid.",
+        "instance": "/api/v1/admin/cms/events",
+        "correlationId": "01a0d26f-7afe-715f-86bc-90e79dc1aeab",
+        "errors": {
+            "endsAt": [
+                "endsAt must be after startsAt."
+            ]
+        }
+    }
+}

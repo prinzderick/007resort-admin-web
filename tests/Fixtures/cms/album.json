@@ -1,0 +1,44 @@
+{
+    "id": "01a0d26f-306f-72a0-be6a-a5e9ca216197",
+    "slug": "pool-and-spa",
+    "title": "Pool & Spa",
+    "description": "Loungers, palms and quiet corners to reset.",
+    "coverMediaId": "01a0d26f-18ee-71aa-a761-e2c11f5ed56f",
+    "cover": {
+        "id": "01a0d26f-18ee-71aa-a761-e2c11f5ed56f",
+        "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-18ee-71aa-a761-e2c11f5ed56f.jpg",
+        "width": 1333,
+        "height": 2000,
+        "mimeType": "image/jpeg",
+        "alt": "Resort pool with lounge chairs and umbrellas silhouetted by palms against an orange sunset",
+        "credit": "Photo: Tim Mossholder / Unsplash",
+        "dominantColor": "#907c69",
+        "variants": [
+            {
+                "width": 1333,
+                "format": "webp",
+                "url": "http://127.0.0.1:8073/storage/cms/2026/09/01a0d26f-18ee-71aa-a761-e2c11f5ed56f-1333.webp"
+            }
+        ],
+        "sourceUrl": "https://unsplash.com/photos/5yWwAqTjP20",
+        "tags": [
+            "pool",
+            "sunset",
+            "loungers",
+            "palms"
+        ],
+        "sizeBytes": 480160,
+        "originalName": "pool-01-sunset-loungers-palms.jpg",
+        "usageCount": 3,
+        "rowVersion": 1,
+        "createdAt": "2026-09-24T08:01:31.625Z",
+        "updatedAt": "2026-09-24T08:01:31.625Z"
+    },
+    "sortOrder": 10,
+    "itemCount": 8,
+    "status": "PUBLISHED",
+    "publishedAt": "2026-09-23T08:01:37.000Z",
+    "rowVersion": 3,
+    "createdAt": "2026-09-24T08:01:37.391Z",
+    "updatedAt": "2026-09-24T08:01:37.414Z"
+}

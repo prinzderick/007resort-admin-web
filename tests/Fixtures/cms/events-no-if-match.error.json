@@ -1,0 +1,12 @@
+{
+    "__status": 428,
+    "__problem": {
+        "type": "urn:r007:problem:concurrency_conflict",
+        "title": "Precondition required",
+        "status": 428,
+        "code": "concurrency_conflict",
+        "detail": "The If-Match header (the aggregate ETag) is required for this request.",
+        "instance": "/api/v1/admin/cms/events/01a0d26f-3058-70ea-a9f1-cec85d1649cd",
+        "correlationId": "01a0d26f-7ada-72dc-bc16-5097c6d1065f"
+    }
+}

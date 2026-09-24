@@ -38,8 +38,8 @@ class SettingsController extends WebsiteController
         $failed = [];
         $errors = [];
         foreach (array_keys(SettingsGroups::all()) as $g) {
-            if (! $request->has($g) && $g !== 'hours') {
-                continue;
+            if (! $request->has($g)) {
+                continue; // a group that was not on the form is left alone
             }
             $value = $this->build($g, $request);
             $before = (array) ($current[$g]['value'] ?? []);
