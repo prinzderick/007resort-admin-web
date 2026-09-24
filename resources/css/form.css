@@ -293,8 +293,8 @@ textarea.f-input { padding: 0.625rem 0.75rem; min-height: 5.5rem; resize: vertic
 .f-day-name .f-toggle[aria-checked='true'] .f-switch::after { transform: translateX(1rem); }
 .f-day-name .f-toggle { min-height: var(--f-h); padding: 0; gap: 0.75rem; width: auto; }
 .f-intervals { display: flex; flex-direction: column; gap: 0.5rem; min-width: 0; }
-.f-interval { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
-.f-interval .f-time-range { flex: 1 1 14rem; }
+.f-interval { display: flex; align-items: center; gap: 0.5rem; flex-wrap: nowrap; }
+.f-interval .f-time-range { flex: 1 1 auto; min-width: 0; }
 .f-closed { display: flex; align-items: center; min-height: var(--f-h); color: var(--f-muted); font-style: italic; }
 .f-day-tools { display: flex; align-items: center; gap: 0.25rem; min-height: var(--f-h); }
 .f-exceptions { margin-top: 1rem; }

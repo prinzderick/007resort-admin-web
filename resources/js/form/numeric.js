@@ -111,7 +111,7 @@ export function register(Alpine) {
         const tickLabel = formatter({ ...cfg, bare: true });
         return {
             min, max, step, fmt, tickLabel, points, active: false, text: '', typing: false,
-            ticksList: L.ticks(min, max, cfg.ticks || 0),
+            ticksList: L.ticks(min, max, cfg.ticks || 0).map((t) => L.clamp(L.roundToStep(t, step, min), min, max)),
             hydrate() {
                 const start = num(this.value, num(cfg.default, min));
                 this.value = L.clamp(L.roundToStep(start, step, min), min, max);
@@ -181,7 +181,7 @@ export function register(Alpine) {
             value: cfg.value ?? { from: min, to: max },
             initial: cfg.value ?? { from: min, to: max },
             min, max, step, fmt, tickLabel, points, minGap, active: null, texts: { from: '', to: '' }, top: 'to',
-            ticksList: L.ticks(min, max, cfg.ticks || 0),
+            ticksList: L.ticks(min, max, cfg.ticks || 0).map((t) => L.clamp(L.roundToStep(t, step, min), min, max)),
             hydrate() {
                 const v = this.value || {};
                 const d = cfg.default || {};
