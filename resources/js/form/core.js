@@ -13,8 +13,17 @@ export function core(cfg = {}) {
         name: cfg.name,
         value: clone(cfg.value ?? null),
         initial: clone(cfg.value ?? null),
-        disabled: !!cfg.disabled,
-        readonly: !!cfg.readonly,
+        // disabled / readonly live on the shell's data-* attributes (not in x-data), so a server re-render can flip them without
+        // changing the x-data expression: Alpine re-initialises a component whose x-data text changed, wiping its state.
+        rev: 0,
+        get disabled() {
+            this.rev;
+            return !!cfg.disabled || this.$el?.getAttribute?.('data-disabled') === 'true';
+        },
+        get readonly() {
+            this.rev;
+            return !!cfg.readonly || this.$el?.getAttribute?.('data-readonly') === 'true';
+        },
         hasDefault: !!cfg.hasDefault,
         defaultValue: clone(cfg.default ?? null),
         localError: null,
@@ -42,12 +51,24 @@ export function core(cfg = {}) {
             this.afterReset?.();
         },
 
+        /** Derived state (unit, clamped start, normalised structure) from the current value; controls override. Must be idempotent. */
+        hydrateOnce() {
+            if (this._hv === this.value && this._hv !== undefined) return;
+            this.hydrate?.();
+            this._hv = this.value;
+        },
+
         init() {
-            // The outer binding (wire:model / x-model) has pushed its value in by the next tick: that is the baseline.
-            this.$nextTick(() => {
+            this._mo = new MutationObserver(() => this.rev++);
+            this._mo.observe(this.$el, { attributes: true, attributeFilter: ['data-disabled', 'data-readonly'] });
+            this.hydrateOnce();
+            // The outer binding (wire:model / x-model) pushes its value in right after init (a microtask), so the baseline is taken one
+            // macrotask later. With wire:model the value is NOT in the x-data text (it would change on every render and reset us).
+            this._boot = setTimeout(() => {
+                this.hydrateOnce();
                 this.baseline();
                 this.ready = true;
-            });
+            }, 0);
             this.$watch('dirty', (dirty) => this.$dispatch('f-dirty', { id: this.id, name: this.name, dirty, danger: cfg.danger || null }));
             // Tell classic listeners (dirtyGuard, wire) that the control changed.
             this.$watch('value', () => {
@@ -57,6 +78,8 @@ export function core(cfg = {}) {
             window.addEventListener('form-saved', this._saved);
         },
         destroy() {
+            clearTimeout(this._boot);
+            this._mo?.disconnect();
             window.removeEventListener('form-saved', this._saved);
             this._cleanup?.();
         },

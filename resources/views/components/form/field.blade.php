@@ -10,7 +10,7 @@
     $default = $meta['default'] ?? null;
     $invalid = $f->invalid();
 @endphp
-<div {{ $attributes->class(['f-field']) }} data-f="{{ $type }}" data-invalid="{{ $invalid ? 'true' : 'false' }}" @if ($f->loading) data-loading="true" @endif @if ($f->disabled) data-disabled="true" @endif>
+<div {{ $attributes->class(['f-field']) }} data-f="{{ $type }}" data-invalid="{{ $invalid ? 'true' : 'false' }}" @if ($f->loading) data-loading="true" @endif @if ($f->disabled) data-disabled="true" @endif @if ($f->readonly) data-readonly="true" @endif>
     @unless ($f->bare)
         @if ($f->label)
             <div class="f-head">

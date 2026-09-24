@@ -31,6 +31,13 @@ class FormComponentsTest extends TestCase
         return json_decode((string) $json, true, 512, JSON_THROW_ON_ERROR);
     }
 
+    private function cfgText(string $html): string
+    {
+        preg_match('/x-data="([^"]*)"/', $html, $m);
+
+        return $m[1] ?? '';
+    }
+
     /** Every control: [component tag with the props that make it valid]. */
     public static function controls(): array
     {
@@ -108,7 +115,19 @@ class FormComponentsTest extends TestCase
         $this->assertStringContainsString('Optional', $this->render('<x-form.text name="n" label="Name" :optional="true" />'));
         $d = $this->render('<x-form.text name="n" label="Name" :disabled="true" />');
         $this->assertStringContainsString('data-disabled="true"', $d);
-        $this->assertMatchesRegularExpression('/x-data="fText\([^"]*disabled[^"]*true/', html_entity_decode($d));
+        $this->assertStringNotContainsString('disabled', html_entity_decode($this->cfgText($d)), 'volatile state stays out of the x-data text');
+    }
+
+    public function test_x_data_text_is_stable_when_a_model_owns_the_value(): void
+    {
+        // Alpine re-initialises (and wipes) a component whose x-data text changes on a Livewire re-render, so the value and error
+        // state must never be part of it when wire:model / x-model owns the value.
+        $a = $this->render('<x-form.money wire:model="price" label="P" value="100.00" />');
+        $b = $this->render('<x-form.money wire:model="price" label="P" value="999.00" />', ['price' => ['Too big.']]);
+        $this->assertSame($this->cfgText($a), $this->cfgText($b));
+        $this->assertNull($this->cfg($a)['value']);
+        // ...but a plain (unbound) control carries its initial value.
+        $this->assertSame('100.00', $this->cfg($this->render('<x-form.money name="price" label="P" value="100.00" />'))['value']);
     }
 
     public function test_error_message_comes_from_dotted_error_key_for_bracket_names(): void

@@ -29,6 +29,7 @@ final class FormField
         public readonly bool $readonly,
         public readonly bool $bare,
         public readonly bool $loading,
+        public readonly bool $modelBound,
         public readonly mixed $value,
         /** @var array<string, mixed> */
         public readonly array $meta,
@@ -51,6 +52,7 @@ final class FormField
             required: (bool) ($v['required'] ?? false), optional: (bool) ($v['optional'] ?? false),
             disabled: (bool) ($v['disabled'] ?? false), readonly: (bool) ($v['readonly'] ?? false),
             bare: (bool) ($v['bare'] ?? false), loading: (bool) ($v['loading'] ?? false),
+            modelBound: $attributes->whereStartsWith(['wire:model', 'x-model'])->isNotEmpty(),
             value: $v['value'] ?? null, meta: is_array($v['meta'] ?? null) ? $v['meta'] : [],
             error: self::str($v['error'] ?? null),
         );
@@ -137,6 +139,10 @@ final class FormField
     /**
      * JSON config for the Alpine component: control-specific keys plus the shared ones (name, initial value, default, danger).
      *
+     * The x-data text must be STABLE across server re-renders: Alpine re-initialises a component whose x-data expression changed
+     * (Livewire morph), wiping its state. So nothing that changes while a person types goes in here: `value` is left out when a
+     * wire:model / x-model owns it (it arrives through x-modelable), and disabled / readonly / invalid travel as data-* attributes.
+     *
      * @param  array<string, mixed>  $specific
      */
     public function cfg(array $specific = []): array
@@ -144,13 +150,10 @@ final class FormField
         return array_replace([
             'id' => $this->id,
             'name' => $this->name,
-            'value' => $this->value,
+            'value' => $this->modelBound ? null : $this->value,
             'default' => $this->meta['default']['value'] ?? null,
             'hasDefault' => array_key_exists('default', $this->meta),
             'danger' => $this->meta['danger'] ?? null,
-            'disabled' => $this->disabled,
-            'readonly' => $this->readonly,
-            'invalid' => $this->invalid(),
         ], $specific);
     }
 

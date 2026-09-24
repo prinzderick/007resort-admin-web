@@ -49,8 +49,10 @@ export function register(Alpine) {
         const anchor = Number.isFinite(min) ? min : 0;
         return {
             min, max, step, text: '', holdTimer: null, holdInt: null,
-            init() {
+            hydrate() {
                 this.text = this.show(this.value);
+            },
+            init() {
                 this.$watch('value', (v) => {
                     if (this.text !== this.show(v)) this.text = this.show(v);
                 });
@@ -110,10 +112,12 @@ export function register(Alpine) {
         return {
             min, max, step, fmt, tickLabel, points, active: false, text: '', typing: false,
             ticksList: L.ticks(min, max, cfg.ticks || 0),
-            init() {
+            hydrate() {
                 const start = num(this.value, num(cfg.default, min));
                 this.value = L.clamp(L.roundToStep(start, step, min), min, max);
                 this.text = String(this.value);
+            },
+            init() {
                 this.$watch('value', (v) => {
                     if (!this.typing) this.text = String(v);
                 });
@@ -173,14 +177,19 @@ export function register(Alpine) {
         const tickLabel = formatter({ ...cfg, bare: true });
         const opts = (moved, push = false) => ({ min, max, step, minGap, maxGap, moved, push });
         return {
+            // Never null: the templates read value.from / value.to before an outer wire:model has pushed its value in.
+            value: cfg.value ?? { from: min, to: max },
+            initial: cfg.value ?? { from: min, to: max },
             min, max, step, fmt, tickLabel, points, minGap, active: null, texts: { from: '', to: '' }, top: 'to',
             ticksList: L.ticks(min, max, cfg.ticks || 0),
-            init() {
+            hydrate() {
                 const v = this.value || {};
                 const d = cfg.default || {};
                 const r = L.constrainRange(num(v.from, num(d.from, min)), num(v.to, num(d.to, max)), opts('from'));
                 this.value = { from: r.from, to: r.to };
                 this.sync();
+            },
+            init() {
                 this.$watch('value', () => this.sync());
             },
             sync() {
@@ -242,9 +251,11 @@ export function register(Alpine) {
         const norm = (v) => L.normalizeMoney(v, scale, { allowNegative: true }) ?? '';
         return {
             scale, text: '', typing: false,
-            init() {
+            hydrate() {
                 if (this.value !== null && this.value !== '') this.value = L.normalizeMoney(this.value, scale, { allowNegative: !!cfg.negative }) ?? this.value;
                 this.text = show(this.value);
+            },
+            init() {
                 this.$watch('value', (v) => {
                     if (!this.typing) this.text = show(v);
                 });
@@ -320,10 +331,12 @@ export function register(Alpine) {
             base, units, u: units[0], amount: '', typing: false,
             // Plain property (a getter would see the nested slider's own `value` through the merged scope); kept in step by watchers.
             sliderModel: 0,
-            init() {
+            hydrate() {
                 if (!empty(this.value)) this.u = L.bestUnit(L.toSeconds(Number(this.value), base), units).unit;
                 this.amount = empty(this.value) ? '' : String(fromBase(this.value, this.u));
                 this.syncSlider();
+            },
+            init() {
                 this.$watch('value', (v) => {
                     this.syncSlider();
                     if (!this.typing) this.amount = empty(v) ? '' : String(Number(fromBase(v, this.u).toFixed(4)));

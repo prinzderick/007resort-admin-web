@@ -118,6 +118,9 @@ export function register(Alpine) {
         value: cfg.value || '',
         initial: cfg.value || '',
         text: cfg.value || '',
+        hydrate() {
+            this.text = this.value || '';
+        },
         init() {
             this.$watch('value', (v) => (this.text = v || ''));
         },

@@ -21,8 +21,10 @@ export function register(Alpine) {
                 return out;
             },
             show,
-            init() {
+            hydrate() {
                 this.text = show(this.value);
+            },
+            init() {
                 this.$watch('value', (v) => (this.text = show(v)));
             },
             commit() {
@@ -91,6 +93,8 @@ export function register(Alpine) {
         // would resolve to the child's value. Watchers keep from/to and value in step.
         from: null,
         to: null,
+        value: cfg.value ?? { from: null, to: null },
+        initial: cfg.value ?? { from: null, to: null },
         get span() {
             const m = L.spanMinutes(this.from, this.to, !!cfg.overnight);
             return m === null ? '' : m < 0 ? '' : L.humanDuration(m * 60);
@@ -98,11 +102,13 @@ export function register(Alpine) {
         get overnight() {
             return !!cfg.overnight && this.from && this.to && L.timeToMinutes(this.to) <= L.timeToMinutes(this.from);
         },
-        init() {
+        hydrate() {
             if (!this.value || typeof this.value !== 'object') this.value = { from: null, to: null };
             this.from = this.value.from ?? null;
             this.to = this.value.to ?? null;
             this.check();
+        },
+        init() {
             this.$watch('value', (v) => {
                 if ((v?.from ?? null) !== this.from) this.from = v?.from ?? null;
                 if ((v?.to ?? null) !== this.to) this.to = v?.to ?? null;
@@ -131,9 +137,11 @@ export function register(Alpine) {
         const dflt = () => clone(cfg.defaultInterval || { from: '09:00', to: '17:00' });
         return {
             days: L.DAYS, labels: L.DAY_LABELS, copyOpen: null, notice: '',
+            // Never null: templates read value.weekly[d] before an outer wire:model has pushed its value in.
+            value: cfg.value ?? { weekly: Object.fromEntries(L.DAYS.map((d) => [d, blankDay()])), exceptions: [] },
             /** Alias of `value` for x-model paths on NESTED controls (their own scope has a `value` too, which would shadow ours). */
             week: null,
-            init() {
+            hydrate() {
                 const v = this.value && typeof this.value === 'object' ? this.value : {};
                 const weekly = {};
                 for (const d of L.DAYS) {
@@ -143,11 +151,13 @@ export function register(Alpine) {
                 }
                 this.value = { weekly, exceptions: Array.isArray(v.exceptions) ? v.exceptions.map((e) => ({ date: e.date ?? null, label: e.label ?? '', open: !!e.open, from: e.from ?? null, to: e.to ?? null })) : [] };
                 this.week = this.value;
+                this.validate();
+            },
+            init() {
                 this.$watch('value', (v) => {
                     this.week = v;
                     this.validate();
                 });
-                this.validate();
             },
             /** Reassign so x-modelable / wire:model see a new reference after in-place edits. */
             touch() {
@@ -264,9 +274,11 @@ export function register(Alpine) {
 
     define(Alpine, 'fDate', (cfg) => mix(calendar(cfg), {
         text: '',
-        init() {
+        hydrate() {
             this.text = L.formatDate(this.value);
             this.setView(this.value || this.today);
+        },
+        init() {
             this.$watch('value', (v) => (this.text = L.formatDate(v)));
         },
         openCal() {
@@ -323,10 +335,14 @@ export function register(Alpine) {
         return mix(calendar(cfg), {
             presets,
             hover: null,
-            init() {
+            value: cfg.value ?? { from: null, to: null },
+            initial: cfg.value ?? { from: null, to: null },
+            hydrate() {
                 if (!this.value || typeof this.value !== 'object') this.value = { from: null, to: null };
                 this.setView(this.value.from || this.today);
                 this.check();
+            },
+            init() {
                 this.$watch('value', () => this.check());
             },
             get label() {

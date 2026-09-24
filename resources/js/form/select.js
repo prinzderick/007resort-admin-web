@@ -247,7 +247,6 @@ export function register(Alpine) {
         initial: null,
         errs: [],
         init() {
-            this.initial = clone(this.value);
             this.$watch('value', () => this.validate());
         },
         add() {
