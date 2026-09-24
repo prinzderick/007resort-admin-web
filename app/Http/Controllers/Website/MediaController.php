@@ -6,6 +6,7 @@ use App\Services\R007Api\R007ApiException;
 use App\Support\Cms\Cms;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 /** Media library, and the JSON endpoints behind the shared image picker (list, upload, usage). */
 class MediaController extends WebsiteController
@@ -86,7 +87,7 @@ class MediaController extends WebsiteController
             $this->cms->delete("media/{$id}");
         } catch (R007ApiException $e) {
             if ($e->problemCode() === 'media_in_use') {
-                $blockers = collect((array) ($e->extensions['usage'] ?? []))->map(fn ($u) => ucfirst(str_replace('_', ' ', (string) ($u['type'] ?? ''))).': '.($u['label'] ?? ''))->filter()->values()->all();
+                $blockers = collect((array) ($e->extensions['usage'] ?? []))->map(fn ($u) => ucfirst(strtolower(Str::headline((string) ($u['type'] ?? '')))).': '.($u['label'] ?? ''))->filter()->values()->all();
 
                 return back()->with('error', 'This picture is still used on the website, so it cannot be deleted. Replace it in these places first:')->with('blockers', $blockers)->with('error_code', 'media_in_use');
             }

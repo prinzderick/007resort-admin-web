@@ -2,7 +2,7 @@
 
 Management web application for the **007 Resort & Spa Integrated Facility Operations Platform**.
 
-> Status: **management portal**: dashboard, reports, finance (incl. waiter collections and cash handovers), inventory, staff, devices, sync & IT, approvals and the full Setup area (see docs/SETUP_SCREENS.md). Runs against the real API or, with `R007_MOCK=true`, on built-in fixtures (Setup and collections need the real API).
+> Status: **management portal**: dashboard, reports, finance (incl. waiter collections and cash handovers), inventory, staff, devices, sync & IT, approvals, the full Setup area (see docs/SETUP_SCREENS.md) and the **Website** area that edits everything on the public site (see docs/MANAGING_THE_WEBSITE.md). Runs against the real API or, with `R007_MOCK=true`, on built-in fixtures (Setup and collections need the real API).
 
 ## Purpose
 
@@ -87,7 +87,7 @@ R007_MOCK_SCENARIO=normal   # normal | stale | offline
 php artisan serve
 ```
 
-Sign in as `owner`, `manager`, `accounts`, `it` or `cashier` with password `password`. The fixture backend
+Sign in as `owner`, `manager`, `marketing`, `accounts`, `it` or `cashier` with password `password`. The fixture backend
 (`app/Services/R007Api/Mock`) speaks the contract's shapes, keeps state in the cache (approve an
 approval, retry an outbox event, create staff ...) and only answers endpoints the contract defines.
 `R007_MOCK_SCENARIO=stale` (with `R007_INSTANCE=cloud`) and `offline` show how the dashboard refuses
@@ -113,6 +113,22 @@ second place to duplicate permission logic for no gain here.
 | Contract snapshot + graceful degradation | `resources/contract/endpoints.json`, `app/Support/Contract.php`, `Fetch.php` |
 | Data-freshness verdicts (live / unverified / stale / offline) | `app/Support/DataFreshness.php` |
 | Mock API | `app/Services/R007Api/Mock/` |
+
+### Website (CMS) area, for developers
+
+Staff guide: `docs/MANAGING_THE_WEBSITE.md`. Everything is one API module (`/api/v1/admin/cms/*`); this app keeps no content.
+
+| Piece | Where |
+| --- | --- |
+| API wrapper (If-Match quoting, multipart upload, CSV, paging) | `app/Services/Cms/CmsApi.php`, `R007ApiClient::upload()` |
+| Pages, blog, events, categories: one list + one editor driven by definitions | `app/Support/Cms/Resources.php`, `ContentController`, `resources/views/pages/website/content/*` |
+| Settings (8 groups), homepage block types | `SettingsGroups.php`, `HomeBlocks.php`, `SettingsController`, `HomepageController` |
+| Shared components: image picker, Markdown editor (toolbar + live preview), drag-reorder list, uploader with progress, datetime (Lagos), SEO snippet, status chips | `resources/views/components/cms/*`, `resources/js/cms/{index,lib}.js` (pure logic unit-tested in `tests/js/cms.test.mjs`) |
+| Lagos wall clock in the forms, UTC on the wire | `App\Support\Cms\Cms` |
+| Mock CMS (contract shapes + rules, no backend) | `app/Services/R007Api/Mock/MockCms.php`, `MockCmsData.php` |
+| Real recorded API JSON for tests | `tests/Fixtures/cms/`, refreshed with `php artisan r007:capture-cms-fixtures --base=... --user=owner1 --password=...` |
+
+Permissions (from the API): `cms.view`, `cms.manage`, `cms.publish`, `cms.media.manage`, `cms.subscribers.view`, `cms.subscribers.export`, `cms.messages.manage`. Optional `R007_SITE_URL` enables "View on site" links. Known API behaviour worked around: `sortOrder: null` is answered with a 500, so blank order fields are simply not sent.
 
 ### Rules the portal follows
 
@@ -147,6 +163,7 @@ second place to duplicate permission logic for no gain here.
 | Configuration | `/config/*` | `organization/*`, `facilities/{id}/capabilities`, `catalog/*`, `admin/settings/tax`, `memberships/plans`, `bookings/resources`, `kds/stations` |
 | Devices | `/devices` | `devices`, `devices/registration-codes`, `devices/{id}/revoke`, `attendance/devices*` |
 | Sync & IT | `/sync` | `sync/status`, `sync/outbox*`, `sync/inbox-events*`, `sync/conflicts*`, `system/health` |
+| Website | `/website/*` | the CMS admin API (`docs/CMS_API.md` in the API repo): `admin/cms/settings/{group}`, `home-sections`, `pages`, `posts`, `post-categories`, `events`, `gallery/albums` + `items`, `media` (multipart upload), `subscribers` (+ CSV export), `messages`, `summary` |
 
 ### Not yet possible (contract gaps, shown as "waiting on the API" in the UI)
 
