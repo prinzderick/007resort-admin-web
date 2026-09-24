@@ -8,9 +8,9 @@
     $cmp = 'vs previous '.$range->days().' day'.($range->days() === 1 ? '' : 's');
     $tone = $stale ? 'warn' : 'default';
     $hist = $d['history'];
-    $lineCfg = ['type' => 'line', 'data' => ['labels' => $hist['labels'], 'datasets' => [
+    $lineCfg = ['type' => 'line', 'money' => true, 'data' => ['labels' => $hist['labels'], 'datasets' => [
         ['label' => 'This period', 'data' => $hist['current']],
-        ['label' => 'Previous period', 'data' => $hist['previous'], 'borderDash' => [5, 4], 'borderColor' => '#2b6cde', 'backgroundColor' => '#2b6cde'],
+        ['label' => 'Previous period', 'data' => $hist['previous'], 'borderDash' => [5, 4], 'borderColor' => '#9aa3b0', 'backgroundColor' => '#9aa3b0', 'pointRadius' => 0, 'borderWidth' => 1.5],
     ]], 'options' => ['plugins' => ['legend' => ['position' => 'top', 'align' => 'end']], 'scales' => ['y' => ['beginAtZero' => true, 'grid' => ['color' => '#eef0f3']], 'x' => ['grid' => ['display' => false]]]]];
     $donutCfg = ['type' => 'doughnut', 'data' => ['labels' => array_map(fn ($m) => str_replace('_', ' ', $m['method']), $d['byMethod']), 'datasets' => [['data' => array_map(fn ($m) => (float) $m['captured'], $d['byMethod'])]]], 'options' => ['cutout' => '62%', 'plugins' => ['legend' => ['position' => 'bottom']]]];
 @endphp
@@ -25,11 +25,11 @@
             {{-- KPI cards --}}
             @if ($d['hasRevenue'])
                 <div class="mb-5 grid grid-cols-2 gap-4 lg:grid-cols-3 2xl:grid-cols-6" data-testid="headline">
-                    <x-stat label="Net sales" :value="Money::format($k['sales']['now'])" :delta="$k['sales']['delta']" :delta-label="$cmp" :tone="$tone" />
-                    <x-stat label="Transactions" :value="number_format($k['payments']['now'])" :delta="$k['payments']['delta']" :delta-label="$cmp" :tone="$tone" />
-                    <x-stat label="Orders" :value="number_format($k['orders']['now'])" :delta="$k['orders']['delta']" :delta-label="$cmp" :tone="$tone" />
-                    <x-stat label="Average order" :value="Money::format($k['avg']['now'])" :delta="$k['avg']['delta']" :delta-label="$cmp" :tone="$tone" />
-                    <x-stat label="Refunds" :value="Money::format($k['refunds']['now'])" :delta="$k['refunds']['delta']" :delta-label="$cmp" :invert="true" :tone="$tone" />
+                    <x-stat label="Net sales" :value="Money::format($k['sales']['now'])" :delta="$k['sales']['delta']" :prev="Money::format($k['sales']['prev'])" :delta-label="$cmp" :tone="$tone" />
+                    <x-stat label="Transactions" :value="number_format($k['payments']['now'])" :delta="$k['payments']['delta']" :prev="number_format($k['payments']['prev'])" :delta-label="$cmp" :tone="$tone" />
+                    <x-stat label="Orders" :value="number_format($k['orders']['now'])" :delta="$k['orders']['delta']" :prev="number_format($k['orders']['prev'])" :delta-label="$cmp" :tone="$tone" />
+                    <x-stat label="Average order" :value="Money::format($k['avg']['now'])" :delta="$k['avg']['delta']" :prev="Money::format($k['avg']['prev'])" :delta-label="$cmp" :tone="$tone" />
+                    <x-stat label="Refunds" :value="Money::format($k['refunds']['now'])" :delta="$k['refunds']['delta']" :prev="Money::format($k['refunds']['prev'])" :delta-label="$cmp" :invert="true" :tone="$tone" />
                     <x-stat :label="'Voids / tickets on '.\Carbon\CarbonImmutable::parse($range->to)->format('M j')" :value="$d['day']['voids'].' / '.$d['day']['tickets']" hint="voided orders / tickets redeemed" :tone="$tone" />
                 </div>
             @else
@@ -53,8 +53,8 @@
                         <x-empty title="No payments in this period" icon="card" />
                     @else
                         <div class="h-64" x-data="chart(@js($donutCfg))" wire:key="donut-{{ md5(json_encode($d['byMethod'])) }}"><canvas x-ref="canvas" aria-label="Payments by channel chart" role="img"></canvas></div>
-                        <div class="overflow-x-auto"><table class="data-table mt-3" data-testid="by-method"><thead><tr><th>Method</th><th class="text-right">Payments</th><th class="text-right">Captured</th><th class="text-right">Net of refunds</th></tr></thead><tbody>
-                            @foreach ($d['byMethod'] as $m)<tr><td>{{ str_replace('_', ' ', $m['method']) }}</td><td class="text-right tabular-nums">{{ $m['count'] }}</td><td class="text-right"><x-money :value="$m['captured']" /></td><td class="text-right"><x-money :value="$m['net']" /></td></tr>@endforeach
+                        <div class="overflow-x-auto"><table class="data-table mt-3" data-testid="by-method"><thead><tr><th>Method</th><th class="text-right">Payments</th><th class="text-right">Captured</th></tr></thead><tbody>
+                            @foreach ($d['byMethod'] as $m)<tr><td>{{ str_replace('_', ' ', $m['method']) }}</td><td class="text-right tabular-nums">{{ $m['count'] }}</td><td class="text-right"><x-money :value="$m['captured']" />@if (\App\Support\Money::cmp($m['net'], $m['captured']) !== 0)<div class="text-xs text-stone-500" title="After refunds">net <x-money :value="$m['net']" /></div>@endif</td></tr>@endforeach
                         </tbody></table></div>
                     @endif
                 </x-card>
@@ -125,7 +125,7 @@
 
             <x-card title="Needs attention" flush data-testid="alerts">
                 @forelse ($d['alerts'] as $a)
-                    <a href="{{ route($a['route']) }}" class="flex items-start gap-3 border-b border-stone-100 px-5 py-3 text-sm last:border-0 hover:bg-stone-50"><span class="mt-1.5 size-2 shrink-0 rounded-full {{ $a['tone'] === 'bad' ? 'bg-red-600' : 'bg-amber-500' }}"></span><span>{{ $a['text'] }}</span></a>
+                    <a href="{{ route($a['route']) }}" class="flex items-start gap-3 border-b border-stone-100 px-5 py-3 text-sm last:border-0 hover:bg-stone-50"><span class="mt-1.5 size-2 shrink-0 rounded-full {{ $a['tone'] === 'bad' ? 'bg-red-600' : 'bg-amber-500' }}"></span><span class="line-clamp-3 min-w-0" title="{{ $a['text'] }}">{{ $a['text'] }}</span></a>
                 @empty
                     <p class="px-5 py-6 text-center text-sm text-stone-500">All clear. Nothing needs attention.</p>
                 @endforelse
@@ -143,7 +143,7 @@
                 <div class="flex items-center justify-between border-b border-stone-100 px-5 py-2 text-xs"><span class="text-stone-500">Latest payments</span>@if (auth_staff()->can('payment.view'))<a class="font-medium text-brand-700 underline" href="{{ route('finance.payments') }}">View all</a>@endif</div>
                 @forelse ($d['recent'] as $p)
                     <a href="{{ ! empty($p['id']) ? route('finance.payment', $p['id']) : '#' }}" class="flex items-center justify-between gap-3 border-b border-stone-100 px-5 py-3 text-sm last:border-0 hover:bg-stone-50">
-                        <span><span class="block font-medium">{{ str_replace('_', ' ', $p['tenderType'] ?? '') }}</span><span class="block text-xs text-stone-500"><x-badge :status="$p['status'] ?? 'UNKNOWN'" /> &middot; <x-time :at="$p['createdAt'] ?? null" /></span></span>
+                        <span><span class="block font-medium">{{ str_replace('_', ' ', $p['tenderType'] ?? '') }}</span><span class="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-stone-500"><x-badge :status="$p['status'] ?? 'UNKNOWN'" /><x-time :at="$p['createdAt'] ?? null" /></span></span>
                         <span class="font-semibold tabular-nums text-brand-700"><x-money :value="$p['amount'] ?? '0'" /></span></a>
                 @empty
                     <p class="px-5 py-6 text-center text-sm text-stone-500">No payments in this period.</p>

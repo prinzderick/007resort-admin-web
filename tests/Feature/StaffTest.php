@@ -34,7 +34,7 @@ class StaffTest extends TestCase
     public function test_directory_lists_staff_with_sign_in_methods(): void
     {
         $this->api();
-        $this->signIn(self::PERMS)->get('/staff?q=bisi&status=ACTIVE')->assertOk()->assertSee('Bisi Lawal')->assertSee('S-0005')->assertSee('PIN, NFC card');
+        $this->signIn(self::PERMS)->get('/staff?q=bisi&status=ACTIVE')->assertOk()->assertSee('Bisi Lawal')->assertSee('S-0005')->assertSee('PIN, card');
         $this->assertTrue($this->sentTo('GET', '/staff', fn (Request $r) => str_contains($r->url(), 'q=bisi') && str_contains($r->url(), 'filter%5Bstatus%5D=ACTIVE')));
     }
 

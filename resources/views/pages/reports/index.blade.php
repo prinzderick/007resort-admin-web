@@ -14,7 +14,7 @@
         <x-btn variant="secondary">Apply</x-btn>
     </form>
 
-    <x-card title="Facilities on {{ $date }}" flush x-data="tableTools">
+    <x-card title="Facilities on {{ \Carbon\CarbonImmutable::parse($date)->format('j M Y') }}" flush x-data="tableTools">
         <x-table-tools :csv="true" />
         <x-fetch :of="$facilities" what="Facilities" />
         <div class="table-scroll"><table class="data-table" data-testid="property-table">

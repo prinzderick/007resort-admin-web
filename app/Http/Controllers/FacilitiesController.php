@@ -34,8 +34,10 @@ class FacilitiesController extends Controller
         };
         $walk($tree->items(), 0);
 
+        $types = Fetch::of(fn () => $this->api->get('organization/capability-types'), ['GET', '/organization/capability-types']);
+
         return view('pages.setup.facilities.index', [
-            'tree' => $tree, 'rows' => $rows, 'canAdd' => Contract::has('POST', '/organization/facilities'), 'canManage' => $this->staff->canAny('facility.manage', 'facility.configure', 'config.manage'),
+            'capLabels' => collect($types->items())->pluck('label', 'code')->all(), 'tree' => $tree, 'rows' => $rows, 'canAdd' => Contract::has('POST', '/organization/facilities'), 'canManage' => $this->staff->canAny('facility.manage', 'facility.configure', 'config.manage'),
         ]);
     }
 
