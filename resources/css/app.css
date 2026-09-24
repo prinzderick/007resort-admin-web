@@ -131,3 +131,24 @@ form[method='GET'] label.block.text-xs { font-size: 0.8125rem; color: var(--colo
 /* In-table links: one brand style everywhere ("Open", "Edit", "Manage"). */
 .data-table td a.underline { color: var(--color-brand-700); font-weight: 500; text-decoration-color: var(--color-brand-200); text-underline-offset: 2px; }
 .data-table td a.underline:hover { text-decoration-color: var(--color-brand-600); }
+
+/* ---- Website (CMS) screens ---------------------------------------------------------------------------------------- */
+.cms-prose { @apply text-sm leading-7 text-stone-800; overflow-wrap: anywhere; }
+.cms-prose h1 { @apply mb-3 mt-1 text-2xl font-semibold tracking-tight; }
+.cms-prose h2 { @apply mb-2 mt-5 text-xl font-semibold tracking-tight; }
+.cms-prose h3 { @apply mb-2 mt-4 text-base font-semibold; }
+.cms-prose h4, .cms-prose h5, .cms-prose h6 { @apply mb-1 mt-3 font-semibold; }
+.cms-prose p { @apply my-3; }
+.cms-prose ul { @apply my-3 list-disc pl-6; }
+.cms-prose ol { @apply my-3 list-decimal pl-6; }
+.cms-prose li { @apply my-1; }
+.cms-prose a { @apply text-brand-700 underline underline-offset-2; }
+.cms-prose img { @apply my-3 max-h-80 max-w-full rounded-lg; }
+.cms-prose blockquote { @apply my-3 border-l-4 border-brand-200 bg-brand-50/50 px-4 py-1 italic text-stone-700; }
+.cms-prose code { @apply rounded bg-stone-100 px-1 py-0.5 font-mono text-[0.85em]; }
+.cms-prose pre { @apply my-3 overflow-x-auto rounded-lg bg-stone-900 p-3 text-stone-100; }
+.cms-prose pre code { @apply bg-transparent p-0; }
+.cms-prose hr { @apply my-5 border-stone-200; }
+[data-sort-item][data-dragging='true'] { opacity: 0.45; }
+[data-sort-item] { transition: box-shadow 0.15s; }
+[data-sort-item]:focus-within { box-shadow: 0 0 0 2px var(--color-brand-200); }

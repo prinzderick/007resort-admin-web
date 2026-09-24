@@ -54,6 +54,18 @@ final class Navigation
                 ['label' => 'Devices', 'route' => 'devices.index', 'match' => 'devices.index|devices.update', 'icon' => 'device', 'permissions' => ['device.register', 'device.revoke', 'device.view', 'device.manage', 'attendance.device.manage']],
                 ['label' => 'Card machines', 'route' => 'devices.payment-terminals', 'match' => 'devices.payment-terminals*', 'icon' => 'card', 'permissions' => ['device.manage', 'payment.collect']],
             ]],
+            ['title' => 'Website', 'admin' => true, 'items' => [
+                ['label' => 'Website home', 'route' => 'website.index', 'match' => 'website.index', 'icon' => 'globe', 'permissions' => ['cms.view', 'cms.subscribers.view', 'cms.messages.manage']],
+                ['label' => 'Site settings', 'route' => 'website.settings', 'match' => 'website.settings*', 'icon' => 'sliders', 'permissions' => ['cms.view']],
+                ['label' => 'Homepage', 'route' => 'website.homepage', 'match' => 'website.homepage*', 'icon' => 'home', 'permissions' => ['cms.view']],
+                ['label' => 'Pages', 'route' => 'website.pages.index', 'match' => 'website.pages.*', 'icon' => 'file', 'permissions' => ['cms.view']],
+                ['label' => 'Blog', 'route' => 'website.posts.index', 'match' => 'website.posts.*|website.categories.*', 'icon' => 'edit', 'permissions' => ['cms.view']],
+                ['label' => 'Events', 'route' => 'website.events.index', 'match' => 'website.events.*', 'icon' => 'calendar', 'permissions' => ['cms.view']],
+                ['label' => 'Gallery', 'route' => 'website.gallery', 'match' => 'website.gallery*', 'icon' => 'image', 'permissions' => ['cms.view']],
+                ['label' => 'Media library', 'route' => 'website.media', 'match' => 'website.media*', 'icon' => 'layers', 'permissions' => ['cms.view']],
+                ['label' => 'Subscribers', 'route' => 'website.subscribers', 'match' => 'website.subscribers*', 'icon' => 'mail', 'permissions' => ['cms.subscribers.view']],
+                ['label' => 'Messages', 'route' => 'website.messages', 'match' => 'website.messages*', 'icon' => 'bell', 'permissions' => ['cms.messages.manage']],
+            ]],
             ['title' => 'Setup', 'admin' => true, 'items' => [
                 ['label' => 'Setup home', 'route' => 'setup.index', 'match' => 'setup.index', 'icon' => 'sliders', 'permissions' => ['config.manage', 'config.view', 'facility.manage', 'facility.configure', 'settings.manage']],
                 ['label' => 'Facilities', 'route' => 'setup.facilities', 'match' => 'setup.facilities*', 'icon' => 'building', 'permissions' => ['facility.manage', 'facility.configure', 'config.manage', 'config.view', 'booking.configure']],

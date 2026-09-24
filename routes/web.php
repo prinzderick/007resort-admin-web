@@ -16,6 +16,14 @@ use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\TerminalsController;
+use App\Http\Controllers\Website\ContentController;
+use App\Http\Controllers\Website\GalleryController;
+use App\Http\Controllers\Website\HomepageController;
+use App\Http\Controllers\Website\MediaController;
+use App\Http\Controllers\Website\MessagesController;
+use App\Http\Controllers\Website\OverviewController;
+use App\Http\Controllers\Website\SettingsController;
+use App\Http\Controllers\Website\SubscribersController;
 use App\Livewire\ApprovalsQueue;
 use App\Livewire\Dashboard;
 use App\Livewire\SyncCenter;
@@ -124,6 +132,70 @@ Route::middleware('staff')->group(function (): void {
             Route::delete('/{staff}/credentials/nfc-card', [StaffController::class, 'removeCard'])->whereUuid('staff')->name('card.remove');
             Route::post('/{staff}/roles', [StaffController::class, 'grantRole'])->whereUuid('staff')->name('role.grant');
             Route::delete('/{staff}/roles/{assignment}', [StaffController::class, 'revokeRole'])->whereUuid('staff')->name('role.revoke');
+        });
+    });
+
+    // Website (the public site's content: settings, homepage, pages, blog, events, gallery, media, subscribers, messages). All of it lives in the API's CMS module.
+    Route::prefix('website')->name('website.')->middleware('permit:cms.view,cms.subscribers.view,cms.messages.manage')->group(function (): void {
+        Route::get('/', [OverviewController::class, 'index'])->name('index');
+
+        Route::middleware('permit:cms.view')->group(function (): void {
+            Route::get('/settings', [SettingsController::class, 'edit'])->name('settings');
+            Route::put('/settings', [SettingsController::class, 'update'])->middleware('permit:cms.manage')->name('settings.update');
+
+            Route::get('/homepage', [HomepageController::class, 'index'])->name('homepage');
+            Route::middleware('permit:cms.manage')->group(function (): void {
+                Route::post('/homepage/sections', [HomepageController::class, 'store'])->name('homepage.store');
+                Route::post('/homepage/reorder', [HomepageController::class, 'reorder'])->name('homepage.reorder');
+                Route::patch('/homepage/sections/{id}', [HomepageController::class, 'update'])->whereUuid('id')->name('homepage.update');
+                Route::delete('/homepage/sections/{id}', [HomepageController::class, 'destroy'])->whereUuid('id')->name('homepage.destroy');
+            });
+            Route::post('/homepage/sections/{id}/{state}', [HomepageController::class, 'toggle'])->whereUuid('id')->whereIn('state', ['enable', 'disable'])->middleware('permit:cms.publish')->name('homepage.toggle');
+
+            // Pages, blog posts, events and blog categories share one list and one editor (App\Support\Cms\Resources).
+            foreach (['categories' => 'blog/categories', 'posts' => 'blog', 'pages' => 'pages', 'events' => 'events'] as $key => $uri) {
+                Route::get("/{$uri}", [ContentController::class, 'index'])->defaults('resource', $key)->name("{$key}.index");
+                Route::get("/{$uri}/new", [ContentController::class, 'create'])->defaults('resource', $key)->middleware('permit:cms.manage')->name("{$key}.create");
+                Route::post("/{$uri}", [ContentController::class, 'store'])->defaults('resource', $key)->middleware('permit:cms.manage')->name("{$key}.store");
+                Route::get("/{$uri}/{id}", [ContentController::class, 'edit'])->defaults('resource', $key)->whereUuid('id')->name("{$key}.edit");
+                Route::put("/{$uri}/{id}", [ContentController::class, 'update'])->defaults('resource', $key)->whereUuid('id')->middleware('permit:cms.manage')->name("{$key}.update");
+                Route::delete("/{$uri}/{id}", [ContentController::class, 'destroy'])->defaults('resource', $key)->whereUuid('id')->middleware('permit:cms.manage')->name("{$key}.destroy");
+                Route::post("/{$uri}/{id}/{action}", [ContentController::class, 'transition'])->defaults('resource', $key)->whereUuid('id')->whereIn('action', ['publish', 'unpublish', 'archive'])->middleware('permit:cms.publish')->name("{$key}.transition");
+            }
+
+            Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
+            Route::get('/gallery/{id}', [GalleryController::class, 'show'])->whereUuid('id')->name('gallery.show');
+            Route::middleware('permit:cms.manage')->group(function (): void {
+                Route::post('/gallery', [GalleryController::class, 'store'])->name('gallery.store');
+                Route::put('/gallery/{id}', [GalleryController::class, 'update'])->whereUuid('id')->name('gallery.update');
+                Route::delete('/gallery/{id}', [GalleryController::class, 'destroy'])->whereUuid('id')->name('gallery.destroy');
+                Route::post('/gallery/{id}/upload', [GalleryController::class, 'upload'])->whereUuid('id')->name('gallery.upload');
+                Route::post('/gallery/{id}/add', [GalleryController::class, 'add'])->whereUuid('id')->name('gallery.add');
+                Route::post('/gallery/{id}/cover', [GalleryController::class, 'cover'])->whereUuid('id')->name('gallery.cover');
+                Route::delete('/gallery/{id}/items/{item}', [GalleryController::class, 'removeItem'])->whereUuid(['id', 'item'])->name('gallery.item.destroy');
+            });
+            Route::post('/gallery/{id}/{action}', [GalleryController::class, 'transition'])->whereUuid('id')->whereIn('action', ['publish', 'unpublish', 'archive'])->middleware('permit:cms.publish')->name('gallery.transition');
+
+            Route::get('/media', [MediaController::class, 'index'])->name('media');
+            Route::get('/media/picker', [MediaController::class, 'picker'])->name('media.picker');
+            Route::get('/media/{id}/usage', [MediaController::class, 'usage'])->whereUuid('id')->name('media.usage');
+            Route::post('/media/upload', [MediaController::class, 'upload'])->middleware('permit:cms.media.manage')->name('media.upload');
+            Route::patch('/media/{id}', [MediaController::class, 'update'])->whereUuid('id')->middleware('permit:cms.media.manage')->name('media.update');
+            Route::delete('/media/{id}', [MediaController::class, 'destroy'])->whereUuid('id')->middleware('permit:cms.media.manage')->name('media.destroy');
+        });
+
+        Route::middleware('permit:cms.subscribers.view')->group(function (): void {
+            Route::get('/subscribers', [SubscribersController::class, 'index'])->name('subscribers');
+            Route::get('/subscribers/export', [SubscribersController::class, 'export'])->middleware('permit:cms.subscribers.export')->name('subscribers.export');
+            Route::post('/subscribers/{id}/unsubscribe', [SubscribersController::class, 'unsubscribe'])->whereUuid('id')->middleware('permit:cms.manage')->name('subscribers.unsubscribe');
+            Route::delete('/subscribers/{id}', [SubscribersController::class, 'destroy'])->whereUuid('id')->middleware('permit:cms.manage')->name('subscribers.destroy');
+        });
+
+        Route::middleware('permit:cms.messages.manage')->group(function (): void {
+            Route::get('/messages', [MessagesController::class, 'index'])->name('messages');
+            Route::post('/messages/bulk', [MessagesController::class, 'bulk'])->name('messages.bulk');
+            Route::patch('/messages/{id}', [MessagesController::class, 'update'])->whereUuid('id')->name('messages.update');
+            Route::delete('/messages/{id}', [MessagesController::class, 'destroy'])->whereUuid('id')->name('messages.destroy');
         });
     });
 

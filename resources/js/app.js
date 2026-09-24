@@ -1,5 +1,6 @@
 import Chart from 'chart.js/auto';
 import './form/index.js';
+import './cms/index.js';
 
 window.Chart = Chart;
 

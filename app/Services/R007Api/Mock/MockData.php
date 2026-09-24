@@ -36,12 +36,15 @@ final class MockData
                 'staff.manage', 'role_assignment.manage', 'audit.view', 'staff.clock_correction.approve', 'config.manage', 'facility.configure',
                 'pricing.manage', 'membership.plan.manage', 'catalog.availability.manage', 'device.register', 'device.revoke', 'session.revoke',
                 'attendance.device.manage', 'cash_session.view',
+                'cms.view', 'cms.manage', 'cms.publish', 'cms.media.manage', 'cms.subscribers.view', 'cms.subscribers.export', 'cms.messages.manage',
             ])],
             'manager' => ['name' => 'Tunde Adebayo (Manager)', 'roles' => ['manager'], 'permissions' => array_merge($ops, [
                 'report.view.all', 'order.void.approve', 'order.discount.approve', 'inventory.adjustment.approve', 'inventory.adjustment.request',
                 'inventory.transfer.create', 'inventory.count.create', 'inventory.count.post', 'staff.manage', 'role_assignment.manage', 'audit.view',
                 'staff.clock_correction.approve', 'facility.configure', 'pricing.manage', 'membership.plan.manage', 'catalog.availability.manage', 'cash_session.view',
+                'cms.view', 'cms.manage', 'cms.publish', 'cms.media.manage', 'cms.subscribers.view', 'cms.messages.manage',
             ])],
+            'marketing' => ['name' => 'Ifeoma Nnadi (Marketing)', 'roles' => ['marketing'], 'permissions' => ['cms.view', 'cms.manage', 'cms.media.manage']],
             'accounts' => ['name' => 'Amaka Eze (Accountant)', 'roles' => ['accountant'], 'permissions' => [
                 'report.view', 'payment.view', 'finance.report.view', 'settlement.reconcile', 'refund.approve', 'payment.reversal.approve', 'refund.execute', 'cash_session.view', 'audit.view',
             ]],

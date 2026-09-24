@@ -128,6 +128,41 @@ class R007ApiClient
         return ['status' => $response->status(), 'body' => $response->body(), 'headers' => $flat];
     }
 
+    /**
+     * Multipart file upload (CMS media). `$fields` are plain form fields (a list value posts as `name[]`). Mock mode hands the file's
+     * metadata to the fixture backend instead. Failures are RFC 7807 problems like everywhere else.
+     *
+     * @param  array<string, string|int|bool|list<string>>  $fields
+     */
+    public function upload(string $path, string $filePath, string $fileName, string $mime, array $fields = [], ?string $idempotencyKey = null): ApiResponse
+    {
+        $key = $idempotencyKey ?? (string) Str::uuid();
+        if ($this->isMock()) {
+            return $this->mock()->handle('POST', '/'.ltrim($path, '/'), [], $fields + ['_file' => ['path' => $filePath, 'name' => $fileName, 'mime' => $mime, 'size' => (int) @filesize($filePath)]], $this->token());
+        }
+        $request = $this->pendingRequest()->withHeaders([self::IDEMPOTENCY_HEADER => $key])->asMultipart();
+        $request->attach('file', (string) file_get_contents($filePath), $fileName, ['Content-Type' => $mime]);
+        foreach ($fields as $name => $value) {
+            foreach (is_array($value) ? $value : [$value] as $v) {
+                $request->attach(is_array($value) ? $name.'[]' : $name, is_bool($v) ? ($v ? '1' : '0') : (string) $v);
+            }
+        }
+        try {
+            $response = $request->post(ltrim($path, '/'));
+        } catch (ConnectionException $e) {
+            throw R007ApiException::unreachable($e);
+        }
+        if ($response->failed()) {
+            throw R007ApiException::fromResponse($response);
+        }
+        $flat = [];
+        foreach ($response->headers() as $name => $values) {
+            $flat[strtolower((string) $name)] = (string) ($values[0] ?? '');
+        }
+
+        return new ApiResponse($response->status(), (array) $response->json(), $flat);
+    }
+
     public function baseUrl(): string
     {
         return rtrim((string) $this->config['base_url'], '/').'/'.trim((string) ($this->config['prefix'] ?? '/api/v1'), '/');
