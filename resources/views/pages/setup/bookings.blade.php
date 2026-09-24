@@ -1,40 +1,44 @@
-<x-layouts.app title="Booking rules">
-    <x-page-header title="Booking resources & rules" subtitle="Offline-allocation strategy decides what happens to a resource when Local cannot reach Cloud." />
-    <x-card title="Resources" flush x-data="tableTools">
-        <x-table-tools />
+@php $facOpts = collect($bookable)->map(fn ($f) => ['value' => $f['id'], 'label' => $f['name'] ?? $f['code']])->values()->all(); @endphp
+<x-layouts.app title="Booking resources">
+    <x-page-header title="Booking resources" subtitle="Everything that can be booked: courts, salon chairs, rooms, halls. Open one to set its opening windows, blackout dates, rules and what happens when the site is offline." :crumbs="['Setup' => route('setup.index'), 'Booking resources' => null]">
+        <x-slot:actions>@if ($canWrite && $facOpts !== [])<x-btn type="button" icon="plus" @click="$dispatch('open-modal', 'add-resource')" data-testid="add-resource">Add resource</x-btn>@endif</x-slot:actions>
+    </x-page-header>
+    <x-card flush x-data="tableTools">
+        <x-table-tools placeholder="Filter resources..." />
         <x-fetch :of="$resources" what="Booking resources" />
         @if ($resources->ok())
-            <div class="table-scroll"><table class="data-table" data-testid="resources"><thead><tr><th>Resource</th><th>Facility</th><th>Mode</th><th>Capacity</th><th>Slot</th><th class="text-right">Price</th><th>Online</th><th>Booking authority (offline strategy)</th></tr></thead><tbody>
+            <div class="table-scroll"><table class="data-table" data-testid="resources"><thead><tr><th>Resource</th><th>Facility</th><th>Booked by</th><th class="num">Capacity</th><th class="num">Slot</th><th class="num">Price</th><th>Offline</th><th>Status</th><th class="w-12"></th></tr></thead><tbody>
             @forelse ($resources->items() as $r)
-                @php $a = (array) ($r['authority'] ?? []); $strategy = $a['offlineStrategy'] ?? null; @endphp
-                <tr data-row><td class="font-medium">{{ $r['name'] ?? '' }}<div class="text-xs font-normal text-stone-500">{{ $r['code'] ?? '' }}</div></td><td>{{ $facilityNames[$r['facilityId'] ?? ''] ?? '' }}</td><td>{{ str_replace('_', ' ', $r['mode'] ?? '') }}</td><td>{{ $r['capacity'] ?? 1 }}</td><td>{{ $r['slotMinutes'] ?? '-' }} min</td><td class="text-right"><x-money :value="$r['price'] ?? '0'" /></td>
-                    <td>{{ ($r['onlineBookable'] ?? false) ? 'Yes' : 'No' }}</td>
-                    <td>
-                        @if ($canWrite && ! empty($r['id']))
-                            <form method="POST" action="{{ route('setup.bookings.update', $r['id']) }}" class="flex flex-wrap items-center gap-2">@csrf @method('PATCH')
-                                <select name="offlineStrategy" class="min-h-10 rounded-lg border border-stone-300 bg-white px-2 text-sm">@foreach (\App\Http\Controllers\ConfigurationController::STRATEGIES as $k => $l)<option value="{{ $k }}" @selected(($strategy ?? 'A_OFFLINE_ALLOCATION') === $k)>{{ $l }}</option>@endforeach</select>
-                                <input name="localReserveUnits" value="{{ $a['localReserveUnits'] ?? '' }}" placeholder="Local reserve" inputmode="numeric" aria-label="Local reserve units" class="min-h-10 w-28 rounded-lg border border-stone-300 px-2 text-sm">
-                                <input name="onlineStaleAfterSeconds" value="{{ $a['onlineStaleAfterSeconds'] ?? '' }}" placeholder="Stale after (s)" inputmode="numeric" aria-label="Online stale after seconds" class="min-h-10 w-32 rounded-lg border border-stone-300 px-2 text-sm">
-                                <label class="text-xs"><input type="checkbox" name="onlineBookable" value="1" @checked($r['onlineBookable'] ?? false)> online</label>
-                                <input type="hidden" name="active" value="1">
-                                <x-btn class="min-h-10">Save</x-btn></form>
-                        @else
-                            {{ $strategy ? (\App\Http\Controllers\ConfigurationController::STRATEGIES[$strategy] ?? $strategy) : 'Not reported by the API' }}@if (isset($a['localReserveUnits'])) &middot; reserve {{ $a['localReserveUnits'] }}@endif
-                        @endif
-                    </td></tr>
-            @empty<tr><td colspan="8" class="text-center text-stone-500">No resources.</td></tr>@endforelse
+                @php $a = (array) ($r['authority'] ?? []); $strategy = $a['offlineStrategy'] ?? 'A_OFFLINE_ALLOCATION'; @endphp
+                <tr data-row class="{{ ($r['active'] ?? true) ? '' : 'opacity-60' }}">
+                    <td><a class="font-medium text-brand-700 underline decoration-brand-200 underline-offset-2" href="{{ route('setup.bookings.show', $r['id']) }}">{{ $r['name'] ?? '' }}</a><div class="text-xs text-stone-500">{{ $r['code'] ?? '' }}</div></td>
+                    <td>{{ $facilityNames[$r['facilityId'] ?? ''] ?? '' }}</td>
+                    <td class="text-sm text-stone-600">{{ $modes[$r['mode'] ?? ''] ?? str_replace('_', ' ', $r['mode'] ?? '') }}</td>
+                    <td class="num">{{ $r['capacity'] ?? 1 }}</td>
+                    <td class="num">{{ ! empty($r['slotMinutes']) ? $r['slotMinutes'].' min' : '-' }}</td>
+                    <td class="num"><x-money :value="$r['price'] ?? '0'" /></td>
+                    <td class="text-sm" title="{{ $strategies[$strategy][1] ?? '' }}">{{ $strategies[$strategy][0] ?? $strategy }}@if ($strategy === 'A_OFFLINE_ALLOCATION' && ! empty($a['localReserveUnits']))<div class="text-xs text-stone-500">{{ $a['localReserveUnits'] }} of {{ $r['capacity'] ?? 1 }} kept for the site</div>@endif</td>
+                    <td><x-badge :tone="($r['active'] ?? true) ? 'good' : 'default'">{{ ($r['active'] ?? true) ? 'Bookable' : 'Off' }}</x-badge>@if ($r['onlineBookable'] ?? false)<div class="mt-0.5 text-xs text-stone-500">also online</div>@endif</td>
+                    <td class="text-right"><a class="text-sm font-medium text-brand-700 underline" href="{{ route('setup.bookings.show', $r['id']) }}">Open</a></td>
+                </tr>
+            @empty<tr><td colspan="9"><x-empty title="No bookable resources" text="Add a court, chair or hall so it can be booked." icon="calendar" /></td></tr>@endforelse
             </tbody></table></div>
         @endif
     </x-card>
-    <x-card title="What the strategies mean">
-        <dl class="space-y-2 text-sm">
-            <div><dt class="font-semibold">A. Offline allocation (default)</dt><dd class="text-stone-600">Capacity is split into a Cloud pool and a Local offline reserve (the "local reserve"), so Reception keeps booking at normal speed during an outage without any chance of double booking.</dd></div>
-            <div><dt class="font-semibold">B. Online authority required</dt><dd class="text-stone-600">Reception must reach Cloud to confirm this resource ("requires connectivity to book"). Other on-site operations are unaffected.</dd></div>
-            <div><dt class="font-semibold">C. Pause online availability</dt><dd class="text-stone-600">The website stops offering this resource once the site heartbeat is staler than "stale after" seconds.</dd></div>
-        </dl>
-    </x-card>
-    @unless ($canWrite)
-        <x-pending-api title="Not offered to this account" :items="['Editing booking rules and the offline strategy needs the booking.configure permission']" />
-    @endunless
-    <x-pending-api :items="['Creating a resource (POST /bookings/resources) and blackout periods (POST /bookings/resources/{id}/blackouts) exist in the API; forms are not built yet']" />
+    @if ($canWrite && $facOpts !== [])
+        <x-dialog name="add-resource" title="Add a bookable resource" subtitle="You set the opening windows, rules and offline strategy on the next screen.">
+            <form method="POST" action="{{ route('setup.bookings.store') }}" class="grid gap-4" novalidate>@csrf
+                <x-form.select name="facilityId" label="Facility" required :options="$facOpts" placeholder="Choose a facility" hint="Only facilities with Bookings switched on are listed." />
+                <div class="grid gap-4 sm:grid-cols-2"><x-form.text name="name" label="Name" required :maxlength="200" placeholder="e.g. Tennis court 2" /><x-form.text name="code" label="Code" required :maxlength="64" hint="Short and unique, e.g. TENNIS_2." /></div>
+                <x-form.radio-cards name="mode" label="How it is booked" :options="collect($modes)->map(fn ($l, $k) => ['value' => $k, 'label' => $l])->values()->all()" value="TIME_SLOT" />
+                <div class="grid gap-4 sm:grid-cols-3">
+                    <x-form.stepper name="capacity" label="Capacity" :value="1" :min="1" :max="1000" hint="People or units at once." />
+                    <x-form.segmented name="slotMinutes" label="Slot length" :options="['30' => '30 min', '60' => '1 hour', '90' => '90 min', '120' => '2 hours']" value="60" />
+                    <x-form.money name="price" label="Price per slot" :value="'0'" :scale="2" />
+                </div>
+                <x-form.toggle name="onlineBookable" label="Bookable on the website" :value="false" />
+                <div class="flex justify-end gap-2"><x-btn type="button" variant="secondary" @click="open = false">Cancel</x-btn><x-btn>Add resource</x-btn></div>
+            </form>
+        </x-dialog>
+    @endif
 </x-layouts.app>

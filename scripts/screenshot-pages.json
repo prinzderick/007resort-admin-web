@@ -173,6 +173,10 @@
   "path": "/setup/bookings"
  },
  {
+  "name": "61a-booking-resource",
+  "path": "/setup/bookings/1411115d-7697-56ec-83c4-a7eca2c91081"
+ },
+ {
   "name": "62-ticket-types",
   "path": "/setup/tickets"
  },

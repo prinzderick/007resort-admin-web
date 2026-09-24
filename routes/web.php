@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookingSetupController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CollectionsController;
 use App\Http\Controllers\ConfigurationController;
@@ -127,9 +128,9 @@ Route::middleware('staff')->group(function (): void {
     });
 
     // Configuration
-    Route::prefix('setup')->name('setup.')->middleware('permit:config.manage,facility.configure,pricing.manage,membership.plan.manage,catalog.availability.manage,catalog.manage,booking.configure')->group(function (): void {
+    Route::prefix('setup')->name('setup.')->middleware('permit:config.manage,config.view,facility.manage,facility.configure,settings.manage,ticket_type.manage,pricing.manage,membership.plan.manage,catalog.availability.manage,catalog.manage,booking.configure')->group(function (): void {
         Route::get('/', [ConfigurationController::class, 'index'])->name('index');
-        Route::middleware('permit:facility.configure,config.manage,booking.configure')->group(function (): void {
+        Route::middleware('permit:facility.manage,facility.configure,config.manage,config.view,booking.configure,ticket_type.manage,settings.manage,catalog.manage')->group(function (): void {
             Route::get('/facilities', [FacilitiesController::class, 'index'])->name('facilities');
             Route::get('/facilities/new', [FacilitiesController::class, 'create'])->name('facilities.create');
             Route::post('/facilities', [FacilitiesController::class, 'store'])->name('facilities.store');
@@ -148,11 +149,23 @@ Route::middleware('staff')->group(function (): void {
             Route::patch('/tables/{table}', [FacilityConfigController::class, 'updateTable'])->whereUuid('table')->name('tables.update');
             Route::post('/tables/{table}/merge', [FacilityConfigController::class, 'mergeTable'])->whereUuid('table')->name('tables.merge');
             Route::post('/tables/{table}/{state}', [FacilityConfigController::class, 'tableState'])->whereUuid('table')->name('tables.state');
-            Route::get('/bookings', [ConfigurationController::class, 'bookings'])->name('bookings');
-            Route::patch('/bookings/{resource}', [ConfigurationController::class, 'updateResource'])->name('bookings.update');
+            Route::get('/bookings', [BookingSetupController::class, 'index'])->name('bookings');
+            Route::post('/bookings', [BookingSetupController::class, 'store'])->name('bookings.store');
+            Route::get('/bookings/{resource}', [BookingSetupController::class, 'show'])->whereUuid('resource')->name('bookings.show');
+            Route::patch('/bookings/{resource}', [BookingSetupController::class, 'update'])->whereUuid('resource')->name('bookings.update');
+            Route::put('/bookings/{resource}/schedule', [BookingSetupController::class, 'schedule'])->whereUuid('resource')->name('bookings.schedule');
+            Route::put('/bookings/{resource}/rules', [BookingSetupController::class, 'rules'])->whereUuid('resource')->name('bookings.rules');
+            Route::post('/bookings/{resource}/blackouts', [BookingSetupController::class, 'blackout'])->whereUuid('resource')->name('bookings.blackouts.store');
+            Route::delete('/bookings/{resource}/blackouts/{blackout}', [BookingSetupController::class, 'removeBlackout'])->whereUuid(['resource', 'blackout'])->name('bookings.blackouts.destroy');
             Route::get('/tickets', [ConfigurationController::class, 'tickets'])->name('tickets');
+            Route::post('/tickets', [ConfigurationController::class, 'saveTicketType'])->name('tickets.store');
+            Route::patch('/tickets/{type}', [ConfigurationController::class, 'saveTicketType'])->whereUuid('type')->name('tickets.update');
             Route::get('/kds', [ConfigurationController::class, 'kds'])->name('kds');
+            Route::put('/kds', [ConfigurationController::class, 'saveRouting'])->name('kds.save');
+            Route::post('/kds/routes', [ConfigurationController::class, 'saveRoute'])->name('kds.route.store');
+            Route::patch('/kds/routes/{route}', [ConfigurationController::class, 'saveRoute'])->whereUuid('route')->name('kds.route.update');
             Route::get('/payments', [ConfigurationController::class, 'payments'])->name('payments');
+            Route::put('/payments', [ConfigurationController::class, 'savePaymentMethods'])->name('payments.save');
         });
         Route::middleware('permit:pricing.manage,config.manage,catalog.availability.manage,catalog.manage')->group(function (): void {
             Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');
@@ -190,7 +203,7 @@ Route::middleware('staff')->group(function (): void {
 
     // People: roles catalogue, audit log
     Route::get('/people/roles', [PeopleController::class, 'roles'])->middleware('permit:role_assignment.manage')->name('people.roles');
-    Route::get('/system/audit', [StaffController::class, 'audit'])->middleware('permit:audit.view')->name('audit.index');
+    Route::get('/system/audit', [StaffController::class, 'audit'])->middleware('permit:audit.view,config.view')->name('audit.index');
 
     // Devices
     Route::prefix('devices')->name('devices.')->middleware('permit:device.register,device.revoke,attendance.device.manage,device.manage')->group(function (): void {
