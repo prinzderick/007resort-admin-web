@@ -1,0 +1,27 @@
+{
+    "id": "01a0d0c6-057e-7dbf-87c4-fd8be2f61a08",
+    "groupId": "01a0d0c6-0593-70a1-91ae-56e9d455c528",
+    "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+    "tenderType": "CASH",
+    "provider": "MANUAL",
+    "providerReference": null,
+    "reference": null,
+    "status": "CAPTURED",
+    "amount": "2000.0000",
+    "tendered": "2500.0000",
+    "changeGiven": "500.0000",
+    "refundedAmount": "0.0000",
+    "currency": "NGN",
+    "allocations": [
+        {
+            "orderId": "01a0d0c6-036a-7b5a-8bf3-8012ec57641f",
+            "amount": "2000.0000"
+        }
+    ],
+    "cashSessionId": "01a0d0c6-01ad-71f5-8f35-42fb7cd73d43",
+    "receiptId": "01a0d0c6-0594-70c8-a387-6fe47a722103",
+    "takenByStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+    "createdAt": "2026-09-24T00:17:13.619469Z",
+    "capturedAt": "2026-09-24T00:17:13.619469Z",
+    "unallocatedAmount": "0.0000"
+}

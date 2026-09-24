@@ -2,10 +2,10 @@
 
 namespace App\Services\R007Api;
 
+use App\Services\R007Api\Mock\MockBackend;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Http\Client\PendingRequest;
-use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
@@ -18,11 +18,14 @@ use Illuminate\Support\Str;
  *
  * - JSON in / JSON out.
  * - Bearer token is read from the server-side session (never the browser).
+ *   An expired access token is refreshed once with the session's refresh token.
  * - Every mutating request carries an Idempotency-Key so the API can safely
  *   de-duplicate retries. Pass an explicit key when retrying the same logical
- *   operation (e.g. a payment form re-submitted after a timeout).
+ *   operation (e.g. a form re-submitted after a timeout).
  * - Error responses (RFC 7807 problem details) become R007ApiException.
  * - Monetary amounts arrive as decimal strings: never cast them to float.
+ * - Mock mode (R007_MOCK=true) answers from an in-process fixture backend so
+ *   the UI runs without the real API.
  *
  * NOTE: duplicated in 007resort-admin-web and 007resort-booking-web during
  * Phase 0. To be extracted into a shared private Composer package once
@@ -33,12 +36,17 @@ class R007ApiClient
     public const IDEMPOTENCY_HEADER = 'Idempotency-Key';
 
     /**
-     * @param  array<string, mixed>  $config  The "r007.api" config array.
+     * @param  array<string, mixed>  $config  The "r007.api" config array (plus `mock`).
      */
     public function __construct(
         private readonly array $config,
         private readonly ?Session $session = null,
     ) {}
+
+    public function isMock(): bool
+    {
+        return (bool) ($this->config['mock'] ?? false);
+    }
 
     /**
      * @param  array<string, mixed>  $query
@@ -46,7 +54,7 @@ class R007ApiClient
      */
     public function get(string $path, array $query = []): array
     {
-        return $this->send('GET', $path, ['query' => $query]);
+        return $this->request('GET', $path, $query)->body;
     }
 
     /**
@@ -55,7 +63,7 @@ class R007ApiClient
      */
     public function post(string $path, array $data = [], ?string $idempotencyKey = null): array
     {
-        return $this->send('POST', $path, ['json' => $data], $idempotencyKey);
+        return $this->request('POST', $path, [], $data, [], $idempotencyKey)->body;
     }
 
     /**
@@ -64,7 +72,7 @@ class R007ApiClient
      */
     public function put(string $path, array $data = [], ?string $idempotencyKey = null): array
     {
-        return $this->send('PUT', $path, ['json' => $data], $idempotencyKey);
+        return $this->request('PUT', $path, [], $data, [], $idempotencyKey)->body;
     }
 
     /**
@@ -73,7 +81,7 @@ class R007ApiClient
      */
     public function patch(string $path, array $data = [], ?string $idempotencyKey = null): array
     {
-        return $this->send('PATCH', $path, ['json' => $data], $idempotencyKey);
+        return $this->request('PATCH', $path, [], $data, [], $idempotencyKey)->body;
     }
 
     /**
@@ -81,7 +89,7 @@ class R007ApiClient
      */
     public function delete(string $path, ?string $idempotencyKey = null): array
     {
-        return $this->send('DELETE', $path, [], $idempotencyKey);
+        return $this->request('DELETE', $path, [], [], [], $idempotencyKey)->body;
     }
 
     public function baseUrl(): string
@@ -90,19 +98,61 @@ class R007ApiClient
     }
 
     /**
-     * @param  array<string, mixed>  $options
-     * @return array<mixed>
+     * Full-fidelity call: returns status, body and headers (ETag, 202 detection).
+     *
+     * @param  array<string, mixed>  $query
+     * @param  array<string, mixed>  $body
+     * @param  array<string, string>  $headers  extra headers (If-Match, X-Step-Up-Token, ...)
      */
-    protected function send(string $method, string $path, array $options, ?string $idempotencyKey = null): array
-    {
-        $request = $this->pendingRequest();
+    public function request(
+        string $method,
+        string $path,
+        array $query = [],
+        array $body = [],
+        array $headers = [],
+        ?string $idempotencyKey = null,
+        bool $allowRefresh = true,
+    ): ApiResponse {
+        $method = strtoupper($method);
+        $query = array_filter($query, fn ($v) => $v !== null && $v !== '');
 
-        if ($method !== 'GET') {
-            $request->withHeaders([self::IDEMPOTENCY_HEADER => $idempotencyKey ?? (string) Str::uuid()]);
+        if ($method !== 'GET' && $idempotencyKey === null) {
+            $idempotencyKey = (string) Str::uuid();
         }
 
         try {
-            /** @var Response $response */
+            $response = $this->dispatch($method, $path, $query, $body, $headers, $idempotencyKey);
+        } catch (R007ApiException $e) {
+            if ($e->status === 401 && $allowRefresh && ! str_starts_with(ltrim($path, '/'), 'auth/') && $this->refreshTokens()) {
+                return $this->request($method, $path, $query, $body, $headers, $idempotencyKey, false);
+            }
+
+            throw $e;
+        }
+
+        return $response;
+    }
+
+    /**
+     * @param  array<string, mixed>  $query
+     * @param  array<string, mixed>  $body
+     * @param  array<string, string>  $headers
+     */
+    protected function dispatch(string $method, string $path, array $query, array $body, array $headers, ?string $idempotencyKey): ApiResponse
+    {
+        if ($this->isMock()) {
+            return $this->mock()->handle($method, '/'.ltrim($path, '/'), $query, $body, $this->token());
+        }
+
+        $request = $this->pendingRequest()->withHeaders($headers);
+
+        if ($idempotencyKey !== null && $method !== 'GET') {
+            $request->withHeaders([self::IDEMPOTENCY_HEADER => $idempotencyKey]);
+        }
+
+        $options = $method === 'GET' ? ['query' => $query] : ['json' => $body, 'query' => $query];
+
+        try {
             $response = $request->send($method, ltrim($path, '/'), $options);
         } catch (ConnectionException $e) {
             throw R007ApiException::unreachable($e);
@@ -113,22 +163,76 @@ class R007ApiClient
         }
 
         $json = $response->json();
+        $flat = [];
+        foreach ($response->headers() as $name => $values) {
+            $flat[strtolower((string) $name)] = (string) ($values[0] ?? '');
+        }
 
-        return is_array($json) ? $json : [];
+        return new ApiResponse($response->status(), is_array($json) ? $json : [], $flat);
     }
 
-    protected function pendingRequest(): PendingRequest
+    protected function refreshTokens(): bool
+    {
+        $refresh = $this->session?->get((string) ($this->config['session_refresh_key'] ?? 'r007.refresh_token'));
+
+        if (! is_string($refresh) || $refresh === '') {
+            return false;
+        }
+
+        try {
+            $result = $this->dispatchRefresh($refresh);
+        } catch (R007ApiException) {
+            return false;
+        }
+
+        $this->session->put((string) ($this->config['session_token_key'] ?? 'r007.api_token'), $result['accessToken'] ?? null);
+        $this->session->put((string) ($this->config['session_refresh_key'] ?? 'r007.refresh_token'), $result['refreshToken'] ?? $refresh);
+
+        return isset($result['accessToken']);
+    }
+
+    /**
+     * @return array<mixed>
+     */
+    private function dispatchRefresh(string $refresh): array
+    {
+        if ($this->isMock()) {
+            return $this->mock()->handle('POST', '/auth/staff/refresh', [], ['refreshToken' => $refresh], null)->body;
+        }
+
+        try {
+            $response = $this->pendingRequest(withToken: false)
+                ->withHeaders([self::IDEMPOTENCY_HEADER => (string) Str::uuid()])
+                ->post('auth/staff/refresh', ['refreshToken' => $refresh]);
+        } catch (ConnectionException $e) {
+            throw R007ApiException::unreachable($e);
+        }
+
+        if ($response->failed()) {
+            throw R007ApiException::fromResponse($response);
+        }
+
+        return (array) $response->json();
+    }
+
+    protected function mock(): MockBackend
+    {
+        return app(MockBackend::class);
+    }
+
+    protected function pendingRequest(bool $withToken = true): PendingRequest
     {
         $request = Http::baseUrl($this->baseUrl())
             ->withHeaders([
                 'Accept' => 'application/json, application/problem+json',
                 'X-R007-Client' => (string) ($this->config['client_id'] ?? ''),
                 'X-Request-Id' => (string) Str::uuid(),
+                'X-Correlation-Id' => (string) Str::uuid(),
             ])
             ->timeout((int) ($this->config['timeout'] ?? 10))
             ->connectTimeout((int) ($this->config['connect_timeout'] ?? 3));
 
-        $token = $this->token();
+        $token = $withToken ? $this->token() : null;
 
         if ($token !== null && $token !== '') {
             $request->withToken($token);

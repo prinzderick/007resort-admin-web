@@ -1,0 +1,107 @@
+{
+    "items": [
+        {
+            "id": "47550b3b-c238-54f6-81a5-515d521544be",
+            "parentId": null,
+            "name": "Main Dishes",
+            "sortOrder": 10
+        },
+        {
+            "id": "17a38b8f-2d1f-5e6a-bfe2-03399ae1527b",
+            "parentId": null,
+            "name": "Soups & Swallow",
+            "sortOrder": 20
+        },
+        {
+            "id": "2ac932f0-4c92-574f-825b-a09d5ecb7076",
+            "parentId": null,
+            "name": "Grills & Suya",
+            "sortOrder": 30
+        },
+        {
+            "id": "d001726a-d8fb-5476-9819-8e293d2273dd",
+            "parentId": null,
+            "name": "Sides & Snacks",
+            "sortOrder": 40
+        },
+        {
+            "id": "ec0c0871-b66d-5b6e-96d6-c462348b4982",
+            "parentId": null,
+            "name": "Desserts",
+            "sortOrder": 50
+        },
+        {
+            "id": "a7310453-f01e-5345-856a-a5fdec126786",
+            "parentId": null,
+            "name": "Beers & Stout",
+            "sortOrder": 60
+        },
+        {
+            "id": "d59ac2e4-aae0-5277-be44-b03a14382af0",
+            "parentId": null,
+            "name": "Wine & Spirits",
+            "sortOrder": 70
+        },
+        {
+            "id": "a239119d-1286-54c7-a400-6d6de32b70c6",
+            "parentId": null,
+            "name": "Cocktails",
+            "sortOrder": 80
+        },
+        {
+            "id": "26e35431-f857-5adb-b766-83bdd3dec576",
+            "parentId": null,
+            "name": "Soft Drinks & Water",
+            "sortOrder": 90
+        },
+        {
+            "id": "01a0d0bc-0da0-739d-beca-659742c57f91",
+            "parentId": null,
+            "name": "Admin Test Cat",
+            "sortOrder": 99
+        },
+        {
+            "id": "ab7a0907-0d8f-540e-81c9-d75096ab60ff",
+            "parentId": null,
+            "name": "Hot Drinks",
+            "sortOrder": 100
+        },
+        {
+            "id": "5d5799f0-8077-5cea-9de3-a9893a5f4aa8",
+            "parentId": null,
+            "name": "Bakery",
+            "sortOrder": 110
+        },
+        {
+            "id": "ca49b53c-ecd2-52de-b07b-488cec70094e",
+            "parentId": null,
+            "name": "Groceries",
+            "sortOrder": 120
+        },
+        {
+            "id": "13859d7e-0751-5e1b-82bf-5bcc2fe1d47c",
+            "parentId": null,
+            "name": "Toiletries",
+            "sortOrder": 130
+        },
+        {
+            "id": "0da46ff4-4ba0-5564-ab7e-27794af77cd6",
+            "parentId": null,
+            "name": "Spa Treatments",
+            "sortOrder": 140
+        },
+        {
+            "id": "c63dddfa-3222-5692-8557-d0d614fa47b1",
+            "parentId": null,
+            "name": "Club Bottles",
+            "sortOrder": 150
+        },
+        {
+            "id": "e1abbee1-10ad-5b31-9919-f70ffac16e7b",
+            "parentId": null,
+            "name": "Tickets & Fees",
+            "sortOrder": 160
+        }
+    ],
+    "nextCursor": null
+}

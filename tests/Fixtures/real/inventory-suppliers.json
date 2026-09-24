@@ -1,0 +1,15 @@
+{
+    "items": [
+        {
+            "id": "01a0d040-c1ea-71c8-9f24-e25a46b18325",
+            "name": "Demo Wholesale Supplies Ltd",
+            "contactName": null,
+            "phone": null,
+            "email": null,
+            "address": null,
+            "active": true,
+            "rowVersion": 1
+        }
+    ],
+    "nextCursor": null
+}

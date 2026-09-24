@@ -1,0 +1,18 @@
+{
+    "from": "2026-09-17",
+    "to": "2026-09-24",
+    "byStatus": [],
+    "byPlan": [],
+    "expiringWithinDays": 7,
+    "expiring": 0,
+    "visitsByFacility": [],
+    "freshness": {
+        "generatedAt": "2026-09-24T00:33:47.669Z",
+        "sourceNode": "local",
+        "lastSyncAt": null,
+        "stale": false,
+        "staleReason": null,
+        "ageSeconds": null,
+        "staleAfterSeconds": 300
+    }
+}

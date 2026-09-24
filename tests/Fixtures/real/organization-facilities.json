@@ -1,0 +1,459 @@
+{
+    "items": [
+        {
+            "id": "5996b8b4-1b06-5150-adca-659ac70055e7",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "RECEPTION",
+            "name": "Main Reception",
+            "kind": "RECEPTION",
+            "status": "ACTIVE",
+            "capabilities": [
+                "BOOKING",
+                "CAPACITY_MANAGEMENT",
+                "EQUIPMENT_RENTAL",
+                "MEMBERSHIP",
+                "PAYMENT_ACCEPTANCE",
+                "POS",
+                "RECEIPT_PRINTING",
+                "SUBSCRIPTION_BILLING",
+                "TICKETING"
+            ],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "RESTAURANT",
+            "name": "Restaurant",
+            "kind": "RESTAURANT",
+            "status": "ACTIVE",
+            "capabilities": [
+                "INVENTORY",
+                "KITCHEN_ROUTING",
+                "OPEN_TAB",
+                "PAYMENT_ACCEPTANCE",
+                "POS",
+                "RECEIPT_PRINTING",
+                "TABLE_SERVICE"
+            ],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "5b2a99cc-7f17-5c53-9461-ccd97644abaa",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "INDOOR_CLUB",
+            "name": "Indoor Club",
+            "kind": "CLUB",
+            "status": "ACTIVE",
+            "capabilities": [
+                "BAR_ROUTING",
+                "INVENTORY",
+                "MEMBER_DISCOUNTS",
+                "MEMBERSHIP",
+                "OPEN_TAB",
+                "PAYMENT_ACCEPTANCE",
+                "POS",
+                "RECEIPT_PRINTING",
+                "TABLE_SERVICE"
+            ],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "c3d3b51c-c131-5673-9508-0976c6a93b4b",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "BEAUTY_SPA",
+            "name": "Beauty Spa",
+            "kind": "SPA",
+            "status": "ACTIVE",
+            "capabilities": [
+                "APPOINTMENTS",
+                "BOOKING",
+                "CAPACITY_MANAGEMENT",
+                "INVENTORY",
+                "MEMBER_DISCOUNTS",
+                "MEMBERSHIP",
+                "PAYMENT_ACCEPTANCE",
+                "POS",
+                "RECEIPT_PRINTING",
+                "STAFF_ASSIGNMENT"
+            ],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "e72222e7-c136-535e-9e25-d2a8668c2b18",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "POOL_AREA",
+            "name": "Pool Area",
+            "kind": "POOL",
+            "status": "ACTIVE",
+            "capabilities": [
+                "MEMBERSHIP",
+                "QR_VALIDATION",
+                "TICKET_VALIDATION"
+            ],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "991c6184-c816-52a5-8dc8-edd5f8e83142",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "POOL_BAR",
+            "name": "Pool Bar",
+            "kind": "BAR",
+            "status": "ACTIVE",
+            "capabilities": [
+                "BAR_ROUTING",
+                "INVENTORY",
+                "OPEN_TAB",
+                "TABLE_SERVICE"
+            ],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "3bdbd9ba-da71-5b5a-9db1-16d5ef9cd60a",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "CAFE",
+            "name": "Cafe",
+            "kind": "CAFE",
+            "status": "ACTIVE",
+            "capabilities": [
+                "INVENTORY",
+                "PAYMENT_ACCEPTANCE",
+                "POS",
+                "RECEIPT_PRINTING"
+            ],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "bfc27353-a410-5c1a-bf7e-ef32660866e5",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "CYBER_CAFE",
+            "name": "Cyber Cafe",
+            "kind": "CAFE",
+            "status": "ACTIVE",
+            "capabilities": [
+                "BOOKING",
+                "INVENTORY",
+                "PAYMENT_ACCEPTANCE",
+                "POS",
+                "RECEIPT_PRINTING",
+                "TIME_SLOTS"
+            ],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "84ea0412-4610-5afe-95a3-98242a14ce96",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "MAIN_KITCHEN",
+            "name": "Main Kitchen",
+            "kind": "KITCHEN",
+            "status": "ACTIVE",
+            "capabilities": [
+                "INVENTORY",
+                "KITCHEN_ROUTING"
+            ],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "6ba54aaa-169a-5945-aa14-af22c0c33bea",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "SMALL_KITCHEN",
+            "name": "Smaller Kitchen",
+            "kind": "KITCHEN",
+            "status": "ACTIVE",
+            "capabilities": [
+                "INVENTORY"
+            ],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "37d18ea1-de71-5c47-a382-02e0186a7125",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "SPORTS_ARENA",
+            "name": "Sports Arena",
+            "kind": "SPORTS",
+            "status": "ACTIVE",
+            "capabilities": [
+                "BOOKING",
+                "CAPACITY_MANAGEMENT",
+                "MEMBERSHIP",
+                "QR_VALIDATION",
+                "TICKET_VALIDATION",
+                "TIME_SLOTS"
+            ],
+            "rowVersion": 1,
+            "children": [
+                {
+                    "id": "54bc6067-29d9-537a-a678-1cbe54942163",
+                    "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+                    "parentId": "37d18ea1-de71-5c47-a382-02e0186a7125",
+                    "code": "FOOTBALL",
+                    "name": "Football",
+                    "kind": "SPORTS_VENUE",
+                    "status": "ACTIVE",
+                    "capabilities": [
+                        "BOOKING",
+                        "CAPACITY_MANAGEMENT",
+                        "TIME_SLOTS"
+                    ],
+                    "rowVersion": 1,
+                    "children": []
+                },
+                {
+                    "id": "7b708d65-561b-5ec3-b23f-707ba9c1b5cf",
+                    "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+                    "parentId": "37d18ea1-de71-5c47-a382-02e0186a7125",
+                    "code": "LAWN_TENNIS",
+                    "name": "Lawn Tennis",
+                    "kind": "SPORTS_VENUE",
+                    "status": "ACTIVE",
+                    "capabilities": [
+                        "BOOKING",
+                        "CAPACITY_MANAGEMENT",
+                        "TIME_SLOTS"
+                    ],
+                    "rowVersion": 1,
+                    "children": []
+                },
+                {
+                    "id": "9bcf2d5a-8603-5fe6-b208-d510f1c2e50b",
+                    "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+                    "parentId": "37d18ea1-de71-5c47-a382-02e0186a7125",
+                    "code": "BASKETBALL",
+                    "name": "Basketball",
+                    "kind": "SPORTS_VENUE",
+                    "status": "ACTIVE",
+                    "capabilities": [
+                        "BOOKING",
+                        "CAPACITY_MANAGEMENT",
+                        "TIME_SLOTS"
+                    ],
+                    "rowVersion": 1,
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": "9d502706-2ed5-5bd1-86bf-f895907468b1",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "BUSH_BAR",
+            "name": "Bush Bar",
+            "kind": "BAR",
+            "status": "ACTIVE",
+            "capabilities": [
+                "BAR_ROUTING",
+                "INVENTORY",
+                "OPEN_TAB",
+                "PAYMENT_ACCEPTANCE",
+                "POS",
+                "RECEIPT_PRINTING",
+                "TABLE_SERVICE"
+            ],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "783110f0-20c0-55fd-9ab3-4da8c18802a2",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "EVENT_CENTRE",
+            "name": "Event Centre",
+            "kind": "EVENT_CENTRE",
+            "status": "ACTIVE",
+            "capabilities": [
+                "BAR_ROUTING",
+                "BOOKING",
+                "CAPACITY_MANAGEMENT",
+                "INVENTORY",
+                "OPEN_TAB",
+                "PAYMENT_ACCEPTANCE",
+                "POS",
+                "RECEIPT_PRINTING",
+                "TICKET_VALIDATION",
+                "TICKETING"
+            ],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "1e95200c-b53f-5be0-9c8d-b21c4e1f1862",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "SALON_MALE",
+            "name": "Salon (Male)",
+            "kind": "SALON",
+            "status": "ACTIVE",
+            "capabilities": [
+                "APPOINTMENTS",
+                "BOOKING",
+                "INVENTORY",
+                "MEMBER_DISCOUNTS",
+                "MEMBERSHIP",
+                "PAYMENT_ACCEPTANCE",
+                "POS",
+                "RECEIPT_PRINTING",
+                "STAFF_ASSIGNMENT"
+            ],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "6c3e41ca-b525-5197-9471-afb89ca64c59",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "SALON_FEMALE",
+            "name": "Salon (Female)",
+            "kind": "SALON",
+            "status": "ACTIVE",
+            "capabilities": [
+                "APPOINTMENTS",
+                "BOOKING",
+                "INVENTORY",
+                "MEMBER_DISCOUNTS",
+                "MEMBERSHIP",
+                "PAYMENT_ACCEPTANCE",
+                "POS",
+                "RECEIPT_PRINTING",
+                "STAFF_ASSIGNMENT"
+            ],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "6db7c536-2faf-59d6-b444-624d85c72d68",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "SUPERMARKET",
+            "name": "Supermarket",
+            "kind": "RETAIL",
+            "status": "ACTIVE",
+            "capabilities": [
+                "BARCODE_SALES",
+                "INVENTORY",
+                "PAYMENT_ACCEPTANCE",
+                "POS",
+                "RECEIPT_PRINTING"
+            ],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "d996a202-cc71-5ad7-819f-50e8089de191",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "SUPER_STORE",
+            "name": "Super Store",
+            "kind": "RETAIL",
+            "status": "ACTIVE",
+            "capabilities": [
+                "BARCODE_SALES",
+                "INVENTORY",
+                "PAYMENT_ACCEPTANCE",
+                "POS",
+                "RECEIPT_PRINTING"
+            ],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "18e4ff16-9acb-5341-9161-975fb22fcefe",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "SPORTS_STORE",
+            "name": "Sports Store",
+            "kind": "STORE",
+            "status": "ACTIVE",
+            "capabilities": [
+                "EQUIPMENT_RENTAL",
+                "INVENTORY",
+                "QR_VALIDATION",
+                "TICKET_VALIDATION"
+            ],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "a3585e25-ca02-5800-971b-4185cfe4e163",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "MAIN_STORE",
+            "name": "Main Store",
+            "kind": "STORE",
+            "status": "ACTIVE",
+            "capabilities": [
+                "INVENTORY"
+            ],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "be24bd49-d9a8-56a5-a04d-861ecba17101",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "ACCOUNTS",
+            "name": "Accounts",
+            "kind": "OFFICE",
+            "status": "ACTIVE",
+            "capabilities": [],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "a4edab24-e6c7-5b73-a47d-eb112c2aa21a",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "MANAGER_OFFICE",
+            "name": "Manager Office",
+            "kind": "OFFICE",
+            "status": "ACTIVE",
+            "capabilities": [],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "4c3d3bbd-ddc3-553a-8083-f966d56eedf5",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "IT_OFFICE",
+            "name": "IT Office",
+            "kind": "OFFICE",
+            "status": "ACTIVE",
+            "capabilities": [],
+            "rowVersion": 1,
+            "children": []
+        },
+        {
+            "id": "a0545ca5-e812-5e7b-ad1f-3a200728b352",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "parentId": null,
+            "code": "MAIN_GATE",
+            "name": "Main Gate",
+            "kind": "GATE",
+            "status": "ACTIVE",
+            "capabilities": [],
+            "rowVersion": 1,
+            "children": []
+        }
+    ]
+}

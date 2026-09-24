@@ -1,0 +1,247 @@
+{
+    "items": [
+        {
+            "id": "51c8ebb7-0f57-517e-ba57-b1a12b1969e6",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "operatingPointId": "82d5d85a-60d4-58af-8dc0-2d95a62af927",
+            "label": "T1",
+            "seats": 4,
+            "status": "OCCUPIED",
+            "openOrderIds": [
+                "01a0d099-1ee2-7468-ac42-0c982a520b08",
+                "01a0d099-1f34-7ca6-ac4f-a5bededdef52"
+            ],
+            "openTabId": "01a0d099-1e91-7ab1-975f-13361bdf2385",
+            "assignedStaffId": null,
+            "occupiedByStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "rowVersion": 8
+        },
+        {
+            "id": "27d2131f-976d-5133-9334-5102107a9baa",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "operatingPointId": "82d5d85a-60d4-58af-8dc0-2d95a62af927",
+            "label": "T10",
+            "seats": 4,
+            "status": "OCCUPIED",
+            "openOrderIds": [
+                "01a0d099-6544-78fa-be73-28381cd4d8ab",
+                "01a0d099-65b9-72be-bc51-4b54660ee166"
+            ],
+            "openTabId": "01a0d099-64e5-7474-bba8-629fc49f4263",
+            "assignedStaffId": null,
+            "occupiedByStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "rowVersion": 5
+        },
+        {
+            "id": "5ceaebab-8204-5084-9b1b-b74b6de738d9",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "operatingPointId": "82d5d85a-60d4-58af-8dc0-2d95a62af927",
+            "label": "T2",
+            "seats": 4,
+            "status": "OCCUPIED",
+            "openOrderIds": [
+                "01a0d053-cea6-7e2d-b7fc-6be937169286"
+            ],
+            "openTabId": "01a0d053-aa08-791e-92f6-0becd8a01ebe",
+            "assignedStaffId": null,
+            "occupiedByStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "rowVersion": 2
+        },
+        {
+            "id": "010ce816-cc5b-5d7f-970c-0cbe40ac90f1",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "operatingPointId": "82d5d85a-60d4-58af-8dc0-2d95a62af927",
+            "label": "T3",
+            "seats": 4,
+            "status": "NEEDS_CLEANING",
+            "openOrderIds": [],
+            "openTabId": null,
+            "assignedStaffId": null,
+            "occupiedByStaffId": null,
+            "rowVersion": 26
+        },
+        {
+            "id": "846439cd-8727-5c5e-832c-f5a1237b83e3",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "operatingPointId": "82d5d85a-60d4-58af-8dc0-2d95a62af927",
+            "label": "T4",
+            "seats": 4,
+            "status": "OCCUPIED",
+            "openOrderIds": [
+                "01a0d092-eb8c-7079-b161-295829ebd6b1"
+            ],
+            "openTabId": null,
+            "assignedStaffId": null,
+            "occupiedByStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "rowVersion": 2
+        },
+        {
+            "id": "ab251d7b-0dcb-5502-bde9-22c7975dca8a",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "operatingPointId": "82d5d85a-60d4-58af-8dc0-2d95a62af927",
+            "label": "T5",
+            "seats": 4,
+            "status": "OCCUPIED",
+            "openOrderIds": [
+                "01a0d092-f7a0-722f-b5fb-e9b88d578165",
+                "01a0d0a5-99bb-7773-b658-933144844f21"
+            ],
+            "openTabId": null,
+            "assignedStaffId": null,
+            "occupiedByStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "rowVersion": 2
+        },
+        {
+            "id": "25144ce2-2a54-5770-95fa-2aebe9438c25",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "operatingPointId": "82d5d85a-60d4-58af-8dc0-2d95a62af927",
+            "label": "T6",
+            "seats": 4,
+            "status": "OCCUPIED",
+            "openOrderIds": [
+                "01a0d093-0926-70f9-b957-259352944b33"
+            ],
+            "openTabId": null,
+            "assignedStaffId": null,
+            "occupiedByStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "rowVersion": 2
+        },
+        {
+            "id": "7c3fdd5d-2aac-5e47-9ac0-327f14b11d31",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "operatingPointId": "82d5d85a-60d4-58af-8dc0-2d95a62af927",
+            "label": "T7",
+            "seats": 4,
+            "status": "OCCUPIED",
+            "openOrderIds": [
+                "01a0d093-170a-7143-856f-bd6aa2d1d044"
+            ],
+            "openTabId": null,
+            "assignedStaffId": null,
+            "occupiedByStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "rowVersion": 2
+        },
+        {
+            "id": "2c2d81a8-980a-538f-8a3f-ed414eabfdfd",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "operatingPointId": "82d5d85a-60d4-58af-8dc0-2d95a62af927",
+            "label": "T8",
+            "seats": 4,
+            "status": "OCCUPIED",
+            "openOrderIds": [
+                "01a0d093-3e9b-70b8-aeab-92f5d8f6d7fb"
+            ],
+            "openTabId": null,
+            "assignedStaffId": null,
+            "occupiedByStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "rowVersion": 2
+        },
+        {
+            "id": "cd9b543f-5a03-59c6-8501-ad02344cf800",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "operatingPointId": "82d5d85a-60d4-58af-8dc0-2d95a62af927",
+            "label": "T9",
+            "seats": 4,
+            "status": "OCCUPIED",
+            "openOrderIds": [
+                "01a0d097-7d02-721c-8200-e639318ebe51"
+            ],
+            "openTabId": null,
+            "assignedStaffId": null,
+            "occupiedByStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "rowVersion": 2
+        },
+        {
+            "id": "0e0e9011-7d5d-5949-86db-8d6c1b91655a",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "operatingPointId": "b42e26de-014f-5447-b2cb-8215def748ed",
+            "label": "TR1",
+            "seats": 4,
+            "status": "OCCUPIED",
+            "openOrderIds": [
+                "01a0d097-8a0b-70d0-a594-90d44e9fa2f1"
+            ],
+            "openTabId": null,
+            "assignedStaffId": null,
+            "occupiedByStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "rowVersion": 2
+        },
+        {
+            "id": "e8f11a2d-14b1-53f7-afcd-6d47f68c1121",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "operatingPointId": "b42e26de-014f-5447-b2cb-8215def748ed",
+            "label": "TR2",
+            "seats": 4,
+            "status": "OCCUPIED",
+            "openOrderIds": [
+                "01a0d097-9c6a-7084-8e8a-4257191b9e6e"
+            ],
+            "openTabId": null,
+            "assignedStaffId": null,
+            "occupiedByStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "rowVersion": 2
+        },
+        {
+            "id": "f3443b50-9bdf-525d-a4ca-8e77c3776748",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "operatingPointId": "b42e26de-014f-5447-b2cb-8215def748ed",
+            "label": "TR3",
+            "seats": 4,
+            "status": "OCCUPIED",
+            "openOrderIds": [
+                "01a0d097-dc64-7e53-8b12-8d1e530a4e83"
+            ],
+            "openTabId": null,
+            "assignedStaffId": null,
+            "occupiedByStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "rowVersion": 2
+        },
+        {
+            "id": "0bdf727d-6b07-52fe-a5f6-f31883feed57",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "operatingPointId": "b42e26de-014f-5447-b2cb-8215def748ed",
+            "label": "TR4",
+            "seats": 4,
+            "status": "OCCUPIED",
+            "openOrderIds": [
+                "01a0d097-e02a-712f-acde-c3eff688676c",
+                "01a0d097-e08a-7883-8e92-ebf85acdc274"
+            ],
+            "openTabId": "01a0d097-dfc4-73d9-80cf-375bb8a244d8",
+            "assignedStaffId": null,
+            "occupiedByStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "rowVersion": 2
+        },
+        {
+            "id": "356de0eb-847e-5209-b3e4-3d494899f029",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "operatingPointId": "b42e26de-014f-5447-b2cb-8215def748ed",
+            "label": "TR5",
+            "seats": 4,
+            "status": "OCCUPIED",
+            "openOrderIds": [
+                "01a0d097-ef5f-7066-9e4b-58282acafd0e"
+            ],
+            "openTabId": null,
+            "assignedStaffId": null,
+            "occupiedByStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "rowVersion": 2
+        },
+        {
+            "id": "110c77df-3e63-5021-ad27-51aa7796e4af",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "operatingPointId": "b42e26de-014f-5447-b2cb-8215def748ed",
+            "label": "TR6",
+            "seats": 4,
+            "status": "OCCUPIED",
+            "openOrderIds": [
+                "01a0d098-2c0b-726d-9d15-7f7a7a77f29a"
+            ],
+            "openTabId": null,
+            "assignedStaffId": null,
+            "occupiedByStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "rowVersion": 2
+        }
+    ],
+    "nextCursor": null
+}

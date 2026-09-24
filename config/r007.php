@@ -21,6 +21,31 @@ return [
     // timestamps and the application itself runs in UTC.
     'display_timezone' => env('R007_DISPLAY_TIMEZONE', 'Africa/Lagos'),
 
+    // Which node this admin instance fronts: "local" (on-site, LAN) or "cloud"
+    // (remote). Same code, different config: cloud enforces MFA and always
+    // treats site-originated figures as "as of last sync".
+    'instance' => env('R007_INSTANCE', 'local'),
+
+    // Mock API mode: serve fixture data in-process so the UI runs with no
+    // backend (demo, design review, CI smoke). NEVER enable in production.
+    'mock' => (bool) env('R007_MOCK', false),
+    // normal | stale (site online but sync behind) | offline (site unreachable)
+    'mock_scenario' => env('R007_MOCK_SCENARIO', 'normal'),
+
+    // Seconds between re-reading /auth/me to refresh the permission set that
+    // drives navigation (login always reads it).
+    'me_ttl' => (int) env('R007_ME_TTL', 300),
+
+    // MFA hook (docs/architecture 06 s4, 17 s1). Enforced on the cloud
+    // instance for staff holding any of the listed sensitive permissions.
+    'mfa' => [
+        'enforce' => (bool) env('R007_MFA_ENFORCE', false),
+        'permissions' => [
+            'config.manage', 'device.register', 'staff.manage', 'refund.approve',
+            'payment.reversal.approve', 'finance.report.view', 'report.view.all',
+        ],
+    ],
+
     'api' => [
         // Base URL of the 007 Resort & Spa API (on-site server or cloud
         // instance), e.g. http://r007-api.site.local:5080 or
@@ -42,6 +67,7 @@ return [
         // Session key under which the API-issued access token is stored
         // server-side. Tokens are never exposed to the browser.
         'session_token_key' => 'r007.api_token',
+        'session_refresh_key' => 'r007.refresh_token',
     ],
 
 ];

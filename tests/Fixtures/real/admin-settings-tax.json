@@ -1,0 +1,7 @@
+{
+    "vatEnabled": false,
+    "vatRatePercent": "7.5",
+    "pricesTaxInclusive": false,
+    "vatNumber": "TIN-123",
+    "rowVersion": 2
+}

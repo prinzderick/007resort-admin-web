@@ -1,0 +1,18 @@
+{
+    "items": [
+        {
+            "id": "01a0d040-c34c-7109-bf79-1d8af06f293c",
+            "deviceId": "31cad6d5-c422-5df1-80e5-e05ff1b3468e",
+            "facilityId": "a0545ca5-e812-5e7b-ad1f-3a200728b352",
+            "serialNumber": "ZK-DEMO-001",
+            "name": "Main Gate Biometric Terminal (ZKTeco)",
+            "adapter": "ZKTECO_ADMS",
+            "timeZone": "Africa/Lagos",
+            "status": "ACTIVE",
+            "lastSeenAt": null,
+            "lastPunchAt": null,
+            "rowVersion": 1
+        }
+    ],
+    "nextCursor": null
+}

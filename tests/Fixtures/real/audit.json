@@ -1,0 +1,3194 @@
+{
+    "items": [
+        {
+            "id": "01a0d040-c160-7221-8e64-fb65990a43cf",
+            "seq": 1,
+            "occurredAt": "2026-09-23T21:51:39.872Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": null,
+            "facilityUnitId": null,
+            "deviceId": null,
+            "action": "ticket.issue",
+            "entityType": "Entitlement",
+            "entityId": "01a0d040-c15b-70f4-8f30-8d6579575dc1",
+            "oldValue": null,
+            "newValue": {
+                "items": 3,
+                "orderId": null,
+                "bookingId": null,
+                "sourceKey": "demo:arena-rental"
+            },
+            "approvalId": null,
+            "rowHash": "02ee5c8e9b8bc3211e44fa3a8318864bb01da45763960ab0fde04f101e71e600"
+        },
+        {
+            "id": "01a0d040-c164-7027-a576-744ce178a079",
+            "seq": 2,
+            "occurredAt": "2026-09-23T21:51:39.876Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": null,
+            "facilityUnitId": null,
+            "deviceId": null,
+            "action": "ticket.issue",
+            "entityType": "Entitlement",
+            "entityId": "01a0d040-c163-7069-b89c-297dba793a1d",
+            "oldValue": null,
+            "newValue": {
+                "items": 1,
+                "orderId": null,
+                "bookingId": null,
+                "sourceKey": "demo:pool-adult"
+            },
+            "approvalId": null,
+            "rowHash": "e89ce1a162c7f18e12b13c522f5a9f697958af16d1cad73a2f451e1bd83b3bb3"
+        },
+        {
+            "id": "01a0d040-c227-7228-9ddd-81ff1a84b029",
+            "seq": 3,
+            "occurredAt": "2026-09-23T21:51:40.071Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": null,
+            "facilityUnitId": null,
+            "deviceId": null,
+            "action": "inventory.receipt",
+            "entityType": "PurchaseReceipt",
+            "entityId": "01a0d040-c1ea-71c8-9f24-e25a471e6a1e",
+            "oldValue": null,
+            "newValue": {
+                "lines": [
+                    {
+                        "itemId": "01a0d040-c1a0-733a-aa40-c887ee129b74",
+                        "quantity": "600.0000",
+                        "unitCost": "650.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a1-7185-b35d-9cb7a977783c",
+                        "quantity": "480.0000",
+                        "unitCost": "750.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a2-700d-95e8-1922510b6407",
+                        "quantity": "480.0000",
+                        "unitCost": "800.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a2-700d-95e8-192251c96401",
+                        "quantity": "360.0000",
+                        "unitCost": "500.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a3-7080-a031-5c6314840059",
+                        "quantity": "36.0000",
+                        "unitCost": "38000.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a4-70fe-8456-7a14f3a67742",
+                        "quantity": "36.0000",
+                        "unitCost": "28000.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a4-70fe-8456-7a14f3acabeb",
+                        "quantity": "30.0000",
+                        "unitCost": "32000.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a5-7331-a58f-ac9b4a788761",
+                        "quantity": "48.0000",
+                        "unitCost": "9500.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a6-7091-a3c0-861ee4807843",
+                        "quantity": "36.0000",
+                        "unitCost": "9000.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a6-7091-a3c0-861ee4b2756b",
+                        "quantity": "30.0000",
+                        "unitCost": "9500.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a7-7338-84a1-9309795f86e4",
+                        "quantity": "60.0000",
+                        "unitCost": "4200.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a7-7338-84a1-930979ee0d40",
+                        "quantity": "48.0000",
+                        "unitCost": "6500.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a8-7060-932f-c27d2b75740b",
+                        "quantity": "48.0000",
+                        "unitCost": "6500.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a9-71a5-80b5-119f030dd442",
+                        "quantity": "960.0000",
+                        "unitCost": "200.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1aa-70c1-9932-0af6b59fa028",
+                        "quantity": "720.0000",
+                        "unitCost": "200.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1aa-70c1-9932-0af6b605b84f",
+                        "quantity": "720.0000",
+                        "unitCost": "200.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ab-7035-a3b4-7e2bf5574454",
+                        "quantity": "1200.0000",
+                        "unitCost": "120.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ac-71a9-8b35-e966ddfdb424",
+                        "quantity": "240.0000",
+                        "unitCost": "250.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ac-71a9-8b35-e966dee22541",
+                        "quantity": "120.0000",
+                        "unitCost": "1400.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ad-7222-aa39-9f5675899800",
+                        "quantity": "120.0000",
+                        "unitCost": "1400.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ae-715b-a8fc-a84766546ca6",
+                        "quantity": "240.0000",
+                        "unitCost": "900.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ae-715b-a8fc-a84766ab1691",
+                        "quantity": "30.0000",
+                        "unitCost": "68000.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1af-7185-87a6-a673b051f46e",
+                        "quantity": "12.0000",
+                        "unitCost": "42000.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b0-7242-80a1-3ed431681346",
+                        "quantity": "200.0000",
+                        "unitCost": "1800.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b0-7242-80a1-3ed4316930e5",
+                        "quantity": "150.0000",
+                        "unitCost": "1500.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b1-70fe-8f4d-e5433973189b",
+                        "quantity": "120.0000",
+                        "unitCost": "1100.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b2-73da-a8f9-7352645b6c62",
+                        "quantity": "60.0000",
+                        "unitCost": "2200.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b3-7339-956c-cf023af7d067",
+                        "quantity": "300.0000",
+                        "unitCost": "4200.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b3-7339-956c-cf023afb23f5",
+                        "quantity": "200.0000",
+                        "unitCost": "5500.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b4-7269-8f59-2d2ac881498e",
+                        "quantity": "100.0000",
+                        "unitCost": "4800.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b5-7175-a659-730028a562fe",
+                        "quantity": "100.0000",
+                        "unitCost": "4000.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b5-7175-a659-73002928a45f",
+                        "quantity": "120.0000",
+                        "unitCost": "3600.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b6-71b4-ae4e-bc603c45c134",
+                        "quantity": "24.0000",
+                        "unitCost": "62000.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b7-70f4-aa80-cdfbe0ef022d",
+                        "quantity": "20.0000",
+                        "unitCost": "48000.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b7-70f4-aa80-cdfbe1c4950f",
+                        "quantity": "20.0000",
+                        "unitCost": "78000.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b8-717b-a6ff-a4af998ea9c7",
+                        "quantity": "100.0000",
+                        "unitCost": "350.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b9-70fa-8238-19e989dcc717",
+                        "quantity": "60.0000",
+                        "unitCost": "2800.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b9-70fa-8238-19e98a007c2e",
+                        "quantity": "300.0000",
+                        "unitCost": "900.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ba-730c-82a7-7b24c2020e3a",
+                        "quantity": "100.0000",
+                        "unitCost": "3500.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1bb-7250-bc44-2b752a0285fc",
+                        "quantity": "20.0000",
+                        "unitCost": "36000.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1bb-7250-bc44-2b752ad028e9",
+                        "quantity": "120.0000",
+                        "unitCost": "3800.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1bc-71ce-a336-451e0627dc67",
+                        "quantity": "60.0000",
+                        "unitCost": "3200.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1bd-72c4-93da-937cbd377619",
+                        "quantity": "80.0000",
+                        "unitCost": "7800.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1bd-72c4-93da-937cbdfd9a8d",
+                        "quantity": "150.0000",
+                        "unitCost": "1300.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1be-73cc-a20f-c4427abfa4d4",
+                        "quantity": "200.0000",
+                        "unitCost": "450.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1bf-7152-9ba5-c9873eeccc1e",
+                        "quantity": "200.0000",
+                        "unitCost": "300.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1bf-7152-9ba5-c9873fafcdd0",
+                        "quantity": "100.0000",
+                        "unitCost": "2600.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c0-7330-a531-c97520df0fa2",
+                        "quantity": "80.0000",
+                        "unitCost": "2200.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c1-71f5-83a8-0b26a2fb6285",
+                        "quantity": "120.0000",
+                        "unitCost": "900.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c1-71f5-83a8-0b26a3bd2c48",
+                        "quantity": "240.0000",
+                        "unitCost": "350.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c2-716e-9710-0d8506a64cc2",
+                        "quantity": "48.0000",
+                        "unitCost": "4500.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c3-7328-be29-79d9fc6a1168",
+                        "quantity": "60.0000",
+                        "unitCost": "1500.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c4-73a3-a921-b36e132873f3",
+                        "quantity": "36.0000",
+                        "unitCost": "5500.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c4-73a3-a921-b36e138ce92f",
+                        "quantity": "36.0000",
+                        "unitCost": "5800.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c5-7083-8ef8-b3708a1b4135",
+                        "quantity": "96.0000",
+                        "unitCost": "1800.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c5-7083-8ef8-b3708aef901c",
+                        "quantity": "48.0000",
+                        "unitCost": "4800.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c6-7004-a48f-559fa7e78801",
+                        "quantity": "60.0000",
+                        "unitCost": "2500.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c6-7004-a48f-559fa883be67",
+                        "quantity": "20.0000",
+                        "unitCost": "9500.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c7-7177-8e27-d35f39e2955d",
+                        "quantity": "20.0000",
+                        "unitCost": "3500.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c7-7177-8e27-d35f3a300412",
+                        "quantity": "40.0000",
+                        "unitCost": "4200.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c9-707e-9b3c-1e3c29576241",
+                        "quantity": "30.0000",
+                        "unitCost": "7500.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c9-707e-9b3c-1e3c2a494789",
+                        "quantity": "80.0000",
+                        "unitCost": "2800.0000"
+                    }
+                ],
+                "totalCost": "24831000.0000",
+                "locationId": "01a0d040-c196-7113-a977-9aba49cd9eae",
+                "supplierId": "01a0d040-c1ea-71c8-9f24-e25a46b18325",
+                "supplierInvoice": "DEMO-OPENING-STOCK"
+            },
+            "approvalId": null,
+            "rowHash": "b9e5147bb3c30bb6708d9c821c2018f538d146d519f03d940ca19cd45e721ad2"
+        },
+        {
+            "id": "01a0d040-c251-70ee-8791-5634ba5d2fc5",
+            "seq": 4,
+            "occurredAt": "2026-09-23T21:51:40.113Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": null,
+            "facilityUnitId": "9d502706-2ed5-5bd1-86bf-f895907468b1",
+            "deviceId": null,
+            "action": "inventory.transfer",
+            "entityType": "StockTransfer",
+            "entityId": "01a0d040-c229-7375-96a0-a39e5d04baf0",
+            "oldValue": null,
+            "newValue": {
+                "lines": [
+                    {
+                        "itemId": "01a0d040-c1a0-733a-aa40-c887ee129b74",
+                        "quantity": "240.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a1-7185-b35d-9cb7a977783c",
+                        "quantity": "192.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a2-700d-95e8-1922510b6407",
+                        "quantity": "192.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a2-700d-95e8-192251c96401",
+                        "quantity": "144.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a3-7080-a031-5c6314840059",
+                        "quantity": "12.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a4-70fe-8456-7a14f3a67742",
+                        "quantity": "12.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a4-70fe-8456-7a14f3acabeb",
+                        "quantity": "12.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a5-7331-a58f-ac9b4a788761",
+                        "quantity": "18.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a6-7091-a3c0-861ee4807843",
+                        "quantity": "12.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a6-7091-a3c0-861ee4b2756b",
+                        "quantity": "12.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a7-7338-84a1-9309795f86e4",
+                        "quantity": "18.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a7-7338-84a1-930979ee0d40",
+                        "quantity": "12.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a8-7060-932f-c27d2b75740b",
+                        "quantity": "12.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a9-71a5-80b5-119f030dd442",
+                        "quantity": "288.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1aa-70c1-9932-0af6b59fa028",
+                        "quantity": "192.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1aa-70c1-9932-0af6b605b84f",
+                        "quantity": "192.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ab-7035-a3b4-7e2bf5574454",
+                        "quantity": "240.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ac-71a9-8b35-e966ddfdb424",
+                        "quantity": "96.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ac-71a9-8b35-e966dee22541",
+                        "quantity": "36.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ad-7222-aa39-9f5675899800",
+                        "quantity": "36.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ae-715b-a8fc-a84766546ca6",
+                        "quantity": "72.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1bf-7152-9ba5-c9873eeccc1e",
+                        "quantity": "48.0000"
+                    }
+                ],
+                "toLocationId": "01a0d040-c199-7264-a20c-89fca491c879",
+                "fromLocationId": "01a0d040-c196-7113-a977-9aba49cd9eae"
+            },
+            "approvalId": null,
+            "rowHash": "2f952ba38cca6933b3a89ec7681df6831a26354cab46aa9260f78d4f13b16200"
+        },
+        {
+            "id": "01a0d040-c270-734b-9386-cf4aef2a5fc9",
+            "seq": 5,
+            "occurredAt": "2026-09-23T21:51:40.144Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": null,
+            "facilityUnitId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "deviceId": null,
+            "action": "inventory.transfer",
+            "entityType": "StockTransfer",
+            "entityId": "01a0d040-c252-70ca-9e56-1c2b44cc98f9",
+            "oldValue": null,
+            "newValue": {
+                "lines": [
+                    {
+                        "itemId": "01a0d040-c1a0-733a-aa40-c887ee129b74",
+                        "quantity": "96.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a1-7185-b35d-9cb7a977783c",
+                        "quantity": "72.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a2-700d-95e8-1922510b6407",
+                        "quantity": "72.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a3-7080-a031-5c6314840059",
+                        "quantity": "6.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a4-70fe-8456-7a14f3acabeb",
+                        "quantity": "6.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a7-7338-84a1-9309795f86e4",
+                        "quantity": "12.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a7-7338-84a1-930979ee0d40",
+                        "quantity": "18.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a8-7060-932f-c27d2b75740b",
+                        "quantity": "18.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a9-71a5-80b5-119f030dd442",
+                        "quantity": "144.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1aa-70c1-9932-0af6b59fa028",
+                        "quantity": "96.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1aa-70c1-9932-0af6b605b84f",
+                        "quantity": "96.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ab-7035-a3b4-7e2bf5574454",
+                        "quantity": "192.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ac-71a9-8b35-e966ddfdb424",
+                        "quantity": "48.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ac-71a9-8b35-e966dee22541",
+                        "quantity": "24.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ad-7222-aa39-9f5675899800",
+                        "quantity": "24.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b3-7339-956c-cf023af7d067",
+                        "quantity": "30.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1bd-72c4-93da-937cbdfd9a8d",
+                        "quantity": "30.0000"
+                    }
+                ],
+                "toLocationId": "01a0d040-c197-7280-b161-7feb5bc6284c",
+                "fromLocationId": "01a0d040-c196-7113-a977-9aba49cd9eae"
+            },
+            "approvalId": null,
+            "rowHash": "5dc370e8c1b31970bdcca698d9bc1e31667e2d6397337ea41cee800051b3b321"
+        },
+        {
+            "id": "01a0d040-c2a7-70ed-8c0d-489d63bac367",
+            "seq": 6,
+            "occurredAt": "2026-09-23T21:51:40.199Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": null,
+            "facilityUnitId": "6db7c536-2faf-59d6-b444-624d85c72d68",
+            "deviceId": null,
+            "action": "inventory.transfer",
+            "entityType": "StockTransfer",
+            "entityId": "01a0d040-c272-7194-aacb-603583a6c9f4",
+            "oldValue": null,
+            "newValue": {
+                "lines": [
+                    {
+                        "itemId": "01a0d040-c1a0-733a-aa40-c887ee129b74",
+                        "quantity": "120.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a1-7185-b35d-9cb7a977783c",
+                        "quantity": "96.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a2-700d-95e8-1922510b6407",
+                        "quantity": "96.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a2-700d-95e8-192251c96401",
+                        "quantity": "96.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a4-70fe-8456-7a14f3a67742",
+                        "quantity": "6.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a5-7331-a58f-ac9b4a788761",
+                        "quantity": "12.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a7-7338-84a1-9309795f86e4",
+                        "quantity": "12.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a9-71a5-80b5-119f030dd442",
+                        "quantity": "240.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1aa-70c1-9932-0af6b59fa028",
+                        "quantity": "192.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1aa-70c1-9932-0af6b605b84f",
+                        "quantity": "192.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ab-7035-a3b4-7e2bf5574454",
+                        "quantity": "360.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ac-71a9-8b35-e966dee22541",
+                        "quantity": "36.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ad-7222-aa39-9f5675899800",
+                        "quantity": "36.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ae-715b-a8fc-a84766546ca6",
+                        "quantity": "96.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b5-7175-a659-73002928a45f",
+                        "quantity": "30.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b7-70f4-aa80-cdfbe1c4950f",
+                        "quantity": "4.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b8-717b-a6ff-a4af998ea9c7",
+                        "quantity": "40.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b9-70fa-8238-19e989dcc717",
+                        "quantity": "20.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b9-70fa-8238-19e98a007c2e",
+                        "quantity": "120.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1bb-7250-bc44-2b752ad028e9",
+                        "quantity": "48.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1bd-72c4-93da-937cbd377619",
+                        "quantity": "30.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1bd-72c4-93da-937cbdfd9a8d",
+                        "quantity": "60.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1be-73cc-a20f-c4427abfa4d4",
+                        "quantity": "100.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1bf-7152-9ba5-c9873eeccc1e",
+                        "quantity": "100.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1bf-7152-9ba5-c9873fafcdd0",
+                        "quantity": "40.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c0-7330-a531-c97520df0fa2",
+                        "quantity": "30.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c1-71f5-83a8-0b26a2fb6285",
+                        "quantity": "48.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c1-71f5-83a8-0b26a3bd2c48",
+                        "quantity": "96.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c2-716e-9710-0d8506a64cc2",
+                        "quantity": "18.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c3-7328-be29-79d9fc6a1168",
+                        "quantity": "24.0000"
+                    }
+                ],
+                "toLocationId": "01a0d040-c19d-7049-bfae-e0ba18fb8bfd",
+                "fromLocationId": "01a0d040-c196-7113-a977-9aba49cd9eae"
+            },
+            "approvalId": null,
+            "rowHash": "cb570340a023b766eda52532851e972cfe8b7c7cd54ae0ccc381e8d1cdbb38b3"
+        },
+        {
+            "id": "01a0d040-c2ce-714f-8e5a-fa9fcfdb219d",
+            "seq": 7,
+            "occurredAt": "2026-09-23T21:51:40.238Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": null,
+            "facilityUnitId": "991c6184-c816-52a5-8dc8-edd5f8e83142",
+            "deviceId": null,
+            "action": "inventory.transfer",
+            "entityType": "StockTransfer",
+            "entityId": "01a0d040-c2a8-73f3-8b02-6f7469a615da",
+            "oldValue": null,
+            "newValue": {
+                "lines": [
+                    {
+                        "itemId": "01a0d040-c1a0-733a-aa40-c887ee129b74",
+                        "quantity": "60.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a1-7185-b35d-9cb7a977783c",
+                        "quantity": "48.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a2-700d-95e8-1922510b6407",
+                        "quantity": "48.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a2-700d-95e8-192251c96401",
+                        "quantity": "36.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a3-7080-a031-5c6314840059",
+                        "quantity": "3.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a4-70fe-8456-7a14f3a67742",
+                        "quantity": "3.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a4-70fe-8456-7a14f3acabeb",
+                        "quantity": "3.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a5-7331-a58f-ac9b4a788761",
+                        "quantity": "4.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a6-7091-a3c0-861ee4807843",
+                        "quantity": "3.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a6-7091-a3c0-861ee4b2756b",
+                        "quantity": "3.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a7-7338-84a1-9309795f86e4",
+                        "quantity": "4.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a7-7338-84a1-930979ee0d40",
+                        "quantity": "3.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a8-7060-932f-c27d2b75740b",
+                        "quantity": "3.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a9-71a5-80b5-119f030dd442",
+                        "quantity": "72.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1aa-70c1-9932-0af6b59fa028",
+                        "quantity": "48.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1aa-70c1-9932-0af6b605b84f",
+                        "quantity": "48.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ab-7035-a3b4-7e2bf5574454",
+                        "quantity": "60.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ac-71a9-8b35-e966ddfdb424",
+                        "quantity": "24.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ac-71a9-8b35-e966dee22541",
+                        "quantity": "9.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ad-7222-aa39-9f5675899800",
+                        "quantity": "9.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ae-715b-a8fc-a84766546ca6",
+                        "quantity": "18.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1bf-7152-9ba5-c9873eeccc1e",
+                        "quantity": "12.0000"
+                    }
+                ],
+                "toLocationId": "01a0d040-c19a-72f3-a5a4-913966bcf55e",
+                "fromLocationId": "01a0d040-c196-7113-a977-9aba49cd9eae"
+            },
+            "approvalId": null,
+            "rowHash": "e3037bef0389c172bd5b88c8d3cde723accaa7fa11f183f4a8f5de52b0dee270"
+        },
+        {
+            "id": "01a0d040-c2f7-7103-8703-a2a8699a6cea",
+            "seq": 8,
+            "occurredAt": "2026-09-23T21:51:40.279Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": null,
+            "facilityUnitId": "5b2a99cc-7f17-5c53-9461-ccd97644abaa",
+            "deviceId": null,
+            "action": "inventory.transfer",
+            "entityType": "StockTransfer",
+            "entityId": "01a0d040-c2d0-72f0-883b-7edd3afbd7dc",
+            "oldValue": null,
+            "newValue": {
+                "lines": [
+                    {
+                        "itemId": "01a0d040-c1a0-733a-aa40-c887ee129b74",
+                        "quantity": "60.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a1-7185-b35d-9cb7a977783c",
+                        "quantity": "48.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a2-700d-95e8-1922510b6407",
+                        "quantity": "48.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a2-700d-95e8-192251c96401",
+                        "quantity": "36.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a3-7080-a031-5c6314840059",
+                        "quantity": "3.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a4-70fe-8456-7a14f3a67742",
+                        "quantity": "3.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a4-70fe-8456-7a14f3acabeb",
+                        "quantity": "3.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a5-7331-a58f-ac9b4a788761",
+                        "quantity": "4.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a6-7091-a3c0-861ee4807843",
+                        "quantity": "3.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a6-7091-a3c0-861ee4b2756b",
+                        "quantity": "3.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a7-7338-84a1-9309795f86e4",
+                        "quantity": "4.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a7-7338-84a1-930979ee0d40",
+                        "quantity": "3.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a8-7060-932f-c27d2b75740b",
+                        "quantity": "3.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1a9-71a5-80b5-119f030dd442",
+                        "quantity": "72.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1aa-70c1-9932-0af6b59fa028",
+                        "quantity": "48.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1aa-70c1-9932-0af6b605b84f",
+                        "quantity": "48.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ab-7035-a3b4-7e2bf5574454",
+                        "quantity": "60.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ac-71a9-8b35-e966ddfdb424",
+                        "quantity": "24.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ac-71a9-8b35-e966dee22541",
+                        "quantity": "9.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ad-7222-aa39-9f5675899800",
+                        "quantity": "9.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ae-715b-a8fc-a84766546ca6",
+                        "quantity": "18.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1bf-7152-9ba5-c9873eeccc1e",
+                        "quantity": "12.0000"
+                    }
+                ],
+                "toLocationId": "01a0d040-c19b-738a-88a1-aa31c0a5cdff",
+                "fromLocationId": "01a0d040-c196-7113-a977-9aba49cd9eae"
+            },
+            "approvalId": null,
+            "rowHash": "dd23257fb61b9813358831f41dc9185ca56f13e99179822de1f147ce226e6644"
+        },
+        {
+            "id": "01a0d040-c30c-70b3-8ef1-c2fe74efd9ed",
+            "seq": 9,
+            "occurredAt": "2026-09-23T21:51:40.300Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": null,
+            "facilityUnitId": "18e4ff16-9acb-5341-9161-975fb22fcefe",
+            "deviceId": null,
+            "action": "inventory.transfer",
+            "entityType": "StockTransfer",
+            "entityId": "01a0d040-c2f9-7044-8cf6-cd08a24d60bd",
+            "oldValue": null,
+            "newValue": {
+                "lines": [
+                    {
+                        "itemId": "01a0d040-c1a9-71a5-80b5-119f030dd442",
+                        "quantity": "96.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1aa-70c1-9932-0af6b59fa028",
+                        "quantity": "48.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1aa-70c1-9932-0af6b605b84f",
+                        "quantity": "48.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ab-7035-a3b4-7e2bf5574454",
+                        "quantity": "192.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ae-715b-a8fc-a84766546ca6",
+                        "quantity": "24.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c2-716e-9710-0d8506a64cc2",
+                        "quantity": "12.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c6-7004-a48f-559fa883be67",
+                        "quantity": "10.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c7-7177-8e27-d35f39e2955d",
+                        "quantity": "12.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c7-7177-8e27-d35f3a300412",
+                        "quantity": "16.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c9-707e-9b3c-1e3c29576241",
+                        "quantity": "20.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c9-707e-9b3c-1e3c2a494789",
+                        "quantity": "50.0000"
+                    }
+                ],
+                "toLocationId": "01a0d040-c19e-70ed-85c0-03608d771b76",
+                "fromLocationId": "01a0d040-c196-7113-a977-9aba49cd9eae"
+            },
+            "approvalId": null,
+            "rowHash": "301a5866f0dadaeaea978208a1a8d36837cfc186358866ec022053030d9b6929"
+        },
+        {
+            "id": "01a0d040-c31a-7311-9927-e24426a7a6e0",
+            "seq": 10,
+            "occurredAt": "2026-09-23T21:51:40.314Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": null,
+            "facilityUnitId": "6c3e41ca-b525-5197-9471-afb89ca64c59",
+            "deviceId": null,
+            "action": "inventory.transfer",
+            "entityType": "StockTransfer",
+            "entityId": "01a0d040-c30d-7094-95de-6d51b905d7c1",
+            "oldValue": null,
+            "newValue": {
+                "lines": [
+                    {
+                        "itemId": "01a0d040-c1ab-7035-a3b4-7e2bf5574454",
+                        "quantity": "48.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c2-716e-9710-0d8506a64cc2",
+                        "quantity": "6.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c4-73a3-a921-b36e132873f3",
+                        "quantity": "12.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c4-73a3-a921-b36e138ce92f",
+                        "quantity": "12.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c5-7083-8ef8-b3708a1b4135",
+                        "quantity": "48.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c5-7083-8ef8-b3708aef901c",
+                        "quantity": "18.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1c6-7004-a48f-559fa7e78801",
+                        "quantity": "30.0000"
+                    }
+                ],
+                "toLocationId": "01a0d040-c19c-73fd-80f4-560fbf821d11",
+                "fromLocationId": "01a0d040-c196-7113-a977-9aba49cd9eae"
+            },
+            "approvalId": null,
+            "rowHash": "428b412bf5eb2c1479a23084304fcf496262dc0fc013efc17be5697635d24cd4"
+        },
+        {
+            "id": "01a0d040-c340-736a-9b87-542b6ff2356f",
+            "seq": 11,
+            "occurredAt": "2026-09-23T21:51:40.352Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": null,
+            "facilityUnitId": "84ea0412-4610-5afe-95a3-98242a14ce96",
+            "deviceId": null,
+            "action": "inventory.transfer",
+            "entityType": "StockTransfer",
+            "entityId": "01a0d040-c31b-71ba-a31e-d34c9bf481c2",
+            "oldValue": null,
+            "newValue": {
+                "lines": [
+                    {
+                        "itemId": "01a0d040-c1ae-715b-a8fc-a84766ab1691",
+                        "quantity": "10.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1af-7185-87a6-a673b051f46e",
+                        "quantity": "4.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b0-7242-80a1-3ed431681346",
+                        "quantity": "80.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b0-7242-80a1-3ed4316930e5",
+                        "quantity": "60.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b1-70fe-8f4d-e5433973189b",
+                        "quantity": "50.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b2-73da-a8f9-7352645b6c62",
+                        "quantity": "25.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b3-7339-956c-cf023af7d067",
+                        "quantity": "120.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b3-7339-956c-cf023afb23f5",
+                        "quantity": "80.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b4-7269-8f59-2d2ac881498e",
+                        "quantity": "40.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b5-7175-a659-730028a562fe",
+                        "quantity": "40.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b5-7175-a659-73002928a45f",
+                        "quantity": "40.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b6-71b4-ae4e-bc603c45c134",
+                        "quantity": "8.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b7-70f4-aa80-cdfbe0ef022d",
+                        "quantity": "6.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b7-70f4-aa80-cdfbe1c4950f",
+                        "quantity": "4.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b8-717b-a6ff-a4af998ea9c7",
+                        "quantity": "30.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b9-70fa-8238-19e989dcc717",
+                        "quantity": "20.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1b9-70fa-8238-19e98a007c2e",
+                        "quantity": "80.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1ba-730c-82a7-7b24c2020e3a",
+                        "quantity": "40.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1bb-7250-bc44-2b752a0285fc",
+                        "quantity": "6.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1bb-7250-bc44-2b752ad028e9",
+                        "quantity": "24.0000"
+                    },
+                    {
+                        "itemId": "01a0d040-c1bc-71ce-a336-451e0627dc67",
+                        "quantity": "18.0000"
+                    }
+                ],
+                "toLocationId": "01a0d040-c198-7195-b2e6-83b0ece98e13",
+                "fromLocationId": "01a0d040-c196-7113-a977-9aba49cd9eae"
+            },
+            "approvalId": null,
+            "rowHash": "ea70cf4510cba8ef5aafbdbdd1f0b860a3da169e983dbde0d416dc4e8cfee97a"
+        },
+        {
+            "id": "01a0d040-c34e-7094-addc-1c8dbaae39e7",
+            "seq": 12,
+            "occurredAt": "2026-09-23T21:51:40.366Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": null,
+            "facilityUnitId": null,
+            "deviceId": null,
+            "action": "attendance.link.set",
+            "entityType": "StaffBiometricLink",
+            "entityId": "01a0d040-c34e-7094-addc-1c8dbaa1a498",
+            "oldValue": null,
+            "newValue": {
+                "id": "01a0d040-c34e-7094-addc-1c8dbaa1a498",
+                "active": false,
+                "staffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+                "terminalUserId": "1",
+                "attendanceDeviceId": "01a0d040-c34c-7109-bf79-1d8af06f293c"
+            },
+            "approvalId": null,
+            "rowHash": "1b6fc28183f3b290d71f1fed02265cb937bc52f2ee474bfb540317d353b6cea0"
+        },
+        {
+            "id": "01a0d040-c351-7234-8844-9a72382da7b8",
+            "seq": 13,
+            "occurredAt": "2026-09-23T21:51:40.369Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": null,
+            "facilityUnitId": null,
+            "deviceId": null,
+            "action": "attendance.link.set",
+            "entityType": "StaffBiometricLink",
+            "entityId": "01a0d040-c350-7154-813e-7c0415664b26",
+            "oldValue": null,
+            "newValue": {
+                "id": "01a0d040-c350-7154-813e-7c0415664b26",
+                "active": false,
+                "staffId": "b14a5184-efb4-5000-bdfd-ed32dde07012",
+                "terminalUserId": "2",
+                "attendanceDeviceId": "01a0d040-c34c-7109-bf79-1d8af06f293c"
+            },
+            "approvalId": null,
+            "rowHash": "b7a42ef6ff7dcad4f76eadbf4598c8bffa7deb5062c65119ae5248d00bf1e826"
+        },
+        {
+            "id": "01a0d040-c354-7329-937e-0ce535a87554",
+            "seq": 14,
+            "occurredAt": "2026-09-23T21:51:40.372Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": null,
+            "facilityUnitId": null,
+            "deviceId": null,
+            "action": "attendance.link.set",
+            "entityType": "StaffBiometricLink",
+            "entityId": "01a0d040-c353-73b8-999c-12c1ae2e3972",
+            "oldValue": null,
+            "newValue": {
+                "id": "01a0d040-c353-73b8-999c-12c1ae2e3972",
+                "active": false,
+                "staffId": "7165e684-7b60-5f21-83bd-9ce6ca53a316",
+                "terminalUserId": "3",
+                "attendanceDeviceId": "01a0d040-c34c-7109-bf79-1d8af06f293c"
+            },
+            "approvalId": null,
+            "rowHash": "aead17c3c0fc485e841d14ae90acabeb8bea3b392cb39e799c9cddddbc018ef0"
+        },
+        {
+            "id": "01a0d040-e42e-7148-9daa-0c4d07560d36",
+            "seq": 15,
+            "occurredAt": "2026-09-23T21:51:48.782Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "28a68898-d4ef-5783-93c3-8c176664ec53",
+            "facilityUnitId": null,
+            "deviceId": null,
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d040-e42c-7069-912e-459c0a3e444d",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T21:51:48.558706Z",
+                "username": "storekeeper1",
+                "sessionId": "01a0d040-e42c-7069-912e-459c0a3e444d",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "40ca6c80e2df6c5db1398bb9e9596263fe2111bb2aaa7d047d728d946851d7dd"
+        },
+        {
+            "id": "01a0d049-7fe2-71a5-8bcb-8ed86c51a31d",
+            "seq": 16,
+            "occurredAt": "2026-09-23T22:01:12.930Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "935dbdcf-d514-5c33-9889-5a14f39c65c4",
+            "facilityUnitId": null,
+            "deviceId": null,
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d049-7fe1-7141-854f-86db5c8f24d6",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:01:12.723511Z",
+                "username": "owner1",
+                "sessionId": "01a0d049-7fe1-7141-854f-86db5c8f24d6",
+                "credentialType": "PASSWORD"
+            },
+            "approvalId": null,
+            "rowHash": "ec9dcbf13afdc925796240df88c1abf8eeda3a17ce4ca06f8b1a4710bba74cc5"
+        },
+        {
+            "id": "01a0d04b-4f0d-73c2-8e12-173209d7df65",
+            "seq": 17,
+            "occurredAt": "2026-09-23T22:03:11.501Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": null,
+            "facilityUnitId": "5996b8b4-1b06-5150-adca-659ac70055e7",
+            "deviceId": "01a0d04b-4f0a-7062-b2df-1e3b272bb176",
+            "action": "device.register",
+            "entityType": "Device",
+            "entityId": "01a0d04b-4f0a-7062-b2df-1e3b272bb176",
+            "oldValue": null,
+            "newValue": {
+                "kind": "MOBILE_TABLET",
+                "mode": "ATTENDANT",
+                "name": "Waiter Tablet 03",
+                "deviceId": "01a0d04b-4f0a-7062-b2df-1e3b272bb176",
+                "hardwareId": "emu-test-1"
+            },
+            "approvalId": null,
+            "rowHash": "12ad07b3a79531b32ddf2562d3e3c3a736e67065cb96a42a4d6c49d5aeca8e79"
+        },
+        {
+            "id": "01a0d04d-11ef-710d-82b9-ff0bc920e490",
+            "seq": 18,
+            "occurredAt": "2026-09-23T22:05:06.927Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e2ba390c-a6cc-53c3-9a84-b4fc1af047be",
+            "facilityUnitId": null,
+            "deviceId": "12c5c733-2b18-555d-a1a3-ede6f991e925",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d04d-11ee-7329-b643-4e8b16b564f8",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:05:06.716624Z",
+                "username": "kitchen1",
+                "sessionId": "01a0d04d-11ee-7329-b643-4e8b16b564f8",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "47a69729a81edf1d5b669f04b83799c6eaa00b4f869dee752aed1b79d7a34d23"
+        },
+        {
+            "id": "01a0d04d-824a-71bc-831a-dbe3b5c85e17",
+            "seq": 19,
+            "occurredAt": "2026-09-23T22:05:35.690Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "facilityUnitId": null,
+            "deviceId": "e612c5af-f79f-508d-98ae-73f229403ebb",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d04d-8249-73ff-b4ce-c9409787eb16",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:05:35.483457Z",
+                "username": "wait1",
+                "sessionId": "01a0d04d-8249-73ff-b4ce-c9409787eb16",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "a65dbfd8c34fc88dc3b8f6c6f33243547fc2bccdd785719598029dae1186e4ed"
+        },
+        {
+            "id": "01a0d04d-827e-70a8-b211-92c4628ea37e",
+            "seq": 20,
+            "occurredAt": "2026-09-23T22:05:35.742Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "facilityUnitId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "deviceId": "e612c5af-f79f-508d-98ae-73f229403ebb",
+            "action": "device.checkout",
+            "entityType": "Device",
+            "entityId": "e612c5af-f79f-508d-98ae-73f229403ebb",
+            "oldValue": null,
+            "newValue": {
+                "shiftId": null,
+                "staffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+                "deviceId": "e612c5af-f79f-508d-98ae-73f229403ebb",
+                "checkoutId": "01a0d04d-827c-70f9-8004-9bc6d8679155",
+                "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+                "openingFloat": null
+            },
+            "approvalId": null,
+            "rowHash": "545640c57868a5290e4c0322a8aca1aa43b5c306be5b093947704cb0a910a4da"
+        },
+        {
+            "id": "01a0d04d-83bd-723e-8bda-651bb9227fa0",
+            "seq": 21,
+            "occurredAt": "2026-09-23T22:05:36.061Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "facilityUnitId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "deviceId": "e612c5af-f79f-508d-98ae-73f229403ebb",
+            "action": "order.send",
+            "entityType": "Order",
+            "entityId": "01a0d04d-836e-7114-ab01-1fddcfd39f03",
+            "oldValue": {
+                "status": "DRAFT"
+            },
+            "newValue": {
+                "lines": 2,
+                "status": "SENT"
+            },
+            "approvalId": null,
+            "rowHash": "d69ff6ae432506c03afa9a69699b5d0a7fff509a7a94c811bdbf05fd72e3b917"
+        },
+        {
+            "id": "01a0d04d-a0ca-72cc-ab1b-6e69644a28c9",
+            "seq": 22,
+            "occurredAt": "2026-09-23T22:05:43.498Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e2ba390c-a6cc-53c3-9a84-b4fc1af047be",
+            "facilityUnitId": null,
+            "deviceId": "12c5c733-2b18-555d-a1a3-ede6f991e925",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d04d-a0c9-7084-a295-af3c90b21ee9",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:05:43.288673Z",
+                "username": "kitchen1",
+                "sessionId": "01a0d04d-a0c9-7084-a295-af3c90b21ee9",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "91bd9bb1e97a02804da792377afb1e8e7133cb2ff3a91eed6caa031208166bc9"
+        },
+        {
+            "id": "01a0d04e-17ba-7227-b82b-7a13da55661e",
+            "seq": 23,
+            "occurredAt": "2026-09-23T22:06:13.946Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": null,
+            "facilityUnitId": "5996b8b4-1b06-5150-adca-659ac70055e7",
+            "deviceId": "01a0d04e-17b8-7049-a182-7c186f007603",
+            "action": "device.register",
+            "entityType": "Device",
+            "entityId": "01a0d04e-17b8-7049-a182-7c186f007603",
+            "oldValue": null,
+            "newValue": {
+                "kind": "POS_TERMINAL",
+                "mode": "POS",
+                "name": "POS probe",
+                "deviceId": "01a0d04e-17b8-7049-a182-7c186f007603",
+                "hardwareId": "probe-1"
+            },
+            "approvalId": null,
+            "rowHash": "5e243455da5e1bfeb95b81d04ce4e7310b701e5b9c9e23fb3fa1f42f770da331"
+        },
+        {
+            "id": "01a0d04e-18a9-7342-9b8f-9e0160916113",
+            "seq": 24,
+            "occurredAt": "2026-09-23T22:06:14.185Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e66698a3-4e33-5b2c-9e2d-d5566b2510a8",
+            "facilityUnitId": null,
+            "deviceId": "01a0d04e-17b8-7049-a182-7c186f007603",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d04e-18a8-7249-a584-b1fe33c3fcdf",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:06:13.977070Z",
+                "username": "cashier1",
+                "sessionId": "01a0d04e-18a8-7249-a584-b1fe33c3fcdf",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "28385627206d572f3c3bc196bbdac6f580543c1868cda2c4ec69dfc70bd97f42"
+        },
+        {
+            "id": "01a0d04e-a850-7239-ab35-852e9de225d8",
+            "seq": 25,
+            "occurredAt": "2026-09-23T22:06:50.960Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e66698a3-4e33-5b2c-9e2d-d5566b2510a8",
+            "facilityUnitId": "5996b8b4-1b06-5150-adca-659ac70055e7",
+            "deviceId": "01a0d04e-17b8-7049-a182-7c186f007603",
+            "action": "cash_session.open",
+            "entityType": "CashSession",
+            "entityId": "01a0d04e-a84f-734b-851b-0193e1e84ad0",
+            "oldValue": null,
+            "newValue": {
+                "facilityId": "5996b8b4-1b06-5150-adca-659ac70055e7",
+                "openingFloat": "5000.0000"
+            },
+            "approvalId": null,
+            "rowHash": "3dd7995b2420d4597374f4c4dd919c9f3be861af814443626403278d40917aed"
+        },
+        {
+            "id": "01a0d04f-0502-7087-be0b-b4a57be70835",
+            "seq": 26,
+            "occurredAt": "2026-09-23T22:07:14.690Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e66698a3-4e33-5b2c-9e2d-d5566b2510a8",
+            "facilityUnitId": "5996b8b4-1b06-5150-adca-659ac70055e7",
+            "deviceId": "01a0d04e-17b8-7049-a182-7c186f007603",
+            "action": "payment.capture",
+            "entityType": "Payment",
+            "entityId": "01a0d04f-04f9-73b4-bcfc-0303bad1b207",
+            "oldValue": null,
+            "newValue": {
+                "amount": "1000.0000",
+                "groupId": "01a0d04f-04ef-70da-a1f5-41e716f96d9d",
+                "provider": "MANUAL",
+                "receiptId": "01a0d04f-04f0-7033-984b-e89e8a544222",
+                "reference": null,
+                "tenderType": "CASH",
+                "allocations": [
+                    {
+                        "amount": "1000.0000",
+                        "orderId": "01a0d04e-cb85-7bf5-8315-1e2aeb051dcc"
+                    }
+                ],
+                "changeGiven": "1000.0000",
+                "cashSessionId": "01a0d04e-a84f-734b-851b-0193e1e84ad0"
+            },
+            "approvalId": null,
+            "rowHash": "4e432deaa9ca15dd3b3092a885e8a6902dd3ad552b1d74af5de062f0cf653b17"
+        },
+        {
+            "id": "01a0d04f-3d95-71f0-8b5c-d563b49fbc8c",
+            "seq": 27,
+            "occurredAt": "2026-09-23T22:07:29.173Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e2ba390c-a6cc-53c3-9a84-b4fc1af047be",
+            "facilityUnitId": null,
+            "deviceId": "12c5c733-2b18-555d-a1a3-ede6f991e925",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d04f-3d95-71f0-8b5c-d563b4555655",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:07:28.974916Z",
+                "username": "kitchen1",
+                "sessionId": "01a0d04f-3d95-71f0-8b5c-d563b4555655",
+                "credentialType": "PASSWORD"
+            },
+            "approvalId": null,
+            "rowHash": "c2c9157a1b650bd807e9fc6fb3bcd69051b1178bfc2a52a6810a9bab266bc507"
+        },
+        {
+            "id": "01a0d04f-4351-71ce-85fb-925885e506bd",
+            "seq": 28,
+            "occurredAt": "2026-09-23T22:07:30.641Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e66698a3-4e33-5b2c-9e2d-d5566b2510a8",
+            "facilityUnitId": "5996b8b4-1b06-5150-adca-659ac70055e7",
+            "deviceId": "01a0d04e-17b8-7049-a182-7c186f007603",
+            "action": "payment.capture",
+            "entityType": "Payment",
+            "entityId": "01a0d04f-434a-72bd-8063-ac907b1b0946",
+            "oldValue": null,
+            "newValue": {
+                "amount": "3000.0000",
+                "groupId": "01a0d04f-4346-7233-ae45-d4438ff3b598",
+                "provider": "MANUAL",
+                "receiptId": "01a0d04f-4347-7046-a8f1-eb1f53062736",
+                "reference": null,
+                "tenderType": "CASH",
+                "allocations": [
+                    {
+                        "amount": "3000.0000",
+                        "orderId": "01a0d04e-cb85-7bf5-8315-1e2aeb051dcc"
+                    }
+                ],
+                "changeGiven": "0.0000",
+                "cashSessionId": "01a0d04e-a84f-734b-851b-0193e1e84ad0"
+            },
+            "approvalId": null,
+            "rowHash": "428bcffdc9516b72d56631d479d3128fe9ce0290c31d06a01ee26766060d0e3c"
+        },
+        {
+            "id": "01a0d04f-4353-7131-9d8e-65b4969cc71c",
+            "seq": 29,
+            "occurredAt": "2026-09-23T22:07:30.643Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e66698a3-4e33-5b2c-9e2d-d5566b2510a8",
+            "facilityUnitId": "5996b8b4-1b06-5150-adca-659ac70055e7",
+            "deviceId": "01a0d04e-17b8-7049-a182-7c186f007603",
+            "action": "payment.capture",
+            "entityType": "Payment",
+            "entityId": "01a0d04f-434b-71be-b448-b80f216eb77d",
+            "oldValue": null,
+            "newValue": {
+                "amount": "3500.0000",
+                "groupId": "01a0d04f-4346-7233-ae45-d4438ff3b598",
+                "provider": "MANUAL",
+                "receiptId": "01a0d04f-4347-7046-a8f1-eb1f53062736",
+                "reference": "TRF-1815331899",
+                "tenderType": "TRANSFER",
+                "allocations": [
+                    {
+                        "amount": "3500.0000",
+                        "orderId": "01a0d04e-cb85-7bf5-8315-1e2aeb051dcc"
+                    }
+                ],
+                "changeGiven": "0.0000",
+                "cashSessionId": "01a0d04e-a84f-734b-851b-0193e1e84ad0"
+            },
+            "approvalId": null,
+            "rowHash": "071fa65f5db26cbdb2b9efd27fa832ead41b6379cd121e01e2f41234674353e8"
+        },
+        {
+            "id": "01a0d04f-435c-73b9-b4a3-17b7ede87cf6",
+            "seq": 30,
+            "occurredAt": "2026-09-23T22:07:30.652Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e66698a3-4e33-5b2c-9e2d-d5566b2510a8",
+            "facilityUnitId": null,
+            "deviceId": "01a0d04e-17b8-7049-a182-7c186f007603",
+            "action": "ticket.issue",
+            "entityType": "Entitlement",
+            "entityId": "01a0d04f-435a-72f8-90a5-2dda506df733",
+            "oldValue": null,
+            "newValue": {
+                "items": 1,
+                "orderId": "01a0d04e-cb85-7bf5-8315-1e2aeb051dcc",
+                "bookingId": null,
+                "sourceKey": "order:01a0d04e-cb85-7bf5-8315-1e2aeb051dcc:line:01a0d04e-cc04-73d0-bf4c-121e54eedd0d:1"
+            },
+            "approvalId": null,
+            "rowHash": "3292eb76d435d24dbd935ab9c94480467463ee888b1e74b9b2b5f5e24974ba22"
+        },
+        {
+            "id": "01a0d04f-435f-723b-ad74-78172b63bfbf",
+            "seq": 31,
+            "occurredAt": "2026-09-23T22:07:30.655Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e66698a3-4e33-5b2c-9e2d-d5566b2510a8",
+            "facilityUnitId": null,
+            "deviceId": "01a0d04e-17b8-7049-a182-7c186f007603",
+            "action": "ticket.issue",
+            "entityType": "Entitlement",
+            "entityId": "01a0d04f-435e-705f-af32-051167c24447",
+            "oldValue": null,
+            "newValue": {
+                "items": 1,
+                "orderId": "01a0d04e-cb85-7bf5-8315-1e2aeb051dcc",
+                "bookingId": null,
+                "sourceKey": "order:01a0d04e-cb85-7bf5-8315-1e2aeb051dcc:line:01a0d04e-cc04-73d0-bf4c-121e54eedd0d:2"
+            },
+            "approvalId": null,
+            "rowHash": "244ac9b1f63d0c2c10929bf2192767451a1610a7d4dc710efd970f035bc99692"
+        },
+        {
+            "id": "01a0d04f-4363-71b6-bf6f-72ad0a23d666",
+            "seq": 32,
+            "occurredAt": "2026-09-23T22:07:30.659Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e66698a3-4e33-5b2c-9e2d-d5566b2510a8",
+            "facilityUnitId": null,
+            "deviceId": "01a0d04e-17b8-7049-a182-7c186f007603",
+            "action": "ticket.issue",
+            "entityType": "Entitlement",
+            "entityId": "01a0d04f-4361-7366-b056-a7269f408a2e",
+            "oldValue": null,
+            "newValue": {
+                "items": 1,
+                "orderId": "01a0d04e-cb85-7bf5-8315-1e2aeb051dcc",
+                "bookingId": null,
+                "sourceKey": "order:01a0d04e-cb85-7bf5-8315-1e2aeb051dcc:line:01a0d04e-e403-7168-b77d-dfaf5c808990:1"
+            },
+            "approvalId": null,
+            "rowHash": "778ea8deb2aa78846b8a3ae647b8cd5056e9f051e5ac783c098c3963fff933b4"
+        },
+        {
+            "id": "01a0d04f-8456-7193-8d60-09725c85e598",
+            "seq": 33,
+            "occurredAt": "2026-09-23T22:07:47.286Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "facilityUnitId": null,
+            "deviceId": "e612c5af-f79f-508d-98ae-73f229403ebb",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d04f-8453-728a-bf96-2feb61c8a5a2",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:07:47.076518Z",
+                "username": "wait1",
+                "sessionId": "01a0d04f-8453-728a-bf96-2feb61c8a5a2",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "8e60cd137baa72a6d183bb3bf567629bc617ee5a64daa38a4b7626fa88ef94a4"
+        },
+        {
+            "id": "01a0d04f-8601-735a-a6d6-6c3558cc8d35",
+            "seq": 34,
+            "occurredAt": "2026-09-23T22:07:47.713Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "facilityUnitId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "deviceId": "e612c5af-f79f-508d-98ae-73f229403ebb",
+            "action": "order.send",
+            "entityType": "Order",
+            "entityId": "01a0d04f-85ab-708e-a7b2-ba9c7fa0f800",
+            "oldValue": {
+                "status": "DRAFT"
+            },
+            "newValue": {
+                "lines": 2,
+                "status": "SENT"
+            },
+            "approvalId": null,
+            "rowHash": "afedb24d210c92971b3f51c66ee0ee8ad0913a75b7c2dbc16ccae93d2a28baff"
+        },
+        {
+            "id": "01a0d04f-d4f9-7140-9a87-aab86bdaf7af",
+            "seq": 35,
+            "occurredAt": "2026-09-23T22:08:07.929Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e66698a3-4e33-5b2c-9e2d-d5566b2510a8",
+            "facilityUnitId": "7b708d65-561b-5ec3-b23f-707ba9c1b5cf",
+            "deviceId": "01a0d04e-17b8-7049-a182-7c186f007603",
+            "action": "booking.order.attach",
+            "entityType": "Booking",
+            "entityId": "01a0d04f-ab1d-731b-a426-b59896d4af7e",
+            "oldValue": {
+                "orderId": null
+            },
+            "newValue": {
+                "status": "PENDING_PAYMENT",
+                "orderId": "01a0d04f-d496-72b2-bd04-5d7934c613c7"
+            },
+            "approvalId": null,
+            "rowHash": "6961023a69819609549c66b4b303bd3dbd313a7a6c97c05b0339a2dc0c979bd5"
+        },
+        {
+            "id": "01a0d04f-f14b-7056-bab2-8dc0f9c70e6d",
+            "seq": 36,
+            "occurredAt": "2026-09-23T22:08:15.179Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e66698a3-4e33-5b2c-9e2d-d5566b2510a8",
+            "facilityUnitId": "5996b8b4-1b06-5150-adca-659ac70055e7",
+            "deviceId": "01a0d04e-17b8-7049-a182-7c186f007603",
+            "action": "payment.capture",
+            "entityType": "Payment",
+            "entityId": "01a0d04f-f140-7034-af96-e0a4987e4c76",
+            "oldValue": null,
+            "newValue": {
+                "amount": "8000.0000",
+                "groupId": "01a0d04f-f13b-7249-b113-e7f07a823d13",
+                "provider": "MANUAL",
+                "receiptId": "01a0d04f-f13d-7147-b83b-b125f3724bcf",
+                "reference": null,
+                "tenderType": "CASH",
+                "allocations": [
+                    {
+                        "amount": "8000.0000",
+                        "orderId": "01a0d04f-d496-72b2-bd04-5d7934c613c7"
+                    }
+                ],
+                "changeGiven": "2000.0000",
+                "cashSessionId": "01a0d04e-a84f-734b-851b-0193e1e84ad0"
+            },
+            "approvalId": null,
+            "rowHash": "e04272be8f09a47312844a3480e29cf05218766df3a83fb8811b53e4dc0d18ee"
+        },
+        {
+            "id": "01a0d04f-f169-7302-baaf-80e3f6343c56",
+            "seq": 37,
+            "occurredAt": "2026-09-23T22:08:15.209Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e66698a3-4e33-5b2c-9e2d-d5566b2510a8",
+            "facilityUnitId": null,
+            "deviceId": "01a0d04e-17b8-7049-a182-7c186f007603",
+            "action": "ticket.issue",
+            "entityType": "Entitlement",
+            "entityId": "01a0d04f-f162-72c7-b5ae-3a7016c0e90a",
+            "oldValue": null,
+            "newValue": {
+                "items": 2,
+                "orderId": null,
+                "bookingId": "01a0d04f-ab1d-731b-a426-b59896d4af7e",
+                "sourceKey": "booking:01a0d04f-ab1d-731b-a426-b59896d4af7e"
+            },
+            "approvalId": null,
+            "rowHash": "e64c46e0a32a6a81e7cb64842c9d8bb951e2df9be870c279692aec59f78c53f1"
+        },
+        {
+            "id": "01a0d04f-f16d-719e-9ed9-e5b90040427a",
+            "seq": 38,
+            "occurredAt": "2026-09-23T22:08:15.213Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e66698a3-4e33-5b2c-9e2d-d5566b2510a8",
+            "facilityUnitId": "7b708d65-561b-5ec3-b23f-707ba9c1b5cf",
+            "deviceId": "01a0d04e-17b8-7049-a182-7c186f007603",
+            "action": "booking.confirm",
+            "entityType": "Booking",
+            "entityId": "01a0d04f-ab1d-731b-a426-b59896d4af7e",
+            "oldValue": {
+                "status": "PENDING_PAYMENT"
+            },
+            "newValue": {
+                "status": "CONFIRMED",
+                "orderId": "01a0d04f-d496-72b2-bd04-5d7934c613c7",
+                "amountPaid": "5000.0000",
+                "entitlementId": "01a0d04f-f162-72c7-b5ae-3a7016c0e90a"
+            },
+            "approvalId": null,
+            "rowHash": "f88ca5f06c8ba374c2b9ee0e8019cae994b1d1d1e91f0e88b60dd0baeb3dc7e9"
+        },
+        {
+            "id": "01a0d050-5690-730a-9410-acbe9c65d88a",
+            "seq": 39,
+            "occurredAt": "2026-09-23T22:08:41.104Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "facilityUnitId": null,
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d050-568e-729f-93fa-1e7dcd9df73d",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:08:40.899826Z",
+                "username": "cashier2",
+                "sessionId": "01a0d050-568e-729f-93fa-1e7dcd9df73d",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "ffe19e22fcdc3b05d57f14225d84ba5aeb713f994c312a44e597a265f55627ef"
+        },
+        {
+            "id": "01a0d050-7850-7207-b5f4-41774f1e93eb",
+            "seq": 40,
+            "occurredAt": "2026-09-23T22:08:49.744Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "facilityUnitId": null,
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d050-784f-72c6-9f0b-4150a7ade60e",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:08:49.538749Z",
+                "username": "cashier2",
+                "sessionId": "01a0d050-784f-72c6-9f0b-4150a7ade60e",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "d63a684af2d6e7f55e5b644e3d742f9aa4621612307e2c5457e734649bca04a1"
+        },
+        {
+            "id": "01a0d050-7917-703d-8345-c94345a6c47e",
+            "seq": 41,
+            "occurredAt": "2026-09-23T22:08:49.943Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "facilityUnitId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "cash_session.open",
+            "entityType": "CashSession",
+            "entityId": "01a0d050-7914-73e6-8a57-45ef57c1f4b0",
+            "oldValue": null,
+            "newValue": {
+                "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+                "openingFloat": "1000.0000"
+            },
+            "approvalId": null,
+            "rowHash": "cda0d3c55d72996c35a590e472a43ce46004d930d0380bb4510548ab4cf2de38"
+        },
+        {
+            "id": "01a0d050-92a3-7275-ab68-0049aa4e4187",
+            "seq": 42,
+            "occurredAt": "2026-09-23T22:08:56.483Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "facilityUnitId": null,
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d050-92a2-71ad-a3cc-687547efd245",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:08:56.286831Z",
+                "username": "cashier2",
+                "sessionId": "01a0d050-92a2-71ad-a3cc-687547efd245",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "f78b949c268f53debd86f34ecb389d37c4ca0395647ed648128a95214a246485"
+        },
+        {
+            "id": "01a0d050-baaa-71bf-bc9f-299c695aeb6c",
+            "seq": 43,
+            "occurredAt": "2026-09-23T22:09:06.730Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e2ba390c-a6cc-53c3-9a84-b4fc1af047be",
+            "facilityUnitId": null,
+            "deviceId": "12c5c733-2b18-555d-a1a3-ede6f991e925",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d050-baa9-70a9-8909-e43ffadab853",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:09:06.531127Z",
+                "username": "kitchen1",
+                "sessionId": "01a0d050-baa9-70a9-8909-e43ffadab853",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "72aa6d3ce4edf144c92d3cf0a1a05234ba6169470a653a117517c519f39f32de"
+        },
+        {
+            "id": "01a0d051-8777-7354-aad1-061ac1fa257e",
+            "seq": 44,
+            "occurredAt": "2026-09-23T22:09:59.159Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "facilityUnitId": null,
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d051-8776-7398-b3c3-a1d1cb4f5687",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:09:58.956154Z",
+                "username": "cashier2",
+                "sessionId": "01a0d051-8776-7398-b3c3-a1d1cb4f5687",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "b56e306eefbd8c7c0cb95d8198551efbc009cb44227fc0f630366426b6c0f82e"
+        },
+        {
+            "id": "01a0d051-87ce-7302-8374-5e4a05ffc0ed",
+            "seq": 45,
+            "occurredAt": "2026-09-23T22:09:59.246Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "facilityUnitId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "order.send",
+            "entityType": "Order",
+            "entityId": "01a0d050-787c-7662-a102-3a0d6627f8e7",
+            "oldValue": {
+                "status": "DRAFT"
+            },
+            "newValue": {
+                "lines": 1,
+                "status": "SENT"
+            },
+            "approvalId": null,
+            "rowHash": "3d3e7dcfce8cd96bcadda4d5a15ea496ff1408930fe3543b01e78488db580a8a"
+        },
+        {
+            "id": "01a0d051-adfc-7186-b6e7-61225c36455a",
+            "seq": 46,
+            "occurredAt": "2026-09-23T22:10:09.020Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e2ba390c-a6cc-53c3-9a84-b4fc1af047be",
+            "facilityUnitId": null,
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d051-adfb-73a7-ad02-dd04efa0d4de",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:08.815288Z",
+                "username": "kitchen1",
+                "sessionId": "01a0d051-adfb-73a7-ad02-dd04efa0d4de",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "d4bd9de3abfa9f8a77a15ff85eae58a035ed2e0532fe33bd410dae4612a341a3"
+        },
+        {
+            "id": "01a0d051-aeea-7026-8be5-0144d52df613",
+            "seq": 47,
+            "occurredAt": "2026-09-23T22:10:09.258Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e2ba390c-a6cc-53c3-9a84-b4fc1af047be",
+            "facilityUnitId": null,
+            "deviceId": "12c5c733-2b18-555d-a1a3-ede6f991e925",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d051-aee0-7071-ac59-7af0f7885c67",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:09.053172Z",
+                "username": "kitchen1",
+                "sessionId": "01a0d051-aee0-7071-ac59-7af0f7885c67",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "8b28a548ff2ae46e7d84f4bded34e92a07908cf52a32fc6d314b70269e306f8e"
+        },
+        {
+            "id": "01a0d051-cfe4-729b-b17f-0b5e6c4e7cb0",
+            "seq": 48,
+            "occurredAt": "2026-09-23T22:10:17.700Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e2ba390c-a6cc-53c3-9a84-b4fc1af047be",
+            "facilityUnitId": null,
+            "deviceId": "12c5c733-2b18-555d-a1a3-ede6f991e925",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d051-cfe3-7249-92aa-1e6bffebed40",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:17.508592Z",
+                "username": "kitchen1",
+                "sessionId": "01a0d051-cfe3-7249-92aa-1e6bffebed40",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "1ec87f702ce5897fa949f574340dab26f5f66df0eef5835038503e6247eb4ead"
+        },
+        {
+            "id": "01a0d051-d8a9-71d7-85cc-e2f1a683667d",
+            "seq": 49,
+            "occurredAt": "2026-09-23T22:10:19.945Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e2ba390c-a6cc-53c3-9a84-b4fc1af047be",
+            "facilityUnitId": null,
+            "deviceId": "12c5c733-2b18-555d-a1a3-ede6f991e925",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d051-d8a8-71f1-92fc-4b6734a26780",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:19.751844Z",
+                "username": "kitchen1",
+                "sessionId": "01a0d051-d8a8-71f1-92fc-4b6734a26780",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "af06a0c38a05b67e1168ddf4a200c0a7a5627190ab3fb7aae558418630b80e44"
+        },
+        {
+            "id": "01a0d051-ede8-721c-bbb9-21510e0081c0",
+            "seq": 50,
+            "occurredAt": "2026-09-23T22:10:25.384Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e2ba390c-a6cc-53c3-9a84-b4fc1af047be",
+            "facilityUnitId": null,
+            "deviceId": "12c5c733-2b18-555d-a1a3-ede6f991e925",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d051-ede7-71a3-a2ed-609cbc60e6a7",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:25.186151Z",
+                "username": "kitchen1",
+                "sessionId": "01a0d051-ede7-71a3-a2ed-609cbc60e6a7",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "e4ac4f30415ea8ef3708ee32e32277361958649601eb236ac1ab487fc561ae05"
+        },
+        {
+            "id": "01a0d052-059a-715a-8da0-7980e95ccc2e",
+            "seq": 51,
+            "occurredAt": "2026-09-23T22:10:31.450Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "facilityUnitId": null,
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d052-0598-70d8-9a5a-9c87c562780e",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:31.248658Z",
+                "username": "cashier2",
+                "sessionId": "01a0d052-0598-70d8-9a5a-9c87c562780e",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "18205f64c081354c61aaefa9be7a993ba6ffb136682c2eba6ebf23894c67a777"
+        },
+        {
+            "id": "01a0d052-22fb-726a-8d68-524a398df671",
+            "seq": 52,
+            "occurredAt": "2026-09-23T22:10:38.971Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "facilityUnitId": null,
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d052-22fa-71a0-8fbe-7ebc76bd78ba",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:38.769159Z",
+                "username": "cashier2",
+                "sessionId": "01a0d052-22fa-71a0-8fbe-7ebc76bd78ba",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "3b736005466f77f5d004fb5fcede114b98456f43cbc75f5f776e1ab9592b389b"
+        },
+        {
+            "id": "01a0d052-23cd-71ab-98f4-caf5bb8cb306",
+            "seq": 53,
+            "occurredAt": "2026-09-23T22:10:39.181Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "facilityUnitId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "payment.capture",
+            "entityType": "Payment",
+            "entityId": "01a0d052-23bc-7082-8c0e-2adba7074599",
+            "oldValue": null,
+            "newValue": {
+                "amount": "2000.0000",
+                "groupId": "01a0d052-23b6-7302-bc7c-1e751daa1361",
+                "provider": "MANUAL",
+                "receiptId": "01a0d052-23b7-7133-bc8c-5b66ae388ba8",
+                "reference": null,
+                "tenderType": "CASH",
+                "allocations": [
+                    {
+                        "amount": "2000.0000",
+                        "orderId": "01a0d050-787c-7662-a102-3a0d6627f8e7"
+                    }
+                ],
+                "changeGiven": "500.0000",
+                "cashSessionId": "01a0d050-7914-73e6-8a57-45ef57c1f4b0"
+            },
+            "approvalId": null,
+            "rowHash": "4f1924558dfc0cbec6ac5b811cb18f1ae4a878e43242cddde47711ea4159adb5"
+        },
+        {
+            "id": "01a0d052-3763-7277-9bd5-d03c24130c9f",
+            "seq": 54,
+            "occurredAt": "2026-09-23T22:10:44.195Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "facilityUnitId": null,
+            "deviceId": "32a13b69-dd91-5e1e-8c79-5049acbd29f9",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d052-3762-712b-8a60-ecc4bebc853e",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:44.001877Z",
+                "username": "wait1",
+                "sessionId": "01a0d052-3762-712b-8a60-ecc4bebc853e",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "c0b5ca485fae0337dcd2af8f0ab202147c3612cbd12def9961074a906e5d2ff1"
+        },
+        {
+            "id": "01a0d052-384e-71fb-8b8c-58cb57bfb6d8",
+            "seq": 55,
+            "occurredAt": "2026-09-23T22:10:44.430Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "b14a5184-efb4-5000-bdfd-ed32dde07012",
+            "facilityUnitId": null,
+            "deviceId": "32a13b69-dd91-5e1e-8c79-5049acbd29f9",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d052-384c-7343-a646-1c80df7d776e",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:44.236820Z",
+                "username": "wait2",
+                "sessionId": "01a0d052-384c-7343-a646-1c80df7d776e",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "3f0859e5f6b4fad1f6f43324dc1c621a89b3bebed5dc15bdc034ca827558f681"
+        },
+        {
+            "id": "01a0d052-3933-7042-b1b5-f900567f23af",
+            "seq": 56,
+            "occurredAt": "2026-09-23T22:10:44.659Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "7165e684-7b60-5f21-83bd-9ce6ca53a316",
+            "facilityUnitId": null,
+            "deviceId": "32a13b69-dd91-5e1e-8c79-5049acbd29f9",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d052-3931-728b-9557-ce55a3ebad59",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:44.472306Z",
+                "username": "bartender1",
+                "sessionId": "01a0d052-3931-728b-9557-ce55a3ebad59",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "25daad568bac7cfa7506f9432e5cd85c7fc92cd894ae6bc6baa4cd9ea25557e2"
+        },
+        {
+            "id": "01a0d052-3a1d-7042-a1e3-2d61df3f88f8",
+            "seq": 57,
+            "occurredAt": "2026-09-23T22:10:44.893Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e2ba390c-a6cc-53c3-9a84-b4fc1af047be",
+            "facilityUnitId": null,
+            "deviceId": "32a13b69-dd91-5e1e-8c79-5049acbd29f9",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d052-3a1c-725c-9a01-8f4c699987bb",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:44.700487Z",
+                "username": "kitchen1",
+                "sessionId": "01a0d052-3a1c-725c-9a01-8f4c699987bb",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "be48a906e120b757c4d62aadd32aa356afaf06e7d2408cb59288553fcc21f5fe"
+        },
+        {
+            "id": "01a0d052-3afc-734b-bc32-afd103b7cfd9",
+            "seq": 58,
+            "occurredAt": "2026-09-23T22:10:45.116Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e66698a3-4e33-5b2c-9e2d-d5566b2510a8",
+            "facilityUnitId": null,
+            "deviceId": "32a13b69-dd91-5e1e-8c79-5049acbd29f9",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d052-3afb-700b-8d49-85b9782d7c87",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:44.930421Z",
+                "username": "cashier1",
+                "sessionId": "01a0d052-3afb-700b-8d49-85b9782d7c87",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "763b50d9965af5851627ee392fe33c6724ddcaed8b7a7ab1b6f840d5d18bc5ad"
+        },
+        {
+            "id": "01a0d052-3be8-726e-9625-c5c98f9eceec",
+            "seq": 59,
+            "occurredAt": "2026-09-23T22:10:45.352Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "facilityUnitId": null,
+            "deviceId": "32a13b69-dd91-5e1e-8c79-5049acbd29f9",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d052-3be7-70fe-9a62-f77543080de6",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:45.155294Z",
+                "username": "cashier2",
+                "sessionId": "01a0d052-3be7-70fe-9a62-f77543080de6",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "0d3cc5a4a7f624b60bd0f421a9288bf4b8784fe4d4ba73e991820496aa44b376"
+        },
+        {
+            "id": "01a0d052-3cd0-709a-8819-151feb1b1a09",
+            "seq": 60,
+            "occurredAt": "2026-09-23T22:10:45.584Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "28a68898-d4ef-5783-93c3-8c176664ec53",
+            "facilityUnitId": null,
+            "deviceId": "32a13b69-dd91-5e1e-8c79-5049acbd29f9",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d052-3ccf-72b6-baf4-697becfa7314",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:45.395067Z",
+                "username": "storekeeper1",
+                "sessionId": "01a0d052-3ccf-72b6-baf4-697becfa7314",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "003f265c995af3b1cfd77c3978d7fe16fb17e90f45ca7f6835e741689cc0102d"
+        },
+        {
+            "id": "01a0d052-3db7-72eb-97ff-4b36561a090a",
+            "seq": 61,
+            "occurredAt": "2026-09-23T22:10:45.815Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "0b699a36-9e91-56c4-a46f-97f27eca89d5",
+            "facilityUnitId": null,
+            "deviceId": "32a13b69-dd91-5e1e-8c79-5049acbd29f9",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d052-3db6-730e-8193-f273ff1fb226",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:45.627353Z",
+                "username": "supervisor1",
+                "sessionId": "01a0d052-3db6-730e-8193-f273ff1fb226",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "69c8a7f0966ccedc7477ccea0c85749d02a683f35ace0b5dd03fb13840e48a4f"
+        },
+        {
+            "id": "01a0d052-3e9a-73b1-a76b-aa1e568dc361",
+            "seq": 62,
+            "occurredAt": "2026-09-23T22:10:46.042Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "836ddfab-7d19-54cb-9bcd-6bd44ef52b7b",
+            "facilityUnitId": null,
+            "deviceId": "32a13b69-dd91-5e1e-8c79-5049acbd29f9",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d052-3e98-7107-8edf-6ba3b9d78bb4",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:45.853352Z",
+                "username": "manager1",
+                "sessionId": "01a0d052-3e98-7107-8edf-6ba3b9d78bb4",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "94e27ce1ff0d32793cdfd197a6d4814124d8cd9e56257369cd7434b1645b3474"
+        },
+        {
+            "id": "01a0d052-3ea0-7347-b25b-421cdb4f298b",
+            "seq": 63,
+            "occurredAt": "2026-09-23T22:10:46.048Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "facilityUnitId": null,
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d052-3e9b-727b-bf8e-0da6340ac21b",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:45.853967Z",
+                "username": "cashier2",
+                "sessionId": "01a0d052-3e9b-727b-bf8e-0da6340ac21b",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "e7a5ff6c22d6ea63fae180f48e08fdad20b2a83e00633f5192a8c0f91be4015e"
+        },
+        {
+            "id": "01a0d052-3ef6-721d-826d-66cad0a95414",
+            "seq": 64,
+            "occurredAt": "2026-09-23T22:10:46.134Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "facilityUnitId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "payment.refund.request",
+            "entityType": "Approval",
+            "entityId": "01a0d052-3ef3-7387-b8b7-9b249ec371aa",
+            "oldValue": null,
+            "newValue": {
+                "action": "payment.refund",
+                "amount": "500.0000",
+                "reason": "Customer complaint",
+                "entityId": "01a0d052-23bc-7082-8c0e-2adba7074599",
+                "entityType": "Payment"
+            },
+            "approvalId": "01a0d052-3ef3-7387-b8b7-9b249ec371aa",
+            "rowHash": "33a27b4cec281eedab32e5d84bf7a553f93e6527b04d2c5075bc25324debcac8"
+        },
+        {
+            "id": "01a0d052-3f86-7288-a0db-c1d702437893",
+            "seq": 65,
+            "occurredAt": "2026-09-23T22:10:46.278Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "63e5fd3e-696e-57f0-a752-d932c8b6fd7d",
+            "facilityUnitId": null,
+            "deviceId": "32a13b69-dd91-5e1e-8c79-5049acbd29f9",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d052-3f85-713f-9929-453d51b0fce2",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:46.087350Z",
+                "username": "itadmin1",
+                "sessionId": "01a0d052-3f85-713f-9929-453d51b0fce2",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "d7b05939de3662bff2453bd786391adda14a0ebfbd002ecd7572001262ae06b4"
+        },
+        {
+            "id": "01a0d052-406f-736f-af67-b976479fa13a",
+            "seq": 66,
+            "occurredAt": "2026-09-23T22:10:46.511Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "935dbdcf-d514-5c33-9889-5a14f39c65c4",
+            "facilityUnitId": null,
+            "deviceId": "32a13b69-dd91-5e1e-8c79-5049acbd29f9",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d052-406e-729d-af99-8ceabd6a8311",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:46.315934Z",
+                "username": "owner1",
+                "sessionId": "01a0d052-406e-729d-af99-8ceabd6a8311",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "7d2effd1ea3fbaa75dc7158d1edaa8492f56a519ac0146d49533336483142715"
+        },
+        {
+            "id": "01a0d052-6020-7050-9294-3aadd0b92b60",
+            "seq": 67,
+            "occurredAt": "2026-09-23T22:10:54.624Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "0b699a36-9e91-56c4-a46f-97f27eca89d5",
+            "facilityUnitId": null,
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d052-601e-7129-9ead-e2942aa85420",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:54.428229Z",
+                "username": "supervisor1",
+                "sessionId": "01a0d052-601e-7129-9ead-e2942aa85420",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "ab45dd9aca6571f9c011208f97f840b7835a20daeaa6968a4984ad5e65a3f228"
+        },
+        {
+            "id": "01a0d052-6086-7388-8a8c-90df0b64c1a2",
+            "seq": 68,
+            "occurredAt": "2026-09-23T22:10:54.726Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "0b699a36-9e91-56c4-a46f-97f27eca89d5",
+            "facilityUnitId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "payment.refund",
+            "entityType": "Payment",
+            "entityId": "01a0d052-23bc-7082-8c0e-2adba7074599",
+            "oldValue": {
+                "status": "CAPTURED",
+                "refundedAmount": "0.0000"
+            },
+            "newValue": {
+                "amount": "500.0000",
+                "reason": "Customer complaint",
+                "status": "PARTIALLY_REFUNDED",
+                "refundId": "01a0d052-3ef3-7387-b8b7-9b249e78d873",
+                "approverId": "0b699a36-9e91-56c4-a46f-97f27eca89d5",
+                "refundedAmount": "500.0000"
+            },
+            "approvalId": "01a0d052-3ef3-7387-b8b7-9b249ec371aa",
+            "rowHash": "3016d4d0a86fc6fdf7f11ebd12dfd90f44f3a885bb4d6ae688c4b988729e78a2"
+        },
+        {
+            "id": "01a0d052-6088-723c-94d8-678829f38276",
+            "seq": 69,
+            "occurredAt": "2026-09-23T22:10:54.728Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "0b699a36-9e91-56c4-a46f-97f27eca89d5",
+            "facilityUnitId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "payment.refund.approve",
+            "entityType": "Approval",
+            "entityId": "01a0d052-3ef3-7387-b8b7-9b249ec371aa",
+            "oldValue": {
+                "status": "PENDING"
+            },
+            "newValue": {
+                "note": "ok",
+                "status": "APPROVED",
+                "decidedBy": "0b699a36-9e91-56c4-a46f-97f27eca89d5"
+            },
+            "approvalId": "01a0d052-3ef3-7387-b8b7-9b249ec371aa",
+            "rowHash": "cfe39e6b82ff379865030b5fec95e596058a0d8360afeab7f24b0d2485922389"
+        },
+        {
+            "id": "01a0d052-6169-72d1-bff5-32fa31c8212c",
+            "seq": 70,
+            "occurredAt": "2026-09-23T22:10:54.953Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "facilityUnitId": null,
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d052-6168-7259-a93d-f85acf307edc",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:10:54.758271Z",
+                "username": "cashier2",
+                "sessionId": "01a0d052-6168-7259-a93d-f85acf307edc",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "2221803cbd34d85e4715296b0b806b6d24e9f85dba0c47878dbb1b71f8eba705"
+        },
+        {
+            "id": "01a0d052-629d-724c-824d-d352df6d7bff",
+            "seq": 71,
+            "occurredAt": "2026-09-23T22:10:55.261Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "facilityUnitId": null,
+            "deviceId": null,
+            "action": "staff.step_up",
+            "entityType": "Staff",
+            "entityId": "0b699a36-9e91-56c4-a46f-97f27eca89d5",
+            "oldValue": null,
+            "newValue": {
+                "entityId": "01a0d052-23bc-7082-8c0e-2adba7074599",
+                "entityType": "Payment",
+                "permission": "refund.approve",
+                "approverStaffId": "0b699a36-9e91-56c4-a46f-97f27eca89d5",
+                "requestedByStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671"
+            },
+            "approvalId": null,
+            "rowHash": "c747e7a5fc94ea584925413522e83b253f8fb129d9623aec7e79f4bddb4d3e5a"
+        },
+        {
+            "id": "01a0d052-8d96-72cd-93ad-db645a092b5e",
+            "seq": 72,
+            "occurredAt": "2026-09-23T22:11:06.262Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "935dbdcf-d514-5c33-9889-5a14f39c65c4",
+            "facilityUnitId": null,
+            "deviceId": "69700e6a-5ef0-5634-92a3-9dd0993d5937",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d052-8d95-7367-94e3-9e64e96264d3",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:11:06.065876Z",
+                "username": "owner1",
+                "sessionId": "01a0d052-8d95-7367-94e3-9e64e96264d3",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "cabb67582b18f02c196c20e1da95adb6c65f34e291c22dd7a5b385d1e28813ec"
+        },
+        {
+            "id": "01a0d053-2758-70de-b50d-ddaa45839df3",
+            "seq": 73,
+            "occurredAt": "2026-09-23T22:11:45.624Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "935dbdcf-d514-5c33-9889-5a14f39c65c4",
+            "facilityUnitId": null,
+            "deviceId": "69700e6a-5ef0-5634-92a3-9dd0993d5937",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d053-2756-7029-b07c-21a0483352ff",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:11:45.430271Z",
+                "username": "owner1",
+                "sessionId": "01a0d053-2756-7029-b07c-21a0483352ff",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "58720f6267b4f5955620f4c43ed361bfa809bbbbcabeb8efd446ffa4487243f3"
+        },
+        {
+            "id": "01a0d053-279e-70b8-b1e8-b24b7404a4a6",
+            "seq": 74,
+            "occurredAt": "2026-09-23T22:11:45.695Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "935dbdcf-d514-5c33-9889-5a14f39c65c4",
+            "facilityUnitId": null,
+            "deviceId": null,
+            "action": "staff.create",
+            "entityType": "Staff",
+            "entityId": "01a0d053-279d-72ee-a788-2dedf23bcce8",
+            "oldValue": null,
+            "newValue": {
+                "email": null,
+                "phone": null,
+                "status": "ACTIVE",
+                "lastName": "Viewer",
+                "username": "kdsview1",
+                "firstName": "Kds",
+                "rowVersion": 1,
+                "staffNumber": "S-9001"
+            },
+            "approvalId": null,
+            "rowHash": "3563aa7247140c75026f3ed768c357a3b26bd20fab183933cc424b304bc811d4"
+        },
+        {
+            "id": "01a0d053-287c-70fd-8874-9cd62bc9f5c5",
+            "seq": 75,
+            "occurredAt": "2026-09-23T22:11:45.916Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "935dbdcf-d514-5c33-9889-5a14f39c65c4",
+            "facilityUnitId": null,
+            "deviceId": null,
+            "action": "credential.set",
+            "entityType": "Staff",
+            "entityId": "01a0d053-279d-72ee-a788-2dedf23bcce8",
+            "oldValue": null,
+            "newValue": {
+                "staffId": "01a0d053-279d-72ee-a788-2dedf23bcce8",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "9374bcd77d7da1f99dd08483978aa97bcd7f1332658eddd9223622a1e4651e3b"
+        },
+        {
+            "id": "01a0d053-289e-723a-9de7-2e84472be672",
+            "seq": 76,
+            "occurredAt": "2026-09-23T22:11:45.950Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "935dbdcf-d514-5c33-9889-5a14f39c65c4",
+            "facilityUnitId": null,
+            "deviceId": null,
+            "action": "credential.nfc_card.register",
+            "entityType": "Staff",
+            "entityId": "01a0d053-279d-72ee-a788-2dedf23bcce8",
+            "oldValue": null,
+            "newValue": {
+                "staffId": "01a0d053-279d-72ee-a788-2dedf23bcce8",
+                "credentialType": "NFC_CARD"
+            },
+            "approvalId": null,
+            "rowHash": "bf2b069c2c391fc137dc81ba0c07d13546b642003b4fcf9f48e1f52c815e70a0"
+        },
+        {
+            "id": "01a0d053-28e4-712e-80bb-562d904678ac",
+            "seq": 77,
+            "occurredAt": "2026-09-23T22:11:46.020Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "935dbdcf-d514-5c33-9889-5a14f39c65c4",
+            "facilityUnitId": "84ea0412-4610-5afe-95a3-98242a14ce96",
+            "deviceId": null,
+            "action": "role_assignment.grant",
+            "entityType": "RoleAssignment",
+            "entityId": "01a0d053-28e3-702c-af9e-92df46d605af",
+            "oldValue": null,
+            "newValue": {
+                "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+                "staffId": "01a0d053-279d-72ee-a788-2dedf23bcce8",
+                "roleCode": "KDS_VIEWER",
+                "scopeLevel": "FACILITY_UNIT",
+                "assignmentId": "01a0d053-28e3-702c-af9e-92df46d605af",
+                "facilityUnitId": "84ea0412-4610-5afe-95a3-98242a14ce96",
+                "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658"
+            },
+            "approvalId": null,
+            "rowHash": "b8d56ddcd711c082fddc80c9c8af5340e41da7572ef691c0ba228748538bbb3b"
+        },
+        {
+            "id": "01a0d053-290a-7237-a4c2-0d078cc5922d",
+            "seq": 78,
+            "occurredAt": "2026-09-23T22:11:46.058Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "935dbdcf-d514-5c33-9889-5a14f39c65c4",
+            "facilityUnitId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "deviceId": null,
+            "action": "role_assignment.grant",
+            "entityType": "RoleAssignment",
+            "entityId": "01a0d053-2908-71c3-b64d-141964df4147",
+            "oldValue": null,
+            "newValue": {
+                "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+                "staffId": "01a0d053-279d-72ee-a788-2dedf23bcce8",
+                "roleCode": "KDS_VIEWER",
+                "scopeLevel": "FACILITY_UNIT",
+                "assignmentId": "01a0d053-2908-71c3-b64d-141964df4147",
+                "facilityUnitId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+                "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658"
+            },
+            "approvalId": null,
+            "rowHash": "b923f8d1bc70dcad099e5f0e88d64d0c1327a485596818b3ca9c6bc216f8cc0d"
+        },
+        {
+            "id": "01a0d053-3e37-730d-8c64-69f972eaaeee",
+            "seq": 79,
+            "occurredAt": "2026-09-23T22:11:51.479Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "01a0d053-279d-72ee-a788-2dedf23bcce8",
+            "facilityUnitId": null,
+            "deviceId": "12c5c733-2b18-555d-a1a3-ede6f991e925",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d053-3e37-730d-8c64-69f972ce8beb",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:11:51.295813Z",
+                "username": "kdsview1",
+                "sessionId": "01a0d053-3e37-730d-8c64-69f972ce8beb",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "44701fc0fcd3589a002124c0bd4145332ef13179511be008c45bb2eb6436c5ac"
+        },
+        {
+            "id": "01a0d053-3f14-7282-970b-d4b05a1b5bd8",
+            "seq": 80,
+            "occurredAt": "2026-09-23T22:11:51.700Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "01a0d053-279d-72ee-a788-2dedf23bcce8",
+            "facilityUnitId": null,
+            "deviceId": "12c5c733-2b18-555d-a1a3-ede6f991e925",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d053-3f12-71e7-811b-117c1af2b00f",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:11:51.508289Z",
+                "username": "kdsview1",
+                "sessionId": "01a0d053-3f12-71e7-811b-117c1af2b00f",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "9518322deb01047c6fd1a9f26094b59f12387acf9513b0428be65e9bd468855a"
+        },
+        {
+            "id": "01a0d053-6a2a-72c6-853f-5e6b7dfce7d9",
+            "seq": 81,
+            "occurredAt": "2026-09-23T22:12:02.730Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "935dbdcf-d514-5c33-9889-5a14f39c65c4",
+            "facilityUnitId": null,
+            "deviceId": "69700e6a-5ef0-5634-92a3-9dd0993d5937",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d053-6a29-70ae-9e3c-0092968296f0",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:12:02.546382Z",
+                "username": "owner1",
+                "sessionId": "01a0d053-6a29-70ae-9e3c-0092968296f0",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "33f0d8bd89dc55c9a8c2d5017b0d2bedb109ae6de52fe69fc3ebac6368d8fee1"
+        },
+        {
+            "id": "01a0d053-6b23-738f-b75b-6f82886826bc",
+            "seq": 82,
+            "occurredAt": "2026-09-23T22:12:02.979Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "01a0d053-279d-72ee-a788-2dedf23bcce8",
+            "facilityUnitId": null,
+            "deviceId": "12c5c733-2b18-555d-a1a3-ede6f991e925",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d053-6b22-71aa-bd18-a77ccbc09967",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:12:02.788847Z",
+                "username": "kdsview1",
+                "sessionId": "01a0d053-6b22-71aa-bd18-a77ccbc09967",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "e964efa88d5e63e333e7fbf489df1aa18070ad950e4f03d0beb172f0ae5c8dd7"
+        },
+        {
+            "id": "01a0d053-9253-70b0-bc52-b70d55985448",
+            "seq": 83,
+            "occurredAt": "2026-09-23T22:12:13.011Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "facilityUnitId": null,
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d053-9251-70a7-8ee8-fdd5ef113fe5",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:12:12.814715Z",
+                "username": "cashier2",
+                "sessionId": "01a0d053-9251-70a7-8ee8-fdd5ef113fe5",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "e2cffdc1308c7db24a800c4a8fc6d4e92cd97ae31fa55f6f4be36add192f9e04"
+        },
+        {
+            "id": "01a0d053-a995-73ea-af82-e3b01a8048eb",
+            "seq": 84,
+            "occurredAt": "2026-09-23T22:12:18.965Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "facilityUnitId": null,
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d053-a994-730d-b26c-29705d333fb7",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:12:18.771595Z",
+                "username": "cashier2",
+                "sessionId": "01a0d053-a994-730d-b26c-29705d333fb7",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "1eae3d99089972fee47f1b4bcd6ee5a508b72d4035bb26d2c0491583a0d5da18"
+        },
+        {
+            "id": "01a0d053-aa51-7210-a4f4-ac7ee6425267",
+            "seq": 85,
+            "occurredAt": "2026-09-23T22:12:19.153Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "facilityUnitId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "tab.open",
+            "entityType": "Tab",
+            "entityId": "01a0d053-aa08-791e-92f6-0becd8a01ebe",
+            "oldValue": null,
+            "newValue": {
+                "tableId": "5ceaebab-8204-5084-9b1b-b74b6de738d9",
+                "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+                "customerName": "Mr Bello"
+            },
+            "approvalId": null,
+            "rowHash": "3c0a30b2fcd60a80014d45f4e76a0d9d5226557b1ac5895eaf1ad2897eb5a85a"
+        },
+        {
+            "id": "01a0d053-acaa-71db-b8a5-03b098baedad",
+            "seq": 86,
+            "occurredAt": "2026-09-23T22:12:19.754Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "01a0d053-279d-72ee-a788-2dedf23bcce8",
+            "facilityUnitId": null,
+            "deviceId": "12c5c733-2b18-555d-a1a3-ede6f991e925",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d053-aca9-73e3-8909-335c3448d7a4",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:12:19.563020Z",
+                "username": "kdsview1",
+                "sessionId": "01a0d053-aca9-73e3-8909-335c3448d7a4",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "450c4915226b8f1120baffe28958b3183847f590d895de7bca0698e76eba9b62"
+        },
+        {
+            "id": "01a0d053-adc0-71af-9c90-dfb1aadc440b",
+            "seq": 87,
+            "occurredAt": "2026-09-23T22:12:20.032Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "7165e684-7b60-5f21-83bd-9ce6ca53a316",
+            "facilityUnitId": null,
+            "deviceId": "32a13b69-dd91-5e1e-8c79-5049acbd29f9",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d053-adbe-72a9-879a-6234f639101d",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:12:19.837316Z",
+                "username": "bartender1",
+                "sessionId": "01a0d053-adbe-72a9-879a-6234f639101d",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "b6d3e9c843e3a46f299f7b1fdb4d5ffd0d7db93299a54aab56a8f1d8513c2788"
+        },
+        {
+            "id": "01a0d053-af19-711c-ab21-da95c0afb899",
+            "seq": 88,
+            "occurredAt": "2026-09-23T22:12:20.377Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e2ba390c-a6cc-53c3-9a84-b4fc1af047be",
+            "facilityUnitId": null,
+            "deviceId": "12c5c733-2b18-555d-a1a3-ede6f991e925",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d053-af18-71a4-ac8e-bcf396bbb224",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:12:20.185269Z",
+                "username": "kitchen1",
+                "sessionId": "01a0d053-af18-71a4-ac8e-bcf396bbb224",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "6d7cf5cb8f3e60a8597ba30bd80293c07c26230aa50e03da75bf7c27af868ecb"
+        },
+        {
+            "id": "01a0d053-b036-711e-a547-e7663310fba7",
+            "seq": 89,
+            "occurredAt": "2026-09-23T22:12:20.662Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "7165e684-7b60-5f21-83bd-9ce6ca53a316",
+            "facilityUnitId": null,
+            "deviceId": "12c5c733-2b18-555d-a1a3-ede6f991e925",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d053-b035-725d-8b56-dac8b413c7d1",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:12:20.468076Z",
+                "username": "bartender1",
+                "sessionId": "01a0d053-b035-725d-8b56-dac8b413c7d1",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "d67fc84f9c09ee75aae80d24b263455355dcea9c27a07b87755d23c117eeeb67"
+        },
+        {
+            "id": "01a0d053-ce79-71d8-974d-f0d649d56957",
+            "seq": 90,
+            "occurredAt": "2026-09-23T22:12:28.409Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "facilityUnitId": null,
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d053-ce78-73e4-8022-87eec11a4445",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:12:28.217535Z",
+                "username": "cashier2",
+                "sessionId": "01a0d053-ce78-73e4-8022-87eec11a4445",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "ea5c7b5dee5e263b5e302b6c777f728d2d7e7db619a826c96a729d3555258d6e"
+        },
+        {
+            "id": "01a0d053-f24a-73c8-bb70-b820b7274e51",
+            "seq": 91,
+            "occurredAt": "2026-09-23T22:12:37.578Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "facilityUnitId": null,
+            "deviceId": "2d96170f-f4bb-5062-8c1f-91b82466d646",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d053-f249-7134-a225-1c074af8cf94",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:12:37.386518Z",
+                "username": "cashier2",
+                "sessionId": "01a0d053-f249-7134-a225-1c074af8cf94",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "fa759d47f2f7ad9b6bb37bae194e83f9a93c8cad917061fb9bc69fd1d396e9b2"
+        },
+        {
+            "id": "01a0d054-59d5-72ca-8ede-a00e9f755cbb",
+            "seq": 92,
+            "occurredAt": "2026-09-23T22:13:04.085Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "63e5fd3e-696e-57f0-a752-d932c8b6fd7d",
+            "facilityUnitId": null,
+            "deviceId": null,
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d054-59d3-71b3-b5b0-48951beaee26",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:13:03.887909Z",
+                "username": "itadmin1",
+                "sessionId": "01a0d054-59d3-71b3-b5b0-48951beaee26",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "752ee5eee7313104c75f5d3e65b86d9c985cc08ea34a3e3ea6087cc17275f038"
+        },
+        {
+            "id": "01a0d054-5ac9-70fd-96e8-75a632a3be64",
+            "seq": 93,
+            "occurredAt": "2026-09-23T22:13:04.329Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "63e5fd3e-696e-57f0-a752-d932c8b6fd7d",
+            "facilityUnitId": null,
+            "deviceId": null,
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d054-5ac8-721c-94bc-3712ee1e3216",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T22:13:04.119126Z",
+                "username": "itadmin1",
+                "sessionId": "01a0d054-5ac8-721c-94bc-3712ee1e3216",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "d09a12b466a0015798c6c338da187e9443bff695ce56601667ecccf0bf2eab08"
+        },
+        {
+            "id": "01a0d054-5aea-71ac-9560-6d143222440d",
+            "seq": 94,
+            "occurredAt": "2026-09-23T22:13:04.363Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "63e5fd3e-696e-57f0-a752-d932c8b6fd7d",
+            "facilityUnitId": null,
+            "deviceId": null,
+            "action": "device.registration_code.issue",
+            "entityType": "Device",
+            "entityId": "01a0d054-5aea-71ac-9560-6d1431719d0f",
+            "oldValue": null,
+            "newValue": {
+                "expiresAt": "2026-09-24T22:13:04.360Z",
+                "facilityId": "5996b8b4-1b06-5150-adca-659ac70055e7"
+            },
+            "approvalId": null,
+            "rowHash": "339024fe6eb4ab8e770f479ce38fbbb7b13f955a8bb9161c1f048cc47b2a4f5a"
+        },
+        {
+            "id": "01a0d088-dcf0-735e-99e3-7ebb11625a84",
+            "seq": 95,
+            "occurredAt": "2026-09-23T23:10:25.520Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "935dbdcf-d514-5c33-9889-5a14f39c65c4",
+            "facilityUnitId": null,
+            "deviceId": null,
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d088-dcef-714f-ad0a-0b3b0dec7e45",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T23:10:25.322341Z",
+                "username": "owner1",
+                "sessionId": "01a0d088-dcef-714f-ad0a-0b3b0dec7e45",
+                "credentialType": "PASSWORD"
+            },
+            "approvalId": null,
+            "rowHash": "2b6181f47cbd38e5797e49792f6ba3143fe678cea69fcf6fb2458a03ebf62724"
+        },
+        {
+            "id": "01a0d08e-0636-73cc-b2e7-e1635beaeffa",
+            "seq": 96,
+            "occurredAt": "2026-09-23T23:16:03.766Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": null,
+            "facilityUnitId": "5996b8b4-1b06-5150-adca-659ac70055e7",
+            "deviceId": "01a0d08e-062e-7328-aff1-81c7791a6071",
+            "action": "device.register",
+            "entityType": "Device",
+            "entityId": "01a0d08e-062e-7328-aff1-81c7791a6071",
+            "oldValue": null,
+            "newValue": {
+                "kind": "MOBILE_TABLET",
+                "mode": "ATTENDANT",
+                "name": "Waiter Tablet 03",
+                "deviceId": "01a0d08e-062e-7328-aff1-81c7791a6071",
+                "hardwareId": "01a0d08e-056a-7ea2-a730-ec6cb7a5a4d2"
+            },
+            "approvalId": null,
+            "rowHash": "a4af0d9a4b0c1538026871ac96996ffafc4709087768cfffceb659df58bc6538"
+        },
+        {
+            "id": "01a0d08e-4f05-71f4-9f0d-c88c9d342840",
+            "seq": 97,
+            "occurredAt": "2026-09-23T23:16:22.405Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "facilityUnitId": null,
+            "deviceId": "01a0d08e-062e-7328-aff1-81c7791a6071",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d08e-4f03-7168-8054-0d6c978f901a",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T23:16:22.185467Z",
+                "username": "wait1",
+                "sessionId": "01a0d08e-4f03-7168-8054-0d6c978f901a",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "33f9b28e855df974867e8650f655b39a77b37b629bc07e0afd08fbb8fa851c72"
+        },
+        {
+            "id": "01a0d08e-4fa6-7087-8231-045dd2e63cb4",
+            "seq": 98,
+            "occurredAt": "2026-09-23T23:16:22.566Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "e2ba390c-a6cc-53c3-9a84-b4fc1af047be",
+            "facilityUnitId": null,
+            "deviceId": "12c5c733-2b18-555d-a1a3-ede6f991e925",
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d08e-4fa6-7087-8231-045dd205e7a2",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T23:16:22.357166Z",
+                "username": "kitchen1",
+                "sessionId": "01a0d08e-4fa6-7087-8231-045dd205e7a2",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "9ec1a81314f89ba0ddc1810582d5e2f18c818616b2c28588aa0716894b8df7be"
+        },
+        {
+            "id": "01a0d08e-7972-7024-81bf-124beae8bdca",
+            "seq": 99,
+            "occurredAt": "2026-09-23T23:16:33.266Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "facilityUnitId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "deviceId": "01a0d08e-062e-7328-aff1-81c7791a6071",
+            "action": "device.checkout",
+            "entityType": "Device",
+            "entityId": "01a0d08e-062e-7328-aff1-81c7791a6071",
+            "oldValue": null,
+            "newValue": {
+                "shiftId": null,
+                "staffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+                "deviceId": "01a0d08e-062e-7328-aff1-81c7791a6071",
+                "checkoutId": "01a0d08e-7971-7137-b224-95b4ce2fe857",
+                "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+                "openingFloat": null
+            },
+            "approvalId": null,
+            "rowHash": "3373420649cb2ea75b658fee0fec310e45df9f67ce3c8b6eed3a6b0e7e466a0e"
+        },
+        {
+            "id": "01a0d08f-d6d1-731c-b278-9cc7fc0eb671",
+            "seq": 100,
+            "occurredAt": "2026-09-23T23:18:02.705Z",
+            "organizationId": "a56ce5bf-0fae-55fc-9c29-8bac068d3658",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+            "actorStaffId": "63e5fd3e-696e-57f0-a752-d932c8b6fd7d",
+            "facilityUnitId": null,
+            "deviceId": null,
+            "action": "staff.login",
+            "entityType": "Session",
+            "entityId": "01a0d08f-d6cf-72d4-acc3-542ad9539c6d",
+            "oldValue": null,
+            "newValue": {
+                "issuedAt": "2026-09-23T23:18:02.490413Z",
+                "username": "itadmin1",
+                "sessionId": "01a0d08f-d6cf-72d4-acc3-542ad9539c6d",
+                "credentialType": "PIN"
+            },
+            "approvalId": null,
+            "rowHash": "4784064901d74562552b5ccca680eba1de22cac92f6628ca7e2fd61e32f7f664"
+        }
+    ],
+    "nextCursor": "eyJ2IjoiMTAwIiwiaSI6IjAxYTBkMDhmLWQ2ZDEtNzMxYy1iMjc4LTljYzdmYzBlYjY3MSJ9"
+}

@@ -1,0 +1,54 @@
+{
+    "items": [
+        {
+            "id": "3dcca924-28c8-5b2c-94ac-7f471ab9c1f2",
+            "facilityId": "3bdbd9ba-da71-5b5a-9db1-16d5ef9cd60a",
+            "name": "Cafe Barista",
+            "kind": "BAR",
+            "active": true
+        },
+        {
+            "id": "665f4aa9-c7a5-5fb5-b701-357ae6567273",
+            "facilityId": "783110f0-20c0-55fd-9ab3-4da8c18802a2",
+            "name": "Event Bar",
+            "kind": "BAR",
+            "active": true
+        },
+        {
+            "id": "7c1ec1bc-7abb-5a45-a6c2-06ca888f3fe0",
+            "facilityId": "991c6184-c816-52a5-8dc8-edd5f8e83142",
+            "name": "Pool Bar",
+            "kind": "BAR",
+            "active": true
+        },
+        {
+            "id": "9ac72d5b-5285-55ed-92a1-f4528a7debbc",
+            "facilityId": "84ea0412-4610-5afe-95a3-98242a14ce96",
+            "name": "Main Kitchen Pass",
+            "kind": "KITCHEN",
+            "active": true
+        },
+        {
+            "id": "a04b0443-92a2-5109-912a-09f2d108b558",
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "name": "Restaurant Bar",
+            "kind": "BAR",
+            "active": true
+        },
+        {
+            "id": "a95b35c8-525f-5ede-ab80-0df53adf97f0",
+            "facilityId": "5b2a99cc-7f17-5c53-9461-ccd97644abaa",
+            "name": "Club Bar",
+            "kind": "BAR",
+            "active": true
+        },
+        {
+            "id": "feb20b4a-6cce-5faf-b4fc-3b1ff193d95f",
+            "facilityId": "9d502706-2ed5-5bd1-86bf-f895907468b1",
+            "name": "Bush Bar",
+            "kind": "BAR",
+            "active": true
+        }
+    ],
+    "nextCursor": null
+}

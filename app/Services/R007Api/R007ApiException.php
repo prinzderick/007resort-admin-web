@@ -51,6 +51,59 @@ class R007ApiException extends RuntimeException
         );
     }
 
+    /**
+     * Build an exception from a decoded problem+json body (also used by the mock API).
+     *
+     * @param  array<mixed>  $body
+     */
+    public static function fromProblem(int $status, array $body): self
+    {
+        $known = ['type', 'title', 'status', 'detail', 'instance'];
+
+        return new self(
+            status: (int) ($body['status'] ?? $status),
+            title: (string) ($body['title'] ?? '007 Resort & Spa API error'),
+            detail: isset($body['detail']) ? (string) $body['detail'] : null,
+            type: isset($body['type']) ? (string) $body['type'] : null,
+            instance: isset($body['instance']) ? (string) $body['instance'] : null,
+            extensions: array_diff_key($body, array_flip($known)),
+        );
+    }
+
+    /** Stable machine code from the problem body (e.g. permission_denied). */
+    public function problemCode(): ?string
+    {
+        $code = $this->extensions['code'] ?? null;
+
+        return is_string($code) ? $code : null;
+    }
+
+    /**
+     * True when the endpoint is not implemented on this API build: 405/501, or
+     * a 404 that carries no stable problem `code` (a routing miss rather than
+     * a domain "resource not found"). Screens degrade to an empty state.
+     */
+    public function isEndpointMissing(): bool
+    {
+        return in_array($this->status, [405, 501], true)
+            || ($this->status === 404 && $this->problemCode() === null);
+    }
+
+    public function isUnauthenticated(): bool
+    {
+        return $this->status === 401;
+    }
+
+    public function isForbidden(): bool
+    {
+        return $this->status === 403;
+    }
+
+    public function isUnreachable(): bool
+    {
+        return $this->status === 0;
+    }
+
     public static function unreachable(Throwable $previous): self
     {
         return new self(

@@ -1,0 +1,99 @@
+{
+    "items": [
+        {
+            "id": "01a0d040-c344-71d8-a017-7398f632b2ac",
+            "code": "GOLD",
+            "name": "Gold Monthly",
+            "description": "Unlimited access to every facility, 2 guests per visit, 15% member discount.",
+            "durationDays": 30,
+            "price": "150000.0000",
+            "currency": "NGN",
+            "facilityIds": [],
+            "propertyWide": true,
+            "visitLimit": null,
+            "guestAllowance": 2,
+            "memberDiscountPercent": "15.00",
+            "bookingAdvanceDays": 7,
+            "bookingPrivileges": {
+                "priorityBooking": true,
+                "extendedAdvanceDays": 7
+            },
+            "gracePeriodDays": 5,
+            "renewalNoticeDays": 7,
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c346-7249-aa44-d2972af9ee22",
+            "code": "SILVER",
+            "name": "Silver Monthly",
+            "description": "12 visits a month to the pool, gym and restaurant, 1 guest, 10% member discount.",
+            "durationDays": 30,
+            "price": "80000.0000",
+            "currency": "NGN",
+            "facilityIds": [
+                "5b2a99cc-7f17-5c53-9461-ccd97644abaa",
+                "a206b41c-f916-5185-b405-db8a5b67b4db",
+                "e72222e7-c136-535e-9e25-d2a8668c2b18"
+            ],
+            "propertyWide": false,
+            "visitLimit": 12,
+            "guestAllowance": 1,
+            "memberDiscountPercent": "10.00",
+            "bookingAdvanceDays": 3,
+            "bookingPrivileges": {
+                "priorityBooking": false,
+                "extendedAdvanceDays": 3
+            },
+            "gracePeriodDays": 3,
+            "renewalNoticeDays": 7,
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c348-722b-a449-10e75e77b710",
+            "code": "POOL_PASS",
+            "name": "Pool Pass",
+            "description": "8 pool visits, no guests.",
+            "durationDays": 30,
+            "price": "25000.0000",
+            "currency": "NGN",
+            "facilityIds": [
+                "e72222e7-c136-535e-9e25-d2a8668c2b18"
+            ],
+            "propertyWide": false,
+            "visitLimit": 8,
+            "guestAllowance": 0,
+            "memberDiscountPercent": "0.00",
+            "bookingAdvanceDays": 0,
+            "bookingPrivileges": [],
+            "gracePeriodDays": 0,
+            "renewalNoticeDays": 5,
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d0bc-0b32-7087-8dd8-42f52a800086",
+            "code": "ADMTEST",
+            "name": "Admin Test Plan 2",
+            "description": "test plan",
+            "durationDays": 30,
+            "price": "26000.0000",
+            "currency": "NGN",
+            "facilityIds": [
+                "a206b41c-f916-5185-b405-db8a5b67b4db"
+            ],
+            "propertyWide": false,
+            "visitLimit": null,
+            "guestAllowance": 1,
+            "memberDiscountPercent": "5.00",
+            "bookingAdvanceDays": 3,
+            "bookingPrivileges": [],
+            "gracePeriodDays": 2,
+            "renewalNoticeDays": 5,
+            "active": false,
+            "rowVersion": 2
+        }
+    ],
+    "nextCursor": null
+}

@@ -1,0 +1,645 @@
+{
+    "items": [
+        {
+            "id": "01a0d040-c1a0-733a-aa40-c887ee129b74",
+            "sku": "BEV-STAR-60",
+            "name": "Star Lager Beer 60cl",
+            "unit": "bottle",
+            "category": "Beer",
+            "reorderLevel": "48.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1a1-7185-b35d-9cb7a977783c",
+            "sku": "BEV-GUIN-60",
+            "name": "Guinness Stout 60cl",
+            "unit": "bottle",
+            "category": "Beer",
+            "reorderLevel": "48.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1a2-700d-95e8-1922510b6407",
+            "sku": "BEV-HERO-60",
+            "name": "Heineken 60cl",
+            "unit": "bottle",
+            "category": "Beer",
+            "reorderLevel": "48.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1a2-700d-95e8-192251c96401",
+            "sku": "BEV-TROP-50",
+            "name": "Trophy Lager 50cl",
+            "unit": "bottle",
+            "category": "Beer",
+            "reorderLevel": "48.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1a3-7080-a031-5c6314840059",
+            "sku": "BEV-HENN-70",
+            "name": "Hennessy VS 70cl",
+            "unit": "bottle",
+            "category": "Spirits",
+            "reorderLevel": "6.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1a4-70fe-8456-7a14f3a67742",
+            "sku": "BEV-JACK-75",
+            "name": "Jack Daniel's 75cl",
+            "unit": "bottle",
+            "category": "Spirits",
+            "reorderLevel": "6.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1a4-70fe-8456-7a14f3acabeb",
+            "sku": "BEV-JOHN-75",
+            "name": "Johnnie Walker Black 75cl",
+            "unit": "bottle",
+            "category": "Spirits",
+            "reorderLevel": "6.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1a5-7331-a58f-ac9b4a788761",
+            "sku": "BEV-SMIR-75",
+            "name": "Smirnoff Vodka 75cl",
+            "unit": "bottle",
+            "category": "Spirits",
+            "reorderLevel": "6.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1a6-7091-a3c0-861ee4807843",
+            "sku": "BEV-GORD-75",
+            "name": "Gordon's Dry Gin 75cl",
+            "unit": "bottle",
+            "category": "Spirits",
+            "reorderLevel": "6.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1a6-7091-a3c0-861ee4b2756b",
+            "sku": "BEV-BACA-75",
+            "name": "Bacardi White Rum 75cl",
+            "unit": "bottle",
+            "category": "Spirits",
+            "reorderLevel": "6.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1a7-7338-84a1-9309795f86e4",
+            "sku": "BEV-CHAM-75",
+            "name": "Chamdor Sparkling Wine 75cl",
+            "unit": "bottle",
+            "category": "Wine",
+            "reorderLevel": "6.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1a7-7338-84a1-930979ee0d40",
+            "sku": "BEV-REDW-75",
+            "name": "Red Wine House 75cl",
+            "unit": "bottle",
+            "category": "Wine",
+            "reorderLevel": "6.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1a8-7060-932f-c27d2b75740b",
+            "sku": "BEV-WHTW-75",
+            "name": "White Wine House 75cl",
+            "unit": "bottle",
+            "category": "Wine",
+            "reorderLevel": "6.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1a9-71a5-80b5-119f030dd442",
+            "sku": "SFT-COKE-50",
+            "name": "Coca-Cola 50cl",
+            "unit": "bottle",
+            "category": "Soft Drinks",
+            "reorderLevel": "48.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1aa-70c1-9932-0af6b59fa028",
+            "sku": "SFT-FANT-50",
+            "name": "Fanta Orange 50cl",
+            "unit": "bottle",
+            "category": "Soft Drinks",
+            "reorderLevel": "48.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1aa-70c1-9932-0af6b605b84f",
+            "sku": "SFT-SPRT-50",
+            "name": "Sprite 50cl",
+            "unit": "bottle",
+            "category": "Soft Drinks",
+            "reorderLevel": "48.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1ab-7035-a3b4-7e2bf5574454",
+            "sku": "SFT-WATR-75",
+            "name": "Bottled Water 75cl",
+            "unit": "bottle",
+            "category": "Water",
+            "reorderLevel": "96.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1ac-71a9-8b35-e966ddfdb424",
+            "sku": "SFT-TONI-20",
+            "name": "Tonic Water 20cl",
+            "unit": "bottle",
+            "category": "Mixers",
+            "reorderLevel": "24.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1ac-71a9-8b35-e966dee22541",
+            "sku": "SFT-ORJC-1L",
+            "name": "Orange Juice 1L",
+            "unit": "carton",
+            "category": "Juice",
+            "reorderLevel": "12.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1ad-7222-aa39-9f5675899800",
+            "sku": "SFT-PINE-1L",
+            "name": "Pineapple Juice 1L",
+            "unit": "carton",
+            "category": "Juice",
+            "reorderLevel": "12.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1ae-715b-a8fc-a84766546ca6",
+            "sku": "SFT-REDB-25",
+            "name": "Red Bull 25cl",
+            "unit": "can",
+            "category": "Energy Drinks",
+            "reorderLevel": "24.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1ae-715b-a8fc-a84766ab1691",
+            "sku": "KIT-RICE-50",
+            "name": "Long Grain Rice 50kg",
+            "unit": "bag",
+            "category": "Grains",
+            "reorderLevel": "2.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1af-7185-87a6-a673b051f46e",
+            "sku": "KIT-BEAN-25",
+            "name": "Brown Beans 25kg",
+            "unit": "bag",
+            "category": "Grains",
+            "reorderLevel": "1.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1b0-7242-80a1-3ed431681346",
+            "sku": "KIT-YAMS-EA",
+            "name": "Yam Tuber (medium)",
+            "unit": "each",
+            "category": "Produce",
+            "reorderLevel": "20.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1b0-7242-80a1-3ed4316930e5",
+            "sku": "KIT-TOMA-KG",
+            "name": "Fresh Tomatoes",
+            "unit": "kg",
+            "category": "Produce",
+            "reorderLevel": "10.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1b1-70fe-8f4d-e5433973189b",
+            "sku": "KIT-ONIO-KG",
+            "name": "Onions",
+            "unit": "kg",
+            "category": "Produce",
+            "reorderLevel": "10.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1b2-73da-a8f9-7352645b6c62",
+            "sku": "KIT-PEPP-KG",
+            "name": "Fresh Pepper (Tatashe/Rodo)",
+            "unit": "kg",
+            "category": "Produce",
+            "reorderLevel": "5.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1b3-7339-956c-cf023af7d067",
+            "sku": "KIT-CHKN-KG",
+            "name": "Frozen Chicken",
+            "unit": "kg",
+            "category": "Meat",
+            "reorderLevel": "20.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1b3-7339-956c-cf023afb23f5",
+            "sku": "KIT-BEEF-KG",
+            "name": "Beef",
+            "unit": "kg",
+            "category": "Meat",
+            "reorderLevel": "15.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1b4-7269-8f59-2d2ac881498e",
+            "sku": "KIT-FISH-KG",
+            "name": "Catfish (fresh)",
+            "unit": "kg",
+            "category": "Fish",
+            "reorderLevel": "10.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1b5-7175-a659-730028a562fe",
+            "sku": "KIT-TILA-KG",
+            "name": "Tilapia (frozen)",
+            "unit": "kg",
+            "category": "Fish",
+            "reorderLevel": "10.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1b5-7175-a659-73002928a45f",
+            "sku": "KIT-EGGS-30",
+            "name": "Eggs (crate of 30)",
+            "unit": "crate",
+            "category": "Dairy & Eggs",
+            "reorderLevel": "10.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1b6-71b4-ae4e-bc603c45c134",
+            "sku": "KIT-OILV-25",
+            "name": "Vegetable Oil 25L",
+            "unit": "jerrycan",
+            "category": "Oils",
+            "reorderLevel": "2.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1b7-70f4-aa80-cdfbe0ef022d",
+            "sku": "KIT-FLOU-50",
+            "name": "Wheat Flour 50kg",
+            "unit": "bag",
+            "category": "Baking",
+            "reorderLevel": "2.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1b7-70f4-aa80-cdfbe1c4950f",
+            "sku": "KIT-SUGR-50",
+            "name": "Sugar 50kg",
+            "unit": "bag",
+            "category": "Baking",
+            "reorderLevel": "2.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1b8-717b-a6ff-a4af998ea9c7",
+            "sku": "KIT-SALT-1K",
+            "name": "Table Salt 1kg",
+            "unit": "pack",
+            "category": "Spices",
+            "reorderLevel": "10.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1b9-70fa-8238-19e989dcc717",
+            "sku": "KIT-SEAS-CB",
+            "name": "Seasoning Cubes (box of 100)",
+            "unit": "box",
+            "category": "Spices",
+            "reorderLevel": "5.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1b9-70fa-8238-19e98a007c2e",
+            "sku": "KIT-SPAG-500",
+            "name": "Spaghetti 500g",
+            "unit": "pack",
+            "category": "Pasta",
+            "reorderLevel": "20.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1ba-730c-82a7-7b24c2020e3a",
+            "sku": "KIT-PLTN-EA",
+            "name": "Plantain (bunch)",
+            "unit": "bunch",
+            "category": "Produce",
+            "reorderLevel": "10.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1bb-7250-bc44-2b752a0285fc",
+            "sku": "KIT-GARI-25",
+            "name": "Garri 25kg",
+            "unit": "bag",
+            "category": "Grains",
+            "reorderLevel": "2.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1bb-7250-bc44-2b752ad028e9",
+            "sku": "KIT-MILK-400",
+            "name": "Peak Milk Powder 400g",
+            "unit": "tin",
+            "category": "Dairy & Eggs",
+            "reorderLevel": "12.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1bc-71ce-a336-451e0627dc67",
+            "sku": "KIT-BUTR-500",
+            "name": "Butter 500g",
+            "unit": "pack",
+            "category": "Dairy & Eggs",
+            "reorderLevel": "6.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1bd-72c4-93da-937cbd377619",
+            "sku": "SUP-INDM-70",
+            "name": "Indomie Noodles 70g (carton of 40)",
+            "unit": "carton",
+            "category": "Groceries",
+            "reorderLevel": "6.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1bd-72c4-93da-937cbdfd9a8d",
+            "sku": "SUP-BRED-EA",
+            "name": "Sliced Bread Loaf",
+            "unit": "each",
+            "category": "Bakery",
+            "reorderLevel": "20.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1be-73cc-a20f-c4427abfa4d4",
+            "sku": "SUP-BISC-EA",
+            "name": "Cabin Biscuits Pack",
+            "unit": "pack",
+            "category": "Snacks",
+            "reorderLevel": "20.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1bf-7152-9ba5-c9873eeccc1e",
+            "sku": "SUP-CHIP-EA",
+            "name": "Plantain Chips Pack",
+            "unit": "pack",
+            "category": "Snacks",
+            "reorderLevel": "20.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1bf-7152-9ba5-c9873fafcdd0",
+            "sku": "SUP-TISS-EA",
+            "name": "Toilet Tissue (pack of 10)",
+            "unit": "pack",
+            "category": "Household",
+            "reorderLevel": "10.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1c0-7330-a531-c97520df0fa2",
+            "sku": "SUP-DETG-1K",
+            "name": "Detergent Powder 1kg",
+            "unit": "pack",
+            "category": "Household",
+            "reorderLevel": "10.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1c1-71f5-83a8-0b26a2fb6285",
+            "sku": "SUP-TOOT-EA",
+            "name": "Toothpaste 100g",
+            "unit": "tube",
+            "category": "Toiletries",
+            "reorderLevel": "12.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1c1-71f5-83a8-0b26a3bd2c48",
+            "sku": "SUP-SOAP-EA",
+            "name": "Bathing Soap Bar",
+            "unit": "bar",
+            "category": "Toiletries",
+            "reorderLevel": "20.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1c2-716e-9710-0d8506a64cc2",
+            "sku": "SUP-SUNS-EA",
+            "name": "Sunscreen Lotion 100ml",
+            "unit": "bottle",
+            "category": "Toiletries",
+            "reorderLevel": "6.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1c3-7328-be29-79d9fc6a1168",
+            "sku": "SUP-BATT-AA",
+            "name": "AA Batteries (pack of 4)",
+            "unit": "pack",
+            "category": "Electronics",
+            "reorderLevel": "10.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1c4-73a3-a921-b36e132873f3",
+            "sku": "SAL-SHMP-1L",
+            "name": "Professional Shampoo 1L",
+            "unit": "bottle",
+            "category": "Salon Consumables",
+            "reorderLevel": "4.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1c4-73a3-a921-b36e138ce92f",
+            "sku": "SAL-COND-1L",
+            "name": "Conditioner 1L",
+            "unit": "bottle",
+            "category": "Salon Consumables",
+            "reorderLevel": "4.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1c5-7083-8ef8-b3708a1b4135",
+            "sku": "SAL-NAIL-EA",
+            "name": "Nail Polish (assorted)",
+            "unit": "bottle",
+            "category": "Salon Consumables",
+            "reorderLevel": "10.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1c5-7083-8ef8-b3708aef901c",
+            "sku": "SAL-HAIR-EA",
+            "name": "Hair Relaxer Kit",
+            "unit": "kit",
+            "category": "Salon Consumables",
+            "reorderLevel": "6.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1c6-7004-a48f-559fa7e78801",
+            "sku": "SAL-TOWL-EA",
+            "name": "Salon Towel",
+            "unit": "each",
+            "category": "Linen",
+            "reorderLevel": "10.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1c6-7004-a48f-559fa883be67",
+            "sku": "SPT-FBAL-EA",
+            "name": "Football (size 5)",
+            "unit": "each",
+            "category": "Sports Equipment",
+            "reorderLevel": "4.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1c7-7177-8e27-d35f39e2955d",
+            "sku": "SPT-TTBL-EA",
+            "name": "Table Tennis Bat",
+            "unit": "each",
+            "category": "Sports Equipment",
+            "reorderLevel": "4.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1c7-7177-8e27-d35f3a300412",
+            "sku": "SPT-TBAL-EA",
+            "name": "Tennis Ball (can of 3)",
+            "unit": "can",
+            "category": "Sports Equipment",
+            "reorderLevel": "6.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1c8-70e1-9cc4-9921015ed7ea",
+            "sku": "SPT-TRKT-EA",
+            "name": "Tennis Racket (rental)",
+            "unit": "each",
+            "category": "Rental Equipment",
+            "reorderLevel": "0.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1c8-70e1-9cc4-992101f9c4f2",
+            "sku": "SPT-BRKT-EA",
+            "name": "Badminton Racket (rental)",
+            "unit": "each",
+            "category": "Rental Equipment",
+            "reorderLevel": "0.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1c9-707e-9b3c-1e3c29576241",
+            "sku": "SPT-JCKT-EA",
+            "name": "Life Jacket (rental)",
+            "unit": "each",
+            "category": "Rental Equipment",
+            "reorderLevel": "4.0000",
+            "active": true,
+            "rowVersion": 1
+        },
+        {
+            "id": "01a0d040-c1c9-707e-9b3c-1e3c2a494789",
+            "sku": "SPT-PTWL-EA",
+            "name": "Pool Towel (rental)",
+            "unit": "each",
+            "category": "Rental Equipment",
+            "reorderLevel": "10.0000",
+            "active": true,
+            "rowVersion": 1
+        }
+    ],
+    "nextCursor": null
+}

@@ -1,0 +1,173 @@
+{
+    "items": [
+        {
+            "id": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "displayName": "Amaka Okoro",
+            "staffNumber": "S-0001",
+            "status": "ACTIVE",
+            "email": "wait1@demo.007resort.test",
+            "phone": null,
+            "rowVersion": 1,
+            "firstName": "Amaka",
+            "lastName": "Okoro",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa"
+        },
+        {
+            "id": "b14a5184-efb4-5000-bdfd-ed32dde07012",
+            "displayName": "Tamuno Ebi",
+            "staffNumber": "S-0002",
+            "status": "ACTIVE",
+            "email": "wait2@demo.007resort.test",
+            "phone": null,
+            "rowVersion": 1,
+            "firstName": "Tamuno",
+            "lastName": "Ebi",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa"
+        },
+        {
+            "id": "7165e684-7b60-5f21-83bd-9ce6ca53a316",
+            "displayName": "Ibinabo Preye",
+            "staffNumber": "S-0003",
+            "status": "ACTIVE",
+            "email": "bartender1@demo.007resort.test",
+            "phone": null,
+            "rowVersion": 1,
+            "firstName": "Ibinabo",
+            "lastName": "Preye",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa"
+        },
+        {
+            "id": "e2ba390c-a6cc-53c3-9a84-b4fc1af047be",
+            "displayName": "Chidi Nwosu",
+            "staffNumber": "S-0004",
+            "status": "ACTIVE",
+            "email": "kitchen1@demo.007resort.test",
+            "phone": null,
+            "rowVersion": 1,
+            "firstName": "Chidi",
+            "lastName": "Nwosu",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa"
+        },
+        {
+            "id": "e66698a3-4e33-5b2c-9e2d-d5566b2510a8",
+            "displayName": "Ngozi Eze",
+            "staffNumber": "S-0005",
+            "status": "ACTIVE",
+            "email": "cashier1@demo.007resort.test",
+            "phone": null,
+            "rowVersion": 1,
+            "firstName": "Ngozi",
+            "lastName": "Eze",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa"
+        },
+        {
+            "id": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+            "displayName": "Emeka Obi",
+            "staffNumber": "S-0006",
+            "status": "ACTIVE",
+            "email": "cashier2@demo.007resort.test",
+            "phone": null,
+            "rowVersion": 1,
+            "firstName": "Emeka",
+            "lastName": "Obi",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa"
+        },
+        {
+            "id": "28a68898-d4ef-5783-93c3-8c176664ec53",
+            "displayName": "Bola Adebayo",
+            "staffNumber": "S-0007",
+            "status": "ACTIVE",
+            "email": "storekeeper1@demo.007resort.test",
+            "phone": null,
+            "rowVersion": 1,
+            "firstName": "Bola",
+            "lastName": "Adebayo",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa"
+        },
+        {
+            "id": "0b699a36-9e91-56c4-a46f-97f27eca89d5",
+            "displayName": "Funke Balogun",
+            "staffNumber": "S-0008",
+            "status": "ACTIVE",
+            "email": "supervisor1@demo.007resort.test",
+            "phone": null,
+            "rowVersion": 1,
+            "firstName": "Funke",
+            "lastName": "Balogun",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa"
+        },
+        {
+            "id": "05f5a884-fcf0-535f-b6d1-4fc9d6c10ecf",
+            "displayName": "Yusuf Bello",
+            "staffNumber": "S-0009",
+            "status": "ACTIVE",
+            "email": "procurement1@demo.007resort.test",
+            "phone": null,
+            "rowVersion": 1,
+            "firstName": "Yusuf",
+            "lastName": "Bello",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa"
+        },
+        {
+            "id": "0f93fdf5-8124-5b59-a84f-f0ae60b20d04",
+            "displayName": "Halima Sani",
+            "staffNumber": "S-0010",
+            "status": "ACTIVE",
+            "email": "accountant1@demo.007resort.test",
+            "phone": null,
+            "rowVersion": 1,
+            "firstName": "Halima",
+            "lastName": "Sani",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa"
+        },
+        {
+            "id": "836ddfab-7d19-54cb-9bcd-6bd44ef52b7b",
+            "displayName": "Tunde Ogunleye",
+            "staffNumber": "S-0011",
+            "status": "ACTIVE",
+            "email": "manager1@demo.007resort.test",
+            "phone": null,
+            "rowVersion": 1,
+            "firstName": "Tunde",
+            "lastName": "Ogunleye",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa"
+        },
+        {
+            "id": "63e5fd3e-696e-57f0-a752-d932c8b6fd7d",
+            "displayName": "Kelechi Umeh",
+            "staffNumber": "S-0012",
+            "status": "ACTIVE",
+            "email": "itadmin1@demo.007resort.test",
+            "phone": null,
+            "rowVersion": 1,
+            "firstName": "Kelechi",
+            "lastName": "Umeh",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa"
+        },
+        {
+            "id": "935dbdcf-d514-5c33-9889-5a14f39c65c4",
+            "displayName": "Ebiye Owei",
+            "staffNumber": "S-0013",
+            "status": "ACTIVE",
+            "email": "owner1@demo.007resort.test",
+            "phone": null,
+            "rowVersion": 1,
+            "firstName": "Ebiye",
+            "lastName": "Owei",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa"
+        },
+        {
+            "id": "01a0d053-279d-72ee-a788-2dedf23bcce8",
+            "displayName": "Kds Viewer",
+            "staffNumber": "S-9001",
+            "status": "ACTIVE",
+            "email": null,
+            "phone": null,
+            "rowVersion": 1,
+            "firstName": "Kds",
+            "lastName": "Viewer",
+            "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa"
+        }
+    ],
+    "nextCursor": null
+}

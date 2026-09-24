@@ -1,0 +1,1151 @@
+{
+    "contractVersion": "1.0.0",
+    "endpoints": [
+        {
+            "method": "GET",
+            "path": "/admin/settings/tax",
+            "operationId": "getTaxSetting",
+            "permission": "config.manage"
+        },
+        {
+            "method": "PUT",
+            "path": "/admin/settings/tax",
+            "operationId": "updateTaxSetting",
+            "permission": "config.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/approvals",
+            "operationId": "listApprovals",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/approvals/{approvalId}",
+            "operationId": "getApproval",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/approvals/{approvalId}/cancel",
+            "operationId": "cancelApproval",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/approvals/{approvalId}/decision",
+            "operationId": "decideApproval",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/attendance",
+            "operationId": "listAttendance",
+            "permission": "attendance.view"
+        },
+        {
+            "method": "GET",
+            "path": "/attendance/corrections",
+            "operationId": "listAttendanceCorrections",
+            "permission": "attendance.view"
+        },
+        {
+            "method": "POST",
+            "path": "/attendance/corrections",
+            "operationId": "requestAttendanceCorrection",
+            "permission": "attendance.correction.request"
+        },
+        {
+            "method": "POST",
+            "path": "/attendance/corrections/{correctionId}/approve",
+            "operationId": "approveAttendanceCorrection",
+            "permission": "staff.clock_correction.approve"
+        },
+        {
+            "method": "POST",
+            "path": "/attendance/corrections/{correctionId}/reject",
+            "operationId": "rejectAttendanceCorrection",
+            "permission": "staff.clock_correction.approve"
+        },
+        {
+            "method": "GET",
+            "path": "/attendance/devices",
+            "operationId": "listAttendanceDevices",
+            "permission": "attendance.device.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/attendance/devices",
+            "operationId": "createAttendanceDevice",
+            "permission": "attendance.device.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/attendance/devices/{deviceId}/rotate-token",
+            "operationId": "rotateAttendanceDeviceToken",
+            "permission": "attendance.device.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/attendance/devices/{deviceId}/status",
+            "operationId": "setAttendanceDeviceStatus",
+            "permission": "attendance.device.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/attendance/links",
+            "operationId": "listBiometricLinks",
+            "permission": "attendance.device.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/attendance/links",
+            "operationId": "createBiometricLink",
+            "permission": "attendance.device.manage"
+        },
+        {
+            "method": "DELETE",
+            "path": "/attendance/links/{linkId}",
+            "operationId": "deleteBiometricLink",
+            "permission": "attendance.device.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/attendance/punches",
+            "operationId": "listRawPunches",
+            "permission": "attendance.view"
+        },
+        {
+            "method": "POST",
+            "path": "/attendance/punches",
+            "operationId": "ingestPunches",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/audit",
+            "operationId": "queryAudit",
+            "permission": "audit.view"
+        },
+        {
+            "method": "GET",
+            "path": "/audit/verify",
+            "operationId": "verifyAuditChain",
+            "permission": "audit.view"
+        },
+        {
+            "method": "GET",
+            "path": "/auth/me",
+            "operationId": "getCurrentStaff",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/auth/sessions/{sessionId}/revoke",
+            "operationId": "revokeSession",
+            "permission": "session.revoke"
+        },
+        {
+            "method": "POST",
+            "path": "/auth/staff/login",
+            "operationId": "staffLogin",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/auth/staff/logout",
+            "operationId": "staffLogout",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/auth/staff/refresh",
+            "operationId": "refreshToken",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/auth/staff/step-up",
+            "operationId": "staffStepUp",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/bookings",
+            "operationId": "listBookings",
+            "permission": "booking.view"
+        },
+        {
+            "method": "POST",
+            "path": "/bookings/hold",
+            "operationId": "holdBooking",
+            "permission": "booking.create"
+        },
+        {
+            "method": "GET",
+            "path": "/bookings/resources",
+            "operationId": "listBookableResources",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/bookings/resources",
+            "operationId": "createBookableResource",
+            "permission": "booking.configure"
+        },
+        {
+            "method": "PATCH",
+            "path": "/bookings/resources/{resourceId}",
+            "operationId": "updateBookableResource",
+            "permission": "booking.configure"
+        },
+        {
+            "method": "GET",
+            "path": "/bookings/resources/{resourceId}/availability",
+            "operationId": "getResourceAvailability",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/bookings/resources/{resourceId}/blackouts",
+            "operationId": "createBlackout",
+            "permission": "booking.configure"
+        },
+        {
+            "method": "GET",
+            "path": "/bookings/{bookingId}",
+            "operationId": "getBooking",
+            "permission": "booking.view"
+        },
+        {
+            "method": "POST",
+            "path": "/bookings/{bookingId}/cancel",
+            "operationId": "cancelBooking",
+            "permission": "booking.cancel"
+        },
+        {
+            "method": "POST",
+            "path": "/bookings/{bookingId}/confirm",
+            "operationId": "confirmBooking",
+            "permission": "booking.create"
+        },
+        {
+            "method": "POST",
+            "path": "/bookings/{bookingId}/order",
+            "operationId": "attachOrderToBooking",
+            "permission": "booking.create"
+        },
+        {
+            "method": "POST",
+            "path": "/bookings/{bookingId}/reschedule",
+            "operationId": "rescheduleBooking",
+            "permission": "booking.reschedule"
+        },
+        {
+            "method": "POST",
+            "path": "/broadcasting/auth",
+            "operationId": "broadcastAuth",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/cash-sessions",
+            "operationId": "listCashSessions",
+            "permission": "cash_session.view"
+        },
+        {
+            "method": "POST",
+            "path": "/cash-sessions",
+            "operationId": "openCashSession",
+            "permission": "cash_session.open"
+        },
+        {
+            "method": "GET",
+            "path": "/cash-sessions/{cashSessionId}",
+            "operationId": "getCashSession",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/cash-sessions/{cashSessionId}/close",
+            "operationId": "closeCashSession",
+            "permission": "cash_session.close"
+        },
+        {
+            "method": "POST",
+            "path": "/cash-sessions/{cashSessionId}/movements",
+            "operationId": "recordCashMovement",
+            "permission": "cash_movement.record"
+        },
+        {
+            "method": "GET",
+            "path": "/catalog/availability",
+            "operationId": "listProductAvailability",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/catalog/categories",
+            "operationId": "listCategories",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/catalog/categories",
+            "operationId": "createCategory",
+            "permission": "catalog.manage"
+        },
+        {
+            "method": "PATCH",
+            "path": "/catalog/categories/{id}",
+            "operationId": "updateCategory",
+            "permission": "catalog.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/catalog/prep-routes",
+            "operationId": "listPrepRoutes",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/catalog/products",
+            "operationId": "listProducts",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/catalog/products",
+            "operationId": "createProduct",
+            "permission": "catalog.manage"
+        },
+        {
+            "method": "PATCH",
+            "path": "/catalog/products/{id}",
+            "operationId": "updateProduct",
+            "permission": "catalog.manage"
+        },
+        {
+            "method": "PUT",
+            "path": "/catalog/products/{id}/price",
+            "operationId": "setProductPrice",
+            "permission": "pricing.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/catalog/products/{productId}",
+            "operationId": "getProduct",
+            "permission": null
+        },
+        {
+            "method": "PUT",
+            "path": "/catalog/products/{productId}/availability/{facilityId}",
+            "operationId": "setProductAvailability",
+            "permission": "catalog.availability.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/catalog/tax-rates",
+            "operationId": "listTaxRates",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/devices",
+            "operationId": "listDevices",
+            "permission": "device.register"
+        },
+        {
+            "method": "POST",
+            "path": "/devices/register",
+            "operationId": "registerDevice",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/devices/registration-codes",
+            "operationId": "issueRegistrationCode",
+            "permission": "device.register"
+        },
+        {
+            "method": "GET",
+            "path": "/devices/{deviceId}",
+            "operationId": "getDevice",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/devices/{deviceId}/checkin",
+            "operationId": "checkinDevice",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/devices/{deviceId}/checkout",
+            "operationId": "checkoutDevice",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/devices/{deviceId}/commands",
+            "operationId": "listDeviceCommands",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/devices/{deviceId}/revoke",
+            "operationId": "revokeDevice",
+            "permission": "device.revoke"
+        },
+        {
+            "method": "POST",
+            "path": "/devices/{deviceId}/status",
+            "operationId": "reportDeviceStatus",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/entitlement-tokens/{qrToken}",
+            "operationId": "getEntitlementByToken",
+            "permission": "ticket.view"
+        },
+        {
+            "method": "POST",
+            "path": "/entitlement-tokens/{qrToken}/exit",
+            "operationId": "exitEntitlement",
+            "permission": "ticket.redeem"
+        },
+        {
+            "method": "POST",
+            "path": "/entitlement-tokens/{qrToken}/redeem",
+            "operationId": "redeemEntitlement",
+            "permission": "ticket.redeem"
+        },
+        {
+            "method": "GET",
+            "path": "/entitlements",
+            "operationId": "listEntitlements",
+            "permission": "ticket.view"
+        },
+        {
+            "method": "POST",
+            "path": "/entitlements",
+            "operationId": "issueEntitlement",
+            "permission": "ticket.issue"
+        },
+        {
+            "method": "GET",
+            "path": "/entitlements/{entitlementId}",
+            "operationId": "getEntitlement",
+            "permission": "ticket.view"
+        },
+        {
+            "method": "POST",
+            "path": "/entitlements/{entitlementId}/release",
+            "operationId": "releaseRental",
+            "permission": "ticket.release"
+        },
+        {
+            "method": "POST",
+            "path": "/entitlements/{entitlementId}/return",
+            "operationId": "returnRental",
+            "permission": "ticket.release"
+        },
+        {
+            "method": "GET",
+            "path": "/facilities/{facilityId}/capabilities",
+            "operationId": "getFacilityCapabilities",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/health/live",
+            "operationId": "getLiveness",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/health/ready",
+            "operationId": "getReadiness",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/inventory/adjustments",
+            "operationId": "listStockAdjustments",
+            "permission": "inventory.view"
+        },
+        {
+            "method": "POST",
+            "path": "/inventory/adjustments",
+            "operationId": "createAdjustment",
+            "permission": "inventory.adjustment.request"
+        },
+        {
+            "method": "GET",
+            "path": "/inventory/adjustments/{adjustment}",
+            "operationId": "getStockAdjustment",
+            "permission": "inventory.view"
+        },
+        {
+            "method": "POST",
+            "path": "/inventory/adjustments/{adjustment}/decision",
+            "operationId": "decideStockAdjustment",
+            "permission": "inventory.adjustment.approve"
+        },
+        {
+            "method": "GET",
+            "path": "/inventory/balances",
+            "operationId": "listStockBalances",
+            "permission": "inventory.view"
+        },
+        {
+            "method": "GET",
+            "path": "/inventory/counts",
+            "operationId": "listStockCounts",
+            "permission": "inventory.view"
+        },
+        {
+            "method": "POST",
+            "path": "/inventory/counts",
+            "operationId": "createStockCount",
+            "permission": "inventory.count.create"
+        },
+        {
+            "method": "POST",
+            "path": "/inventory/counts/{countId}/post",
+            "operationId": "postStockCount",
+            "permission": "inventory.count.post"
+        },
+        {
+            "method": "GET",
+            "path": "/inventory/counts/{count}",
+            "operationId": "getStockCount",
+            "permission": "inventory.view"
+        },
+        {
+            "method": "GET",
+            "path": "/inventory/items",
+            "operationId": "listInventoryItems",
+            "permission": "inventory.view"
+        },
+        {
+            "method": "POST",
+            "path": "/inventory/items",
+            "operationId": "createInventoryItem",
+            "permission": "inventory.item.manage"
+        },
+        {
+            "method": "PATCH",
+            "path": "/inventory/items/{item}",
+            "operationId": "updateInventoryItem",
+            "permission": "inventory.item.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/inventory/locations",
+            "operationId": "listStockLocations",
+            "permission": "inventory.view"
+        },
+        {
+            "method": "POST",
+            "path": "/inventory/locations",
+            "operationId": "createStockLocation",
+            "permission": "inventory.location.manage"
+        },
+        {
+            "method": "PATCH",
+            "path": "/inventory/locations/{location}",
+            "operationId": "updateStockLocation",
+            "permission": "inventory.location.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/inventory/movements",
+            "operationId": "listStockMovements",
+            "permission": "inventory.view"
+        },
+        {
+            "method": "POST",
+            "path": "/inventory/purchase-receipts",
+            "operationId": "createPurchaseReceipt",
+            "permission": "inventory.purchase_receipt.create"
+        },
+        {
+            "method": "GET",
+            "path": "/inventory/rental-assets",
+            "operationId": "listRentalAssets",
+            "permission": "inventory.view"
+        },
+        {
+            "method": "POST",
+            "path": "/inventory/rental-assets",
+            "operationId": "createRentalAsset",
+            "permission": "inventory.item.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/inventory/returns",
+            "operationId": "createStockReturn",
+            "permission": "inventory.return.create"
+        },
+        {
+            "method": "GET",
+            "path": "/inventory/suppliers",
+            "operationId": "listSuppliers",
+            "permission": "supplier.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/inventory/suppliers",
+            "operationId": "createSupplier",
+            "permission": "supplier.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/inventory/transfers",
+            "operationId": "createTransfer",
+            "permission": "inventory.transfer.create"
+        },
+        {
+            "method": "POST",
+            "path": "/inventory/wastage",
+            "operationId": "createWastage",
+            "permission": "inventory.wastage.create"
+        },
+        {
+            "method": "GET",
+            "path": "/kds/stations",
+            "operationId": "listKdsStations",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/kds/stations/{stationId}/tickets",
+            "operationId": "listStationTickets",
+            "permission": "prep_ticket.view"
+        },
+        {
+            "method": "GET",
+            "path": "/me",
+            "operationId": "meAlias",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/memberships",
+            "operationId": "listMemberships",
+            "permission": "membership.view"
+        },
+        {
+            "method": "POST",
+            "path": "/memberships",
+            "operationId": "purchaseMembership",
+            "permission": "membership.sell"
+        },
+        {
+            "method": "GET",
+            "path": "/memberships/plans",
+            "operationId": "listMembershipPlans",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/memberships/plans",
+            "operationId": "createMembershipPlan",
+            "permission": "membership.plan.manage"
+        },
+        {
+            "method": "PATCH",
+            "path": "/memberships/plans/{planId}",
+            "operationId": "updateMembershipPlan",
+            "permission": "membership.plan.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/memberships/validate",
+            "operationId": "validateMembership",
+            "permission": "membership.validate"
+        },
+        {
+            "method": "GET",
+            "path": "/memberships/{membershipId}",
+            "operationId": "getMembership",
+            "permission": "membership.view"
+        },
+        {
+            "method": "POST",
+            "path": "/memberships/{membershipId}/cancel",
+            "operationId": "cancelMembership",
+            "permission": "membership.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/memberships/{membershipId}/cards",
+            "operationId": "attachMembershipCard",
+            "permission": "membership.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/memberships/{membershipId}/cards/{cardId}/revoke",
+            "operationId": "revokeMembershipCard",
+            "permission": "membership.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/memberships/{membershipId}/history",
+            "operationId": "getMembershipHistory",
+            "permission": "membership.view"
+        },
+        {
+            "method": "POST",
+            "path": "/memberships/{membershipId}/reinstate",
+            "operationId": "reinstateMembership",
+            "permission": "membership.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/memberships/{membershipId}/renew",
+            "operationId": "renewMembership",
+            "permission": "membership.sell"
+        },
+        {
+            "method": "POST",
+            "path": "/memberships/{membershipId}/suspend",
+            "operationId": "suspendMembership",
+            "permission": "membership.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/memberships/{membershipId}/usage",
+            "operationId": "getMembershipUsage",
+            "permission": "membership.view"
+        },
+        {
+            "method": "GET",
+            "path": "/orders",
+            "operationId": "listOrders",
+            "permission": "order.view"
+        },
+        {
+            "method": "POST",
+            "path": "/orders",
+            "operationId": "createOrder",
+            "permission": "order.create"
+        },
+        {
+            "method": "GET",
+            "path": "/orders/{orderId}",
+            "operationId": "getOrder",
+            "permission": "order.view"
+        },
+        {
+            "method": "POST",
+            "path": "/orders/{orderId}/lines",
+            "operationId": "addOrderLine",
+            "permission": "order.line.add"
+        },
+        {
+            "method": "DELETE",
+            "path": "/orders/{orderId}/lines/{lineId}",
+            "operationId": "removeOrderLine",
+            "permission": "order.line.remove_unsent"
+        },
+        {
+            "method": "POST",
+            "path": "/orders/{orderId}/lines/{lineId}/adjustments",
+            "operationId": "adjustOrderLine",
+            "permission": "order.discount.execute"
+        },
+        {
+            "method": "GET",
+            "path": "/orders/{orderId}/receipt",
+            "operationId": "getOrderReceipt",
+            "permission": "receipt.view"
+        },
+        {
+            "method": "POST",
+            "path": "/orders/{orderId}/send",
+            "operationId": "sendOrder",
+            "permission": "order.send"
+        },
+        {
+            "method": "POST",
+            "path": "/orders/{orderId}/serve",
+            "operationId": "serveOrder",
+            "permission": "order.serve"
+        },
+        {
+            "method": "POST",
+            "path": "/orders/{orderId}/void",
+            "operationId": "voidOrder",
+            "permission": "order.void.execute"
+        },
+        {
+            "method": "GET",
+            "path": "/organization/facilities",
+            "operationId": "listFacilityTree",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/organization/facilities/{facilityId}",
+            "operationId": "getFacility",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/organization/facilities/{facilityId}/operating-points",
+            "operationId": "listOperatingPoints",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/organization/site",
+            "operationId": "getSite",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/payments",
+            "operationId": "listPayments",
+            "permission": "payment.view"
+        },
+        {
+            "method": "POST",
+            "path": "/payments",
+            "operationId": "createPayment",
+            "permission": "payment.take"
+        },
+        {
+            "method": "POST",
+            "path": "/payments/paystack/initialize",
+            "operationId": "paystackInitialize",
+            "permission": "payment.take"
+        },
+        {
+            "method": "GET",
+            "path": "/payments/paystack/verify/{reference}",
+            "operationId": "paystackVerify",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/payments/webhooks/{provider}",
+            "operationId": "paymentWebhook",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/payments/{paymentId}",
+            "operationId": "getPayment",
+            "permission": "payment.view"
+        },
+        {
+            "method": "POST",
+            "path": "/payments/{paymentId}/refund",
+            "operationId": "refundPayment",
+            "permission": "refund.execute"
+        },
+        {
+            "method": "POST",
+            "path": "/payments/{paymentId}/reversal",
+            "operationId": "reversePayment",
+            "permission": "payment.reversal.execute"
+        },
+        {
+            "method": "GET",
+            "path": "/permissions",
+            "operationId": "listPermissions",
+            "permission": "role_assignment.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/prep-tickets/{ticketId}",
+            "operationId": "getPrepTicket",
+            "permission": "prep_ticket.view"
+        },
+        {
+            "method": "POST",
+            "path": "/prep-tickets/{ticketId}/transition",
+            "operationId": "transitionPrepTicket",
+            "permission": "prep_ticket.transition"
+        },
+        {
+            "method": "GET",
+            "path": "/receipts/{receiptId}",
+            "operationId": "getReceipt",
+            "permission": "receipt.view"
+        },
+        {
+            "method": "GET",
+            "path": "/reports/attendance-summary",
+            "operationId": "reportAttendanceSummary",
+            "permission": "attendance.view"
+        },
+        {
+            "method": "GET",
+            "path": "/reports/cashier-shift/{shiftId}",
+            "operationId": "cashierShiftReport",
+            "permission": "report.view"
+        },
+        {
+            "method": "GET",
+            "path": "/reports/facility-daily-summary",
+            "operationId": "facilityDailySummary",
+            "permission": "report.view"
+        },
+        {
+            "method": "GET",
+            "path": "/reports/membership-summary",
+            "operationId": "reportMembershipSummary",
+            "permission": "report.view"
+        },
+        {
+            "method": "GET",
+            "path": "/reports/revenue",
+            "operationId": "reportRevenue",
+            "permission": "report.view"
+        },
+        {
+            "method": "GET",
+            "path": "/roles",
+            "operationId": "listRoles",
+            "permission": "role_assignment.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/staff",
+            "operationId": "listStaff",
+            "permission": "staff.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/staff",
+            "operationId": "createStaff",
+            "permission": "staff.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/staff/{staffId}",
+            "operationId": "getStaffMember",
+            "permission": "staff.manage"
+        },
+        {
+            "method": "PATCH",
+            "path": "/staff/{staffId}",
+            "operationId": "updateStaff",
+            "permission": "staff.manage"
+        },
+        {
+            "method": "DELETE",
+            "path": "/staff/{staffId}/credentials/nfc-card",
+            "operationId": "removeNfcCard",
+            "permission": "staff.manage"
+        },
+        {
+            "method": "PUT",
+            "path": "/staff/{staffId}/credentials/nfc-card",
+            "operationId": "setNfcCardCredential",
+            "permission": "staff.manage"
+        },
+        {
+            "method": "PUT",
+            "path": "/staff/{staffId}/credentials/password",
+            "operationId": "setPasswordCredential",
+            "permission": "staff.manage"
+        },
+        {
+            "method": "PUT",
+            "path": "/staff/{staffId}/credentials/pin",
+            "operationId": "setPinCredential",
+            "permission": "staff.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/staff/{staffId}/role-assignments",
+            "operationId": "listRoleAssignments",
+            "permission": "role_assignment.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/staff/{staffId}/role-assignments",
+            "operationId": "grantRole",
+            "permission": "role_assignment.manage"
+        },
+        {
+            "method": "DELETE",
+            "path": "/staff/{staffId}/role-assignments/{assignmentId}",
+            "operationId": "revokeRole",
+            "permission": "role_assignment.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/sync/conflicts",
+            "operationId": "listSyncConflicts",
+            "permission": "config.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/sync/conflicts/{conflictId}",
+            "operationId": "getSyncConflict",
+            "permission": "config.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/sync/conflicts/{conflictId}/reprocess",
+            "operationId": "reprocessSyncConflict",
+            "permission": "config.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/sync/conflicts/{conflictId}/resolve",
+            "operationId": "resolveSyncConflict",
+            "permission": "config.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/sync/heartbeat",
+            "operationId": "syncHeartbeat",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/sync/inbox",
+            "operationId": "syncInbox",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/sync/inbox-events",
+            "operationId": "listSyncInboxEvents",
+            "permission": "config.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/sync/inbox-events/{eventId}/reprocess",
+            "operationId": "reprocessInboxEvent",
+            "permission": "config.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/sync/outbox",
+            "operationId": "listSyncOutbox",
+            "permission": "config.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/sync/outbox/replay-failed",
+            "operationId": "replayFailedSync",
+            "permission": "config.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/sync/outbox/{eventId}/retry",
+            "operationId": "retrySyncOutbox",
+            "permission": "config.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/sync/pull",
+            "operationId": "syncPull",
+            "permission": null
+        },
+        {
+            "method": "POST",
+            "path": "/sync/pull/ack",
+            "operationId": "syncPullAck",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/sync/status",
+            "operationId": "syncStatus",
+            "permission": "config.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/system/health",
+            "operationId": "getSystemHealth",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/system/info",
+            "operationId": "getSystemInfo",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/tables",
+            "operationId": "listTables",
+            "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/tables/{tableId}",
+            "operationId": "getTable",
+            "permission": null
+        },
+        {
+            "method": "PATCH",
+            "path": "/tables/{tableId}",
+            "operationId": "updateTable",
+            "permission": "table.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/tables/{tableId}/assign",
+            "operationId": "assignTable",
+            "permission": "table.manage"
+        },
+        {
+            "method": "POST",
+            "path": "/tables/{tableId}/open",
+            "operationId": "openTable",
+            "permission": "order.create"
+        },
+        {
+            "method": "POST",
+            "path": "/tables/{tableId}/transfer",
+            "operationId": "transferTable",
+            "permission": "table.manage"
+        },
+        {
+            "method": "GET",
+            "path": "/tabs",
+            "operationId": "listTabs",
+            "permission": "tab.view_own_facility"
+        },
+        {
+            "method": "POST",
+            "path": "/tabs",
+            "operationId": "openTab",
+            "permission": "tab.open"
+        },
+        {
+            "method": "GET",
+            "path": "/tabs/{tabId}",
+            "operationId": "getTab",
+            "permission": "tab.view_own_facility"
+        },
+        {
+            "method": "POST",
+            "path": "/tabs/{tabId}/orders",
+            "operationId": "addOrdersToTab",
+            "permission": "tab.open"
+        },
+        {
+            "method": "POST",
+            "path": "/tabs/{tabId}/settle",
+            "operationId": "settleTab",
+            "permission": "order.settle"
+        },
+        {
+            "method": "GET",
+            "path": "/up",
+            "operationId": "getUp",
+            "permission": null
+        }
+    ]
+}

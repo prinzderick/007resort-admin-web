@@ -1,0 +1,35 @@
+{
+    "shiftId": "01a0d0c6-0837-7176-9b98-f4d54e7f365e",
+    "cashSessionId": "01a0d0c6-0837-7176-9b98-f4d54e7f365e",
+    "staffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+    "staffName": "Emeka Obi",
+    "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+    "status": "OPEN",
+    "openedAt": "2026-09-24T00:17:14.295Z",
+    "closedAt": null,
+    "openingFloat": "1000.0000",
+    "byTender": [],
+    "expectedCash": "1000.0000",
+    "countedCash": null,
+    "variance": null,
+    "refunds": "0.0000",
+    "voids": 0,
+    "paymentIds": [],
+    "currency": "NGN",
+    "availability": {
+        "cashSession": true,
+        "payments": true,
+        "refunds": true,
+        "cashMovements": true,
+        "voids": true
+    },
+    "freshness": {
+        "generatedAt": "2026-09-24T00:33:47.401Z",
+        "sourceNode": "local",
+        "lastSyncAt": null,
+        "stale": false,
+        "staleReason": null,
+        "ageSeconds": null,
+        "staleAfterSeconds": 300
+    }
+}

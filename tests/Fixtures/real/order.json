@@ -1,0 +1,60 @@
+{
+    "id": "01a0d0c6-0992-749c-bb65-806c7d02a617",
+    "number": "RESTAU-000094",
+    "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+    "tableId": null,
+    "tabId": null,
+    "customerName": null,
+    "channel": "COUNTER",
+    "status": "SENT",
+    "lines": [
+        {
+            "id": "01a0d0c6-0992-740c-952a-2ca5aab81437",
+            "productId": "04dd7cd6-f5e3-5faf-b2a9-0d65b509155f",
+            "name": "Moi Moi",
+            "quantity": 1,
+            "unitPrice": "1000.0000",
+            "taxAmount": "0.0000",
+            "lineTotal": "1000.0000",
+            "notes": null,
+            "status": "ROUTED",
+            "prepRoute": {
+                "stationId": "9ac72d5b-5285-55ed-92a1-f4528a7debbc",
+                "stationName": "Main Kitchen Pass",
+                "kind": "KITCHEN"
+            },
+            "adjustments": []
+        },
+        {
+            "id": "01a0d0c6-09b7-71eb-b248-8aa02b64a8f8",
+            "productId": "04dd7cd6-f5e3-5faf-b2a9-0d65b509155f",
+            "name": "Moi Moi",
+            "quantity": 1,
+            "unitPrice": "1000.0000",
+            "taxAmount": "0.0000",
+            "lineTotal": "1000.0000",
+            "notes": null,
+            "status": "ROUTED",
+            "prepRoute": {
+                "stationId": "9ac72d5b-5285-55ed-92a1-f4528a7debbc",
+                "stationName": "Main Kitchen Pass",
+                "kind": "KITCHEN"
+            },
+            "adjustments": []
+        }
+    ],
+    "subtotal": "2000.0000",
+    "discountTotal": "0.0000",
+    "taxTotal": "0.0000",
+    "total": "2000.0000",
+    "amountPaid": "0.0000",
+    "balanceDue": "2000.0000",
+    "currency": "NGN",
+    "createdByStaffId": "a99eaf8e-4caa-5b0e-b354-d78b8b3e5671",
+    "deviceId": "01a0d0c6-06c8-701c-a770-7bcf16a9285f",
+    "pendingApprovalId": null,
+    "rowVersion": 5,
+    "createdAt": "2026-09-24T00:17:14.666Z",
+    "updatedAt": "2026-09-24T00:17:14.852Z",
+    "sentAt": "2026-09-24T00:17:14.720Z"
+}

@@ -1,0 +1,19 @@
+{
+    "id": "a206b41c-f916-5185-b405-db8a5b67b4db",
+    "siteId": "f0b11797-fc39-5fb4-badf-fd98c2aeeeaa",
+    "parentId": null,
+    "code": "RESTAURANT",
+    "name": "Restaurant",
+    "kind": "RESTAURANT",
+    "status": "ACTIVE",
+    "capabilities": [
+        "INVENTORY",
+        "KITCHEN_ROUTING",
+        "OPEN_TAB",
+        "PAYMENT_ACCEPTANCE",
+        "POS",
+        "RECEIPT_PRINTING",
+        "TABLE_SERVICE"
+    ],
+    "rowVersion": 1
+}

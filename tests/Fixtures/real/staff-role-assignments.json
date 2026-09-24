@@ -1,0 +1,27 @@
+{
+    "items": [
+        {
+            "id": "0c751139-45a2-58ba-b28a-c8ba1579c270",
+            "staffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "roleId": "74e79798-baa5-5c29-a91f-a976c402ce32",
+            "scopeType": "FACILITY",
+            "scopeId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "grantedByStaffId": null,
+            "grantedAt": "2026-09-23T21:51:34.746Z",
+            "revokedAt": null,
+            "roleCode": "WAIT_STAFF"
+        },
+        {
+            "id": "7f73fc1e-be6c-573b-8dc7-773d71694ebb",
+            "staffId": "1e21bd36-89eb-50c5-9b57-e343729f8e66",
+            "roleId": "74e79798-baa5-5c29-a91f-a976c402ce32",
+            "scopeType": "FACILITY",
+            "scopeId": "5b2a99cc-7f17-5c53-9461-ccd97644abaa",
+            "grantedByStaffId": null,
+            "grantedAt": "2026-09-23T21:51:34.750Z",
+            "revokedAt": null,
+            "roleCode": "WAIT_STAFF"
+        }
+    ],
+    "nextCursor": null
+}

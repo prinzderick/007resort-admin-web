@@ -1,0 +1,92 @@
+{
+    "from": "2026-09-17",
+    "to": "2026-09-24",
+    "currency": "NGN",
+    "orders": 13,
+    "revenue": "22000.0000",
+    "byFacility": [
+        {
+            "facilityId": "a206b41c-f916-5185-b405-db8a5b67b4db",
+            "code": "RESTAURANT",
+            "name": "Restaurant",
+            "orders": 13,
+            "revenue": "22000.0000"
+        }
+    ],
+    "byOperatingPoint": [
+        {
+            "operatingPoint": "Harness RESTAURANT 001036",
+            "orders": 2,
+            "revenue": "3000.0000"
+        },
+        {
+            "operatingPoint": "Harness RESTAURANT 001511",
+            "orders": 2,
+            "revenue": "3000.0000"
+        },
+        {
+            "operatingPoint": "Harness RESTAURANT 232843",
+            "orders": 2,
+            "revenue": "3000.0000"
+        },
+        {
+            "operatingPoint": "Harness RESTAURANT 235524",
+            "orders": 2,
+            "revenue": "3000.0000"
+        },
+        {
+            "operatingPoint": "Harness RESTAURANT 001035",
+            "orders": 1,
+            "revenue": "2000.0000"
+        },
+        {
+            "operatingPoint": "Harness RESTAURANT 001712",
+            "orders": 1,
+            "revenue": "2000.0000"
+        },
+        {
+            "operatingPoint": "Harness RESTAURANT 232808",
+            "orders": 1,
+            "revenue": "2000.0000"
+        },
+        {
+            "operatingPoint": "Harness RESTAURANT 235442",
+            "orders": 1,
+            "revenue": "2000.0000"
+        },
+        {
+            "operatingPoint": "Restaurant POS",
+            "orders": 1,
+            "revenue": "2000.0000"
+        }
+    ],
+    "byPaymentMethod": [
+        {
+            "tenderType": "CASH",
+            "count": 67,
+            "captured": "205700.0000",
+            "refunded": "5200.0000",
+            "net": "200500.0000"
+        },
+        {
+            "tenderType": "TRANSFER",
+            "count": 14,
+            "captured": "20100.0000",
+            "refunded": "0.0000",
+            "net": "20100.0000"
+        }
+    ],
+    "availability": {
+        "orders": true,
+        "payments": true
+    },
+    "freshness": {
+        "generatedAt": "2026-09-24T00:33:47.354Z",
+        "sourceNode": "local",
+        "lastSyncAt": null,
+        "stale": false,
+        "staleReason": null,
+        "ageSeconds": null,
+        "staleAfterSeconds": 300
+    }
+}

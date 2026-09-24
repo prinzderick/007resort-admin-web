@@ -1,0 +1,1 @@
+<span wire:poll.60s class="ml-auto">@if ($n > 0)<span class="inline-flex min-w-5 items-center justify-center rounded-full bg-red-600 px-1.5 text-[11px] font-bold text-white" data-testid="approvals-count">{{ $n }}</span>@endif</span>
