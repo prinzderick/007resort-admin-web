@@ -9,8 +9,20 @@
     @endphp
     @if ($capTypes->ok() && $types->isNotEmpty())
         <p class="mb-4 max-w-3xl text-sm text-stone-600">Capabilities decide what this facility can do, and which operating rules and screens apply to it. Switching one on also switches on anything it needs. Switching one off is refused while another enabled capability still needs it.</p>
-        <form method="POST" action="{{ route('setup.facilities.capabilities', $id) }}" x-data="{ on: @js(array_values($enabled)), meta: @js($meta),
-                toggle(code) { if (this.on.includes(code)) { const dependents = this.on.filter(c => (this.meta[c]?.requires || []).includes(code)); if (dependents.length) { alert('Cannot switch this off while these need it: ' + dependents.join(', ')); return } this.on = this.on.filter(c => c !== code) } else { this.on.push(code); (this.meta[code]?.requires || []).forEach(r => { if (!this.on.includes(r)) this.on.push(r) }) } } }" data-testid="capabilities-form">
+        <form method="POST" action="{{ route('setup.facilities.capabilities', $id) }}" x-data="{ on: @js(array_values($enabled)), start: @js(array_values($enabled)), meta: @js($meta), labels: @js($types->pluck('label', 'code')->all()), note: '',
+                get dirty() { return [...this.on].sort().join() !== [...this.start].sort().join() },
+                toggle(code) {
+                    this.note = '';
+                    if (this.on.includes(code)) {
+                        const dependents = this.on.filter(c => (this.meta[c]?.requires || []).includes(code));
+                        if (dependents.length) { this.note = 'You cannot switch off ' + this.labels[code] + ' while ' + dependents.map(d => this.labels[d]).join(', ') + ' ' + (dependents.length > 1 ? 'need' : 'needs') + ' it. Switch ' + (dependents.length > 1 ? 'those' : 'that') + ' off first.'; return }
+                        this.on = this.on.filter(c => c !== code)
+                    } else {
+                        this.on.push(code); const added = [];
+                        (this.meta[code]?.requires || []).forEach(r => { if (!this.on.includes(r)) { this.on.push(r); added.push(this.labels[r]) } });
+                        if (added.length) this.note = this.labels[code] + ' needs ' + added.join(', ') + ', so that was switched on as well.'
+                    }
+                } }" data-testid="capabilities-form">
             @csrf @method('PUT')
             <input type="hidden" name="etag" value="{{ $capEtag }}">
             <template x-for="c in on" :key="c"><input type="hidden" name="capabilities[]" :value="c"></template>
@@ -27,7 +39,9 @@
                     @endforeach
                 </div>
             @endforeach
-            @if ($canCaps)<div class="mt-6"><x-btn>Save capabilities</x-btn></div>
+            <p x-show="note" x-cloak x-text="note" class="mt-4 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-950" role="status" data-testid="capability-note"></p>
+            <p class="mt-4 max-w-3xl text-xs text-stone-500">Switching a capability off is refused while it is in use (open orders, open cash sessions, stock on hand, upcoming bookings). If that happens you will see exactly what to close first. Its rules are kept and come back when you switch it on again.</p>
+            @if ($canCaps)<div class="f-actions" data-flush="false" data-testid="cap-actions"><div class="f-actions-status" :data-dirty="dirty ? 'true' : 'false'"><i></i><span x-show="dirty" x-cloak>Unsaved changes</span><span x-show="!dirty">All changes saved</span></div><div class="f-actions-buttons"><button type="button" class="f-btn" x-on:click="on = [...start]; note = ''" :disabled="!dirty">Discard</button><button type="submit" class="f-btn" data-variant="primary" :disabled="!dirty">Save capabilities</button></div></div>
             @else<x-pending-api class="mt-6" :items="['Changing capabilities needs PUT /facilities/{facilityId}/capabilities (permission config.manage.capabilities), which is not available to this account or not in the contract yet']" />@endif
         </form>
     @else

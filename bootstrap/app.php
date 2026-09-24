@@ -39,10 +39,12 @@ return Application::configure(basePath: dirname(__DIR__))
                 return redirect()->route('login')->with('status', 'Your session has ended. Please sign in again.');
             }
 
-            $message = $e->detail ? "{$e->title}: {$e->detail}" : $e->title;
+            // The API's detail is written for administrators ("3 open orders must be settled first"): show it as is, title only as a fallback.
+            $message = $e->detail ?: $e->title;
+            $blockers = collect((array) ($e->extensions['blockers'] ?? []))->map(fn ($b) => is_array($b) ? (string) ($b['message'] ?? '') : (string) $b)->filter()->values()->all();
 
             if (! $request->isMethod('GET') && ! $e->isUnreachable() && $e->status < 500) {
-                $back = back()->withInput($request->except(['password', 'secret', 'pin', 'code']))->with('error', $message);
+                $back = back()->withInput($request->except(['password', 'secret', 'pin', 'code']))->with('error', $message)->with('blockers', $blockers)->with('error_code', $e->problemCode());
 
                 return $e->errors() !== [] ? $back->withErrors($e->errors()) : $back;
             }

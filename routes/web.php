@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\CollectionsController;
 use App\Http\Controllers\ConfigurationController;
 use App\Http\Controllers\DevicesController;
 use App\Http\Controllers\FacilitiesController;
+use App\Http\Controllers\FacilityConfigController;
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\OperationsController;
@@ -11,6 +14,7 @@ use App\Http\Controllers\PeopleController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\TerminalsController;
 use App\Livewire\ApprovalsQueue;
 use App\Livewire\Dashboard;
 use App\Livewire\SyncCenter;
@@ -73,6 +77,16 @@ Route::middleware('staff')->group(function (): void {
             Route::get('/refunds', [FinanceController::class, 'refunds'])->name('refunds');
             Route::post('/paystack-verify', [FinanceController::class, 'verifyPaystack'])->name('paystack-verify');
         });
+        Route::middleware('permit:payment.view,payment.confirm')->group(function (): void {
+            Route::get('/collections', [CollectionsController::class, 'index'])->name('collections');
+            Route::post('/collections/{payment}/confirm', [CollectionsController::class, 'confirm'])->middleware('permit:payment.confirm')->name('collections.confirm');
+            Route::post('/collections/{payment}/reject', [CollectionsController::class, 'reject'])->middleware('permit:payment.confirm')->name('collections.reject');
+        });
+        Route::middleware('permit:cash_handover.view,cash_handover.receive,cash_handover.signoff')->group(function (): void {
+            Route::get('/handovers', [CollectionsController::class, 'handovers'])->name('handovers');
+            Route::post('/handovers/{handover}/receive', [CollectionsController::class, 'receive'])->middleware('permit:cash_handover.receive')->name('handovers.receive');
+            Route::post('/handovers/{handover}/signoff', [CollectionsController::class, 'signoff'])->middleware('permit:cash_handover.signoff')->name('handovers.signoff');
+        });
         Route::get('/cash-sessions', [FinanceController::class, 'cashSessions'])->middleware('permit:cash_session.view')->name('cash-sessions');
         Route::post('/payments/{payment}/refund', [FinanceController::class, 'refund'])->middleware('permit:refund.execute')->name('refund');
         Route::post('/payments/{payment}/reversal', [FinanceController::class, 'reversal'])->middleware('permit:payment.reversal.execute')->name('reversal');
@@ -104,6 +118,7 @@ Route::middleware('staff')->group(function (): void {
             Route::post('/', [StaffController::class, 'store'])->name('store');
             Route::get('/{staff}', [StaffController::class, 'show'])->whereUuid('staff')->name('show');
             Route::patch('/{staff}', [StaffController::class, 'update'])->whereUuid('staff')->name('update');
+            Route::patch('/{staff}/collection-policy', [StaffController::class, 'collectionPolicy'])->whereUuid('staff')->name('collection-policy');
             Route::put('/{staff}/credentials/{kind}', [StaffController::class, 'credential'])->whereUuid('staff')->name('credential');
             Route::delete('/{staff}/credentials/nfc-card', [StaffController::class, 'removeCard'])->whereUuid('staff')->name('card.remove');
             Route::post('/{staff}/roles', [StaffController::class, 'grantRole'])->whereUuid('staff')->name('role.grant');
@@ -125,6 +140,14 @@ Route::middleware('staff')->group(function (): void {
             Route::post('/facilities/{facility}/deactivate', [FacilitiesController::class, 'deactivate'])->whereUuid('facility')->name('facilities.deactivate');
             Route::post('/facilities/{facility}/reactivate', [FacilitiesController::class, 'reactivate'])->whereUuid('facility')->name('facilities.reactivate');
             Route::post('/facilities/{facility}/move', [FacilitiesController::class, 'move'])->whereUuid('facility')->name('facilities.move');
+            Route::post('/facilities/{facility}/points', [FacilityConfigController::class, 'storePoint'])->whereUuid('facility')->name('points.store');
+            Route::patch('/points/{point}', [FacilityConfigController::class, 'updatePoint'])->whereUuid('point')->name('points.update');
+            Route::post('/points/{point}/{state}', [FacilityConfigController::class, 'pointState'])->whereUuid('point')->name('points.state');
+            Route::post('/facilities/{facility}/tables', [FacilityConfigController::class, 'storeTable'])->whereUuid('facility')->name('tables.store');
+            Route::post('/facilities/{facility}/tables/bulk', [FacilityConfigController::class, 'bulkTables'])->whereUuid('facility')->name('tables.bulk');
+            Route::patch('/tables/{table}', [FacilityConfigController::class, 'updateTable'])->whereUuid('table')->name('tables.update');
+            Route::post('/tables/{table}/merge', [FacilityConfigController::class, 'mergeTable'])->whereUuid('table')->name('tables.merge');
+            Route::post('/tables/{table}/{state}', [FacilityConfigController::class, 'tableState'])->whereUuid('table')->name('tables.state');
             Route::get('/bookings', [ConfigurationController::class, 'bookings'])->name('bookings');
             Route::patch('/bookings/{resource}', [ConfigurationController::class, 'updateResource'])->name('bookings.update');
             Route::get('/tickets', [ConfigurationController::class, 'tickets'])->name('tickets');
@@ -132,17 +155,31 @@ Route::middleware('staff')->group(function (): void {
             Route::get('/payments', [ConfigurationController::class, 'payments'])->name('payments');
         });
         Route::middleware('permit:pricing.manage,config.manage,catalog.availability.manage,catalog.manage')->group(function (): void {
-            Route::get('/catalog', [ConfigurationController::class, 'catalog'])->name('catalog');
-            Route::put('/catalog/{product}/availability', [ConfigurationController::class, 'setAvailability'])->name('availability');
-            Route::post('/catalog/products', [ConfigurationController::class, 'createProduct'])->name('catalog.product.create');
-            Route::patch('/catalog/products/{product}', [ConfigurationController::class, 'updateProduct'])->name('catalog.product.update');
-            Route::put('/catalog/products/{product}/price', [ConfigurationController::class, 'setPrice'])->name('catalog.price');
-            Route::post('/catalog/categories', [ConfigurationController::class, 'createCategory'])->name('catalog.category.create');
+            Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');
+            Route::get('/catalog/products/{product}', [CatalogController::class, 'product'])->whereUuid('product')->name('catalog.product');
+            Route::put('/catalog/{product}/availability', [CatalogController::class, 'setAvailability'])->whereUuid('product')->name('availability');
+            Route::post('/catalog/products', [CatalogController::class, 'store'])->name('catalog.product.create');
+            Route::patch('/catalog/products/{product}', [CatalogController::class, 'update'])->whereUuid('product')->name('catalog.product.update');
+            Route::put('/catalog/products/{product}/facilities/{facility}', [CatalogController::class, 'facility'])->whereUuid(['product', 'facility'])->name('catalog.product.facility');
+            Route::delete('/catalog/products/{product}/facilities/{facility}', [CatalogController::class, 'removeFacility'])->whereUuid(['product', 'facility'])->name('catalog.product.facility.remove');
+            Route::post('/catalog/products/{product}/prices', [CatalogController::class, 'price'])->whereUuid('product')->name('catalog.product.price');
+            Route::put('/catalog/products/{product}/stock-links', [CatalogController::class, 'stockLinks'])->whereUuid('product')->name('catalog.product.stock');
+            Route::post('/catalog/categories', [CatalogController::class, 'category'])->name('catalog.category.create');
+            Route::post('/catalog/categories/{category}/route', [CatalogController::class, 'categoryRoute'])->whereUuid('category')->name('catalog.category.route');
+            Route::post('/catalog/tax-rates', [CatalogController::class, 'taxRate'])->name('catalog.tax.create');
+            Route::patch('/catalog/tax-rates/{rate}', [CatalogController::class, 'taxRate'])->whereUuid('rate')->name('catalog.tax.update');
+            Route::post('/catalog/price-lists', [CatalogController::class, 'priceList'])->name('catalog.price-list');
+            Route::get('/catalog/export/{kind}', [CatalogController::class, 'export'])->name('catalog.export');
+            Route::post('/catalog/import/{kind}', [CatalogController::class, 'import'])->name('catalog.import');
         });
         Route::middleware('permit:config.manage')->group(function (): void {
             Route::get('/business', [ConfigurationController::class, 'business'])->name('business');
             Route::get('/tax', fn () => redirect(route('setup.business').'#tax'))->name('tax');
             Route::put('/tax', [ConfigurationController::class, 'updateTax'])->name('tax.update');
+        });
+        Route::middleware('permit:settings.manage,config.manage')->group(function (): void {
+            Route::put('/business', [ConfigurationController::class, 'updateBusiness'])->name('business.update');
+            Route::put('/receipt', [ConfigurationController::class, 'updateReceipt'])->name('receipt.update');
         });
         Route::middleware('permit:membership.plan.manage,config.manage')->group(function (): void {
             Route::get('/memberships', [ConfigurationController::class, 'memberships'])->name('memberships');
@@ -156,8 +193,12 @@ Route::middleware('staff')->group(function (): void {
     Route::get('/system/audit', [StaffController::class, 'audit'])->middleware('permit:audit.view')->name('audit.index');
 
     // Devices
-    Route::prefix('devices')->name('devices.')->middleware('permit:device.register,device.revoke,attendance.device.manage')->group(function (): void {
+    Route::prefix('devices')->name('devices.')->middleware('permit:device.register,device.revoke,attendance.device.manage,device.manage')->group(function (): void {
         Route::get('/', [DevicesController::class, 'index'])->name('index');
+        Route::get('/payment-terminals', [TerminalsController::class, 'index'])->name('payment-terminals');
+        Route::post('/payment-terminals', [TerminalsController::class, 'store'])->name('payment-terminals.store');
+        Route::patch('/payment-terminals/{terminal}', [TerminalsController::class, 'update'])->whereUuid('terminal')->name('payment-terminals.update');
+        Route::patch('/{device}', [DevicesController::class, 'update'])->whereUuid('device')->name('update');
         Route::post('/registration-code', [DevicesController::class, 'issueCode'])->name('code');
         Route::post('/{device}/revoke', [DevicesController::class, 'revoke'])->name('revoke');
         Route::post('/terminals', [DevicesController::class, 'createTerminal'])->name('terminal.create');

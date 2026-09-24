@@ -12,7 +12,7 @@
 @elseif ($type === 'textarea')
     <x-form.text {{ $attributes }} :name="$name" :label="$label" :hint="$hint" :required="$required" :disabled="$disabled" :readonly="$readonly" :value="$val" :multiline="true" :rows="3" :maxlength="$maxlength" :placeholder="$placeholder" />
 @elseif ($type === 'password')
-    <x-form.password {{ $attributes->except("autocomplete") }} autocomplete="{{ $attributes->get("autocomplete", "current-password") }}" :name="$name" :label="$label" :hint="$hint" :required="$required" :disabled="$disabled" :placeholder="$placeholder" />
+    <x-form.password {{ $attributes->except('autocomplete') }} :autocomplete="$attributes->get('autocomplete', 'current-password')" :name="$name" :label="$label" :hint="$hint" :required="$required" :disabled="$disabled" :placeholder="$placeholder" />
 @elseif ($type === 'date')
     <x-form.date {{ $attributes }} :name="$name" :label="$label" :hint="$hint" :required="$required" :disabled="$disabled" :value="$val" />
 @elseif ($type === 'time')

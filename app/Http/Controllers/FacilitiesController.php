@@ -6,6 +6,7 @@ use App\Services\Portal\DashboardData;
 use App\Services\Portal\Directory;
 use App\Support\Contract;
 use App\Support\Fetch;
+use App\Support\Form\Hours;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -104,7 +105,7 @@ class FacilitiesController extends Controller
             'capabilities' => $data += $this->capabilitiesData($facility),
             'rules' => $data += $this->rulesData($facility, $flat),
             'points' => $data += $this->pointsData($facility),
-            'devices' => $data += ['devices' => $this->all('devices', ['filter[facilityId]' => $facility], ['GET', '/devices'], 2)],
+            'devices' => $data += $this->devicesData($facility, $flat),
             'products' => $data += $this->productsData($facility),
             'access' => $data += $this->accessData($facility, $flat, $dir),
             default => $data += ['timezones' => ['Africa/Lagos', 'UTC', 'Africa/Accra', 'Europe/London'], 'kinds' => $this->kinds()],
@@ -119,36 +120,16 @@ class FacilitiesController extends Controller
         abort_unless(Contract::has('PATCH', '/organization/facilities/{facilityId}') && $this->staff->canAny('facility.manage', 'facility.configure', 'config.manage'), 403);
         $d = $request->validate([
             'name' => ['required', 'string', 'max:200'], 'kind' => ['nullable', 'string', 'max:32'], 'description' => ['nullable', 'string', 'max:500'], 'timezone' => ['nullable', 'string', 'max:64'],
-            'sortOrder' => ['nullable', 'integer'], 'contact' => ['nullable', 'array'], 'contact.phone' => ['nullable', 'string', 'max:40'], 'contact.email' => ['nullable', 'email', 'max:190'],
+            'sortOrder' => ['nullable', 'integer', 'min:0'], 'contact' => ['nullable', 'array'], 'contact.phone' => ['nullable', 'string', 'max:40'], 'contact.email' => ['nullable', 'email', 'max:190'],
             'contact.address' => ['nullable', 'string', 'max:255'], 'contact.managerName' => ['nullable', 'string', 'max:120'],
-            'hours' => ['nullable', 'array'], 'exceptions' => ['nullable', 'array'], 'etag' => ['nullable', 'string', 'max:100'],
+            'hours' => ['nullable', 'string'], 'etag' => ['nullable', 'string', 'max:100'],
         ]);
-        $weekly = [];
-        foreach (self::DAYS as $k => $_) {
-            $open = trim((string) ($d['hours'][$k]['open'] ?? ''));
-            $close = trim((string) ($d['hours'][$k]['close'] ?? ''));
-            if ($open !== '' && $close !== '') {
-                $weekly[$k] = [['open' => $open, 'close' => $close]];
-            }
-        }
-        $exceptions = [];
-        foreach ((array) ($d['exceptions'] ?? []) as $ex) {
-            $date = trim((string) ($ex['date'] ?? ''));
-            if ($date === '') {
-                continue;
-            }
-            $row = ['date' => $date, 'closed' => ! empty($ex['closed'])];
-            if (! $row['closed'] && ! empty($ex['open']) && ! empty($ex['close'])) {
-                $row['windows'] = [['open' => $ex['open'], 'close' => $ex['close']]];
-            }
-            ! empty($ex['note']) && $row['note'] = $ex['note'];
-            $exceptions[] = $row;
-        }
         $contact = array_filter((array) ($d['contact'] ?? []), fn ($v) => $v !== null && $v !== '');
         $body = array_filter([
             'name' => $d['name'], 'kind' => ! empty($d['kind']) ? strtoupper($d['kind']) : null, 'description' => $d['description'] ?? null, 'timezone' => ! empty($d['timezone']) ? $d['timezone'] : null,
             'sortOrder' => isset($d['sortOrder']) ? (int) $d['sortOrder'] : null,
-        ], fn ($v) => $v !== null) + ['contact' => $contact === [] ? null : $contact, 'openingHours' => ['weekly' => (object) $weekly, 'exceptions' => $exceptions]];
+        ], fn ($v) => $v !== null) + ['contact' => $contact === [] ? null : $contact, 'openingHours' => $request->filled('hours') ? Hours::toApi($request->input('hours')) : null];
+        $body = array_filter($body, fn ($v, $k) => $k === 'contact' || $v !== null, ARRAY_FILTER_USE_BOTH);
         $this->api->request('PATCH', "organization/facilities/{$facility}", [], $body, $this->ifMatch($d['etag'] ?? null));
 
         return redirect()->route('setup.facilities.show', ['facility' => $facility, 'tab' => 'general'])->with('success', 'Facility details saved.');
@@ -281,13 +262,29 @@ class FacilitiesController extends Controller
         ];
     }
 
+    /**
+     * @param  list<array<string, mixed>>  $flat
+     * @return array<string, mixed>
+     */
+    private function devicesData(string $facility, array $flat): array
+    {
+        $names = collect($flat)->mapWithKeys(fn ($f) => [($f['id'] ?? '') => ($f['name'] ?? '')])->all();
+
+        return [
+            'devices' => $this->all('devices', ['filter[facilityId]' => $facility], ['GET', '/devices'], 2),
+            'points' => $this->all('organization/operating-points', ['facilityId' => $facility], ['GET', '/organization/operating-points'], 1),
+            'facilityNames' => $names, 'canDevices' => $this->staff->can('device.manage') && Contract::has('PATCH', '/devices/{deviceId}'),
+        ];
+    }
+
     /** @return array<string, mixed> */
     private function pointsData(string $facility): array
     {
         return [
-            'points' => Fetch::of(fn () => $this->api->get("organization/facilities/{$facility}/operating-points"), ['GET', '/organization/facilities/{facilityId}/operating-points']),
-            'tables' => $this->all('tables', ['facilityId' => $facility], ['GET', '/tables'], 2),
-            'stations' => Fetch::of(fn () => $this->api->get('kds/stations', ['facilityId' => $facility, 'limit' => 100]), ['GET', '/kds/stations']),
+            'points' => $this->all('organization/operating-points', ['facilityId' => $facility, 'includeInactive' => 1], ['GET', '/organization/operating-points'], 2),
+            'tables' => $this->all('organization/tables', ['facilityId' => $facility, 'includeInactive' => 1], ['GET', '/organization/tables'], 3),
+            'prepRoutes' => Fetch::of(fn () => $this->api->get('catalog/prep-routes'), ['GET', '/catalog/prep-routes']),
+            'pointKinds' => FacilityConfigController::POINT_KINDS, 'kdsKinds' => FacilityConfigController::KDS_KINDS,
         ];
     }
 

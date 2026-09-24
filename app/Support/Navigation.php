@@ -49,7 +49,7 @@ final class Navigation
                 ['label' => 'Staff', 'route' => 'staff.index', 'match' => 'staff.index|staff.show', 'icon' => 'user', 'permissions' => ['staff.manage']],
                 ['label' => 'Roles & permissions', 'route' => 'people.roles', 'match' => 'people.roles', 'icon' => 'shield', 'permissions' => ['role_assignment.manage']],
                 ['label' => 'Attendance', 'route' => 'staff.attendance', 'match' => 'staff.attendance', 'icon' => 'clock', 'permissions' => ['attendance.view']],
-                ['label' => 'Devices', 'route' => 'devices.index', 'match' => 'devices.*', 'icon' => 'device', 'permissions' => ['device.register', 'device.revoke', 'device.view', 'attendance.device.manage']],
+                ['label' => 'Devices', 'route' => 'devices.index', 'match' => 'devices.*', 'icon' => 'device', 'permissions' => ['device.register', 'device.revoke', 'device.view', 'device.manage', 'attendance.device.manage']],
             ]],
             ['title' => 'Setup', 'admin' => true, 'items' => [
                 ['label' => 'Facilities', 'route' => 'setup.facilities', 'match' => 'setup.facilities*', 'icon' => 'building', 'permissions' => ['facility.configure', 'config.manage', 'booking.configure']],

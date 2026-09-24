@@ -1,9 +1,12 @@
-<x-card title="Devices at this facility" subtitle="Tablets, POS terminals and screens homed here or currently checked out here" flush>
+<x-card title="Devices at this facility" subtitle="Tablets, POS terminals and screens whose home is here, or that are checked out here right now." flush>
+    <x-slot:aside><x-btn variant="secondary" :href="route('devices.index')">All devices</x-btn></x-slot:aside>
     <x-fetch :of="$devices" what="Devices" />
     @if ($devices->ok())
-        <div class="table-scroll"><table class="data-table" data-testid="fac-devices"><thead><tr><th>Device</th><th>Kind / mode</th><th>Status</th><th>Last seen</th></tr></thead><tbody>
-        @forelse ($devices->items() as $d)<tr><td class="font-medium">{{ $d['name'] ?? '' }}</td><td>{{ str_replace('_', ' ', $d['kind'] ?? '') }}<div class="text-xs text-stone-500">{{ $d['mode'] ?? '' }}</div></td><td><x-badge :status="$d['status'] ?? 'UNKNOWN'" /></td><td><x-time :at="$d['lastSeenAt'] ?? null" ago /></td></tr>@empty<tr><td colspan="4"><x-empty title="No devices here" text="Issue a registration code on the Devices page, choosing this facility as the home." icon="device" /></td></tr>@endforelse
+        <div class="table-scroll"><table class="data-table" data-testid="fac-devices"><thead><tr><th>Device</th><th>Does</th><th>Status</th><th>Last seen</th><th class="w-12"></th></tr></thead><tbody>
+        @forelse ($devices->items() as $d)<tr><td><div class="font-medium">{{ $d['name'] ?? '' }}</div><div class="text-xs text-stone-500">{{ str_replace('_', ' ', $d['kind'] ?? '') }}</div></td><td>@if (! empty($d['mode']))<x-badge tone="info" :dot="false">{{ ucwords(strtolower(str_replace('_', ' ', $d['mode']))) }}</x-badge>@endif</td><td><x-badge :status="$d['status'] ?? 'UNKNOWN'" /></td><td><x-time :at="$d['lastSeenAt'] ?? null" ago /></td>
+            <td class="text-right">@if ($canDevices && ! empty($d['id']))<button type="button" class="text-sm font-medium text-brand-700 underline" @click="$dispatch('open-modal', 'edit-device-{{ $d['id'] }}')">Edit</button>@endif</td></tr>
+        @empty<tr><td colspan="5"><x-empty title="No devices here" text="Register a device on the Devices page and choose this facility as its home." icon="device" /></td></tr>@endforelse
         </tbody></table></div>
     @endif
-    <div class="border-t border-stone-100 p-4"><x-btn variant="secondary" :href="route('devices.index')">Manage devices</x-btn></div>
 </x-card>
+@if ($canDevices && $devices->ok())@foreach ($devices->items() as $d)@if (! empty($d['id']))@include('partials.device-edit-dialog', ['d' => $d, 'facilities' => $flat, 'back' => '/setup/facilities/'.$id.'?tab=devices'])@endif @endforeach @endif

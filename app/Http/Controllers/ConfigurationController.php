@@ -29,114 +29,69 @@ class ConfigurationController extends Controller
         return view('pages.setup.index', ['contract' => Contract::version(), 'progress' => $setup->get()]);
     }
 
-    /** Business profile, VAT, receipts. */
+    /** Business profile, receipt and VAT: three settings documents, each with its own version (ETag). */
     public function business()
     {
-        $site = Fetch::of(fn () => $this->api->get('organization/site'), ['GET', '/organization/site']);
-        $res = Fetch::of(fn () => $this->api->request('GET', 'admin/settings/tax'), ['GET', '/admin/settings/tax']);
-        $r = $res->ok() ? $res->data : null;
+        $one = function (string $path, array $endpoint) {
+            $res = Fetch::of(fn () => $this->api->request('GET', $path), $endpoint);
 
-        return view('pages.setup.business', ['site' => $site, 'setting' => $r ? new Fetch($r->body) : $res, 'etag' => $r?->etag()]);
-    }
+            return [$res->ok() ? new Fetch($res->data->body) : $res, $res->ok() ? $res->data->etag() : null];
+        };
+        [$business, $businessEtag] = $one('admin/settings/business', ['GET', '/admin/settings/business']);
+        [$receipt, $receiptEtag] = $one('admin/settings/receipt', ['GET', '/admin/settings/receipt']);
+        [$tax, $taxEtag] = $one('admin/settings/tax', ['GET', '/admin/settings/tax']);
+        // Until the settings endpoints answer, the site record still gives a read-only profile.
+        $site = $business->ok() ? $business : Fetch::of(fn () => $this->api->get('organization/site'), ['GET', '/organization/site']);
 
-    public function catalog(Request $request, DashboardData $dash)
-    {
-        $tree = Fetch::of(fn () => $this->api->get('organization/facilities'), ['GET', '/organization/facilities']);
-        $flat = $dash->flatten($tree->items());
-        // Products are listed per facility (facilityId is required by the API). Default to the first one that sells things.
-        $sells = array_values(array_filter($flat, fn ($f) => in_array('POS', (array) ($f['capabilities'] ?? []), true)));
-        $facilityId = $request->query('facility') ?: (($sells[0] ?? $flat[0] ?? [])['id'] ?? null);
-
-        $categories = $this->all('catalog/categories', ['includeInactive' => 1], ['GET', '/catalog/categories']);
-        $products = $facilityId ? $this->all('catalog/products', ['facilityId' => $facilityId, 'includeInactive' => 1], ['GET', '/catalog/products']) : new Fetch(null, 'pending');
-        $avail = $facilityId ? $this->all('catalog/availability', ['facilityId' => $facilityId], ['GET', '/catalog/availability']) : new Fetch(null, 'pending');
-        $prepRoutes = Fetch::of(fn () => $this->api->get('catalog/prep-routes'), ['GET', '/catalog/prep-routes']);
-        $taxRates = Fetch::of(fn () => $this->api->get('catalog/tax-rates'), ['GET', '/catalog/tax-rates']);
-        $availability = [];
-        foreach ($avail->items() as $a) {
-            $availability[$a['productId'] ?? ''] = (bool) ($a['available'] ?? true);
-        }
-        $catNames = [];
-        foreach ($categories->items() as $c) {
-            $catNames[$c['id'] ?? ''] = $c['name'] ?? '';
-        }
-        $edit = $request->query('edit');
-
-        return view('pages.setup.catalog', [
-            'categories' => $categories, 'products' => $products, 'facilities' => $flat, 'facilityId' => $facilityId, 'availability' => $availability, 'avail' => $avail, 'catNames' => $catNames,
-            'prepRoutes' => $prepRoutes, 'taxRates' => $taxRates, 'edit' => $edit ? collect($products->items())->firstWhere('id', $edit) : null,
-            'canManage' => Contract::has('POST', '/catalog/products') && $this->staff->can('catalog.manage'),
-            'canPrice' => Contract::has('PUT', '/catalog/products/{id}/price') && $this->staff->can('pricing.manage'),
+        return view('pages.setup.business', [
+            'business' => $business, 'businessEtag' => $businessEtag, 'receipt' => $receipt, 'receiptEtag' => $receiptEtag, 'setting' => $tax, 'etag' => $taxEtag, 'site' => $site,
+            'canEdit' => $this->staff->canAny('settings.manage', 'config.manage'), 'canTax' => $this->staff->can('config.manage'),
         ]);
     }
 
-    public function setAvailability(Request $request, string $product): RedirectResponse
+    public function updateBusiness(Request $request): RedirectResponse
     {
-        abort_unless($this->staff->can('catalog.availability.manage'), 403);
-        $d = $request->validate(['facilityId' => ['required', 'uuid'], 'available' => ['required', 'boolean'], 'reason' => ['nullable', 'string', 'max:120']]);
-        $this->api->request('PUT', "catalog/products/{$product}/availability/{$d['facilityId']}", [], array_filter(['available' => (bool) $d['available'], 'reason' => $d['reason'] ?? null], fn ($v) => $v !== null));
-
-        return redirect()->route('setup.catalog', ['facility' => $d['facilityId']])->with('success', $d['available'] ? 'Item is available again.' : 'Item marked unavailable (86\'d) at this facility.');
-    }
-
-    public function createProduct(Request $request): RedirectResponse
-    {
-        abort_unless($this->staff->can('catalog.manage') && Contract::has('POST', '/catalog/products'), 403);
+        abort_unless($this->staff->canAny('settings.manage', 'config.manage'), 403);
         $d = $request->validate([
-            'sku' => ['required', 'string', 'max:64'], 'name' => ['required', 'string', 'max:200'], 'categoryId' => ['required', 'uuid'],
-            'kind' => ['required', 'in:GOOD,SERVICE,TICKET,RENTAL,MEMBERSHIP,FEE'], 'price' => ['required', 'regex:/^\d{1,15}(\.\d{1,4})?$/'],
-            'prepRouteId' => ['nullable', 'uuid'], 'taxRateId' => ['nullable', 'uuid'], 'facilityId' => ['nullable', 'uuid'],
+            'organizationName' => ['required', 'string', 'max:160'], 'siteName' => ['required', 'string', 'max:160'], 'timezone' => ['required', 'string', 'max:64'],
+            'address' => ['nullable', 'string', 'max:300'], 'phone' => ['nullable', 'string', 'max:40'], 'email' => ['nullable', 'email', 'max:190'], 'etag' => ['nullable', 'string', 'max:40'],
         ]);
-        $body = ['sku' => $d['sku'], 'name' => $d['name'], 'categoryId' => $d['categoryId'], 'kind' => $d['kind'], 'price' => $d['price'],
-            'taxExempt' => $request->boolean('taxExempt'), 'trackStock' => $request->boolean('trackStock')]
-            + array_filter(['prepRouteId' => $d['prepRouteId'] ?? null, 'taxRateId' => $d['taxRateId'] ?? null, 'facilityIds' => ! empty($d['facilityId']) ? [$d['facilityId']] : null], fn ($v) => $v !== null && $v !== '');
-        $this->api->request('POST', 'catalog/products', [], $body);
+        $this->api->request('PUT', 'admin/settings/business', [], array_diff_key($d, ['etag' => 1]) + ['address' => $d['address'] ?? null, 'phone' => $d['phone'] ?? null, 'email' => $d['email'] ?? null], $this->ifMatch($d['etag'] ?? null));
 
-        return redirect()->route('setup.catalog', array_filter(['facility' => $d['facilityId'] ?? null]))->with('success', 'Product created.');
+        return redirect()->route('setup.business')->with('success', 'Business profile saved.');
     }
 
-    public function updateProduct(Request $request, string $product): RedirectResponse
+    public function updateReceipt(Request $request): RedirectResponse
     {
-        abort_unless($this->staff->can('catalog.manage') && Contract::has('PATCH', '/catalog/products/{id}'), 403);
+        abort_unless($this->staff->canAny('settings.manage', 'config.manage'), 403);
         $d = $request->validate([
-            'name' => ['required', 'string', 'max:200'], 'categoryId' => ['required', 'uuid'], 'kind' => ['required', 'in:GOOD,SERVICE,TICKET,RENTAL,MEMBERSHIP,FEE'],
-            'prepRouteId' => ['nullable', 'uuid'], 'taxRateId' => ['nullable', 'uuid'], 'facilityId' => ['nullable', 'uuid'],
+            'businessName' => ['required', 'string', 'max:160'], 'address' => ['nullable', 'string', 'max:300'], 'phone' => ['nullable', 'string', 'max:40'],
+            'headerNote' => ['nullable', 'string', 'max:300'], 'footer' => ['nullable', 'string', 'max:300'], 'logoUrl' => ['nullable', 'url', 'max:300'],
+            'paperColumns' => ['required', 'in:32,48'], 'etag' => ['nullable', 'string', 'max:40'],
         ]);
-        // Blank prep route / tax rate means "leave as is" (the product read model does not return their ids, so the form cannot preselect them).
-        $body = ['name' => $d['name'], 'categoryId' => $d['categoryId'], 'kind' => $d['kind'],
-            'taxExempt' => $request->boolean('taxExempt'), 'trackStock' => $request->boolean('trackStock'), 'active' => $request->boolean('active')]
-            + array_filter(['prepRouteId' => $d['prepRouteId'] ?? null, 'taxRateId' => $d['taxRateId'] ?? null], fn ($v) => $v !== null && $v !== '');
-        $this->api->request('PATCH', "catalog/products/{$product}", [], $body);
+        $body = ['businessName' => $d['businessName'], 'address' => $d['address'] ?? null, 'phone' => $d['phone'] ?? null, 'headerNote' => $d['headerNote'] ?? null,
+            'footer' => $d['footer'] ?? null, 'logoUrl' => $d['logoUrl'] ?? null, 'showTin' => $request->boolean('showTin'), 'paperColumns' => (int) $d['paperColumns']];
+        $this->api->request('PUT', 'admin/settings/receipt', [], $body, $this->ifMatch($d['etag'] ?? null));
 
-        return redirect()->route('setup.catalog', array_filter(['facility' => $d['facilityId'] ?? null]))->with('success', 'Product saved.');
+        return redirect()->route('setup.business')->with('success', 'Receipt settings saved. New receipts use them straight away; reprints keep the receipt that was issued.');
     }
 
-    public function setPrice(Request $request, string $product): RedirectResponse
+    /** @return array<string, string> */
+    private function ifMatch(?string $etag): array
     {
-        abort_unless($this->staff->can('pricing.manage') && Contract::has('PUT', '/catalog/products/{id}/price'), 403);
-        $d = $request->validate(['amount' => ['required', 'regex:/^\d{1,15}(\.\d{1,4})?$/'], 'facilityId' => ['nullable', 'uuid']]);
-        $this->api->request('PUT', "catalog/products/{$product}/price", [], array_filter(['amount' => $d['amount'], 'facilityId' => $request->boolean('onlyHere') ? ($d['facilityId'] ?? null) : null], fn ($v) => $v !== null));
+        $etag = trim((string) $etag);
 
-        return redirect()->route('setup.catalog', array_filter(['facility' => $d['facilityId'] ?? null]))->with('success', 'Price updated. New orders use it straight away; open orders keep their price.');
-    }
-
-    public function createCategory(Request $request): RedirectResponse
-    {
-        abort_unless($this->staff->can('catalog.manage') && Contract::has('POST', '/catalog/categories'), 403);
-        $d = $request->validate(['name' => ['required', 'string', 'max:120'], 'sortOrder' => ['nullable', 'integer'], 'facilityId' => ['nullable', 'uuid']]);
-        $this->api->request('POST', 'catalog/categories', [], array_filter(['name' => $d['name'], 'sortOrder' => isset($d['sortOrder']) ? (int) $d['sortOrder'] : null], fn ($v) => $v !== null));
-
-        return redirect()->route('setup.catalog', array_filter(['facility' => $d['facilityId'] ?? null]))->with('success', 'Category created.');
+        return $etag !== '' ? ['If-Match' => $etag] : [];
     }
 
     public function updateTax(Request $request): RedirectResponse
     {
         $d = $request->validate([
-            'vatRatePercent' => ['required', 'regex:/^\d{1,2}(\.\d{1,4})?$/'], 'vatNumber' => ['nullable', 'string', 'max:64'], 'etag' => ['nullable', 'string', 'max:100'],
+            'vatRatePercent' => ['required', 'regex:/^\d{1,3}(\.\d{1,4})?$/'], 'vatNumber' => ['nullable', 'string', 'max:64'], 'etag' => ['nullable', 'string', 'max:100'],
         ]);
         $body = ['vatEnabled' => $request->boolean('vatEnabled'), 'vatRatePercent' => $d['vatRatePercent'], 'pricesTaxInclusive' => $request->boolean('pricesTaxInclusive')];
         ! empty($d['vatNumber']) && $body['vatNumber'] = $d['vatNumber'];
-        $this->api->request('PUT', 'admin/settings/tax', [], $body, ! empty($d['etag']) ? ['If-Match' => $d['etag']] : []);
+        $this->api->request('PUT', 'admin/settings/tax', [], $body, $this->ifMatch($d['etag'] ?? null));
 
         return redirect()->route('setup.business')->with('success', $body['vatEnabled'] ? 'VAT is now ON for new receipts and reports.' : 'VAT is OFF. Receipts show gross totals only.');
     }

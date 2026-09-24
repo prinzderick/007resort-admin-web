@@ -54,7 +54,14 @@ class StaffController extends Controller
         }
         $mine = array_values(array_filter($devices->items(), fn ($d) => ($d['checkout']['staffId'] ?? null) === $staff && ($d['checkout']['checkedInAt'] ?? null) === null));
 
+        $facFlat = app(DashboardData::class)->flatten($facilities->items());
+        $policyFacility = request()->query('policyFacility');
+        $policy = $this->staff->can('staff.manage') ? Fetch::of(fn () => $this->api->get("staff/{$staff}/collection-policy", ['facilityId' => $policyFacility]), ['GET', '/staff/{staffId}/collection-policy']) : new Fetch(null, 'forbidden');
+        $cashInHand = $this->staff->canAny('staff.manage', 'cash_handover.view') ? Fetch::of(fn () => $this->api->get("staff/{$staff}/cash-in-hand"), ['GET', '/staff/{staffId}/cash-in-hand']) : new Fetch(null, 'forbidden');
+
         return view('pages.staff.show', [
+            'policy' => $policy, 'cashInHand' => $cashInHand, 'policyFacility' => $policyFacility ?: ($policy->ok() ? ($policy->data['facilityId'] ?? null) : null),
+            'collectionFacilities' => array_values(array_filter($facFlat, fn ($f) => in_array('TABLE_SERVICE', (array) ($f['capabilities'] ?? []), true))),
             'member' => $member['data'], 'etag' => $member['etag'], 'roles' => $roles, 'assign' => $assign, 'roleNames' => $roleNames,
             'facilities' => app(DashboardData::class)->flatten($facilities->items()), 'site' => $site->data, 'devices' => $devices, 'myDevices' => $mine, 'audit' => $audit, 'names' => $dir->staffNames(),
         ]);
@@ -70,6 +77,16 @@ class StaffController extends Controller
         $this->api->request('PATCH', "staff/{$staff}", [], array_diff_key($d, ['etag' => 1]), $headers);
 
         return redirect()->route('staff.show', $staff)->with('success', 'Staff member updated.');
+    }
+
+    /** Per-waiter override of the cash-holding rule: INHERIT the facility's, ALLOW or DENY, with an optional personal limit. */
+    public function collectionPolicy(Request $request, string $staff): RedirectResponse
+    {
+        abort_unless($this->staff->can('staff.manage'), 403);
+        $d = $request->validate(['cashHolding' => ['required', 'in:INHERIT,ALLOW,DENY'], 'cashLimit' => ['nullable', 'regex:/^\d{1,15}(\.\d{1,4})?$/'], 'policyFacility' => ['nullable', 'uuid']]);
+        $this->api->request('PATCH', "staff/{$staff}/collection-policy", [], ['cashHolding' => $d['cashHolding'], 'cashLimit' => $d['cashHolding'] === 'ALLOW' && ($d['cashLimit'] ?? '') !== '' ? $d['cashLimit'] : null]);
+
+        return redirect()->route('staff.show', array_filter(['staff' => $staff, 'policyFacility' => $d['policyFacility'] ?? null]))->with('success', 'Cash collection policy saved.');
     }
 
     public function grantRole(Request $request, string $staff): RedirectResponse
