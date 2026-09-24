@@ -101,10 +101,10 @@ document.addEventListener('alpine:init', () => {
             window.dispatchEvent(new CustomEvent('cms-pick-image', { detail: { current: { id: this.id }, resolve: (m) => {
                 if (!m) return;
                 this.id = m.id; this.url = m.url; this.alt = m.alt || '';
-                this.$nextTick(() => { this.$el.querySelectorAll('input[type=hidden]').forEach(fire); });
+                this.$nextTick(() => { this.$root.querySelectorAll('input[type=hidden]').forEach(fire); });
             } } }));
         },
-        clear() { this.id = ''; this.url = ''; this.$nextTick(() => this.$el.querySelectorAll('input[type=hidden]').forEach(fire)); },
+        clear() { this.id = ''; this.url = ''; this.$nextTick(() => this.$root.querySelectorAll('input[type=hidden]').forEach(fire)); },
     }));
 
     /* ------------------------------------------------------------------ the shared image picker modal (one per page) */
@@ -160,14 +160,14 @@ document.addEventListener('alpine:init', () => {
     Alpine.data('cmsSortable', (cfg = {}) => ({
         message: '',
         dragging: null,
-        items() { return Array.from(this.$el.querySelectorAll(':scope > [data-sort-item]')); },
+        items() { return Array.from(this.$root.querySelectorAll(':scope > [data-sort-item]')); },
         label(el) { return el.dataset.sortLabel || 'Item'; },
         announce(el) {
             const list = this.items();
             this.message = `${this.label(el)} moved to position ${list.indexOf(el) + 1} of ${list.length}.`;
             list.forEach((it, i) => { const n = it.querySelector('[data-sort-pos]'); if (n) n.textContent = i + 1; });
-            const first = this.$el.querySelector('input'); fire(first);
-            this.$el.dispatchEvent(new CustomEvent('cms-reordered', { bubbles: true, detail: { ids: list.map((i) => i.dataset.sortId) } }));
+            const first = this.$root.querySelector('input'); fire(first);
+            this.$root.dispatchEvent(new CustomEvent('cms-reordered', { bubbles: true, detail: { ids: list.map((i) => i.dataset.sortId) } }));
         },
         up(el) { const p = el.previousElementSibling; if (p?.hasAttribute('data-sort-item')) { p.before(el); this.announce(el); el.querySelector('[data-move=up]')?.focus(); } },
         down(el) { const n = el.nextElementSibling; if (n?.hasAttribute('data-sort-item')) { n.after(el); this.announce(el); el.querySelector('[data-move=down]')?.focus(); } },

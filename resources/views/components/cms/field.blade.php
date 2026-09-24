@@ -13,7 +13,7 @@
         <x-cms.markdown :name="$n" :label="$spec['label']" :hint="$spec['hint'] ?? null" :value="$val" :required="$spec['required'] ?? false" :can-pick="$canEdit && auth_staff()->can('cms.view')" :model="$fm" />
         @break
     @case('image')
-        <x-cms.image :name="$n" :label="$spec['label']" :hint="$spec['hint'] ?? null" :value="$val" :media="$media[$n] ?? null" :required="$spec['required'] ?? false" :ratio="$spec['ratio'] ?? '16/9'" :can-pick="$canEdit" />
+        <x-cms.image :name="$n" :label="$spec['label']" :hint="$spec['hint'] ?? null" :value="$val" :media="$media[$n] ?? null" :required="$spec['required'] ?? false" :ratio="$spec['ratio'] ?? '16/9'" :can-pick="$canEdit" :model="$fm" />
         @break
     @case('datetime')
         <x-cms.datetime :name="$n" :label="$spec['label']" :hint="$spec['hint'] ?? null" :value="$val" :required="$spec['required'] ?? false" :model="$fm" />

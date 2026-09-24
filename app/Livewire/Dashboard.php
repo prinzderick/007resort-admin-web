@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Services\Cms\CmsApi;
 use App\Services\Portal\DashboardData;
 use App\Services\Portal\SetupProgress;
 use App\Support\DateRange;
@@ -26,13 +27,16 @@ class Dashboard extends Component
         $this->to = $r->to;
     }
 
-    public function render(DashboardData $data, SetupProgress $setup)
+    public function render(DashboardData $data, SetupProgress $setup, CmsApi $cms)
     {
         $range = new DateRange($this->from, $this->to, 'custom');
         $d = $data->build($range);
         $d['range'] = $range;
         $onboarding = auth_staff()->canAny('config.manage', 'facility.configure') ? $setup->get() : null;
 
-        return view('livewire.dashboard', ['d' => $d, 'onboarding' => $onboarding]);
+        // The small "Website" card: only for people who can see website content; a failure here never breaks the dashboard.
+        $website = auth_staff()->can('cms.view') ? $cms->fetch('summary') : null;
+
+        return view('livewire.dashboard', ['d' => $d, 'onboarding' => $onboarding, 'website' => $website]);
     }
 }

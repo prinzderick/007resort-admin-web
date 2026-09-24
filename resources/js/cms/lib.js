@@ -1,5 +1,5 @@
 /*
- * Pure helpers for the website (CMS) screens: Markdown, slugs, list reordering, recurrence, focal-point maths.
+ * Pure helpers for the website (CMS) screens: Markdown, slugs, list reordering, recurrence.
  * No DOM access here so everything is unit-tested with `node --test` (tests/js/cms.test.mjs).
  */
 
