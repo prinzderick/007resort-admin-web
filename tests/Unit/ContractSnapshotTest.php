@@ -22,6 +22,8 @@ class ContractSnapshotTest extends TestCase
             'GET /organization/capability-types',
             'GET /organization/rule-definitions',
             'GET /facilities/{facilityId}/operating-rules',
+            'GET /admin/search',
+            'GET /admin/setup-status',
             implode(' ', Mfa::VERIFY),
         ];
     }
