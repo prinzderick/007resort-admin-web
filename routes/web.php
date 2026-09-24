@@ -32,6 +32,11 @@ Route::get('/mfa', [AuthController::class, 'showMfa'])->name('mfa');
 Route::post('/mfa', [AuthController::class, 'verifyMfa'])->middleware('throttle:10,1')->name('mfa.verify');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+// Form-control gallery (every control in every state): development only, no sign-in needed so it can be reviewed on any build.
+if (app()->environment(['local', 'testing'])) {
+    Route::view('/styleguide/forms', 'pages.styleguide-forms')->name('styleguide.forms');
+}
+
 Route::middleware('staff')->group(function (): void {
     // Component gallery: development only.
     if (app()->environment(['local', 'testing'])) {

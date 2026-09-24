@@ -1,0 +1,672 @@
+{
+ "items": [
+  {
+   "key": "payment_timing",
+   "label": "Payment timing",
+   "description": "When customers pay: after they are served, before anything is prepared, or on a tab settled later.",
+   "group": "Payments & cash",
+   "type": "enum",
+   "capability": "POS",
+   "capabilities": [
+    "POS"
+   ],
+   "default": "PAY_AFTER_SERVICE",
+   "unit": null,
+   "allowed": [
+    {
+     "value": "PAY_AFTER_SERVICE",
+     "label": "Pay after service",
+     "description": "Guests eat first and pay at the end. Best for the restaurant and bar."
+    },
+    {
+     "value": "PAY_FIRST",
+     "label": "Pay first",
+     "description": "Payment is taken before the kitchen starts. Best for the poolside kiosk."
+    },
+    {
+     "value": "OPEN_TAB",
+     "label": "Open tab",
+     "description": "Orders build up on a tab that is settled when the guest leaves."
+    }
+   ],
+   "min": null,
+   "max": null,
+   "integer": false,
+   "dangerLevel": "medium",
+   "enforcement": "server"
+  },
+  {
+   "key": "require_cash_session",
+   "label": "Require an open cash session",
+   "description": "Cash payments can only be taken while the cashier has an open cash-drawer session. Turning this off removes a key cash control.",
+   "group": "Payments & cash",
+   "type": "bool",
+   "capability": "PAYMENT_ACCEPTANCE",
+   "capabilities": [
+    "PAYMENT_ACCEPTANCE"
+   ],
+   "default": true,
+   "unit": null,
+   "allowed": null,
+   "min": null,
+   "max": null,
+   "integer": false,
+   "dangerLevel": "high",
+   "enforcement": "server"
+  },
+  {
+   "key": "allow_offline_payments",
+   "label": "Payments while offline",
+   "description": "What the apps may accept when the connection to the property server is down. Card and transfer cannot be verified offline.",
+   "group": "Payments & cash",
+   "type": "enum",
+   "capability": "PAYMENT_ACCEPTANCE",
+   "capabilities": [
+    "PAYMENT_ACCEPTANCE"
+   ],
+   "default": "CASH_ONLY",
+   "unit": null,
+   "allowed": [
+    {
+     "value": "NONE",
+     "label": "Nothing"
+    },
+    {
+     "value": "CASH_ONLY",
+     "label": "Cash only"
+    },
+    {
+     "value": "ALL",
+     "label": "Everything"
+    }
+   ],
+   "min": null,
+   "max": null,
+   "integer": false,
+   "dangerLevel": "high",
+   "enforcement": "client"
+  },
+  {
+   "key": "waiter_cash_holding",
+   "label": "Waiters may hold cash",
+   "description": "Waiters can collect cash at the table and hand it in at the end of their shift.",
+   "group": "Payments & cash",
+   "type": "bool",
+   "capability": "PAYMENT_ACCEPTANCE",
+   "capabilities": [
+    "PAYMENT_ACCEPTANCE"
+   ],
+   "default": false,
+   "unit": null,
+   "allowed": null,
+   "min": null,
+   "max": null,
+   "integer": false,
+   "dangerLevel": "high",
+   "enforcement": "server"
+  },
+  {
+   "key": "waiter_cash_limit",
+   "label": "Waiter cash limit",
+   "description": "The most cash one waiter may hold before handing it in. 0 means no limit.",
+   "group": "Payments & cash",
+   "type": "money",
+   "capability": "PAYMENT_ACCEPTANCE",
+   "capabilities": [
+    "PAYMENT_ACCEPTANCE"
+   ],
+   "default": "50000.0000",
+   "unit": "NGN",
+   "allowed": null,
+   "min": null,
+   "max": null,
+   "integer": false,
+   "dangerLevel": "medium",
+   "enforcement": "server",
+   "quick": [
+    "20000",
+    "50000",
+    "100000"
+   ]
+  },
+  {
+   "key": "approval_threshold_amount",
+   "label": "Approval threshold",
+   "description": "Amounts above this need a supervisor. 0 means every discount by a non-approver needs approval.",
+   "group": "Approvals",
+   "type": "money",
+   "capability": "POS",
+   "capabilities": [
+    "POS"
+   ],
+   "default": "0.0000",
+   "unit": "NGN",
+   "allowed": null,
+   "min": null,
+   "max": null,
+   "integer": false,
+   "dangerLevel": "high",
+   "enforcement": "server",
+   "quick": [
+    "5000",
+    "10000",
+    "25000"
+   ]
+  },
+  {
+   "key": "approval_threshold_refund_amount",
+   "label": "Refund approval threshold",
+   "description": "Refunds larger than this need a supervisor.",
+   "group": "Approvals",
+   "type": "money",
+   "capability": "PAYMENT_ACCEPTANCE",
+   "capabilities": [
+    "PAYMENT_ACCEPTANCE"
+   ],
+   "default": "20000.0000",
+   "unit": "NGN",
+   "allowed": null,
+   "min": null,
+   "max": null,
+   "integer": false,
+   "dangerLevel": "high",
+   "enforcement": "planned"
+  },
+  {
+   "key": "require_approval_for",
+   "label": "Always needs approval",
+   "description": "These actions always need supervisor approval from anyone who is not a supervisor, whatever the amount.",
+   "group": "Approvals",
+   "type": "multi_enum",
+   "capability": "POS",
+   "capabilities": [
+    "POS"
+   ],
+   "default": [],
+   "unit": null,
+   "allowed": [
+    {
+     "value": "order.void",
+     "label": "Void an order"
+    },
+    {
+     "value": "order.discount",
+     "label": "Discount"
+    },
+    {
+     "value": "order.comp",
+     "label": "Complimentary item"
+    },
+    {
+     "value": "order.price_override",
+     "label": "Price override"
+    },
+    {
+     "value": "payment.refund",
+     "label": "Refund"
+    },
+    {
+     "value": "payment.reversal",
+     "label": "Payment reversal"
+    }
+   ],
+   "min": null,
+   "max": null,
+   "integer": false,
+   "dangerLevel": "high",
+   "enforcement": "server"
+  },
+  {
+   "key": "allow_open_tabs",
+   "label": "Allow open tabs",
+   "description": "Customers can run a tab that is settled later.",
+   "group": "Orders",
+   "type": "bool",
+   "capability": "OPEN_TAB",
+   "capabilities": [
+    "OPEN_TAB"
+   ],
+   "default": true,
+   "unit": null,
+   "allowed": null,
+   "min": null,
+   "max": null,
+   "integer": false,
+   "dangerLevel": "medium",
+   "enforcement": "server"
+  },
+  {
+   "key": "tab_max_amount",
+   "label": "Maximum tab",
+   "description": "A tab cannot grow beyond this amount without settling. 0 means no limit.",
+   "group": "Orders",
+   "type": "money",
+   "capability": "OPEN_TAB",
+   "capabilities": [
+    "OPEN_TAB"
+   ],
+   "default": "0.0000",
+   "unit": "NGN",
+   "allowed": null,
+   "min": null,
+   "max": null,
+   "integer": false,
+   "dangerLevel": "medium",
+   "enforcement": "planned"
+  },
+  {
+   "key": "stock_consumption_timing",
+   "label": "When stock is deducted",
+   "description": "SEND deducts ingredients when the order is sent to the kitchen or bar; SETTLE waits until the customer pays. SEND is safer for stock accuracy.",
+   "group": "Orders",
+   "type": "enum",
+   "capability": "INVENTORY",
+   "capabilities": [
+    "INVENTORY"
+   ],
+   "default": "SEND",
+   "unit": null,
+   "allowed": [
+    {
+     "value": "SEND",
+     "label": "When sent to the kitchen",
+     "description": "Stock drops the moment the order is sent. Most accurate."
+    },
+    {
+     "value": "SETTLE",
+     "label": "When paid",
+     "description": "Stock drops when the guest pays. Cancelled orders never touch stock."
+    }
+   ],
+   "min": null,
+   "max": null,
+   "integer": false,
+   "dangerLevel": "high",
+   "enforcement": "server"
+  },
+  {
+   "key": "allow_offline_orders",
+   "label": "Take orders while offline",
+   "description": "Staff may keep taking orders when the connection is down; they sync when it returns.",
+   "group": "Orders",
+   "type": "bool",
+   "capability": "TABLE_SERVICE",
+   "capabilities": [
+    "TABLE_SERVICE"
+   ],
+   "default": true,
+   "unit": null,
+   "allowed": null,
+   "min": null,
+   "max": null,
+   "integer": false,
+   "dangerLevel": "low",
+   "enforcement": "client"
+  },
+  {
+   "key": "require_table_for_orders",
+   "label": "Require a table",
+   "description": "Every order must be assigned to a dining table.",
+   "group": "Orders",
+   "type": "bool",
+   "capability": "TABLE_SERVICE",
+   "capabilities": [
+    "TABLE_SERVICE"
+   ],
+   "default": false,
+   "unit": null,
+   "allowed": null,
+   "min": null,
+   "max": null,
+   "integer": false,
+   "dangerLevel": "low",
+   "enforcement": "client"
+  },
+  {
+   "key": "receipt_auto_print",
+   "label": "Print receipts automatically",
+   "description": "The app prints a receipt as soon as a payment is taken.",
+   "group": "Receipts",
+   "type": "bool",
+   "capability": "RECEIPT_PRINTING",
+   "capabilities": [
+    "RECEIPT_PRINTING"
+   ],
+   "default": true,
+   "unit": null,
+   "allowed": null,
+   "min": null,
+   "max": null,
+   "integer": false,
+   "dangerLevel": "low",
+   "enforcement": "client"
+  },
+  {
+   "key": "receipt_copies",
+   "label": "Receipt copies",
+   "description": "How many copies the app prints for each receipt.",
+   "group": "Receipts",
+   "type": "number",
+   "capability": "RECEIPT_PRINTING",
+   "capabilities": [
+    "RECEIPT_PRINTING"
+   ],
+   "default": 1,
+   "unit": "copies",
+   "allowed": null,
+   "min": 1,
+   "max": 5,
+   "integer": true,
+   "dangerLevel": "low",
+   "enforcement": "client"
+  },
+  {
+   "key": "receipt_footer",
+   "label": "Receipt footer",
+   "description": "Printed at the bottom of every receipt, for example opening hours or a thank-you line.",
+   "group": "Receipts",
+   "type": "string",
+   "capability": "RECEIPT_PRINTING",
+   "capabilities": [
+    "RECEIPT_PRINTING"
+   ],
+   "default": "Thank you for visiting 007 Resort & Spa.",
+   "unit": null,
+   "allowed": null,
+   "min": null,
+   "max": 200,
+   "integer": false,
+   "dangerLevel": "low",
+   "enforcement": "client"
+  },
+  {
+   "key": "hold_ttl_seconds",
+   "label": "Hold time",
+   "description": "How long a slot is held while the customer completes the booking and payment before it is released.",
+   "group": "Booking",
+   "type": "duration",
+   "capability": "BOOKING",
+   "capabilities": [
+    "BOOKING"
+   ],
+   "default": 600,
+   "unit": "seconds",
+   "allowed": null,
+   "min": 30,
+   "max": 86400,
+   "integer": true,
+   "dangerLevel": "medium",
+   "enforcement": "server"
+  },
+  {
+   "key": "min_notice_minutes",
+   "label": "Minimum notice",
+   "description": "Bookings must be made at least this long before the start time.",
+   "group": "Booking",
+   "type": "duration",
+   "capability": "BOOKING",
+   "capabilities": [
+    "BOOKING"
+   ],
+   "default": 0,
+   "unit": "minutes",
+   "allowed": null,
+   "min": 0,
+   "max": 525600,
+   "integer": true,
+   "dangerLevel": "low",
+   "enforcement": "server"
+  },
+  {
+   "key": "max_advance_days",
+   "label": "How far ahead",
+   "description": "How many days ahead customers can book.",
+   "group": "Booking",
+   "type": "number",
+   "capability": "BOOKING",
+   "capabilities": [
+    "BOOKING"
+   ],
+   "default": 90,
+   "unit": "days",
+   "allowed": null,
+   "min": 0,
+   "max": 730,
+   "integer": true,
+   "dangerLevel": "low",
+   "enforcement": "server"
+  },
+  {
+   "key": "cancel_cutoff_minutes",
+   "label": "Free cancellation window",
+   "description": "Customers can cancel free until this long before the start.",
+   "group": "Booking",
+   "type": "duration",
+   "capability": "BOOKING",
+   "capabilities": [
+    "BOOKING"
+   ],
+   "default": 120,
+   "unit": "minutes",
+   "allowed": null,
+   "min": 0,
+   "max": 10080,
+   "integer": true,
+   "dangerLevel": "medium",
+   "enforcement": "server"
+  },
+  {
+   "key": "cancel_fee_percent",
+   "label": "Late cancellation fee",
+   "description": "Percentage of the booking total charged when cancelling inside the free-cancellation window.",
+   "group": "Booking",
+   "type": "number",
+   "capability": "BOOKING",
+   "capabilities": [
+    "BOOKING"
+   ],
+   "default": 0,
+   "unit": "percent",
+   "allowed": null,
+   "min": 0,
+   "max": 100,
+   "integer": false,
+   "dangerLevel": "high",
+   "enforcement": "server"
+  },
+  {
+   "key": "max_reschedules",
+   "label": "Reschedules allowed",
+   "description": "How many times a booking may be moved.",
+   "group": "Booking",
+   "type": "number",
+   "capability": "BOOKING",
+   "capabilities": [
+    "BOOKING"
+   ],
+   "default": 2,
+   "unit": "times",
+   "allowed": null,
+   "min": 0,
+   "max": 20,
+   "integer": true,
+   "dangerLevel": "low",
+   "enforcement": "server"
+  },
+  {
+   "key": "slot_granularity_minutes",
+   "label": "Slot length",
+   "description": "The length of one bookable slot on the grid.",
+   "group": "Booking",
+   "type": "number",
+   "capability": "TIME_SLOTS",
+   "capabilities": [
+    "TIME_SLOTS"
+   ],
+   "default": 60,
+   "unit": "minutes",
+   "allowed": [
+    {
+     "value": 15,
+     "label": "15 min"
+    },
+    {
+     "value": 30,
+     "label": "30 min"
+    },
+    {
+     "value": 45,
+     "label": "45 min"
+    },
+    {
+     "value": 60,
+     "label": "60 min"
+    },
+    {
+     "value": 90,
+     "label": "90 min"
+    },
+    {
+     "value": 120,
+     "label": "120 min"
+    }
+   ],
+   "min": 5,
+   "max": 240,
+   "integer": true,
+   "dangerLevel": "medium",
+   "enforcement": "client"
+  },
+  {
+   "key": "booking_offline_strategy",
+   "label": "Booking while the site is offline",
+   "description": "What happens to online bookings when the resort loses its connection to the cloud. Applies to every active bookable resource here.",
+   "group": "Booking",
+   "type": "enum",
+   "capability": "BOOKING",
+   "capabilities": [
+    "BOOKING"
+   ],
+   "default": "A_OFFLINE_ALLOCATION",
+   "unit": null,
+   "allowed": [
+    {
+     "value": "A_OFFLINE_ALLOCATION",
+     "label": "A: Reserved pool",
+     "description": "The site keeps taking bookings from a reserved share of units."
+    },
+    {
+     "value": "B_ONLINE_AUTHORITY_REQUIRED",
+     "label": "B: Online only",
+     "description": "Bookings need the cloud. Blocked while offline."
+    },
+    {
+     "value": "C_DISABLE_ONLINE",
+     "label": "C: Switch off online",
+     "description": "Online booking is disabled while the site is offline."
+    }
+   ],
+   "min": null,
+   "max": null,
+   "integer": false,
+   "dangerLevel": "high",
+   "enforcement": "server"
+  },
+  {
+   "key": "booking_local_reserve_percent",
+   "label": "Reserved pool for offline booking",
+   "description": "For strategy A: the share of each resource the site may allocate while offline (rounded down; 0 = none).",
+   "group": "Booking",
+   "type": "number",
+   "capability": "BOOKING",
+   "capabilities": [
+    "BOOKING"
+   ],
+   "default": 20,
+   "unit": "percent",
+   "allowed": null,
+   "min": 0,
+   "max": 100,
+   "integer": false,
+   "dangerLevel": "high",
+   "enforcement": "server"
+  },
+  {
+   "key": "booking_online_stale_after_seconds",
+   "label": "Heartbeat stale threshold",
+   "description": "After this long without a heartbeat from the cloud the site treats itself as offline for booking purposes.",
+   "group": "Booking",
+   "type": "duration",
+   "capability": "BOOKING",
+   "capabilities": [
+    "BOOKING"
+   ],
+   "default": 900,
+   "unit": "seconds",
+   "allowed": null,
+   "min": 30,
+   "max": 604800,
+   "integer": true,
+   "dangerLevel": "high",
+   "enforcement": "server"
+  },
+  {
+   "key": "max_occupancy",
+   "label": "Maximum occupancy",
+   "description": "The most people allowed inside at once. Leave empty for no limit.",
+   "group": "Capacity",
+   "type": "number",
+   "capability": "CAPACITY_MANAGEMENT",
+   "capabilities": [
+    "CAPACITY_MANAGEMENT"
+   ],
+   "default": null,
+   "unit": "people",
+   "allowed": null,
+   "min": 1,
+   "max": 100000,
+   "integer": true,
+   "dangerLevel": "low",
+   "enforcement": "planned"
+  },
+  {
+   "key": "opening_time",
+   "label": "Daily opening time",
+   "description": "The earliest time this facility takes orders.",
+   "group": "Capacity",
+   "type": "time",
+   "capability": "POS",
+   "capabilities": [
+    "POS"
+   ],
+   "default": "08:00",
+   "unit": null,
+   "allowed": null,
+   "min": null,
+   "max": null,
+   "integer": false,
+   "dangerLevel": "low",
+   "enforcement": "server"
+  },
+  {
+   "key": "payment_facility_unit_id",
+   "label": "Where customers pay",
+   "description": "For facilities without a payment terminal: the facility where the customer pays (usually Main Reception).",
+   "group": "Payments & cash",
+   "type": "facility",
+   "capability": "POS",
+   "capabilities": [
+    "POS"
+   ],
+   "default": null,
+   "unit": null,
+   "allowed": null,
+   "min": null,
+   "max": null,
+   "integer": false,
+   "dangerLevel": "medium",
+   "enforcement": "server"
+  }
+ ],
+ "nextCursor": null
+}
