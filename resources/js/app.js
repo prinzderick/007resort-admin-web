@@ -1,6 +1,7 @@
 import Chart from 'chart.js/auto';
 import './form/index.js';
 import './cms/index.js';
+import { register as inventoryScan } from './inventory/scan.js';
 
 window.Chart = Chart;
 
@@ -10,6 +11,8 @@ const BRAND = ['#0f7d4f', '#2b6cde', '#e2a72e', '#c9503c', '#7b5cd6', '#1f9db5',
  * Alpine building blocks used by the Blade components. Livewire ships Alpine, so we only register data here.
  */
 document.addEventListener('alpine:init', () => {
+    inventoryScan(window.Alpine);
+
     // <div x-data="chart({...})"><canvas x-ref="c"></canvas></div>
     window.Alpine.data('chart', (config) => ({
         instance: null,

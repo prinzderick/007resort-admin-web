@@ -128,4 +128,25 @@ class InventoryTest extends TestCase
         $this->api(['GET /inventory/movements' => F::page([['id' => 'm1', 'itemId' => self::ITEM, 'locationId' => self::LOC, 'kind' => 'CONSUMPTION', 'reason' => 'SALE', 'quantityDelta' => '-1.0000', 'balanceAfter' => '239.0000', 'createdAt' => '2026-09-23T08:00:00.000Z', 'actorStaffId' => null]])]);
         $this->signIn(self::PERMS)->get('/inventory/movements')->assertOk()->assertSee('Star Lager')->assertSee('-1.0000')->assertSee('239.0000');
     }
+
+    public function test_store_device_url_lands_on_the_same_inventory_screen(): void
+    {
+        $this->api();
+        $this->signIn(self::PERMS)->get('/store')->assertRedirect('/inventory');
+    }
+
+    public function test_index_lists_the_stores_the_storekeeper_can_access(): void
+    {
+        $this->api();
+        $this->signIn(self::PERMS)->get('/inventory')->assertOk()->assertSee('Your stores')->assertSee('Main Store')->assertSee('Pool Bar Store');
+    }
+
+    public function test_stock_forms_carry_a_barcode_scan_box_with_the_item_skus(): void
+    {
+        $this->api();
+        foreach (['receive', 'transfer', 'adjust', 'wastage', 'count'] as $action) {
+            $res = $this->signIn(self::PERMS)->get("/inventory/{$action}")->assertOk();
+            $res->assertSee('data-testid="barcode-scan"', false)->assertSee('barcodeScan(', false)->assertSee('B1', false);
+        }
+    }
 }
