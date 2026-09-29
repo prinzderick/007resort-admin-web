@@ -9,6 +9,15 @@
     </x-page-header>
     <x-inventory-nav />
 
+    @if ($locations->ok() && count($locations->items()))
+        <div class="mb-4 flex flex-wrap items-center gap-2" data-testid="your-stores">
+            <span class="text-sm font-medium text-stone-600">Your stores:</span>
+            @foreach ($locations->items() as $l)
+                <x-btn :href="route('inventory.index', ['location' => $l['id'] ?? ''])" :variant="$locationId === ($l['id'] ?? '') ? 'primary' : 'secondary'" class="min-h-9 px-3 text-xs">{{ $l['name'] ?? '' }}</x-btn>
+            @endforeach
+        </div>
+    @endif
+
     <form method="GET" class="mb-5 flex items-end gap-3">
         <div><label class="mb-1 block text-sm font-medium">Location</label>
             <select name="location" class="min-h-11 rounded-lg border border-stone-300 bg-white px-3 text-sm" onchange="this.form.submit()"><option value="">All locations</option>@foreach ($locations->items() as $l)<option value="{{ $l['id'] ?? '' }}" @selected($locationId === ($l['id'] ?? ''))>{{ $l['name'] ?? '' }}</option>@endforeach</select></div>

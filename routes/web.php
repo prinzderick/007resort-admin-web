@@ -57,6 +57,8 @@ Route::middleware('staff')->group(function (): void {
     }
 
     Route::get('/', Dashboard::class)->name('dashboard');
+    // The storekeeper device opens /store on power-up: same screen as /inventory, just a URL that matches the sign on the shelf.
+    Route::redirect('/store', '/inventory')->name('store');
     Route::get('/approvals', ApprovalsQueue::class)->name('approvals');
     Route::get('/search', [SearchController::class, 'index'])->name('search');
 
