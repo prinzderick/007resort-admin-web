@@ -37,3 +37,6 @@ Thumbs.db
 *.p12
 # Local SQLite files (this app has no application database)
 /database/*.sqlite*
+
+# Staff manual PDF builder
+/tools/manual/node_modules

@@ -10,6 +10,7 @@ use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\FacilityConfigController;
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\ManualController;
 use App\Http\Controllers\OperationsController;
 use App\Http\Controllers\PeopleController;
 use App\Http\Controllers\ReportsController;
@@ -61,6 +62,8 @@ Route::middleware('staff')->group(function (): void {
     Route::redirect('/store', '/inventory')->name('store');
     Route::get('/approvals', ApprovalsQueue::class)->name('approvals');
     Route::get('/search', [SearchController::class, 'index'])->name('search');
+    Route::get('/help/manual', [ManualController::class, 'index'])->name('manual.index');
+    Route::get('/help/manual.pdf', [ManualController::class, 'pdf'])->name('manual.pdf');
 
     // Operations (read-only views over what the tablets/POS/KDS write through the API)
     Route::prefix('operations')->group(function (): void {

@@ -1,0 +1,115 @@
+:root {
+  --brand: #0e5a4b;
+  --brand-dark: #0a3f35;
+  --brand-tint: #eef5f2;
+  --gold: #c9973f;
+  --ink: #1c2321;
+  --muted: #5b6662;
+  --line: #d9e2de;
+  --danger: #9b2c1f;
+  --danger-tint: #fbedea;
+  --warn: #8a4a0b;
+  --warn-tint: #fdf3e3;
+  --info-tint: #f1f4f8;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 10pt;
+  line-height: 1.5;
+}
+
+@page { size: A4; margin: 16mm 16mm 20mm 16mm;
+  @bottom-left { content: "SERI Resort  \00B7  Staff Operations Manual"; font: 8pt "Avenir Next", Helvetica, sans-serif; color: #7a8682; }
+  @bottom-right { content: counter(page); font: 600 8.5pt "Avenir Next", Helvetica, sans-serif; color: var(--brand); }
+}
+@page cover { margin: 0; @bottom-left { content: none; } @bottom-right { content: none; } }
+@page toc { @bottom-left { content: "SERI Resort  \00B7  Staff Operations Manual"; } }
+
+/* ---------- cover ---------- */
+.cover {
+  page: cover;
+  height: 297mm;
+  width: 210mm;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(circle at 88% 14%, rgba(201,151,63,.55) 0, rgba(201,151,63,.55) 17mm, transparent 17.2mm),
+    radial-gradient(circle at 88% 14%, transparent 0, transparent 32mm, rgba(255,255,255,.10) 32.2mm, rgba(255,255,255,.10) 33mm, transparent 33.2mm),
+    radial-gradient(circle at 88% 14%, transparent 0, transparent 52mm, rgba(255,255,255,.08) 52.2mm, rgba(255,255,255,.08) 53mm, transparent 53.2mm),
+    radial-gradient(circle at 88% 14%, transparent 0, transparent 74mm, rgba(255,255,255,.06) 74.2mm, rgba(255,255,255,.06) 75mm, transparent 75.2mm),
+    linear-gradient(160deg, #0a3f35 0%, #0e5a4b 62%, #12705d 100%);
+  break-after: page;
+}
+.cover .inner { position: absolute; left: 22mm; right: 22mm; bottom: 46mm; }
+.cover .brand { font-size: 12pt; letter-spacing: .32em; text-transform: uppercase; color: #e9c98c; font-weight: 600; }
+.cover h1 { font-size: 50pt; line-height: 1.02; margin: 8mm 0 6mm; font-weight: 700; letter-spacing: -.01em; }
+.cover .rule { width: 34mm; height: 1.6mm; background: var(--gold); margin: 0 0 7mm; }
+.cover .sub { font-size: 14pt; max-width: 120mm; color: #d6e8e2; line-height: 1.45; }
+.cover .foot { position: absolute; left: 22mm; right: 22mm; bottom: 20mm; display: flex; justify-content: space-between; font-size: 9pt; color: #bcd6cd; border-top: 0.3mm solid rgba(255,255,255,.25); padding-top: 4mm; }
+
+/* ---------- contents ---------- */
+.toc { page: toc; break-after: page; }
+.toc h2 { font-size: 24pt; color: var(--brand-dark); margin: 0 0 2mm; }
+.toc .lead { color: var(--muted); margin: 0 0 4mm; max-width: 140mm; }
+.toc .part { font-size: 8pt; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin: 4.5mm 0 1mm; }
+.toc ol { list-style: none; margin: 0; padding: 0; }
+.toc li { display: flex; align-items: baseline; gap: 3mm; padding: 1.1mm 0; border-bottom: 0.25mm solid var(--line); font-size: 10pt; }
+.toc li .n { width: 8mm; font-weight: 700; color: var(--brand); }
+.toc li .t { flex: 1; }
+.toc li .p { font-weight: 600; color: var(--brand-dark); }
+
+/* ---------- chapters ---------- */
+.chapter { break-before: page; }
+.chapter-head {
+  display: flex; align-items: center; gap: 6mm;
+  background: var(--brand-dark); color: #fff;
+  margin: 0 0 6mm; padding: 7mm 8mm; border-radius: 3mm;
+  break-after: avoid;
+}
+.chapter-head .num {
+  flex: none; width: 15mm; height: 15mm; border-radius: 50%;
+  background: var(--gold); color: var(--brand-dark);
+  font-size: 19pt; font-weight: 800; display: flex; align-items: center; justify-content: center;
+}
+.chapter-head .part { font-size: 7.5pt; letter-spacing: .2em; text-transform: uppercase; color: #e9c98c; font-weight: 700; }
+.chapter-head h2 { margin: 1mm 0 0; font-size: 21pt; line-height: 1.12; font-weight: 700; }
+
+h3 { font-size: 13pt; color: var(--brand); margin: 7mm 0 2.2mm; padding-bottom: 1.2mm; border-bottom: 0.4mm solid var(--gold); break-after: avoid; }
+p { margin: 0 0 2.6mm; }
+strong { color: var(--ink); }
+em { color: #34403c; }
+code { font-family: "SF Mono", Menlo, monospace; font-size: 9pt; background: var(--brand-tint); padding: .3mm 1.2mm; border-radius: 1mm; }
+ul, ol { margin: 0 0 3mm; padding-left: 6mm; }
+li { margin: 0 0 1.4mm; padding-left: 1mm; }
+ol > li::marker { color: var(--brand); font-weight: 700; }
+ul > li::marker { color: var(--gold); }
+ul ul, ul ol, ol ul { margin-top: 1.4mm; }
+
+/* job / device cards */
+.p-job, .p-device { border-radius: 2.5mm; padding: 3.2mm 4.2mm; margin: 0 0 3mm; }
+.p-job { background: var(--brand-tint); border-left: 1.6mm solid var(--brand); font-size: 10.5pt; }
+.p-device { background: var(--info-tint); border-left: 1.6mm solid #6b7f95; }
+
+/* sections */
+.sec-never { background: var(--danger-tint); border-left: 1.6mm solid var(--danger); border-radius: 2.5mm; padding: 1mm 4.5mm 2mm; margin: 6mm 0 3mm; break-inside: avoid; }
+.sec-never h3 { color: var(--danger); border-bottom: 0.3mm solid #e8c3bd; margin-top: 3mm; }
+.sec-never li::marker { color: var(--danger); }
+.sec-wrong { background: var(--warn-tint); border-left: 1.6mm solid var(--warn); border-radius: 2.5mm; padding: 1mm 4.5mm 2mm; margin: 6mm 0 3mm; break-inside: avoid; }
+.sec-wrong h3 { color: var(--warn); border-bottom: 0.3mm solid #ecd3ab; margin-top: 3mm; }
+.note-it { border: 0.35mm dashed var(--gold); background: #fffdf7; border-radius: 2mm; padding: 2.4mm 3.6mm; }
+
+/* tables */
+table { width: 100%; border-collapse: collapse; margin: 1mm 0 4mm; font-size: 8.8pt; line-height: 1.4; }
+thead { display: table-header-group; }
+th { background: var(--brand); color: #fff; text-align: left; font-weight: 600; padding: 2mm 2.6mm; }
+td { padding: 1.9mm 2.6mm; border-bottom: 0.25mm solid var(--line); vertical-align: top; }
+tr { break-inside: avoid; }
+tbody tr:nth-child(even) td { background: #f6faf8; }
+td:first-child { font-weight: 600; color: var(--brand-dark); }
+table { border-radius: 2mm; overflow: hidden; }
