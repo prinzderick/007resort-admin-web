@@ -38,7 +38,7 @@ Everyone signs in as themselves with a staff number and PIN, and follows the sam
 | Sports Entrance / Sports Store tablet | Gate and store attendants | Scan QR tickets, release and return equipment |
 | Admin portal (web browser) | Manager, accountant, owner, IT, marketing | Reports, staff, prices, setup, website |
 
-The admin portal is at `https://admin.007resorts.com`. Open it on a computer, not on the tablets.
+The admin portal is at `https://admin.seriresorts.com`. Open it on a computer, not on the tablets.
 
 ### Signing in
 
@@ -534,7 +534,7 @@ Press **Adjust stock**, choose the location, kind and lines, and type the **Reas
 
 **Your job:** make sure the money recorded matches the money received, approve refunds and reversals, and produce the reports the owner relies on. You cannot sell or take payment.
 
-**Your device:** a computer, admin portal at `https://admin.007resorts.com`, **Finance** menu.
+**Your device:** a computer, admin portal at `https://admin.seriresorts.com`, **Finance** menu.
 
 ### The Finance screens
 
@@ -581,7 +581,7 @@ A cashier cannot refund by themselves; the request waits in **Approvals** (and o
 
 **Your job:** run the property day to day: people, prices, facility rules and the numbers. You hold everything a supervisor can do, so you can approve and sign off.
 
-**Your device:** a computer, admin portal at `https://admin.007resorts.com`. You can also use the POS or a tablet like a supervisor.
+**Your device:** a computer, admin portal at `https://admin.seriresorts.com`. You can also use the POS or a tablet like a supervisor.
 
 ### Your daily routine
 
@@ -651,7 +651,7 @@ Creating staff, setting PINs, granting roles and registering devices is the same
 
 **Your job:** the owner decides who may do what and sees everything. The IT administrator keeps devices, sign-ins and connections working; IT never handles finance, pricing or approvals. Managers can do the staff and device jobs below too.
 
-**Your device:** a computer, admin portal at `https://admin.007resorts.com`. The owner signs in from outside the property with an extra code (MFA).
+**Your device:** a computer, admin portal at `https://admin.seriresorts.com`. The owner signs in from outside the property with an extra code (MFA).
 
 ### Add a staff member and give them a way to sign in
 
@@ -752,7 +752,7 @@ Open **Site settings**, **Brand** or **Contact**, change the text and press **Sa
 
 ## 16. Helping customers who book or buy online
 
-Customers can book courts, spa and salon slots, buy pool tickets and memberships on the website at `https://007resorts.com`, with or without an account. Reception staff are the people they call, so this chapter says what the customer sees and what to do.
+Customers can book courts, spa and salon slots, buy pool tickets and memberships on the website at `https://seriresorts.com`, with or without an account. Reception staff are the people they call, so this chapter says what the customer sees and what to do.
 
 ### What customers can do
 
