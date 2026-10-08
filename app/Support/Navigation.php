@@ -82,6 +82,9 @@ final class Navigation
                 ['label' => 'Audit log', 'route' => 'audit.index', 'match' => 'audit.*', 'icon' => 'list', 'permissions' => ['audit.view', 'config.view']],
                 ['label' => 'Approvals', 'route' => 'approvals', 'match' => 'approvals', 'icon' => 'check', 'permissions' => [], 'approvals' => true, 'badge' => 'approvals'],
             ]],
+            ['title' => 'Help', 'items' => [
+                ['label' => 'Staff manual', 'route' => 'manual.index', 'match' => 'manual.*', 'icon' => 'book', 'permissions' => []],
+            ]],
         ];
     }
 

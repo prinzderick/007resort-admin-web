@@ -1,0 +1,8 @@
+{
+  "name": "r007-manual-build",
+  "private": true,
+  "type": "module",
+  "description": "Builds resources/manual/SERI-Resort-Staff-Manual.pdf from resources/manual/staff-manual.md (needs Google Chrome and pdftotext)",
+  "scripts": { "build": "node build.mjs" },
+  "dependencies": { "markdown-it": "^14.1.0" }
+}
