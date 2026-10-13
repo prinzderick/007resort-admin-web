@@ -1812,6 +1812,90 @@
             "path": "/up",
             "operationId": "getUp",
             "permission": null
+        },
+        {
+            "method": "GET",
+            "path": "/waiter-flow/open-items",
+            "operationId": "waiterFlowOpenItems",
+            "permission": "'waiterflow.settle|waiterflow.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/waiter-flow/settle",
+            "operationId": "waiterFlowSettle",
+            "permission": "'waiterflow.settle|waiterflow.manage'"
+        },
+        {
+            "method": "GET",
+            "path": "/waiter-flow/handovers",
+            "operationId": "waiterFlowHandovers",
+            "permission": "'waiterflow.settle|waiterflow.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/waiter-flow/handovers",
+            "operationId": "waiterFlowRequestHandover",
+            "permission": "'waiterflow.settle|waiterflow.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/waiter-flow/handovers/{handoverId}/accept",
+            "operationId": "waiterFlowAcceptHandover",
+            "permission": "'waiterflow.settle|waiterflow.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/waiter-flow/handovers/{handoverId}/reject",
+            "operationId": "waiterFlowRejectHandover",
+            "permission": "'waiterflow.settle|waiterflow.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/waiter-flow/handovers/{handoverId}/cancel",
+            "operationId": "waiterFlowCancelHandover",
+            "permission": "'waiterflow.settle|waiterflow.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/waiter-flow/reassign",
+            "operationId": "waiterFlowReassign",
+            "permission": "'waiterflow.manage'"
+        },
+        {
+            "method": "POST",
+            "path": "/receipts/{receiptId}/print-jobs",
+            "operationId": "requestPrintJob",
+            "permission": "'receipt.print'"
+        },
+        {
+            "method": "GET",
+            "path": "/print-jobs",
+            "operationId": "listPrintJobs",
+            "permission": "'receipt.print|receipt.reprint'"
+        },
+        {
+            "method": "GET",
+            "path": "/print-jobs/{jobId}",
+            "operationId": "getPrintJob",
+            "permission": "'receipt.print|receipt.reprint'"
+        },
+        {
+            "method": "POST",
+            "path": "/print-jobs/{jobId}/printed",
+            "operationId": "markPrintJobPrinted",
+            "permission": "'receipt.print|receipt.reprint'"
+        },
+        {
+            "method": "POST",
+            "path": "/print-jobs/{jobId}/failed",
+            "operationId": "markPrintJobFailed",
+            "permission": "'receipt.print|receipt.reprint'"
+        },
+        {
+            "method": "POST",
+            "path": "/print-jobs/{jobId}/cancel",
+            "operationId": "cancelPrintJob",
+            "permission": "'receipt.print|receipt.reprint'"
         }
     ]
 }
