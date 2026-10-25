@@ -87,6 +87,32 @@ class DevicesController extends Controller
         return redirect()->route('devices.index')->with('success', 'Device revoked. It can no longer call the API, even with a cached staff session.');
     }
 
+    /**
+     * Clean up unused devices: revokes every device that is not checked out and has not been seen for $days days
+     * (or never connected). Revoking is the only removal the API offers, so history, cash sessions and the audit
+     * trail stay intact; revoked devices drop out of the default list.
+     */
+    public function cleanup(Request $request): RedirectResponse
+    {
+        abort_unless($this->staff->can('device.revoke'), 403);
+        $days = (int) $request->validate(['days' => ['required', 'integer', 'min:0', 'max:365']])['days'];
+        $list = $this->api->get('devices', ['limit' => 200]);
+        $cut = now()->subDays($days);
+        $done = 0;
+        foreach (($list['items'] ?? $list) as $d) {
+            $co = $d['checkout'] ?? null;
+            $out = is_array($co) && empty($co['checkedInAt']);
+            $seen = Time::parse($d['lastSeenAt'] ?? null);
+            if (empty($d['id']) || ($d['status'] ?? '') === 'REVOKED' || $out || ($seen && $seen->greaterThan($cut))) {
+                continue;
+            }
+            $this->api->request('POST', "devices/{$d['id']}/revoke");
+            $done++;
+        }
+
+        return redirect()->route('devices.index')->with('success', $done === 0 ? 'Nothing to clean up: every device was seen recently or is checked out.' : "Cleaned up {$done} unused device(s). They are hidden from the list; choose Status: Revoked to see them.");
+    }
+
     public function createTerminal(Request $request): RedirectResponse
     {
         abort_unless($this->staff->can('attendance.device.manage'), 403);

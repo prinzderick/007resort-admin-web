@@ -185,6 +185,23 @@ If you reach your limit, the tablet says **Hand over your cash first**. Press **
 
 See chapter 18: banners such as **Reconnecting to the server**, orders marked **PENDING CONFIRMATION**, and what to say to the supervisor.
 
+### Facilities where you serve and take payment yourself (waiter-only)
+
+Some facilities have no kitchen screen and no cashier yet. There the tablet shows two extra buttons at the top: **My tabs and payment** (the banknote icon) and **Hand over tabs** (the two arrows). Nothing goes to a kitchen screen and nobody confirms your payments, so be careful and honest with every step.
+
+1. Take and **send** the order as usual.
+2. When the customer has been served, open the order and press **Mark served** (or do it from **My tabs and payment**).
+3. Open **My tabs and payment**. Tick every tab the customer is paying for, even from different tables, and press **Take payment**.
+4. Choose how they paid: **Cash**, **Card / POS machine** or **Bank transfer**. For card and transfer you must type the slip number or transfer reference. If the customer pays part in cash and part by transfer, press **Split** and add the second method. The amounts must add up exactly.
+5. For cash, type what the customer gave you to see the change. Press **Confirm received**.
+6. The tab closes and the receipt is issued. Press **Send receipt to printer** and it prints at the POS terminal or in the office.
+
+**The cash you take stays your responsibility** until you hand it to your supervisor with **My cash** > **Hand over to the cashier**. Never keep it until the next day.
+
+**Handing your tabs to a colleague** (end of shift, or you are called away): open **Hand over tabs**, choose the colleague and press **Send hand-over**. The tabs stay yours until they open the same screen on their tablet and press **Accept**. If they do not accept within 30 minutes the request expires.
+
+**Never do this:** mark a tab as paid before you have the money or the slip; take payment for another waiter's tab (ask a supervisor); hand over a tab without telling the colleague.
+
 ## 6. Cashier (POS)
 
 **Your job:** take payment, confirm what waiters collected, receive their cash, and keep your cash drawer correct.
@@ -375,6 +392,14 @@ You can also close another cashier's cash session if they have left.
 ### If something goes wrong
 
 **Approvals** needs a connection. If the tablet shows **Reconnecting**, you cannot decide until it is back, and nobody can send a new request either, because approvals are never saved offline. See chapter 18.
+
+### Waiter-only facilities: open tabs and payment
+
+On a waiter-only facility your tablet shows **Open tabs and payment**. It lists every unpaid tab with the waiter looking after it, and a total per waiter at the top. You can:
+
+- press **Pay for waiter** to take the payment yourself (cash, card or transfer). The payment is recorded under your name and the waiter's;
+- press **Move to another waiter** and give a reason (the waiter left, was sick). It moves at once and the reason is kept in the audit log;
+- at closing time, check that no tab is left unpaid, then receive each waiter's cash handover in the admin portal under **Cash handovers**.
 
 ## 9. Kitchen and bar screens (KDS)
 

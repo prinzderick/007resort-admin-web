@@ -73,4 +73,22 @@ class DevicesTest extends TestCase
         $this->api();
         $this->signIn(['device.register'])->get('/devices')->assertOk()->assertDontSee('Attendance terminals');
     }
+
+    public function test_default_list_hides_revoked_devices(): void
+    {
+        $this->api();
+        $res = $this->signIn(self::PERMS)->get('/devices')->assertOk();
+
+        $res->assertSee('POS-01')->assertDontSee('Tablet-lost');
+    }
+
+    public function test_cleanup_revokes_only_idle_devices_that_are_not_checked_out(): void
+    {
+        $this->api(['POST /devices/d2/revoke' => [200, ['id' => 'd2', 'status' => 'REVOKED']]]);
+        $this->signIn(self::PERMS)->post('/devices/cleanup', ['days' => 0])->assertRedirect('/devices');
+
+        $this->assertTrue($this->sentTo('POST', '/devices/d2/revoke'));
+        $this->assertFalse($this->sentTo('POST', '/devices/d1/revoke'));
+        $this->assertFalse($this->sentTo('POST', '/devices/d3/revoke'));
+    }
 }
