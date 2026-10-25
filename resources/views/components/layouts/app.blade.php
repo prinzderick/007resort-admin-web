@@ -24,8 +24,8 @@
             <aside class="fixed inset-y-0 left-0 z-40 flex w-64 -translate-x-full flex-col overflow-y-auto border-r border-stone-200 bg-white transition-transform lg:sticky lg:top-0 lg:h-screen lg:translate-x-0"
                    :class="{ 'translate-x-0': menu }" aria-label="Main navigation">
                 <a href="{{ route('dashboard') }}" class="flex items-center gap-3 px-5 py-5">
-                    <span class="flex size-9 items-center justify-center rounded-lg bg-brand-600 text-sm font-bold text-white">007</span>
-                    <span class="leading-tight"><span class="block text-sm font-semibold tracking-tight">007 Resort &amp; Spa</span><span class="block text-xs text-stone-500">Management portal</span></span>
+                    <span class="flex size-9 items-center justify-center rounded-lg bg-brand-600 text-sm font-bold text-white">SR</span>
+                    <span class="leading-tight"><span class="block text-sm font-semibold tracking-tight">SERI Resort</span><span class="block text-xs text-stone-500">Management portal</span></span>
                 </a>
                 <nav class="flex-1 px-3 pb-6" data-testid="sidebar">
                     @foreach ($groups as $group)

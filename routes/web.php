@@ -306,6 +306,7 @@ Route::middleware('staff')->group(function (): void {
         Route::patch('/{device}', [DevicesController::class, 'update'])->whereUuid('device')->name('update');
         Route::post('/registration-code', [DevicesController::class, 'issueCode'])->name('code');
         Route::post('/{device}/revoke', [DevicesController::class, 'revoke'])->name('revoke');
+        Route::post('/cleanup', [DevicesController::class, 'cleanup'])->name('cleanup');
         Route::post('/terminals', [DevicesController::class, 'createTerminal'])->name('terminal.create');
         Route::post('/terminals/{device}/rotate', [DevicesController::class, 'rotateTerminal'])->name('terminal.rotate');
         Route::post('/terminals/{device}/status', [DevicesController::class, 'terminalStatus'])->name('terminal.status');
