@@ -35,7 +35,7 @@
                 </div>
             </x-card>
         @empty
-            <x-card><p class="text-sm text-stone-600">{{ $tab === 'pending' ? 'Nothing is waiting for your decision.' : 'No decided approvals to show.' }}</p></x-card>
+            <x-card><p class="text-sm text-stone-600">{{ $tab === 'pending' ? 'Nothing is waiting for your decision. Requests you made yourself are not listed here: someone else has to decide them.' : 'No decided approvals to show.' }}</p></x-card>
         @endforelse
     @endif
 </div>

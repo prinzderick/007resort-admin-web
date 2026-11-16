@@ -156,6 +156,14 @@ class FinanceTest extends TestCase
             ->call('decide', 'a2', 'APPROVE')->assertSee('already decided');
     }
 
+    public function test_approving_your_own_request_says_so(): void
+    {
+        $this->fakeApi(['GET /approvals' => F::page([F::approval('a1')]), 'POST /approvals/a1/decision' => [403, ['status' => 403, 'code' => 'permission_denied', 'title' => 'Forbidden', 'detail' => 'You cannot decide your own approval request.']]]);
+        $this->signIn(['refund.approve']);
+
+        Livewire::test(ApprovalsQueue::class)->call('decide', 'a1', 'APPROVE')->assertSee('You cannot approve a request you made yourself');
+    }
+
     public function test_decision_value_is_validated(): void
     {
         $this->fakeApi(['GET /approvals' => F::page([])]);

@@ -41,9 +41,13 @@ class ApprovalsQueue extends Component
             $this->messageTone = 'ok';
             unset($this->notes[$id]);
         } catch (R007ApiException $e) {
-            $this->message = $e->isForbidden()
-                ? 'You do not hold the permission required to decide this request.'
-                : ($e->status === 409 ? 'This request was already decided by someone else.' : ($e->detail ?: $e->title));
+            // "You cannot decide your own request" is a different problem from a missing permission: say which it is.
+            $own = $e->isForbidden() && stripos((string) $e->detail, 'your own') !== false;
+            $this->message = $own
+                ? 'You cannot approve a request you made yourself. Another supervisor or manager has to decide it.'
+                : ($e->isForbidden()
+                    ? 'You do not hold the permission required to decide this request.'
+                    : ($e->status === 409 ? 'This request was already decided by someone else.' : ($e->detail ?: $e->title)));
             $this->messageTone = 'error';
         }
     }
