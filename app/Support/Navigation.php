@@ -27,6 +27,9 @@ final class Navigation
             ]],
             ['title' => 'Operations', 'items' => [
                 ['label' => 'Orders', 'route' => 'orders.index', 'match' => 'orders.*', 'icon' => 'cart', 'permissions' => ['order.view']],
+                ['label' => 'Open tabs', 'route' => 'waiter-flow.open-tabs', 'match' => 'waiter-flow.open-tabs', 'icon' => 'users', 'permissions' => ['waiterflow.manage']],
+                ['label' => 'Tab hand-overs', 'route' => 'waiter-flow.handovers', 'match' => 'waiter-flow.handovers', 'icon' => 'repeat', 'permissions' => ['waiterflow.manage']],
+                ['label' => 'Receipt print queue', 'route' => 'print-queue', 'match' => 'print-*', 'icon' => 'receipt', 'permissions' => ['receipt.print', 'receipt.reprint']],
                 ['label' => 'Tables', 'route' => 'tables.index', 'match' => 'tables.*', 'icon' => 'table', 'permissions' => ['order.view', 'table.manage']],
                 ['label' => 'Bookings', 'route' => 'bookings.index', 'match' => 'bookings.*', 'icon' => 'calendar', 'permissions' => ['booking.view']],
                 ['label' => 'Tickets & entry', 'route' => 'tickets.index', 'match' => 'tickets.*', 'icon' => 'ticket', 'permissions' => ['ticket.view']],

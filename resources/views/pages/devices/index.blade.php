@@ -2,6 +2,7 @@
     <x-page-header title="Devices" subtitle="Tablets, POS terminals, kitchen screens and scanners registered with the property server. Choose where each one works and what it does.">
         <x-slot:actions>
             @if (auth_staff()->can('payment.collect') || auth_staff()->can('device.manage'))<x-btn variant="secondary" icon="card" :href="route('devices.payment-terminals')">Card machines</x-btn>@endif
+            @if (auth_staff()->can('device.revoke'))<x-btn type="button" variant="secondary" @click="$dispatch('open-modal', 'cleanup-devices')">Clean up unused</x-btn>@endif
             @if (auth_staff()->can('device.register'))<x-btn type="button" icon="plus" @click="$dispatch('open-modal', 'register-device')">Register a device</x-btn>@endif
         </x-slot:actions>
     </x-page-header>
@@ -22,6 +23,7 @@
         @if ($devices->ok())
             <div class="table-scroll"><table class="data-table" data-testid="devices-table"><thead><tr><th>Device</th><th>Does</th><th>Status</th><th>Home facility</th><th>Checked out to</th><th>App</th><th>Last seen</th><th class="w-12"></th></tr></thead><tbody>
             @forelse ($devices->items() as $d)
+                @continue(empty($status) && ($d['status'] ?? '') === 'REVOKED')
                 @php
                     $seen = \App\Support\Time::parse($d['lastSeenAt'] ?? null);
                     $dstatus = $d['status'] ?? 'UNKNOWN';
@@ -48,6 +50,15 @@
         @endif
     </x-card>
     @if ($canManage && $devices->ok())@include('partials.device-edit-dialog', ['back' => '/devices'])@endif
+    @endif
+
+    @if (auth_staff()->can('device.revoke'))
+        <x-dialog name="cleanup-devices" title="Clean up unused devices" subtitle="Revokes every device that is not checked out and has not been seen for the number of days below, including ones that never connected. They disappear from this list (Status: Revoked shows them). History and the audit trail are kept.">
+            <form method="POST" action="{{ route('devices.cleanup') }}" class="grid gap-4" novalidate>@csrf
+                <x-form.stepper name="days" label="Not seen for at least (days)" :value="14" :min="0" :max="365" />
+                <div class="flex justify-end gap-2"><x-btn type="button" variant="secondary" @click="open = false">Cancel</x-btn><x-btn>Clean up</x-btn></div>
+            </form>
+        </x-dialog>
     @endif
 
     @if (auth_staff()->can('device.register'))

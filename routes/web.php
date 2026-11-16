@@ -17,6 +17,7 @@ use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\TerminalsController;
+use App\Http\Controllers\WaiterFlowController;
 use App\Http\Controllers\Website\ContentController;
 use App\Http\Controllers\Website\GalleryController;
 use App\Http\Controllers\Website\HomepageController;
@@ -73,6 +74,14 @@ Route::middleware('staff')->group(function (): void {
         Route::get('/bookings', [OperationsController::class, 'bookings'])->middleware('permit:booking.view')->name('bookings.index');
         Route::get('/tickets', [OperationsController::class, 'tickets'])->middleware('permit:ticket.view')->name('tickets.index');
         Route::get('/memberships', [OperationsController::class, 'memberships'])->middleware('permit:membership.view')->name('memberships.index');
+        // Waiter-only service flow
+        Route::get('/open-tabs', [WaiterFlowController::class, 'openTabs'])->middleware('permit:waiterflow.manage')->name('waiter-flow.open-tabs');
+        Route::post('/open-tabs/pay', [WaiterFlowController::class, 'pay'])->middleware('permit:waiterflow.manage')->name('waiter-flow.pay');
+        Route::post('/open-tabs/reassign', [WaiterFlowController::class, 'reassign'])->middleware('permit:waiterflow.manage')->name('waiter-flow.reassign');
+        Route::get('/tab-handovers', [WaiterFlowController::class, 'handovers'])->middleware('permit:waiterflow.manage')->name('waiter-flow.handovers');
+        Route::get('/print-queue', [WaiterFlowController::class, 'printQueue'])->middleware('permit:receipt.print,receipt.reprint')->name('print-queue');
+        Route::get('/print-queue/{job}', [WaiterFlowController::class, 'printJob'])->middleware('permit:receipt.print,receipt.reprint')->name('print-job');
+        Route::post('/print-queue/{job}/printed', [WaiterFlowController::class, 'printed'])->middleware('permit:receipt.print,receipt.reprint')->name('print-job.printed');
     });
 
     // Reports
@@ -297,6 +306,7 @@ Route::middleware('staff')->group(function (): void {
         Route::patch('/{device}', [DevicesController::class, 'update'])->whereUuid('device')->name('update');
         Route::post('/registration-code', [DevicesController::class, 'issueCode'])->name('code');
         Route::post('/{device}/revoke', [DevicesController::class, 'revoke'])->name('revoke');
+        Route::post('/cleanup', [DevicesController::class, 'cleanup'])->name('cleanup');
         Route::post('/terminals', [DevicesController::class, 'createTerminal'])->name('terminal.create');
         Route::post('/terminals/{device}/rotate', [DevicesController::class, 'rotateTerminal'])->name('terminal.rotate');
         Route::post('/terminals/{device}/status', [DevicesController::class, 'terminalStatus'])->name('terminal.status');
